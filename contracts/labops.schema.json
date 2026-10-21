@@ -1,0 +1,957 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "LabOpsBench v0.1",
+  "description": "Draft preparation contract; semantic checks live in scripts/check_contracts.py. Runtime simulator not implemented.",
+  "$ref": "#/$defs/Fixture",
+  "$defs": {
+    "Provenance": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "enum": [
+            "literature",
+            "assumed",
+            "synthetic",
+            "derived"
+          ]
+        },
+        "source_ref": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "locator": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "note": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "kind",
+        "source_ref",
+        "locator",
+        "note"
+      ],
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "enum": [
+                  "literature",
+                  "derived"
+                ]
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "source_ref": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        }
+      ]
+    },
+    "Counts": {
+      "type": "object",
+      "properties": {
+        "analyzer": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "dryer": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "furnace": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "mixer": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "analyzer",
+        "dryer",
+        "furnace",
+        "mixer"
+      ],
+      "additionalProperties": false
+    },
+    "Catalog": {
+      "type": "object",
+      "properties": {
+        "schema_version": {
+          "const": "0.1"
+        },
+        "catalog_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "model_provenance": {
+          "$ref": "#/$defs/Provenance"
+        },
+        "devices": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "device_type": {
+                "enum": [
+                  "analyzer",
+                  "dryer",
+                  "furnace",
+                  "mixer"
+                ]
+              },
+              "unit_cost_credits": {
+                "type": "number",
+                "exclusiveMinimum": 0
+              },
+              "width_m": {
+                "type": "number",
+                "exclusiveMinimum": 0
+              },
+              "depth_m": {
+                "type": "number",
+                "exclusiveMinimum": 0
+              },
+              "batch_capacity": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "max_instances": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "supported_operations": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "minItems": 1
+              }
+            },
+            "required": [
+              "device_type",
+              "unit_cost_credits",
+              "width_m",
+              "depth_m",
+              "batch_capacity",
+              "max_instances",
+              "supported_operations"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 1
+        }
+      },
+      "required": [
+        "schema_version",
+        "catalog_id",
+        "version",
+        "model_provenance",
+        "devices"
+      ],
+      "additionalProperties": false
+    },
+    "Workflow": {
+      "type": "object",
+      "properties": {
+        "schema_version": {
+          "const": "0.1"
+        },
+        "workflow_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "track": {
+          "enum": [
+            "synthetic",
+            "literature_derived"
+          ]
+        },
+        "source_ref": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "steps": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "step_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "operation": {
+                "type": "string",
+                "minLength": 1
+              },
+              "device_type": {
+                "enum": [
+                  "analyzer",
+                  "dryer",
+                  "furnace",
+                  "mixer"
+                ]
+              },
+              "duration_s": {
+                "type": "number",
+                "exclusiveMinimum": 0
+              },
+              "depends_on": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "minItems": 0
+              },
+              "duration_provenance": {
+                "$ref": "#/$defs/Provenance"
+              },
+              "device_mapping_provenance": {
+                "$ref": "#/$defs/Provenance"
+              }
+            },
+            "required": [
+              "step_id",
+              "operation",
+              "device_type",
+              "duration_s",
+              "depends_on",
+              "duration_provenance",
+              "device_mapping_provenance"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 1
+        }
+      },
+      "required": [
+        "schema_version",
+        "workflow_id",
+        "version",
+        "track",
+        "source_ref",
+        "steps"
+      ],
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "track": {
+                "const": "literature_derived"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "source_ref": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        }
+      ]
+    },
+    "Task": {
+      "type": "object",
+      "properties": {
+        "schema_version": {
+          "const": "0.1"
+        },
+        "task_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "catalog_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "catalog_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "workflow_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "workflow_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "equipment_budget_credits": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "horizon_s": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "drain_limit_s": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "room": {
+          "type": "object",
+          "properties": {
+            "width_m": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "depth_m": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            }
+          },
+          "required": [
+            "width_m",
+            "depth_m"
+          ],
+          "additionalProperties": false
+        },
+        "jobs": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "job_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "release_at_s": {
+                "type": "number",
+                "minimum": 0
+              }
+            },
+            "required": [
+              "job_id",
+              "release_at_s"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 1
+        },
+        "slots": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "slot_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "x_m": {
+                "type": "number",
+                "minimum": 0
+              },
+              "y_m": {
+                "type": "number",
+                "minimum": 0
+              },
+              "width_m": {
+                "type": "number",
+                "exclusiveMinimum": 0
+              },
+              "depth_m": {
+                "type": "number",
+                "exclusiveMinimum": 0
+              },
+              "port_node": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "slot_id",
+              "x_m",
+              "y_m",
+              "width_m",
+              "depth_m",
+              "port_node"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 1
+        },
+        "transport": {
+          "type": "object",
+          "properties": {
+            "velocity_m_s": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "pick_s": {
+              "type": "number",
+              "minimum": 0
+            },
+            "drop_s": {
+              "type": "number",
+              "minimum": 0
+            },
+            "entry_node": {
+              "type": "string",
+              "minLength": 1
+            },
+            "exit_node": {
+              "type": "string",
+              "minLength": 1
+            },
+            "nodes": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "node_id": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "x_m": {
+                    "type": "number",
+                    "minimum": 0
+                  },
+                  "y_m": {
+                    "type": "number",
+                    "minimum": 0
+                  }
+                },
+                "required": [
+                  "node_id",
+                  "x_m",
+                  "y_m"
+                ],
+                "additionalProperties": false
+              },
+              "minItems": 1
+            },
+            "edges": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "from_node": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "to_node": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "distance_m": {
+                    "type": "number",
+                    "exclusiveMinimum": 0
+                  }
+                },
+                "required": [
+                  "from_node",
+                  "to_node",
+                  "distance_m"
+                ],
+                "additionalProperties": false
+              },
+              "minItems": 1
+            }
+          },
+          "required": [
+            "velocity_m_s",
+            "pick_s",
+            "drop_s",
+            "entry_node",
+            "exit_node",
+            "nodes",
+            "edges"
+          ],
+          "additionalProperties": false
+        },
+        "policies": {
+          "type": "object",
+          "properties": {
+            "placement": {
+              "const": "ordered-slots-v1"
+            },
+            "dispatch": {
+              "const": "ready-fifo-reserve-v1"
+            },
+            "transport": {
+              "const": "single-robot-graph-v1"
+            },
+            "batch": {
+              "const": "single-sample-v1"
+            }
+          },
+          "required": [
+            "placement",
+            "dispatch",
+            "transport",
+            "batch"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "schema_version",
+        "task_id",
+        "version",
+        "catalog_id",
+        "catalog_version",
+        "workflow_id",
+        "workflow_version",
+        "equipment_budget_credits",
+        "horizon_s",
+        "drain_limit_s",
+        "room",
+        "jobs",
+        "slots",
+        "transport",
+        "policies"
+      ],
+      "additionalProperties": false
+    },
+    "DesignRequest": {
+      "type": "object",
+      "properties": {
+        "schema_version": {
+          "const": "0.1"
+        },
+        "submission_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "task_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "task_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "stage": {
+          "const": 1
+        },
+        "equipment_counts": {
+          "$ref": "#/$defs/Counts"
+        },
+        "simulation_seed": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "schema_version",
+        "submission_id",
+        "task_id",
+        "task_version",
+        "stage",
+        "equipment_counts",
+        "simulation_seed"
+      ],
+      "additionalProperties": false
+    },
+    "Placement": {
+      "type": "object",
+      "properties": {
+        "instance_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "device_type": {
+          "enum": [
+            "analyzer",
+            "dryer",
+            "furnace",
+            "mixer"
+          ]
+        },
+        "slot_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "port_node": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "instance_id",
+        "device_type",
+        "slot_id",
+        "port_node"
+      ],
+      "additionalProperties": false
+    },
+    "Event": {
+      "type": "object",
+      "properties": {
+        "event_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "job_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "step_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "resource_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "kind": {
+          "enum": [
+            "transport_empty",
+            "transport_loaded",
+            "handling",
+            "process",
+            "job_complete"
+          ]
+        },
+        "start_s": {
+          "type": "number",
+          "minimum": 0
+        },
+        "end_s": {
+          "type": "number",
+          "minimum": 0
+        },
+        "path_nodes": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 0
+        },
+        "distance_m": {
+          "type": "number",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "event_id",
+        "job_id",
+        "step_id",
+        "resource_id",
+        "kind",
+        "start_s",
+        "end_s",
+        "path_nodes",
+        "distance_m"
+      ],
+      "additionalProperties": false
+    },
+    "Metrics": {
+      "type": "object",
+      "properties": {
+        "completed_jobs": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "throughput_jobs_per_hour": {
+          "type": "number",
+          "minimum": 0
+        },
+        "equipment_cost_credits": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "cost_efficiency": {
+          "type": "number",
+          "minimum": 0
+        },
+        "makespan_s": {
+          "anyOf": [
+            {
+              "type": "number",
+              "minimum": 0
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "transport_distance_m": {
+          "type": "number",
+          "minimum": 0
+        },
+        "utilization": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          }
+        }
+      },
+      "required": [
+        "completed_jobs",
+        "throughput_jobs_per_hour",
+        "equipment_cost_credits",
+        "cost_efficiency",
+        "makespan_s",
+        "transport_distance_m",
+        "utilization"
+      ],
+      "additionalProperties": false
+    },
+    "Violation": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "minLength": 1
+        },
+        "message": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "code",
+        "message"
+      ],
+      "additionalProperties": false
+    },
+    "EvaluationResult": {
+      "type": "object",
+      "properties": {
+        "schema_version": {
+          "const": "0.1"
+        },
+        "submission_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "task_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "task_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "result_origin": {
+          "enum": [
+            "hand_calculated_fixture",
+            "simulation"
+          ]
+        },
+        "valid": {
+          "type": "boolean"
+        },
+        "status": {
+          "enum": [
+            "completed",
+            "truncated",
+            "invalid",
+            "error"
+          ]
+        },
+        "violations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Violation"
+          },
+          "minItems": 0
+        },
+        "metrics": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Metrics"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "resolved_placement": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Placement"
+          },
+          "minItems": 0
+        },
+        "events": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Event"
+          },
+          "minItems": 0
+        }
+      },
+      "required": [
+        "schema_version",
+        "submission_id",
+        "task_id",
+        "task_version",
+        "result_origin",
+        "valid",
+        "status",
+        "violations",
+        "metrics",
+        "resolved_placement",
+        "events"
+      ],
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "enum": [
+                  "invalid",
+                  "error"
+                ]
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "valid": {
+                "const": false
+              },
+              "metrics": {
+                "type": "null"
+              },
+              "events": {
+                "maxItems": 0
+              },
+              "violations": {
+                "minItems": 1
+              }
+            }
+          },
+          "else": {
+            "properties": {
+              "valid": {
+                "const": true
+              },
+              "metrics": {
+                "$ref": "#/$defs/Metrics"
+              },
+              "violations": {
+                "maxItems": 0
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "completed"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "metrics": {
+                "properties": {
+                  "makespan_s": {
+                    "type": "number",
+                    "minimum": 0
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "truncated"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "metrics": {
+                "properties": {
+                  "makespan_s": {
+                    "type": "null"
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "Fixture": {
+      "type": "object",
+      "properties": {
+        "fixture_note": {
+          "type": "string",
+          "minLength": 1
+        },
+        "catalog": {
+          "$ref": "#/$defs/Catalog"
+        },
+        "workflow": {
+          "$ref": "#/$defs/Workflow"
+        },
+        "task": {
+          "$ref": "#/$defs/Task"
+        },
+        "request": {
+          "$ref": "#/$defs/DesignRequest"
+        },
+        "expected_violation_codes": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 0
+        },
+        "result": {
+          "$ref": "#/$defs/EvaluationResult"
+        }
+      },
+      "required": [
+        "fixture_note",
+        "catalog",
+        "workflow",
+        "task",
+        "request",
+        "expected_violation_codes"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

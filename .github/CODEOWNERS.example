@@ -1,0 +1,11 @@
+# Copy to CODEOWNERS after both actual GitHub usernames and roles are known.
+# Example only; intentionally inactive. Replace PERSON_B before activation.
+# /backend/       @Luftalian
+# /data/          @Luftalian
+# /benchmark/     @Luftalian
+# /agent/         @PERSON_B
+# /frontend/      @PERSON_B
+# /presentation/  @PERSON_B
+# /contracts/     @Luftalian @PERSON_B
+# /SPEC.md        @Luftalian @PERSON_B
+# /docs/          @Luftalian @PERSON_B

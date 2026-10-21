@@ -1,0 +1,187 @@
+{
+  "fixture_note": "Missing required mixer; a structurally valid request rejected semantically.",
+  "catalog": {
+    "schema_version": "0.1",
+    "catalog_id": "synthetic-catalog",
+    "version": "1",
+    "model_provenance": {
+      "kind": "synthetic",
+      "source_ref": null,
+      "locator": null,
+      "note": "Hand-authored development fixture; not measured laboratory data."
+    },
+    "devices": [
+      {
+        "device_type": "mixer",
+        "unit_cost_credits": 2,
+        "width_m": 1,
+        "depth_m": 1,
+        "batch_capacity": 1,
+        "max_instances": 4,
+        "supported_operations": [
+          "mix"
+        ]
+      },
+      {
+        "device_type": "furnace",
+        "unit_cost_credits": 4,
+        "width_m": 1,
+        "depth_m": 1,
+        "batch_capacity": 1,
+        "max_instances": 4,
+        "supported_operations": [
+          "heat"
+        ]
+      },
+      {
+        "device_type": "dryer",
+        "unit_cost_credits": 2,
+        "width_m": 1,
+        "depth_m": 1,
+        "batch_capacity": 1,
+        "max_instances": 4,
+        "supported_operations": [
+          "dry"
+        ]
+      },
+      {
+        "device_type": "analyzer",
+        "unit_cost_credits": 3,
+        "width_m": 1,
+        "depth_m": 1,
+        "batch_capacity": 1,
+        "max_instances": 4,
+        "supported_operations": [
+          "measure"
+        ]
+      }
+    ]
+  },
+  "workflow": {
+    "schema_version": "0.1",
+    "workflow_id": "single-mix",
+    "version": "1",
+    "track": "synthetic",
+    "source_ref": null,
+    "steps": [
+      {
+        "step_id": "mix-1",
+        "operation": "mix",
+        "device_type": "mixer",
+        "duration_s": 10,
+        "depends_on": [],
+        "duration_provenance": {
+          "kind": "synthetic",
+          "source_ref": null,
+          "locator": null,
+          "note": "Hand-authored development fixture; not measured laboratory data."
+        },
+        "device_mapping_provenance": {
+          "kind": "synthetic",
+          "source_ref": null,
+          "locator": null,
+          "note": "Hand-authored development fixture; not measured laboratory data."
+        }
+      }
+    ]
+  },
+  "task": {
+    "schema_version": "0.1",
+    "task_id": "single-mix-smoke",
+    "version": "1",
+    "catalog_id": "synthetic-catalog",
+    "catalog_version": "1",
+    "workflow_id": "single-mix",
+    "workflow_version": "1",
+    "equipment_budget_credits": 11,
+    "horizon_s": 60,
+    "drain_limit_s": 120,
+    "room": {
+      "width_m": 4,
+      "depth_m": 3
+    },
+    "jobs": [
+      {
+        "job_id": "job-001",
+        "release_at_s": 0
+      }
+    ],
+    "slots": [
+      {
+        "slot_id": "slot-001",
+        "x_m": 1,
+        "y_m": 1,
+        "width_m": 1,
+        "depth_m": 1,
+        "port_node": "mixer-port"
+      }
+    ],
+    "transport": {
+      "velocity_m_s": 1,
+      "pick_s": 0,
+      "drop_s": 0,
+      "entry_node": "entry",
+      "exit_node": "entry",
+      "nodes": [
+        {
+          "node_id": "entry",
+          "x_m": 0,
+          "y_m": 1
+        },
+        {
+          "node_id": "mixer-port",
+          "x_m": 1,
+          "y_m": 1
+        }
+      ],
+      "edges": [
+        {
+          "from_node": "entry",
+          "to_node": "mixer-port",
+          "distance_m": 1
+        }
+      ]
+    },
+    "policies": {
+      "placement": "ordered-slots-v1",
+      "dispatch": "ready-fifo-reserve-v1",
+      "transport": "single-robot-graph-v1",
+      "batch": "single-sample-v1"
+    }
+  },
+  "request": {
+    "schema_version": "0.1",
+    "submission_id": "invalid-001",
+    "task_id": "single-mix-smoke",
+    "task_version": "1",
+    "stage": 1,
+    "equipment_counts": {
+      "mixer": 0,
+      "furnace": 0,
+      "dryer": 0,
+      "analyzer": 0
+    },
+    "simulation_seed": 0
+  },
+  "expected_violation_codes": [
+    "MISSING_DEVICE"
+  ],
+  "result": {
+    "schema_version": "0.1",
+    "submission_id": "invalid-001",
+    "task_id": "single-mix-smoke",
+    "task_version": "1",
+    "result_origin": "hand_calculated_fixture",
+    "valid": false,
+    "status": "invalid",
+    "violations": [
+      {
+        "code": "MISSING_DEVICE",
+        "message": "mix-1 requires mixer"
+      }
+    ],
+    "metrics": null,
+    "resolved_placement": [],
+    "events": []
+  }
+}

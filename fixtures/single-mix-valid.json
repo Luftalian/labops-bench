@@ -1,0 +1,248 @@
+{
+  "fixture_note": "Hand-calculated smoke fixture. 1 s transfer + 10 s processing + 1 s transfer = 12 s. Not a benchmark run. Zero-duration handling/empty travel omitted.",
+  "catalog": {
+    "schema_version": "0.1",
+    "catalog_id": "synthetic-catalog",
+    "version": "1",
+    "model_provenance": {
+      "kind": "synthetic",
+      "source_ref": null,
+      "locator": null,
+      "note": "Hand-authored development fixture; not measured laboratory data."
+    },
+    "devices": [
+      {
+        "device_type": "mixer",
+        "unit_cost_credits": 2,
+        "width_m": 1,
+        "depth_m": 1,
+        "batch_capacity": 1,
+        "max_instances": 4,
+        "supported_operations": [
+          "mix"
+        ]
+      },
+      {
+        "device_type": "furnace",
+        "unit_cost_credits": 4,
+        "width_m": 1,
+        "depth_m": 1,
+        "batch_capacity": 1,
+        "max_instances": 4,
+        "supported_operations": [
+          "heat"
+        ]
+      },
+      {
+        "device_type": "dryer",
+        "unit_cost_credits": 2,
+        "width_m": 1,
+        "depth_m": 1,
+        "batch_capacity": 1,
+        "max_instances": 4,
+        "supported_operations": [
+          "dry"
+        ]
+      },
+      {
+        "device_type": "analyzer",
+        "unit_cost_credits": 3,
+        "width_m": 1,
+        "depth_m": 1,
+        "batch_capacity": 1,
+        "max_instances": 4,
+        "supported_operations": [
+          "measure"
+        ]
+      }
+    ]
+  },
+  "workflow": {
+    "schema_version": "0.1",
+    "workflow_id": "single-mix",
+    "version": "1",
+    "track": "synthetic",
+    "source_ref": null,
+    "steps": [
+      {
+        "step_id": "mix-1",
+        "operation": "mix",
+        "device_type": "mixer",
+        "duration_s": 10,
+        "depends_on": [],
+        "duration_provenance": {
+          "kind": "synthetic",
+          "source_ref": null,
+          "locator": null,
+          "note": "Hand-authored development fixture; not measured laboratory data."
+        },
+        "device_mapping_provenance": {
+          "kind": "synthetic",
+          "source_ref": null,
+          "locator": null,
+          "note": "Hand-authored development fixture; not measured laboratory data."
+        }
+      }
+    ]
+  },
+  "task": {
+    "schema_version": "0.1",
+    "task_id": "single-mix-smoke",
+    "version": "1",
+    "catalog_id": "synthetic-catalog",
+    "catalog_version": "1",
+    "workflow_id": "single-mix",
+    "workflow_version": "1",
+    "equipment_budget_credits": 11,
+    "horizon_s": 60,
+    "drain_limit_s": 120,
+    "room": {
+      "width_m": 4,
+      "depth_m": 3
+    },
+    "jobs": [
+      {
+        "job_id": "job-001",
+        "release_at_s": 0
+      }
+    ],
+    "slots": [
+      {
+        "slot_id": "slot-001",
+        "x_m": 1,
+        "y_m": 1,
+        "width_m": 1,
+        "depth_m": 1,
+        "port_node": "mixer-port"
+      }
+    ],
+    "transport": {
+      "velocity_m_s": 1,
+      "pick_s": 0,
+      "drop_s": 0,
+      "entry_node": "entry",
+      "exit_node": "entry",
+      "nodes": [
+        {
+          "node_id": "entry",
+          "x_m": 0,
+          "y_m": 1
+        },
+        {
+          "node_id": "mixer-port",
+          "x_m": 1,
+          "y_m": 1
+        }
+      ],
+      "edges": [
+        {
+          "from_node": "entry",
+          "to_node": "mixer-port",
+          "distance_m": 1
+        }
+      ]
+    },
+    "policies": {
+      "placement": "ordered-slots-v1",
+      "dispatch": "ready-fifo-reserve-v1",
+      "transport": "single-robot-graph-v1",
+      "batch": "single-sample-v1"
+    }
+  },
+  "request": {
+    "schema_version": "0.1",
+    "submission_id": "smoke-001",
+    "task_id": "single-mix-smoke",
+    "task_version": "1",
+    "stage": 1,
+    "equipment_counts": {
+      "mixer": 1,
+      "furnace": 0,
+      "dryer": 0,
+      "analyzer": 0
+    },
+    "simulation_seed": 0
+  },
+  "expected_violation_codes": [],
+  "result": {
+    "schema_version": "0.1",
+    "submission_id": "smoke-001",
+    "task_id": "single-mix-smoke",
+    "task_version": "1",
+    "result_origin": "hand_calculated_fixture",
+    "valid": true,
+    "status": "completed",
+    "violations": [],
+    "metrics": {
+      "completed_jobs": 1,
+      "throughput_jobs_per_hour": 60,
+      "equipment_cost_credits": 2,
+      "cost_efficiency": 30,
+      "makespan_s": 12,
+      "transport_distance_m": 2,
+      "utilization": {
+        "mixer-001": 0.16666666666666666
+      }
+    },
+    "resolved_placement": [
+      {
+        "instance_id": "mixer-001",
+        "device_type": "mixer",
+        "slot_id": "slot-001",
+        "port_node": "mixer-port"
+      }
+    ],
+    "events": [
+      {
+        "event_id": "e001",
+        "job_id": "job-001",
+        "step_id": "mix-1",
+        "resource_id": "robot-001",
+        "kind": "transport_loaded",
+        "start_s": 0,
+        "end_s": 1,
+        "path_nodes": [
+          "entry",
+          "mixer-port"
+        ],
+        "distance_m": 1
+      },
+      {
+        "event_id": "e002",
+        "job_id": "job-001",
+        "step_id": "mix-1",
+        "resource_id": "mixer-001",
+        "kind": "process",
+        "start_s": 1,
+        "end_s": 11,
+        "path_nodes": [],
+        "distance_m": 0
+      },
+      {
+        "event_id": "e003",
+        "job_id": "job-001",
+        "step_id": null,
+        "resource_id": "robot-001",
+        "kind": "transport_loaded",
+        "start_s": 11,
+        "end_s": 12,
+        "path_nodes": [
+          "mixer-port",
+          "entry"
+        ],
+        "distance_m": 1
+      },
+      {
+        "event_id": "e004",
+        "job_id": "job-001",
+        "step_id": null,
+        "resource_id": "exit",
+        "kind": "job_complete",
+        "start_s": 12,
+        "end_s": 12,
+        "path_nodes": [],
+        "distance_m": 0
+      }
+    ]
+  }
+}

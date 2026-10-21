@@ -1,0 +1,392 @@
+{
+  "fixture_note": "Synthetic 4-type scaling input; no expected benchmark performance is claimed.",
+  "catalog": {
+    "schema_version": "0.1",
+    "catalog_id": "synthetic-catalog",
+    "version": "1",
+    "model_provenance": {
+      "kind": "synthetic",
+      "source_ref": null,
+      "locator": null,
+      "note": "Hand-authored development fixture; not measured laboratory data."
+    },
+    "devices": [
+      {
+        "device_type": "mixer",
+        "unit_cost_credits": 2,
+        "width_m": 1,
+        "depth_m": 1,
+        "batch_capacity": 1,
+        "max_instances": 4,
+        "supported_operations": [
+          "mix"
+        ]
+      },
+      {
+        "device_type": "furnace",
+        "unit_cost_credits": 4,
+        "width_m": 1,
+        "depth_m": 1,
+        "batch_capacity": 1,
+        "max_instances": 4,
+        "supported_operations": [
+          "heat"
+        ]
+      },
+      {
+        "device_type": "dryer",
+        "unit_cost_credits": 2,
+        "width_m": 1,
+        "depth_m": 1,
+        "batch_capacity": 1,
+        "max_instances": 4,
+        "supported_operations": [
+          "dry"
+        ]
+      },
+      {
+        "device_type": "analyzer",
+        "unit_cost_credits": 3,
+        "width_m": 1,
+        "depth_m": 1,
+        "batch_capacity": 1,
+        "max_instances": 4,
+        "supported_operations": [
+          "measure"
+        ]
+      }
+    ]
+  },
+  "workflow": {
+    "schema_version": "0.1",
+    "workflow_id": "four-stage",
+    "version": "1",
+    "track": "synthetic",
+    "source_ref": null,
+    "steps": [
+      {
+        "step_id": "step-1",
+        "operation": "mix",
+        "device_type": "mixer",
+        "duration_s": 30,
+        "depends_on": [],
+        "duration_provenance": {
+          "kind": "synthetic",
+          "source_ref": null,
+          "locator": null,
+          "note": "Hand-authored development fixture; not measured laboratory data."
+        },
+        "device_mapping_provenance": {
+          "kind": "synthetic",
+          "source_ref": null,
+          "locator": null,
+          "note": "Hand-authored development fixture; not measured laboratory data."
+        }
+      },
+      {
+        "step_id": "step-2",
+        "operation": "heat",
+        "device_type": "furnace",
+        "duration_s": 180,
+        "depends_on": [
+          "step-1"
+        ],
+        "duration_provenance": {
+          "kind": "synthetic",
+          "source_ref": null,
+          "locator": null,
+          "note": "Hand-authored development fixture; not measured laboratory data."
+        },
+        "device_mapping_provenance": {
+          "kind": "synthetic",
+          "source_ref": null,
+          "locator": null,
+          "note": "Hand-authored development fixture; not measured laboratory data."
+        }
+      },
+      {
+        "step_id": "step-3",
+        "operation": "dry",
+        "device_type": "dryer",
+        "duration_s": 60,
+        "depends_on": [
+          "step-2"
+        ],
+        "duration_provenance": {
+          "kind": "synthetic",
+          "source_ref": null,
+          "locator": null,
+          "note": "Hand-authored development fixture; not measured laboratory data."
+        },
+        "device_mapping_provenance": {
+          "kind": "synthetic",
+          "source_ref": null,
+          "locator": null,
+          "note": "Hand-authored development fixture; not measured laboratory data."
+        }
+      },
+      {
+        "step_id": "step-4",
+        "operation": "measure",
+        "device_type": "analyzer",
+        "duration_s": 45,
+        "depends_on": [
+          "step-3"
+        ],
+        "duration_provenance": {
+          "kind": "synthetic",
+          "source_ref": null,
+          "locator": null,
+          "note": "Hand-authored development fixture; not measured laboratory data."
+        },
+        "device_mapping_provenance": {
+          "kind": "synthetic",
+          "source_ref": null,
+          "locator": null,
+          "note": "Hand-authored development fixture; not measured laboratory data."
+        }
+      }
+    ]
+  },
+  "task": {
+    "schema_version": "0.1",
+    "task_id": "four-stage-dev",
+    "version": "1",
+    "catalog_id": "synthetic-catalog",
+    "catalog_version": "1",
+    "workflow_id": "four-stage",
+    "workflow_version": "1",
+    "equipment_budget_credits": 15,
+    "horizon_s": 600,
+    "drain_limit_s": 10000,
+    "room": {
+      "width_m": 10,
+      "depth_m": 8
+    },
+    "jobs": [
+      {
+        "job_id": "job-001",
+        "release_at_s": 0
+      },
+      {
+        "job_id": "job-002",
+        "release_at_s": 0
+      },
+      {
+        "job_id": "job-003",
+        "release_at_s": 0
+      },
+      {
+        "job_id": "job-004",
+        "release_at_s": 0
+      },
+      {
+        "job_id": "job-005",
+        "release_at_s": 0
+      },
+      {
+        "job_id": "job-006",
+        "release_at_s": 0
+      },
+      {
+        "job_id": "job-007",
+        "release_at_s": 0
+      },
+      {
+        "job_id": "job-008",
+        "release_at_s": 0
+      },
+      {
+        "job_id": "job-009",
+        "release_at_s": 0
+      },
+      {
+        "job_id": "job-010",
+        "release_at_s": 0
+      }
+    ],
+    "slots": [
+      {
+        "slot_id": "slot-001",
+        "x_m": 1.0,
+        "y_m": 1,
+        "width_m": 1,
+        "depth_m": 1,
+        "port_node": "port-001"
+      },
+      {
+        "slot_id": "slot-002",
+        "x_m": 2.0,
+        "y_m": 1,
+        "width_m": 1,
+        "depth_m": 1,
+        "port_node": "port-002"
+      },
+      {
+        "slot_id": "slot-003",
+        "x_m": 3.0,
+        "y_m": 1,
+        "width_m": 1,
+        "depth_m": 1,
+        "port_node": "port-003"
+      },
+      {
+        "slot_id": "slot-004",
+        "x_m": 4.0,
+        "y_m": 1,
+        "width_m": 1,
+        "depth_m": 1,
+        "port_node": "port-004"
+      },
+      {
+        "slot_id": "slot-005",
+        "x_m": 5.0,
+        "y_m": 1,
+        "width_m": 1,
+        "depth_m": 1,
+        "port_node": "port-005"
+      },
+      {
+        "slot_id": "slot-006",
+        "x_m": 6.0,
+        "y_m": 1,
+        "width_m": 1,
+        "depth_m": 1,
+        "port_node": "port-006"
+      },
+      {
+        "slot_id": "slot-007",
+        "x_m": 7.0,
+        "y_m": 1,
+        "width_m": 1,
+        "depth_m": 1,
+        "port_node": "port-007"
+      },
+      {
+        "slot_id": "slot-008",
+        "x_m": 8.0,
+        "y_m": 1,
+        "width_m": 1,
+        "depth_m": 1,
+        "port_node": "port-008"
+      }
+    ],
+    "transport": {
+      "velocity_m_s": 1,
+      "pick_s": 0,
+      "drop_s": 0,
+      "entry_node": "entry",
+      "exit_node": "entry",
+      "nodes": [
+        {
+          "node_id": "entry",
+          "x_m": 0,
+          "y_m": 1
+        },
+        {
+          "node_id": "port-001",
+          "x_m": 1.0,
+          "y_m": 1
+        },
+        {
+          "node_id": "port-002",
+          "x_m": 2.0,
+          "y_m": 1
+        },
+        {
+          "node_id": "port-003",
+          "x_m": 3.0,
+          "y_m": 1
+        },
+        {
+          "node_id": "port-004",
+          "x_m": 4.0,
+          "y_m": 1
+        },
+        {
+          "node_id": "port-005",
+          "x_m": 5.0,
+          "y_m": 1
+        },
+        {
+          "node_id": "port-006",
+          "x_m": 6.0,
+          "y_m": 1
+        },
+        {
+          "node_id": "port-007",
+          "x_m": 7.0,
+          "y_m": 1
+        },
+        {
+          "node_id": "port-008",
+          "x_m": 8.0,
+          "y_m": 1
+        }
+      ],
+      "edges": [
+        {
+          "from_node": "entry",
+          "to_node": "port-001",
+          "distance_m": 1
+        },
+        {
+          "from_node": "port-001",
+          "to_node": "port-002",
+          "distance_m": 1
+        },
+        {
+          "from_node": "port-002",
+          "to_node": "port-003",
+          "distance_m": 1
+        },
+        {
+          "from_node": "port-003",
+          "to_node": "port-004",
+          "distance_m": 1
+        },
+        {
+          "from_node": "port-004",
+          "to_node": "port-005",
+          "distance_m": 1
+        },
+        {
+          "from_node": "port-005",
+          "to_node": "port-006",
+          "distance_m": 1
+        },
+        {
+          "from_node": "port-006",
+          "to_node": "port-007",
+          "distance_m": 1
+        },
+        {
+          "from_node": "port-007",
+          "to_node": "port-008",
+          "distance_m": 1
+        }
+      ]
+    },
+    "policies": {
+      "placement": "ordered-slots-v1",
+      "dispatch": "ready-fifo-reserve-v1",
+      "transport": "single-robot-graph-v1",
+      "batch": "single-sample-v1"
+    }
+  },
+  "request": {
+    "schema_version": "0.1",
+    "submission_id": "four-stage-001",
+    "task_id": "four-stage-dev",
+    "task_version": "1",
+    "stage": 1,
+    "equipment_counts": {
+      "analyzer": 1,
+      "dryer": 1,
+      "furnace": 1,
+      "mixer": 1
+    },
+    "simulation_seed": 0
+  },
+  "expected_violation_codes": []
+}
