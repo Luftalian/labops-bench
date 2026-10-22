@@ -17,7 +17,7 @@ export function exportBenchmarkUI(output=path.join(root,'dist/benchmark-ui')){
   }
   write('benchmarks/report.json',JSON.stringify(report));write('benchmarks/catalog.json',JSON.stringify(JSON.parse(read('fixtures/counts/room-14x10.json')).catalog));
   let html=read('frontend/benchmarks/index.html').replaceAll('="/','="../').replaceAll('":"/','":"../');
-  html=html.replace(/<nav>[\s\S]*?<\/nav>/,'<nav><a href="https://github.com/Luftalian/labopsbench/tree/feat/poc-integration">GitHub repository ↗</a><a href="../docs/SCHEDULER_CHALLENGES_RESULTS.md">Results &amp; assumptions ↗</a><span class="badge" id="suite-badge">RECORDED RESULTS</span></nav>');
+  html=html.replace(/<nav>[\s\S]*?<\/nav>/,'<nav><a href="https://github.com/Luftalian/labopsbench/tree/feat/poc-integration">GitHub repository ↗</a><a href="../docs/SCHEDULER_CHALLENGES_RESULTS.md">Results &amp; assumptions ↗</a><a href="../docs/SOURCES.md">Sources &amp; papers ↗</a><a href="../THIRD_PARTY_NOTICES.md">Licenses ↗</a><span class="badge" id="suite-badge">RECORDED RESULTS</span></nav>');
   write('benchmarks/index.html',html);
   for(const p of ['frontend/benchmarks/app.mjs','frontend/benchmarks/styles.css','frontend/replay-layout.mjs','frontend/stage1.css']){
     let text=read(p);if(p.endsWith('/app.mjs'))text=text.replaceAll("from '/","from '../").replaceAll("import('/","import('../").replaceAll("fetch('/benchmarks/","fetch('./");
@@ -32,10 +32,15 @@ export function exportBenchmarkUI(output=path.join(root,'dist/benchmark-ui')){
   }
   for(const n of ['base','link1','link2','link3','link4','link5','link6'])write('workshop/assets/xarm/'+n+'.stl',fs.readFileSync(path.join(root,'backend/poc/sim/physics/assets/xarm6/xarm_description/meshes/xarm6/visual/'+n+'.stl')));
   write('workshop/assets/xarm/LICENSE',read('backend/poc/sim/physics/assets/xarm6/LICENSE'));
-  for(const f of ['SCHEDULER_CHALLENGES.md','SCHEDULER_CHALLENGES_RESULTS.md','LEMAT_SDL_BENCHMARK.md','LEMAT_SDL_RESULTS.md','SCHEDULER_INITIAL_LAYOUT_AUDIT.json'])write('docs/'+f,read('docs/'+f));
+  for(const f of ['SCHEDULER_CHALLENGES.md','SCHEDULER_CHALLENGES_RESULTS.md','LEMAT_SDL_BENCHMARK.md','LEMAT_SDL_RESULTS.md','SCHEDULER_INITIAL_LAYOUT_AUDIT.json','SOURCES.md','LEMAT_SOURCE_RECORDS.md'])write('docs/'+f,read('docs/'+f));
+  for(const f of ['THIRD_PARTY_NOTICES.md','licenses/README.md','licenses/LeMat-Synth-APACHE-2.0.txt','data/source-references.json','data/lemat-source-inventory.json','benchmark/lemat-sdl/ATTRIBUTION.md','benchmark/lemat-sdl/workflows.json'])write(f,read(f));
+  // Keep canonical notice paths as well as asset-local copies, so links work
+  // when the package is read without the repository.
+  write('backend/poc/sim/physics/assets/xarm6/LICENSE',read('backend/poc/sim/physics/assets/xarm6/LICENSE'));
+  write('backend/poc/demo/vendor/LICENSE-three.txt',read('backend/poc/demo/vendor/LICENSE-three.txt'));
   write('manifest.json',JSON.stringify(manifest,null,2));write('serve.mjs',read('scripts/serve-static-results.mjs'));
   write('index.html','<!doctype html><meta charset="utf-8"><meta http-equiv="refresh" content="0;url=./benchmarks/"><a href="./benchmarks/">Open LabOpsBench recorded results</a>');
-  write('README.txt','LabOpsBench private results viewer\n\nNode.js >=18.16. No npm install, Python or API key is needed.\nFrom this folder: node serve.mjs\nOpen http://127.0.0.1:4181/\n\nRecorded results only; no simulation or provider calls. Keep this package within the repository collaborators.\n');
+  write('README.txt','LabOpsBench private results viewer\n\nNode.js >=18.16. No npm install, Python or API key is needed.\nFrom this folder: node serve.mjs\nOpen http://127.0.0.1:4181/\n\nRecorded results only; no simulation or provider calls. Keep this package within the repository collaborators.\n\nSources, original papers and adaptation scope: docs/SOURCES.md\nRetain THIRD_PARTY_NOTICES.md and licenses/ with this package. Original-paper prose rights are not all independently reviewed; this collaborator package is not a cleared public corpus.\n');
   return {output,recordings:report.results.length};
 }
 if(process.argv[1]===fileURLToPath(import.meta.url))console.log(JSON.stringify(exportBenchmarkUI(process.argv[2]?path.resolve(process.argv[2]):undefined)));

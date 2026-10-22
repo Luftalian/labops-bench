@@ -16,7 +16,7 @@ PoCが取得済みだった原本を読み、SHA-256を照合して再利用し�
 
 `workflows.json` にURL、revision、原本hash、extraction/material index、JSON pointer、元の時間値と単位、採用／対象外の工程、装置mapping、仮定を保持する。単位操作jobを「材料合成全体の完了」と数えない。`ha-full` / `cbi-full` も「抽出に記載された全工程の直列スケジューリング近似」であり、実験成功を保証する完全なロボットレシピではない。独立した前駆体調製を直列化し、手作業を自動化できることや標準容器への適合は仮定する。
 
-公開リポジトリには [Apache-2.0のLICENSE](https://github.com/LeMaterial/lematerial-llm-synthesis/blob/e4bacbcbac084544ca68d48242336c2e36f6ee15/LICENSE) がある。原論文・図・ゲート付きデータ全体の再配布権へ拡張しない。本変更で外部公開は行っていない。rawはGit対象外で、再取得URL/hashを保存する。
+公開リポジトリには [Apache-2.0のLICENSE](https://github.com/LeMaterial/lematerial-llm-synthesis/blob/e4bacbcbac084544ca68d48242336c2e36f6ee15/LICENSE) があり、[原文を同梱](../licenses/LeMat-Synth-APACHE-2.0.txt)する。[帰属と加工表示](../benchmark/lemat-sdl/ATTRIBUTION.md)、[元論文・DOIと別の利用条件](SOURCES.md#主要ベンチマークの元論文)、[全レコード一覧](LEMAT_SOURCE_RECORDS.md)を保持する。原論文・図・ゲート付きデータ全体の再配布権へ拡張しない。rawはGit対象外で、再取得URL/hashを保存する。
 
 ## 元の10課題で確認すること
 

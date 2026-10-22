@@ -1,0 +1,634 @@
+{
+  "version": "labops.source-inventory.v1",
+  "reviewed_on": "2026-10-22",
+  "upstream_revision": "e4bacbcbac084544ca68d48242336c2e36f6ee15",
+  "upstream_repository_license": "Apache-2.0; not a blanket original-paper or gated-dataset license",
+  "counts": {
+    "manifest_records": 36,
+    "records_retained_in_import": 34,
+    "imported_procedures": 74,
+    "imported_steps": 302,
+    "scheduler_records": 3,
+    "scheduler_workflows": 8
+  },
+  "input_hashes": {
+    "backend/poc/sim/v2/data/source-manifest.json": "639525198a31a28ec026b90606ad38da2b0c78b2bef1983260525e2075ee53a6",
+    "backend/poc/sim/v2/data/procedures.json": "9634bfe3e1cb98136901d7e9c33d0f75bd67263ed7515eb79491c31704255ecf",
+    "backend/poc/demo/workshop/data/procedures.json": "f3ad1ce45baf9fb30807780097c3428fbdfb3e3d0c2b3bbefb553bdc874179c2",
+    "benchmark/lemat-sdl/workflows.json": "a7a6eecc4e07c6bf9e1c85ac9ab4c72c9187a428397a188dff6373dcad2dc8d2",
+    "data/source-references.json": "f0029f4b4a2818a6c8ffb83ebb70521cbfe64b9981381210dccc6b024f5ddf40"
+  },
+  "licenses": [
+    {
+      "id": "lemat",
+      "file": "licenses/LeMat-Synth-APACHE-2.0.txt",
+      "sha256": "43070e2d4e532684de521b885f385d0841030efa2b1a20bafb76133a5e1379c1"
+    },
+    {
+      "id": "xarm",
+      "file": "backend/poc/sim/physics/assets/xarm6/LICENSE",
+      "sha256": "39bd98193b256fc11eb2a923afb9a5c5ce5187dc69733b08e4b6916f4dcfda50"
+    },
+    {
+      "id": "three",
+      "file": "backend/poc/demo/vendor/LICENSE-three.txt",
+      "sha256": "8b378ebe60e2fe500158cb0ac71cb5e8b7d92953c2abcc63a0eb90499653b5bc"
+    }
+  ],
+  "records": [
+    {
+      "file": "raw/0307fa0472a682ab559ac343038ed0cfeb8fe815/result.json",
+      "url": "https://raw.githubusercontent.com/LeMaterial/lematerial-llm-synthesis/e4bacbcbac084544ca68d48242336c2e36f6ee15/annotations/0307fa0472a682ab559ac343038ed0cfeb8fe815/result.json",
+      "sha256": "925ce03da1cdb4cbc73553c21778e7bf06eecc71df0acddf7d90058654f897ff",
+      "paper_id": "0307fa0472a682ab559ac343038ed0cfeb8fe815",
+      "imported_procedure_ids": [
+        "LM-f7d0f63c85",
+        "LM-3354a15734",
+        "LM-2a590e027c",
+        "LM-a5be6b037b"
+      ],
+      "imported_step_count": 31,
+      "scheduler_workflow_ids": [],
+      "reference_id": null,
+      "bibliographic_identification": "Upstream record ID and URL only; title/DOI not independently established.",
+      "original_paper_rights": "Not independently reviewed; do not infer from the repository Apache-2.0 license.",
+      "rights_evidence": []
+    },
+    {
+      "file": "raw/0d5ffdaf23a655e1eff80bc8b6b4978067de4d5b/result.json",
+      "url": "https://raw.githubusercontent.com/LeMaterial/lematerial-llm-synthesis/e4bacbcbac084544ca68d48242336c2e36f6ee15/annotations/0d5ffdaf23a655e1eff80bc8b6b4978067de4d5b/result.json",
+      "sha256": "531b50b85764bbf265526fb3390f6d359c618517251645e4ed3cf30fff493bcf",
+      "paper_id": "0d5ffdaf23a655e1eff80bc8b6b4978067de4d5b",
+      "imported_procedure_ids": [
+        "LM-9ffda81bb4",
+        "LM-c777937bb2"
+      ],
+      "imported_step_count": 4,
+      "scheduler_workflow_ids": [],
+      "reference_id": null,
+      "bibliographic_identification": "Upstream record ID and URL only; title/DOI not independently established.",
+      "original_paper_rights": "Not independently reviewed; do not infer from the repository Apache-2.0 license.",
+      "rights_evidence": []
+    },
+    {
+      "file": "raw/1409.1070/result.json",
+      "url": "https://raw.githubusercontent.com/LeMaterial/lematerial-llm-synthesis/e4bacbcbac084544ca68d48242336c2e36f6ee15/annotations/1409.1070/result.json",
+      "sha256": "62009e019cfcf4431bd55d5f84122952433438418556afe4c29918d777883768",
+      "paper_id": "1409.1070",
+      "imported_procedure_ids": [
+        "LM-59ad9ece43"
+      ],
+      "imported_step_count": 4,
+      "scheduler_workflow_ids": [],
+      "reference_id": null,
+      "bibliographic_identification": "Upstream record ID and URL only; title/DOI not independently established.",
+      "original_paper_rights": "Not independently reviewed; do not infer from the repository Apache-2.0 license.",
+      "rights_evidence": []
+    },
+    {
+      "file": "raw/1602.02498/result.json",
+      "url": "https://raw.githubusercontent.com/LeMaterial/lematerial-llm-synthesis/e4bacbcbac084544ca68d48242336c2e36f6ee15/annotations/1602.02498/result.json",
+      "sha256": "bf18551648922eed2cdfa9966a86b20aec95b1db77a98efe3798932bbbc976f0",
+      "paper_id": "1602.02498",
+      "imported_procedure_ids": [
+        "LM-aa4860816b"
+      ],
+      "imported_step_count": 1,
+      "scheduler_workflow_ids": [],
+      "reference_id": null,
+      "bibliographic_identification": "Upstream record ID and URL only; title/DOI not independently established.",
+      "original_paper_rights": "Not independently reviewed; do not infer from the repository Apache-2.0 license.",
+      "rights_evidence": []
+    },
+    {
+      "file": "raw/1605.04038/result.json",
+      "url": "https://raw.githubusercontent.com/LeMaterial/lematerial-llm-synthesis/e4bacbcbac084544ca68d48242336c2e36f6ee15/annotations/1605.04038/result.json",
+      "sha256": "4bf5004d7cae8bbf5811e2f551e05ff77ceadc3ca05d14ccf21215afedc7080b",
+      "paper_id": "1605.04038",
+      "imported_procedure_ids": [
+        "LM-891015bd65",
+        "LM-4dc4b3dc5f"
+      ],
+      "imported_step_count": 5,
+      "scheduler_workflow_ids": [],
+      "reference_id": null,
+      "bibliographic_identification": "Upstream record ID and URL only; title/DOI not independently established.",
+      "original_paper_rights": "Not independently reviewed; do not infer from the repository Apache-2.0 license.",
+      "rights_evidence": []
+    },
+    {
+      "file": "raw/1706.00484/result.json",
+      "url": "https://raw.githubusercontent.com/LeMaterial/lematerial-llm-synthesis/e4bacbcbac084544ca68d48242336c2e36f6ee15/annotations/1706.00484/result.json",
+      "sha256": "a2a3f7b6d1af7b9c21ab67cc89681330b921f2c34a3f7ee197f636015104cfb8",
+      "paper_id": "1706.00484",
+      "imported_procedure_ids": [
+        "LM-0bf4f9a26e"
+      ],
+      "imported_step_count": 3,
+      "scheduler_workflow_ids": [
+        "sto-etch"
+      ],
+      "reference_id": "petach-2017",
+      "bibliographic_identification": "Direct arXiv identifier correspondence. Scientific accuracy of the extraction has not been independently revalidated.",
+      "original_paper_rights": "arXiv non-exclusive distribution license; not a general third-party reuse license",
+      "rights_evidence": [
+        "https://arxiv.org/abs/1706.00484"
+      ]
+    },
+    {
+      "file": "raw/1709.00477/result.json",
+      "url": "https://raw.githubusercontent.com/LeMaterial/lematerial-llm-synthesis/e4bacbcbac084544ca68d48242336c2e36f6ee15/annotations/1709.00477/result.json",
+      "sha256": "6b4bfbbff83de50fe60a2d93e68632f0b7c5cd082b24fa27742192dfbd10a4ca",
+      "paper_id": "1709.00477",
+      "imported_procedure_ids": [
+        "LM-8553dcec84",
+        "LM-8efe019653"
+      ],
+      "imported_step_count": 3,
+      "scheduler_workflow_ids": [],
+      "reference_id": null,
+      "bibliographic_identification": "Upstream record ID and URL only; title/DOI not independently established.",
+      "original_paper_rights": "Not independently reviewed; do not infer from the repository Apache-2.0 license.",
+      "rights_evidence": []
+    },
+    {
+      "file": "raw/1902.03049/result.json",
+      "url": "https://raw.githubusercontent.com/LeMaterial/lematerial-llm-synthesis/e4bacbcbac084544ca68d48242336c2e36f6ee15/annotations/1902.03049/result.json",
+      "sha256": "792756c3826416e3b17fbe6d7805f14a3590b0dcb435ea18d43b40d8c03922d6",
+      "paper_id": "1902.03049",
+      "imported_procedure_ids": [
+        "LM-aada7fc0e0",
+        "LM-7b38a1ab20",
+        "LM-b0d7ad23d2"
+      ],
+      "imported_step_count": 13,
+      "scheduler_workflow_ids": [],
+      "reference_id": null,
+      "bibliographic_identification": "Upstream record ID and URL only; title/DOI not independently established.",
+      "original_paper_rights": "Not independently reviewed; do not infer from the repository Apache-2.0 license.",
+      "rights_evidence": []
+    },
+    {
+      "file": "raw/1df04f9e3f942b30d5e1c2bd1ab9cc3a79c23f13/result.json",
+      "url": "https://raw.githubusercontent.com/LeMaterial/lematerial-llm-synthesis/e4bacbcbac084544ca68d48242336c2e36f6ee15/annotations/1df04f9e3f942b30d5e1c2bd1ab9cc3a79c23f13/result.json",
+      "sha256": "cd702e5f1602e112ef215a4159218655813de3bb617a6eb88d726f9018820f7e",
+      "paper_id": "1df04f9e3f942b30d5e1c2bd1ab9cc3a79c23f13",
+      "imported_procedure_ids": [
+        "LM-1d93f5789c",
+        "LM-d48dcd8dc5"
+      ],
+      "imported_step_count": 22,
+      "scheduler_workflow_ids": [],
+      "reference_id": null,
+      "bibliographic_identification": "Upstream record ID and URL only; title/DOI not independently established.",
+      "original_paper_rights": "Not independently reviewed; do not infer from the repository Apache-2.0 license.",
+      "rights_evidence": []
+    },
+    {
+      "file": "raw/2212.12506/result.json",
+      "url": "https://raw.githubusercontent.com/LeMaterial/lematerial-llm-synthesis/e4bacbcbac084544ca68d48242336c2e36f6ee15/annotations/2212.12506/result.json",
+      "sha256": "b643acb7a4213b1ace23cd575f4572ba0a95df9c4ab49441ee949fb616ac7b94",
+      "paper_id": "2212.12506",
+      "imported_procedure_ids": [
+        "LM-1221684e22",
+        "LM-11868b6e18",
+        "LM-7f62c3393b"
+      ],
+      "imported_step_count": 15,
+      "scheduler_workflow_ids": [],
+      "reference_id": null,
+      "bibliographic_identification": "Upstream record ID and URL only; title/DOI not independently established.",
+      "original_paper_rights": "Not independently reviewed; do not infer from the repository Apache-2.0 license.",
+      "rights_evidence": []
+    },
+    {
+      "file": "raw/2306.14755/result.json",
+      "url": "https://raw.githubusercontent.com/LeMaterial/lematerial-llm-synthesis/e4bacbcbac084544ca68d48242336c2e36f6ee15/annotations/2306.14755/result.json",
+      "sha256": "cf27e7369b1a840e7a01fbc41bf7e9bf240b97ccbe34e003073abab886571365",
+      "paper_id": "2306.14755",
+      "imported_procedure_ids": [
+        "LM-26cba88a2e"
+      ],
+      "imported_step_count": 1,
+      "scheduler_workflow_ids": [],
+      "reference_id": null,
+      "bibliographic_identification": "Upstream record ID and URL only; title/DOI not independently established.",
+      "original_paper_rights": "Not independently reviewed; do not infer from the repository Apache-2.0 license.",
+      "rights_evidence": []
+    },
+    {
+      "file": "raw/2404.08872/result.json",
+      "url": "https://raw.githubusercontent.com/LeMaterial/lematerial-llm-synthesis/e4bacbcbac084544ca68d48242336c2e36f6ee15/annotations/2404.08872/result.json",
+      "sha256": "7310817090eb8fb9b6e682285bd1e0ec01971af05a7fc4c4cc1e07a805d40d0f",
+      "paper_id": "2404.08872",
+      "imported_procedure_ids": [
+        "LM-2e1f8620da",
+        "LM-111a886ba1"
+      ],
+      "imported_step_count": 9,
+      "scheduler_workflow_ids": [],
+      "reference_id": null,
+      "bibliographic_identification": "Upstream record ID and URL only; title/DOI not independently established.",
+      "original_paper_rights": "Not independently reviewed; do not infer from the repository Apache-2.0 license.",
+      "rights_evidence": []
+    },
+    {
+      "file": "raw/2502.03121/result.json",
+      "url": "https://raw.githubusercontent.com/LeMaterial/lematerial-llm-synthesis/e4bacbcbac084544ca68d48242336c2e36f6ee15/annotations/2502.03121/result.json",
+      "sha256": "c4402566f1e6779dea571d9925a7762e88a164fc81fd5b47ac09255db66663ea",
+      "paper_id": "2502.03121",
+      "imported_procedure_ids": [
+        "LM-7bf22adc32"
+      ],
+      "imported_step_count": 4,
+      "scheduler_workflow_ids": [],
+      "reference_id": null,
+      "bibliographic_identification": "Upstream record ID and URL only; title/DOI not independently established.",
+      "original_paper_rights": "Not independently reviewed; do not infer from the repository Apache-2.0 license.",
+      "rights_evidence": []
+    },
+    {
+      "file": "raw/2883daff26f16a13134a26ca5d366549a14fcc9c/result.json",
+      "url": "https://raw.githubusercontent.com/LeMaterial/lematerial-llm-synthesis/e4bacbcbac084544ca68d48242336c2e36f6ee15/annotations/2883daff26f16a13134a26ca5d366549a14fcc9c/result.json",
+      "sha256": "d31278c580e0d72ee346cda8d1d38032ef0629832c4edac0e1137e7c4f3cdb67",
+      "paper_id": "2883daff26f16a13134a26ca5d366549a14fcc9c",
+      "imported_procedure_ids": [],
+      "imported_step_count": 0,
+      "scheduler_workflow_ids": [],
+      "reference_id": null,
+      "bibliographic_identification": "Upstream record ID and URL only; title/DOI not independently established.",
+      "original_paper_rights": "Not independently reviewed; do not infer from the repository Apache-2.0 license.",
+      "rights_evidence": []
+    },
+    {
+      "file": "raw/3325ac6dfb049a5efdaad7f876c1d51b17be0158/result.json",
+      "url": "https://raw.githubusercontent.com/LeMaterial/lematerial-llm-synthesis/e4bacbcbac084544ca68d48242336c2e36f6ee15/annotations/3325ac6dfb049a5efdaad7f876c1d51b17be0158/result.json",
+      "sha256": "ad88743d641b1d0c8a189049f959125f09dced97c4d0d64b8e96b152b9fd6b89",
+      "paper_id": "3325ac6dfb049a5efdaad7f876c1d51b17be0158",
+      "imported_procedure_ids": [
+        "LM-dfa1799dd6"
+      ],
+      "imported_step_count": 5,
+      "scheduler_workflow_ids": [],
+      "reference_id": null,
+      "bibliographic_identification": "Upstream record ID and URL only; title/DOI not independently established.",
+      "original_paper_rights": "Not independently reviewed; do not infer from the repository Apache-2.0 license.",
+      "rights_evidence": []
+    },
+    {
+      "file": "raw/3b87159630bb0581024897961bb5fc922fc3db19/result.json",
+      "url": "https://raw.githubusercontent.com/LeMaterial/lematerial-llm-synthesis/e4bacbcbac084544ca68d48242336c2e36f6ee15/annotations/3b87159630bb0581024897961bb5fc922fc3db19/result.json",
+      "sha256": "b0cf4a26e5fcc9fc64fa6fa7e654ed7f05c7a74aaed0837b5173546a93c84522",
+      "paper_id": "3b87159630bb0581024897961bb5fc922fc3db19",
+      "imported_procedure_ids": [
+        "LM-529ffe29f2"
+      ],
+      "imported_step_count": 5,
+      "scheduler_workflow_ids": [],
+      "reference_id": null,
+      "bibliographic_identification": "Upstream record ID and URL only; title/DOI not independently established.",
+      "original_paper_rights": "Not independently reviewed; do not infer from the repository Apache-2.0 license.",
+      "rights_evidence": []
+    },
+    {
+      "file": "raw/60c74548469df43eacf434a6/result.json",
+      "url": "https://raw.githubusercontent.com/LeMaterial/lematerial-llm-synthesis/e4bacbcbac084544ca68d48242336c2e36f6ee15/annotations/60c74548469df43eacf434a6/result.json",
+      "sha256": "35d5195aaf5e5e8b131950a8c6b1bf09a08194e67738659e1e5bd2b7a88b56e9",
+      "paper_id": "60c74548469df43eacf434a6",
+      "imported_procedure_ids": [
+        "LM-01c36c3744",
+        "LM-f7feb3c75a",
+        "LM-6dae8fb4cd",
+        "LM-2ded6dc15c",
+        "LM-62385a363d"
+      ],
+      "imported_step_count": 9,
+      "scheduler_workflow_ids": [],
+      "reference_id": null,
+      "bibliographic_identification": "Upstream record ID and URL only; title/DOI not independently established.",
+      "original_paper_rights": "Not independently reviewed; do not infer from the repository Apache-2.0 license.",
+      "rights_evidence": []
+    },
+    {
+      "file": "raw/61b80eb702d90d55416229c1/result.json",
+      "url": "https://raw.githubusercontent.com/LeMaterial/lematerial-llm-synthesis/e4bacbcbac084544ca68d48242336c2e36f6ee15/annotations/61b80eb702d90d55416229c1/result.json",
+      "sha256": "c269c923644834777ae3fe314cd42588479fb6f087150d5f84abb7bf69adf828",
+      "paper_id": "61b80eb702d90d55416229c1",
+      "imported_procedure_ids": [
+        "LM-cc6115ae12",
+        "LM-ea7b97d403"
+      ],
+      "imported_step_count": 8,
+      "scheduler_workflow_ids": [],
+      "reference_id": null,
+      "bibliographic_identification": "Upstream record ID and URL only; title/DOI not independently established.",
+      "original_paper_rights": "Not independently reviewed; do not infer from the repository Apache-2.0 license.",
+      "rights_evidence": []
+    },
+    {
+      "file": "raw/62b4ce6b486c987262b0ff80/result.json",
+      "url": "https://raw.githubusercontent.com/LeMaterial/lematerial-llm-synthesis/e4bacbcbac084544ca68d48242336c2e36f6ee15/annotations/62b4ce6b486c987262b0ff80/result.json",
+      "sha256": "aeaf34c1b97e9e49343cd41e8b2dfdbf85a9cffc74b858c1e88648480003b80d",
+      "paper_id": "62b4ce6b486c987262b0ff80",
+      "imported_procedure_ids": [
+        "LM-6f8bfa6d0c",
+        "LM-2355aac722",
+        "LM-99649b7a70",
+        "LM-fefc3eee5e",
+        "LM-e00bc65be2",
+        "LM-562e3b7871"
+      ],
+      "imported_step_count": 12,
+      "scheduler_workflow_ids": [],
+      "reference_id": null,
+      "bibliographic_identification": "Upstream record ID and URL only; title/DOI not independently established.",
+      "original_paper_rights": "Not independently reviewed; do not infer from the repository Apache-2.0 license.",
+      "rights_evidence": []
+    },
+    {
+      "file": "raw/62cff0f127b1e42fe039c25e/result.json",
+      "url": "https://raw.githubusercontent.com/LeMaterial/lematerial-llm-synthesis/e4bacbcbac084544ca68d48242336c2e36f6ee15/annotations/62cff0f127b1e42fe039c25e/result.json",
+      "sha256": "6110f7060c1308a5072483eb7654bbe95ec878a2ee74705b2e70c6a059868f9b",
+      "paper_id": "62cff0f127b1e42fe039c25e",
+      "imported_procedure_ids": [
+        "LM-e9e52f81df"
+      ],
+      "imported_step_count": 7,
+      "scheduler_workflow_ids": [],
+      "reference_id": null,
+      "bibliographic_identification": "Upstream record ID and URL only; title/DOI not independently established.",
+      "original_paper_rights": "Not independently reviewed; do not infer from the repository Apache-2.0 license.",
+      "rights_evidence": []
+    },
+    {
+      "file": "raw/64b40972b605c6803bd37ab4/result.json",
+      "url": "https://raw.githubusercontent.com/LeMaterial/lematerial-llm-synthesis/e4bacbcbac084544ca68d48242336c2e36f6ee15/annotations/64b40972b605c6803bd37ab4/result.json",
+      "sha256": "c17ad508215b1fc3088fc95cd7c90f3eece09b91eea9727c6024e69d18e61590",
+      "paper_id": "64b40972b605c6803bd37ab4",
+      "imported_procedure_ids": [
+        "LM-490639a576",
+        "LM-a6c0e18704",
+        "LM-cdaaf04fb3"
+      ],
+      "imported_step_count": 4,
+      "scheduler_workflow_ids": [],
+      "reference_id": null,
+      "bibliographic_identification": "Upstream record ID and URL only; title/DOI not independently established.",
+      "original_paper_rights": "Not independently reviewed; do not infer from the repository Apache-2.0 license.",
+      "rights_evidence": []
+    },
+    {
+      "file": "raw/65e0464ce9ebbb4db98ae397/result.json",
+      "url": "https://raw.githubusercontent.com/LeMaterial/lematerial-llm-synthesis/e4bacbcbac084544ca68d48242336c2e36f6ee15/annotations/65e0464ce9ebbb4db98ae397/result.json",
+      "sha256": "9e4be5e19a552a67a7eb70270d0f28c0a63d5dce8993269bb823493f80683a0b",
+      "paper_id": "65e0464ce9ebbb4db98ae397",
+      "imported_procedure_ids": [
+        "LM-53138c976c",
+        "LM-25f3a451d3"
+      ],
+      "imported_step_count": 24,
+      "scheduler_workflow_ids": [],
+      "reference_id": null,
+      "bibliographic_identification": "Upstream record ID and URL only; title/DOI not independently established.",
+      "original_paper_rights": "Not independently reviewed; do not infer from the repository Apache-2.0 license.",
+      "rights_evidence": []
+    },
+    {
+      "file": "raw/673b3fdd7be152b1d07c21f1/result.json",
+      "url": "https://raw.githubusercontent.com/LeMaterial/lematerial-llm-synthesis/e4bacbcbac084544ca68d48242336c2e36f6ee15/annotations/673b3fdd7be152b1d07c21f1/result.json",
+      "sha256": "c2945442c9c25f45f25f2c14352a68f043eb4ed67aff2464b4b9cfee7726acde",
+      "paper_id": "673b3fdd7be152b1d07c21f1",
+      "imported_procedure_ids": [
+        "LM-4dd3495e3b",
+        "LM-72485a541f",
+        "LM-66ed58f2be",
+        "LM-9b2c341f70",
+        "LM-1b3b4d50b3"
+      ],
+      "imported_step_count": 23,
+      "scheduler_workflow_ids": [],
+      "reference_id": null,
+      "bibliographic_identification": "Upstream record ID and URL only; title/DOI not independently established.",
+      "original_paper_rights": "Not independently reviewed; do not infer from the repository Apache-2.0 license.",
+      "rights_evidence": []
+    },
+    {
+      "file": "raw/73c6aeebd5877d2eb17d4961577d98216d503e6f/result.json",
+      "url": "https://raw.githubusercontent.com/LeMaterial/lematerial-llm-synthesis/e4bacbcbac084544ca68d48242336c2e36f6ee15/annotations/73c6aeebd5877d2eb17d4961577d98216d503e6f/result.json",
+      "sha256": "2131eb2d9dcb25e5ed0357dc54cfd7d23e44ecc2fa04b688aaba4c964f9ae81b",
+      "paper_id": "73c6aeebd5877d2eb17d4961577d98216d503e6f",
+      "imported_procedure_ids": [
+        "LM-1635cc3c7e"
+      ],
+      "imported_step_count": 4,
+      "scheduler_workflow_ids": [
+        "ag-sonicate",
+        "ag-separate"
+      ],
+      "reference_id": "tavan-2023",
+      "bibliographic_identification": "Content-based identification: Perilla/AgNO3, 90 min sonication at 60 C and 9000 rpm centrifugation for 30 min at 25 C match the annotation; upstream hash ID contains no DOI. Not an upstream DOI mapping.",
+      "original_paper_rights": "CC-BY-4.0",
+      "rights_evidence": [
+        "https://researchnow-admin.flinders.edu.au/ws/portalfiles/portal/150065240/Tavan_Comparative_P2023.pdf"
+      ]
+    },
+    {
+      "file": "raw/8c37fd10addf6d79f84ec2d5f4a8e5c6d6ef676f/result.json",
+      "url": "https://raw.githubusercontent.com/LeMaterial/lematerial-llm-synthesis/e4bacbcbac084544ca68d48242336c2e36f6ee15/annotations/8c37fd10addf6d79f84ec2d5f4a8e5c6d6ef676f/result.json",
+      "sha256": "fadc829558123c39efe6f6dd12128a8980eac5edb4f05f6bf00af3e962077a45",
+      "paper_id": "8c37fd10addf6d79f84ec2d5f4a8e5c6d6ef676f",
+      "imported_procedure_ids": [
+        "LM-07896924d3",
+        "LM-1bae9a3992",
+        "LM-a4e2b5b99e"
+      ],
+      "imported_step_count": 20,
+      "scheduler_workflow_ids": [
+        "ha-mix",
+        "cbi-mix",
+        "cbi-separate",
+        "ha-full",
+        "cbi-full"
+      ],
+      "reference_id": "yang-2022",
+      "bibliographic_identification": "Content-based identification: HA/Cs3Bi2I9 precursor preparation and composite SPS context match the annotation; upstream hash ID contains no DOI. Not an upstream DOI mapping.",
+      "original_paper_rights": "CC-BY-4.0",
+      "rights_evidence": [
+        "https://link.springer.com/article/10.1007/s40145-021-0565-z",
+        "https://d-nb.info/126169807X/34"
+      ]
+    },
+    {
+      "file": "raw/90233593a9aa72b4bacfdeadc20050ae6d4b88e1/result.json",
+      "url": "https://raw.githubusercontent.com/LeMaterial/lematerial-llm-synthesis/e4bacbcbac084544ca68d48242336c2e36f6ee15/annotations/90233593a9aa72b4bacfdeadc20050ae6d4b88e1/result.json",
+      "sha256": "d31278c580e0d72ee346cda8d1d38032ef0629832c4edac0e1137e7c4f3cdb67",
+      "paper_id": "90233593a9aa72b4bacfdeadc20050ae6d4b88e1",
+      "imported_procedure_ids": [],
+      "imported_step_count": 0,
+      "scheduler_workflow_ids": [],
+      "reference_id": null,
+      "bibliographic_identification": "Upstream record ID and URL only; title/DOI not independently established.",
+      "original_paper_rights": "Not independently reviewed; do not infer from the repository Apache-2.0 license.",
+      "rights_evidence": []
+    },
+    {
+      "file": "raw/914dfcfe8762e189e9d7873090587458e7c86695/result.json",
+      "url": "https://raw.githubusercontent.com/LeMaterial/lematerial-llm-synthesis/e4bacbcbac084544ca68d48242336c2e36f6ee15/annotations/914dfcfe8762e189e9d7873090587458e7c86695/result.json",
+      "sha256": "5d9e40d8738eebd6a20f3187ba8157e4b23223dcaf29c147f56e3db53366fd70",
+      "paper_id": "914dfcfe8762e189e9d7873090587458e7c86695",
+      "imported_procedure_ids": [
+        "LM-4621917d65"
+      ],
+      "imported_step_count": 6,
+      "scheduler_workflow_ids": [],
+      "reference_id": null,
+      "bibliographic_identification": "Upstream record ID and URL only; title/DOI not independently established.",
+      "original_paper_rights": "Not independently reviewed; do not infer from the repository Apache-2.0 license.",
+      "rights_evidence": []
+    },
+    {
+      "file": "raw/9a889c1a671fd3cae48285eaa95069d189d02fe3/result.json",
+      "url": "https://raw.githubusercontent.com/LeMaterial/lematerial-llm-synthesis/e4bacbcbac084544ca68d48242336c2e36f6ee15/annotations/9a889c1a671fd3cae48285eaa95069d189d02fe3/result.json",
+      "sha256": "d8f7df4da2ba5a89115fc8ba0293e80856d558f629563ffc63299c5b403b6510",
+      "paper_id": "9a889c1a671fd3cae48285eaa95069d189d02fe3",
+      "imported_procedure_ids": [
+        "LM-7036e81a70",
+        "LM-6a208e6512",
+        "LM-02b01ad603",
+        "LM-622bc84a00"
+      ],
+      "imported_step_count": 13,
+      "scheduler_workflow_ids": [],
+      "reference_id": null,
+      "bibliographic_identification": "Upstream record ID and URL only; title/DOI not independently established.",
+      "original_paper_rights": "Not independently reviewed; do not infer from the repository Apache-2.0 license.",
+      "rights_evidence": []
+    },
+    {
+      "file": "raw/c47e0cbc8b6feb8d28c3d9c1c29f98772ede6c27/result.json",
+      "url": "https://raw.githubusercontent.com/LeMaterial/lematerial-llm-synthesis/e4bacbcbac084544ca68d48242336c2e36f6ee15/annotations/c47e0cbc8b6feb8d28c3d9c1c29f98772ede6c27/result.json",
+      "sha256": "aa830ba229b15b1f92e6a2557b36ebf1631f8cccc946f6c9aae2c754e428bf90",
+      "paper_id": "c47e0cbc8b6feb8d28c3d9c1c29f98772ede6c27",
+      "imported_procedure_ids": [
+        "LM-174456ac4d",
+        "LM-fa812b8ba0"
+      ],
+      "imported_step_count": 9,
+      "scheduler_workflow_ids": [],
+      "reference_id": null,
+      "bibliographic_identification": "Upstream record ID and URL only; title/DOI not independently established.",
+      "original_paper_rights": "Not independently reviewed; do not infer from the repository Apache-2.0 license.",
+      "rights_evidence": []
+    },
+    {
+      "file": "raw/ccc7c5d70ae3ca3f9e975d0dc3b4d631586c1586/result.json",
+      "url": "https://raw.githubusercontent.com/LeMaterial/lematerial-llm-synthesis/e4bacbcbac084544ca68d48242336c2e36f6ee15/annotations/ccc7c5d70ae3ca3f9e975d0dc3b4d631586c1586/result.json",
+      "sha256": "fc8af07a7e3884a1431414abcb76c6d8876a4784f47c49be58d55ce1affd890e",
+      "paper_id": "ccc7c5d70ae3ca3f9e975d0dc3b4d631586c1586",
+      "imported_procedure_ids": [
+        "LM-ce4555192f"
+      ],
+      "imported_step_count": 3,
+      "scheduler_workflow_ids": [],
+      "reference_id": null,
+      "bibliographic_identification": "Upstream record ID and URL only; title/DOI not independently established.",
+      "original_paper_rights": "Not independently reviewed; do not infer from the repository Apache-2.0 license.",
+      "rights_evidence": []
+    },
+    {
+      "file": "raw/cond-mat.0503432/result.json",
+      "url": "https://raw.githubusercontent.com/LeMaterial/lematerial-llm-synthesis/e4bacbcbac084544ca68d48242336c2e36f6ee15/annotations/cond-mat.0503432/result.json",
+      "sha256": "0481ebba6510feb7cc04853840ecef5dc1c4add883fc1807c5ee89897b8e1c7e",
+      "paper_id": "cond-mat.0503432",
+      "imported_procedure_ids": [
+        "LM-53b274b93d"
+      ],
+      "imported_step_count": 3,
+      "scheduler_workflow_ids": [],
+      "reference_id": null,
+      "bibliographic_identification": "Upstream record ID and URL only; title/DOI not independently established.",
+      "original_paper_rights": "Not independently reviewed; do not infer from the repository Apache-2.0 license.",
+      "rights_evidence": []
+    },
+    {
+      "file": "raw/cond-mat.0510550/result.json",
+      "url": "https://raw.githubusercontent.com/LeMaterial/lematerial-llm-synthesis/e4bacbcbac084544ca68d48242336c2e36f6ee15/annotations/cond-mat.0510550/result.json",
+      "sha256": "10ae7d7602498c196ef1b06fed6cd1aa630588f21327167944e2d65578502eaa",
+      "paper_id": "cond-mat.0510550",
+      "imported_procedure_ids": [
+        "LM-08fde23381",
+        "LM-1c3349757c",
+        "LM-91286eac9c"
+      ],
+      "imported_step_count": 8,
+      "scheduler_workflow_ids": [],
+      "reference_id": null,
+      "bibliographic_identification": "Upstream record ID and URL only; title/DOI not independently established.",
+      "original_paper_rights": "Not independently reviewed; do not infer from the repository Apache-2.0 license.",
+      "rights_evidence": []
+    },
+    {
+      "file": "raw/cond-mat.0602418/result.json",
+      "url": "https://raw.githubusercontent.com/LeMaterial/lematerial-llm-synthesis/e4bacbcbac084544ca68d48242336c2e36f6ee15/annotations/cond-mat.0602418/result.json",
+      "sha256": "f0514e712442bb3d354f9e6b0e90579c9cb4586b1d1f8160d492d562916f5ba2",
+      "paper_id": "cond-mat.0602418",
+      "imported_procedure_ids": [
+        "LM-54d046b8ef"
+      ],
+      "imported_step_count": 2,
+      "scheduler_workflow_ids": [],
+      "reference_id": null,
+      "bibliographic_identification": "Upstream record ID and URL only; title/DOI not independently established.",
+      "original_paper_rights": "Not independently reviewed; do not infer from the repository Apache-2.0 license.",
+      "rights_evidence": []
+    },
+    {
+      "file": "raw/cond-mat.0603598/result.json",
+      "url": "https://raw.githubusercontent.com/LeMaterial/lematerial-llm-synthesis/e4bacbcbac084544ca68d48242336c2e36f6ee15/annotations/cond-mat.0603598/result.json",
+      "sha256": "077f2c2e8a98319faf6959c3089f27898a152bee2d0b7920ae4293ff3cc04f40",
+      "paper_id": "cond-mat.0603598",
+      "imported_procedure_ids": [
+        "LM-847a1c8373"
+      ],
+      "imported_step_count": 5,
+      "scheduler_workflow_ids": [],
+      "reference_id": null,
+      "bibliographic_identification": "Upstream record ID and URL only; title/DOI not independently established.",
+      "original_paper_rights": "Not independently reviewed; do not infer from the repository Apache-2.0 license.",
+      "rights_evidence": []
+    },
+    {
+      "file": "raw/cond-mat.0607131/result.json",
+      "url": "https://raw.githubusercontent.com/LeMaterial/lematerial-llm-synthesis/e4bacbcbac084544ca68d48242336c2e36f6ee15/annotations/cond-mat.0607131/result.json",
+      "sha256": "a1220221ded4261a880b27804719bffe5a33f49be2502d156f7ecea3835adfd5",
+      "paper_id": "cond-mat.0607131",
+      "imported_procedure_ids": [
+        "LM-2fe66d18f1",
+        "LM-80f5f127c0",
+        "LM-b22f63db9d",
+        "LM-a1f51b4037"
+      ],
+      "imported_step_count": 16,
+      "scheduler_workflow_ids": [],
+      "reference_id": null,
+      "bibliographic_identification": "Upstream record ID and URL only; title/DOI not independently established.",
+      "original_paper_rights": "Not independently reviewed; do not infer from the repository Apache-2.0 license.",
+      "rights_evidence": []
+    },
+    {
+      "file": "raw/cond-mat.9604170/result.json",
+      "url": "https://raw.githubusercontent.com/LeMaterial/lematerial-llm-synthesis/e4bacbcbac084544ca68d48242336c2e36f6ee15/annotations/cond-mat.9604170/result.json",
+      "sha256": "bf18f9d22e18a2c90494c63289a818596bc926b5848849c8c790b37c8bf09076",
+      "paper_id": "cond-mat.9604170",
+      "imported_procedure_ids": [
+        "LM-1b63356be2"
+      ],
+      "imported_step_count": 1,
+      "scheduler_workflow_ids": [],
+      "reference_id": null,
+      "bibliographic_identification": "Upstream record ID and URL only; title/DOI not independently established.",
+      "original_paper_rights": "Not independently reviewed; do not infer from the repository Apache-2.0 license.",
+      "rights_evidence": []
+    }
+  ]
+}

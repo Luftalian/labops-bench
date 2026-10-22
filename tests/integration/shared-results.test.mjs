@@ -18,7 +18,9 @@ test('a raw-data-free results package preserves every selected score and supplie
       assert.equal(result.context.task_hash,r.task_hash);assert.equal(result.metrics.makespan_s,r.makespan_s);assert.equal(result.status,r.status);
       assert(result.replay.layout_history.length>0);assert(result.replay.trace.length>0);
     }
-    for(const f of ['serve.mjs','benchmarks/catalog.json','workshop/plan-view.mjs','workshop/three-view.mjs','workshop/timeline.mjs','vendor/three.module.js','vendor/three.core.js','vendor/addons/loaders/STLLoader.js','workshop/assets/xarm/link6.stl','workshop/assets/xarm/LICENSE','vendor/LICENSE-three.txt'])assert(fs.existsSync(path.join(output,f)),f);
+    for(const f of ['serve.mjs','benchmarks/catalog.json','workshop/plan-view.mjs','workshop/three-view.mjs','workshop/timeline.mjs','vendor/three.module.js','vendor/three.core.js','vendor/addons/loaders/STLLoader.js','workshop/assets/xarm/link6.stl','workshop/assets/xarm/LICENSE','vendor/LICENSE-three.txt','THIRD_PARTY_NOTICES.md','licenses/LeMat-Synth-APACHE-2.0.txt','docs/SOURCES.md','docs/LEMAT_SOURCE_RECORDS.md','data/lemat-source-inventory.json','data/source-references.json','benchmark/lemat-sdl/ATTRIBUTION.md'])assert(fs.existsSync(path.join(output,f)),f);
+    for(const f of ['licenses/LeMat-Synth-APACHE-2.0.txt','THIRD_PARTY_NOTICES.md','backend/poc/sim/physics/assets/xarm6/LICENSE','backend/poc/demo/vendor/LICENSE-three.txt'])assert.deepEqual(fs.readFileSync(path.join(output,f)),fs.readFileSync(path.join(root,f)),f);
+    assert.match(fs.readFileSync(path.join(output,'benchmarks/index.html'),'utf8'),/Sources &amp; papers/);
     assert(!fs.existsSync(path.join(output,'.env')));assert(!fs.existsSync(path.join(output,'results/lemat-sdl')));
     assert(!/src="\/|href="\//.test(fs.readFileSync(path.join(output,'benchmarks/index.html'),'utf8')));
   }finally{fs.rmSync(output,{recursive:true,force:true});}

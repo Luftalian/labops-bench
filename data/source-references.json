@@ -1,0 +1,67 @@
+{
+  "reviewed_on": "2026-10-22",
+  "scope": "Bibliographic and rights metadata; does not change tasks, engine inputs or saved results.",
+  "references": [
+    {
+      "id": "lemat-synth",
+      "title": "LeMat-Synth: a multi-modal toolbox to curate broad synthesis procedure databases from scientific literature",
+      "authors": "Magdalena Lederbauer et al.",
+      "year": 2026,
+      "version": "arXiv:2510.26824v2 (2026-08-30); first submitted 2025-10-28",
+      "url": "https://arxiv.org/abs/2510.26824v2",
+      "doi": "10.48550/arXiv.2510.26824",
+      "role": "Extraction toolbox and public annotation source; not a measured SDL performance model.",
+      "verification_urls": ["https://arxiv.org/abs/2510.26824", "https://github.com/LeMaterial/lematerial-llm-synthesis/tree/e4bacbcbac084544ca68d48242336c2e36f6ee15"]
+    },
+    {
+      "id": "yang-2022",
+      "title": "Cs3Bi2I9-hydroxyapatite composite waste forms for cesium and iodine immobilization",
+      "authors": "Kun Yang; Yachun Wang; Junhua Shen; Spencer M. Scott; Brian J. Riley; John D. Vienna; Jie Lian",
+      "year": 2022,
+      "venue": "Journal of Advanced Ceramics 11, 712–728",
+      "url": "https://doi.org/10.1007/s40145-021-0565-z",
+      "doi": "10.1007/s40145-021-0565-z",
+      "source_record_id": "8c37fd10addf6d79f84ec2d5f4a8e5c6d6ef676f",
+      "workflows": ["ha-mix", "cbi-mix", "cbi-separate", "ha-full", "cbi-full"],
+      "record_match": "Content-based identification: HA/Cs3Bi2I9 precursor preparation and composite SPS context match the annotation; upstream hash ID contains no DOI. Not an upstream DOI mapping.",
+      "paper_license": "CC-BY-4.0",
+      "copyright_notice": "The Author(s) 2021",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "license_evidence": "Publisher Rights and permissions section",
+      "verification_urls": ["https://link.springer.com/article/10.1007/s40145-021-0565-z", "https://d-nb.info/126169807X/34"]
+    },
+    {
+      "id": "tavan-2023",
+      "title": "Comparative assessment of the biological activity of the green synthesized silver nanoparticles and aqueous leaf extract of Perilla frutescens (L.)",
+      "authors": "Mansoureh Tavan; Parichehr Hanachi; Mohammad Hossein Mirjalili; Abolfazl Dashtbani-Roozbehani",
+      "year": 2023,
+      "venue": "Scientific Reports 13, 6391",
+      "url": "https://doi.org/10.1038/s41598-023-33625-x",
+      "doi": "10.1038/s41598-023-33625-x",
+      "source_record_id": "73c6aeebd5877d2eb17d4961577d98216d503e6f",
+      "workflows": ["ag-sonicate", "ag-separate"],
+      "record_match": "Content-based identification: Perilla/AgNO3, 90 min sonication at 60 C and 9000 rpm centrifugation for 30 min at 25 C match the annotation; upstream hash ID contains no DOI. Not an upstream DOI mapping.",
+      "paper_license": "CC-BY-4.0",
+      "copyright_notice": "The Author(s) 2023",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "license_evidence": "Author-institution copy of published article, final page",
+      "verification_urls": ["https://researchnow-admin.flinders.edu.au/ws/portalfiles/portal/150065240/Tavan_Comparative_P2023.pdf"]
+    },
+    {
+      "id": "petach-2017",
+      "title": "Crystal truncation rods from miscut surfaces",
+      "authors": "Trevor A. Petach; Apurva Mehta; Michael F. Toney; David Goldhaber-Gordon",
+      "year": 2017,
+      "venue": "Physical Review B 95, 184104; arXiv:1706.00484",
+      "url": "https://arxiv.org/abs/1706.00484",
+      "doi": "10.1103/PhysRevB.95.184104",
+      "source_record_id": "1706.00484",
+      "workflows": ["sto-etch"],
+      "record_match": "Direct arXiv identifier correspondence. Scientific accuracy of the extraction has not been independently revalidated.",
+      "paper_license": "arXiv non-exclusive distribution license; not a general third-party reuse license",
+      "license_url": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/license.html",
+      "license_evidence": "arXiv record view license link",
+      "verification_urls": ["https://arxiv.org/abs/1706.00484"]
+    }
+  ]
+}
