@@ -100,6 +100,14 @@ def main():
                 f"Gallery artifact changed: {name}")
         text = data.decode("utf-8")
         require(gallery["source_commit"] in text, "Missing pinned result reference")
+        video = gallery["demo_video"]
+        if name.endswith(".html"):
+            require(video["watch_url"] in text and video["embed_url"] in text,
+                    "Missing HTML demo video player or fallback link")
+            require("autoplay=1" not in text, "Demo video should not autoplay")
+        elif name.endswith(".md"):
+            require(video["watch_url"] not in text and video["embed_url"] not in text,
+                    "Keep the Markdown manuscript free of the video block")
         for row in gallery["verified_result_rows"]:
             selected, metrics = results[(row["method"], row["scenario"])]
             require(selected["run_id"] == row["run_id"]

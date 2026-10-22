@@ -193,9 +193,18 @@
         "sha256": "e6d78f2545146974573b17fcaac6ec04ac47f44dfc10bc30f710a6c1f373a302"
       },
       "LabOpsBench-one-page-submit.html": {
-        "bytes": 872373,
-        "sha256": "3932950b7468c36cc9a5dc336f73ef40002ebca2a852ffbb949a7236cfcf9fa1"
+        "bytes": 873226,
+        "sha256": "cb19b46a0818ccb874f772a76b4f18354a95bee4cca22b9cc7f8358d95063d31"
       }
+    },
+    "demo_video": {
+      "watch_url": "https://www.youtube.com/watch?v=tVD-mtF-0fY",
+      "embed_url": "https://www.youtube.com/embed/tVD-mtF-0fY",
+      "title": "LabOpsBench: Benchmarking AI Agents for Self-Driving Labs | OSI Hackathon 2026",
+      "channel": "LabWeave",
+      "placement": "HTML only: after the opening summary, before Motivation; omitted from Markdown",
+      "print_rendering": "Video link; player hidden",
+      "autoplay": false
     }
   }
 }
