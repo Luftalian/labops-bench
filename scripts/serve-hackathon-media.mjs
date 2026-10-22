@@ -1,8 +1,8 @@
 import http from 'node:http';
 import fs from 'node:fs';
 import path from 'node:path';
-const root=path.resolve(new URL('../',import.meta.url).pathname),out=path.join(root,'results/local/hackathon-media');
-const clips=['01-present-sdl','02-future-sdl','03-benchmark-task','04-ui-tour','05-model-decisions','06-results'];
+const root=path.resolve(new URL('../',import.meta.url).pathname),out=path.join(root,'results/local',process.env.LABOPS_MEDIA_OUTPUT??'hackathon-media-v2');
+const clips=['01-present-sdl','02-future-sdl','03-benchmark-task','04-ui-tour','05-model-decisions','05-gpt-policy','05-jev-priorities','06-results'];
 const mime={'.html':'text/html; charset=utf-8','.mjs':'text/javascript','.js':'text/javascript','.json':'application/json','.png':'image/png','.jpg':'image/jpeg','.stl':'application/octet-stream','.css':'text/css','.mp4':'video/mp4','.mov':'video/quicktime','.srt':'text/plain; charset=utf-8'};
 const server=http.createServer(async(req,res)=>{
  try{
@@ -38,5 +38,5 @@ const server=http.createServer(async(req,res)=>{
   res.writeHead(200,{...headers,'Content-Length':size});if(req.method==='HEAD')res.end();else fs.createReadStream(f).pipe(res);
  }catch(e){res.writeHead(500);res.end(e.message);}
 });
-const port=Number(process.env.LABOPS_MEDIA_PORT??4182);
+const port=Number(process.env.LABOPS_MEDIA_PORT??4184);
 server.listen(port,'127.0.0.1',()=>console.log(`Media export UI http://127.0.0.1:${port}/ · gallery.html — localhost only; media stays under results/local/hackathon-media`));

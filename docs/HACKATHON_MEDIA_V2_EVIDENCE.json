@@ -1,0 +1,488 @@
+{
+  "revision": "cinematic-2",
+  "created_at": "2026-10-22T03:55:31.464Z",
+  "source_provenance": {
+    "version": "cinematic-media-2",
+    "created_at": "2026-10-22T03:20:24.664Z",
+    "git_commit": "c818062f90b4c2f85f86e904e166bb0b09417e5a",
+    "node": "v18.16.0",
+    "command": "node --experimental-loader ./scripts/media-route-cache-loader.mjs scripts/prepare-cinematic-media.mjs",
+    "engine_source_hashes": {
+      "agent/benchmark-actions.mjs": "fe2cb45415b729955a7ec4b37c696aa5226fbbd9137fbc907256bec00fefe359",
+      "agent/benchmark-providers.mjs": "a64a50ed8ba346b0eff280e3b02f0dc72a255186c5ad4c3955e934cd4a09e017",
+      "agent/challenge-actions.mjs": "4682c547ef8def1ea2db822ef7dded7ca84f197c182fbed9d20930b4fcbd3754",
+      "agent/layout-packing.mjs": "07471922367c60b9e2137064aee6954b78d94153d093b2d2ad703d75668d8a5b",
+      "agent/llm-scheduler.mjs": "c2947afb9066742d22856af20de069cee20ef845696592984b05cc4e85266b81",
+      "agent/policy-runtime.mjs": "380198769628ca0ee0bcd7fc2941ea3bef727628ea55d69063a98b97e25a1d76",
+      "agent/scheduler-controller.mjs": "2b7306a1816d9a5f6561f041e779841b3356d24cf532650fa01036118561c34c",
+      "agent/scheduler_contract.py": "9f9e7b777b9a210c35dd93c589aa139d8c1d3c17ca4b18ab1adc31fce0f7e005",
+      "backend/counts/custom-tasks.mjs": "b3424f0f573c73e49497920196112772403c5e8409ec6592fb11a04a86c7452e",
+      "backend/counts/evaluator.mjs": "e8ab8b7e0e344ae02ebc2e58d3f31fa886571f2304ffe18b76b4a94763396bd5",
+      "backend/counts/service.mjs": "055ee16ba2068cd6eeef3b37d4419a2abb79a505697a92a6094327b891411e3d",
+      "backend/counts/tasks.mjs": "95ebcd6cc21c477a6fd02f56d8976eafa296d85261027bf1b735366f02a95873",
+      "backend/counts/validate.py": "f507ffbc14bf0eedd4c15d27e647a4053abb8c771ca05d3464202a65a9e09d92",
+      "backend/counts/worker.mjs": "37eaf27a208e05ecf25d9223510cbf0fd67cc0a4feb92e10e608116a62c9356b",
+      "backend/poc/sim/v2/agents.mjs": "d62cfcbe6e17d413bc9c77057e3f17ad2654dccd98b24ab4d9dac37a9b817cc6",
+      "backend/poc/sim/v2/data/catalog.json": "94177611195c04a54cf0e18fa1b44ec4801b4105f4ad10ec0e13f6a89adf3c62",
+      "backend/poc/sim/v2/data/procedures.json": "9634bfe3e1cb98136901d7e9c33d0f75bd67263ed7515eb79491c31704255ecf",
+      "backend/poc/sim/v2/data/source-manifest.json": "639525198a31a28ec026b90606ad38da2b0c78b2bef1983260525e2075ee53a6",
+      "backend/poc/sim/v2/environment.mjs": "f402b7c373da76a971f9154849fdb80b7527f4cc505bf55d6e502044b71f059c",
+      "backend/poc/sim/v2/geometry.mjs": "b87a9b4d0f26466fc163ea52bf82196332ade1b92e412a7035ff84a9c32a921c",
+      "backend/poc/sim/v2/physics.py": "4005719ee4c0dcc3d8f11567b857f6ab2452c5bd5805a86982dd3282aab376f4",
+      "backend/poc/sim/v2/schema.json": "b43745c78fd1bc58c94c5ad5e773bafc4e25a7efdf1969f37f4883bc5f3626e9",
+      "backend/poc/sim/v2/tasks.mjs": "3a53fb094646169bc7f2dcdfeb60d34a2ff8c451a7bab600fef754d0e4c8c2c7",
+      "backend/poc/sim/v4/agents.mjs": "f56f68287a28923d86c36c2da95c446dfa513c1579cb7ead35b99b6660f725cb",
+      "backend/poc/sim/v4/concurrency.mjs": "0d53804910cf177f754677f675e6e6523be713e0d81462ca2258c81872afd300",
+      "backend/poc/sim/v4/core.mjs": "3ca4ddcf18beaa3facbed97ad6a5244e4b2d5b9a07a5c61bb16750cc302ed55e",
+      "backend/poc/sim/v4/design.mjs": "5aba5b565f5e3f646dc8522d5108969dbca24f1a4d2a04e2a8203cbda73f51d6",
+      "backend/poc/sim/v4/diagnostics.mjs": "c038c3a6595b5945b2d31e00128e7993a8900d8ad8e7e5c3e90f7d1a78b5dfde",
+      "backend/poc/sim/v4/environment.mjs": "f11b38bbb7b67692c42b601a593f1de3750ca7ba2aa3762b1c90d11044d3ef42",
+      "backend/poc/sim/v4/fleet.mjs": "57e268dab40ca694a5e4d28b31c6b7bf44e33f7e61473b871a81885b36a4756d",
+      "backend/poc/sim/v4/initial-samples.mjs": "d9052633b9885eeddd31c77038badfab1da149e3500d37b918b9bbc11213ad62",
+      "backend/poc/sim/v4/placement.mjs": "7705597d66cdf0bdb8090da864cfa1329cc44ed694e53bc28ddd9e31f72be820",
+      "backend/poc/sim/v4/tasks.mjs": "740e0ef13d290b95cecd0295f450e79b1799f973a69afb477444f62c08188e43",
+      "backend/scheduler/data/relocation.json": "6f1554e3e597e43203c701ed387914aa237ff168565cd5f4dba2cbff06890fca",
+      "backend/scheduler/http.mjs": "728a6916439402f6ebc026e080b64661ab2ba104cb582182f11766cb3c9397fc",
+      "backend/scheduler/motion.mjs": "bac198b3c5a90e5c883f87f2bb66c8b27b7b4d9f8eba6d4e4adbf4bef8c19e9d",
+      "backend/scheduler/policy.mjs": "3f644d2fc8384e4b3ef3163bde5798d0b486f2bd3285d7ac1afdf76fcecf45f8",
+      "backend/scheduler/service.mjs": "9b05a2ea2fa36344e87a265a7077baa0693b12b99ba14da702c12c4908d5d594",
+      "backend/scheduler/session.mjs": "585bbed72cb147f0b9c51efbac92cd7a4307fa3c85b0892eb34374f01f91de93",
+      "backend/scheduler/staging.mjs": "48a5bb6b743f079888ca238faeead46195c12f4b68f168f086091003bda8fa75",
+      "backend/scheduler/tasks.mjs": "57ea40dee9cf4424d8bb61becc876ff2c8c9f8cd2167a1effeebe895eda01c3d",
+      "backend/scheduler/validate.mjs": "24d2cce33c8b8fdd57f528632459a2d2f4de00678757590c72696f103ccd9de6",
+      "benchmark/lemat-sdl/scenarios.json": "f2563c9e1f38a98e5766774276f71d2b8a85e63bee05f8f23d2584d87279792c",
+      "benchmark/lemat-sdl/suite.mjs": "b9b40fbfbe298414d561045f0cdc8a00cd416d11eb64ec719d5d92f66f9e743a",
+      "benchmark/lemat-sdl/workflows.json": "a7a6eecc4e07c6bf9e1c85ac9ab4c72c9187a428397a188dff6373dcad2dc8d2",
+      "contracts/labops.schema.json": "8162a7ff4dfc7976247047e037ac7ddb6e12d7b84a5b208bfdfb2617a88c78e0"
+    },
+    "route_cache_loader_sha256": "8a6a21d98dc30d190f5e206a98fa993179b7eb04e2ac294ed571ca983411db47",
+    "sources": {
+      "present": {
+        "kind": "synthetic-cinematic-demo",
+        "input_sha256": "e11ff219e3f2d1ee1ae3cf6ba6e205f92b2055a46a03619ae39fa89ffdd009b1",
+        "result_sha256": "95f23be17988f57e185dffea2a3aaa250d472d7840813c8cd91be67762f23dde",
+        "metrics": {
+          "total_jobs": 20,
+          "completed_jobs": 20,
+          "makespan_s": 2526.1136644445946,
+          "elapsed_s": 2526.1136644445946,
+          "arm_busy_s": {
+            "arm-1": 996.3257049511495,
+            "arm-2": 668.3218795287528
+          }
+        },
+        "concurrency": {
+          "peak_processes": 3,
+          "peak_arm_actions": 2
+        },
+        "installed_resources": {
+          "equipment_counts": {
+            "flex_centrifuge": 1,
+            "flex_filter": 0,
+            "flex_grinder": 1,
+            "flex_liquid_handler": 1,
+            "flex_press": 1,
+            "flex_sonicator": 1,
+            "flex_stirrer": 1,
+            "furnace": 1,
+            "oven": 1,
+            "xrd": 0
+          },
+          "arms": 2,
+          "amrs": 3
+        }
+      },
+      "future": {
+        "kind": "synthetic-cinematic-demo",
+        "input_sha256": "3357b5a7bc12bc81bb9d240442dac7d111aed33fbb4d8e0e1d20b3831aa7602a",
+        "result_sha256": "53bd9556052e2baaaa568f4f54fcf6beb4541078921026c95fcd56aab66bd52c",
+        "metrics": {
+          "elapsed_s": 480,
+          "completed_jobs": 15,
+          "total_jobs": 288,
+          "makespan_s": null
+        },
+        "concurrency": {
+          "peak_processes": 226,
+          "peak_arm_actions": 96
+        },
+        "installed_resources": {
+          "equipment_counts": {
+            "flex_centrifuge": 24,
+            "flex_filter": 24,
+            "flex_grinder": 24,
+            "flex_liquid_handler": 48,
+            "flex_press": 24,
+            "flex_sonicator": 24,
+            "flex_stirrer": 48,
+            "furnace": 24,
+            "oven": 24,
+            "xrd": 24
+          },
+          "arms": 96,
+          "amrs": 18
+        }
+      },
+      "benchmark": {
+        "run_id": "2026-10-22T00-54-02.898Z-gpt-6-luna-medium-227bf651",
+        "task_id": "lemat-sdl-12-overfull-inventory",
+        "method": "gpt-6-luna-medium",
+        "path": "recordings/2026-10-22T00-54-02.898Z-gpt-6-luna-medium-227bf651/lemat-sdl-12-overfull-inventory/result.json.gz",
+        "source_sha256": "e1b38ce73bf65ef692e65beb577d2a4b3f69a18cc871677b1dcd1cd9a2d2571a",
+        "gzip_sha256": "f46bb15da988ab60628b8d71a4cf3f457235c1149091c7d488c85306a55de182",
+        "bytes": 161310,
+        "gzip_bytes": 14585,
+        "decoded_sha256": "e1b38ce73bf65ef692e65beb577d2a4b3f69a18cc871677b1dcd1cd9a2d2571a"
+      },
+      "luna": {
+        "run_id": "2026-10-22T00-54-02.898Z-gpt-6-luna-medium-227bf651",
+        "task_id": "lemat-sdl-11-priority-tail",
+        "method": "gpt-6-luna-medium",
+        "path": "recordings/2026-10-22T00-54-02.898Z-gpt-6-luna-medium-227bf651/lemat-sdl-11-priority-tail/result.json.gz",
+        "source_sha256": "0938ab662a72c62f6bf09fbca0dbacb7d7624ed2efa97038042d13f35cbfa397",
+        "gzip_sha256": "cda483ee11abf9f34d695c843a36e845a492d84475d122953a40b4c6cc86c0c3",
+        "bytes": 160435,
+        "gzip_bytes": 17144,
+        "decoded_sha256": "0938ab662a72c62f6bf09fbca0dbacb7d7624ed2efa97038042d13f35cbfa397"
+      },
+      "jev": {
+        "run_id": "2026-10-22T00-54-26.159Z-jev-5460ce3c",
+        "task_id": "lemat-sdl-11-priority-tail",
+        "method": "jev",
+        "path": "recordings/2026-10-22T00-54-26.159Z-jev-5460ce3c/lemat-sdl-11-priority-tail/result.json.gz",
+        "source_sha256": "09a73cac09f054139b8d9e7443ccdd2b06317afee9d30132615667ff4878ad70",
+        "gzip_sha256": "ae6caf00378a0f232afd0bb4b14df6064711df8f7f7729a7570711f90ebd0ea9",
+        "bytes": 159470,
+        "gzip_bytes": 16438,
+        "decoded_sha256": "09a73cac09f054139b8d9e7443ccdd2b06317afee9d30132615667ff4878ad70"
+      },
+      "ui": {
+        "run_id": "2026-10-21T15-46-17.105Z-heuristic-6dfffc34",
+        "task_id": "lemat-sdl-04-staggered-jobs",
+        "method": "heuristic",
+        "path": "recordings/2026-10-21T15-46-17.105Z-heuristic-6dfffc34/lemat-sdl-04-staggered-jobs/result.json.gz",
+        "source_sha256": "f179c6eea22c379feb427e9b2bd38defd6228ff6f367aa2811a87b3c9f09de4c",
+        "gzip_sha256": "24bd3064e729aedafd4ba76b3a8ef3b89162e5da22dbb4761091994cf50fe973",
+        "bytes": 2013482,
+        "gzip_bytes": 114748,
+        "decoded_sha256": "f179c6eea22c379feb427e9b2bd38defd6228ff6f367aa2811a87b3c9f09de4c"
+      }
+    }
+  },
+  "shot_plan": {
+    "version": "cinematic-2",
+    "present": {
+      "starts": [
+        450,
+        144,
+        189
+      ],
+      "rates": [
+        3,
+        3,
+        3
+      ]
+    },
+    "future": {
+      "starts": [
+        189,
+        123,
+        309
+      ],
+      "rates": [
+        3,
+        3,
+        3
+      ],
+      "focus": [
+        [
+          20.6,
+          16.6
+        ],
+        [
+          19.5,
+          15
+        ],
+        [
+          20.6,
+          16.6
+        ]
+      ],
+      "tracking_car": "amr-12"
+    },
+    "ui": {
+      "start": 24477
+    }
+  },
+  "motion_validation": {
+    "present": {
+      "elapsed_s": 2526.1136644445946,
+      "unique_arms_with_executed_actions": 2,
+      "peak_arm_actions": 2,
+      "peak_amr_tours": 3,
+      "active_device_models": [
+        "flex_liquid_handler",
+        "flex_grinder",
+        "flex_stirrer",
+        "flex_press",
+        "flex_centrifuge",
+        "flex_sonicator",
+        "furnace",
+        "oven"
+      ]
+    },
+    "future": {
+      "elapsed_s": 480,
+      "unique_arms_with_executed_actions": 96,
+      "peak_arm_actions": 96,
+      "peak_amr_tours": 18,
+      "active_device_models": [
+        "flex_liquid_handler",
+        "flex_grinder",
+        "flex_sonicator",
+        "xrd",
+        "flex_filter",
+        "flex_press",
+        "flex_stirrer",
+        "flex_centrifuge",
+        "furnace",
+        "oven"
+      ]
+    }
+  },
+  "route_cache_equivalence": {
+    "case": "cinematic-present-v2",
+    "unmodified_engine_sha256": "95f23be17988f57e185dffea2a3aaa250d472d7840813c8cd91be67762f23dde",
+    "current_media_engine_sha256": "95f23be17988f57e185dffea2a3aaa250d472d7840813c8cd91be67762f23dde",
+    "identical": true
+  },
+  "render_source_hashes": {
+    "frontend/media/cinematic.mjs": "602078fedf3d6d8d189eefc24b4561a93abf036858993c25bd590e64f0aef685",
+    "frontend/media/lab-furniture.mjs": "fbdd9fee5a3d6219d927887a1f59a496f6aed8ce393b3e5392fc5743a79f1484",
+    "frontend/media/index.html": "17565c7e90bb3710d2a04c70fea9f03ff7a780bcd293587037a64ae74b148087",
+    "scripts/prepare-cinematic-media.mjs": "399023be6f0a7e4996cde976f96ea9b3ac157b33ce68d570455366c57b463b88",
+    "scripts/plan-cinematic-shots.mjs": "7caf6698ea7b2b841fcc5b3e79f83dc015eb37ceccb33201626fd17648c4ee5d",
+    "scripts/verify-cinematic-engine.mjs": "0c73af3676ee35ac4eeb922ae03960b4bd4979bec1ea47570ce6b50827476861",
+    "scripts/media-route-cache-loader.mjs": "8a6a21d98dc30d190f5e206a98fa993179b7eb04e2ac294ed571ca983411db47",
+    "scripts/encode-cinematic-media.mjs": "e85c8bf48bdd7e92357f14b890225aa1113a2dd5151a4a29905a422ddd10d20d",
+    "scripts/package-cinematic-media.mjs": "15df8d38de068c6becac06a5581e15b0d107646a68fa76f00c00411775f94454",
+    "scripts/serve-hackathon-media.mjs": "54c71e3ac8d9d173b42ab3c2f0bc99bc14115f357f97483a49e277f4979b3c34"
+  },
+  "video_validation": {
+    "revision": "cinematic-2",
+    "created_at": "2026-10-22T03:55:20.402Z",
+    "ffmpeg": "ffmpeg version 8.0 Copyright (c) 2000-2025 the FFmpeg developers",
+    "artifacts": [
+      {
+        "file": "mp4/01-present-sdl.mp4",
+        "bytes": 30616850,
+        "sha256": "7725a6d2abd0a389822af614dfb1b917ad1e256c0497a1be9af7d18d7bc60f88",
+        "codec": "h264",
+        "profile": "High",
+        "width": 1920,
+        "height": 1080,
+        "frames": 900,
+        "duration_s": 30,
+        "fps": "30/1",
+        "color_space": "bt709",
+        "color_primaries": "bt709",
+        "color_transfer": "bt709",
+        "pixel_format": "yuv420p",
+        "audio_streams": 0
+      },
+      {
+        "file": "masters/01-present-sdl.mov",
+        "bytes": 788320882,
+        "sha256": "bbab783e22f84c2ee5cdd69d06fbe0a9de473c1d9abacb858eee86c2c6a9e14a",
+        "codec": "prores",
+        "profile": "HQ",
+        "width": 1920,
+        "height": 1080,
+        "frames": 900,
+        "duration_s": 30,
+        "fps": "30/1",
+        "color_space": "bt709",
+        "color_primaries": "bt709",
+        "color_transfer": "bt709",
+        "pixel_format": "yuv422p10le",
+        "audio_streams": 0
+      },
+      {
+        "file": "mp4/02-future-sdl.mp4",
+        "bytes": 67196563,
+        "sha256": "3bc86bf463d0ad42fa6baf180a8b06e5d7e6627ae32aaad5dd94183896f8e11c",
+        "codec": "h264",
+        "profile": "High",
+        "width": 1920,
+        "height": 1080,
+        "frames": 900,
+        "duration_s": 30,
+        "fps": "30/1",
+        "color_space": "bt709",
+        "color_primaries": "bt709",
+        "color_transfer": "bt709",
+        "pixel_format": "yuv420p",
+        "audio_streams": 0
+      },
+      {
+        "file": "masters/02-future-sdl.mov",
+        "bytes": 702025424,
+        "sha256": "e1b7096fc2a1b869c087a1b4553ca8372a0c62099fb17e2294045381e8904d9d",
+        "codec": "prores",
+        "profile": "HQ",
+        "width": 1920,
+        "height": 1080,
+        "frames": 900,
+        "duration_s": 30,
+        "fps": "30/1",
+        "color_space": "bt709",
+        "color_primaries": "bt709",
+        "color_transfer": "bt709",
+        "pixel_format": "yuv422p10le",
+        "audio_streams": 0
+      },
+      {
+        "file": "mp4/03-benchmark-task.mp4",
+        "bytes": 1051482,
+        "sha256": "a4333632ce97892505dad9a6cec065f3c1a5b4a6f94fcb389d4734af5032d12a",
+        "codec": "h264",
+        "profile": "High",
+        "width": 1920,
+        "height": 1080,
+        "frames": 900,
+        "duration_s": 30,
+        "fps": "30/1",
+        "color_space": "bt709",
+        "color_primaries": "bt709",
+        "color_transfer": "bt709",
+        "pixel_format": "yuv420p",
+        "audio_streams": 0
+      },
+      {
+        "file": "masters/03-benchmark-task.mov",
+        "bytes": 401359761,
+        "sha256": "5760bc883529f46fe284ebeb2ccbfa15b670bcedd84c749871473493fb30dc4b",
+        "codec": "prores",
+        "profile": "HQ",
+        "width": 1920,
+        "height": 1080,
+        "frames": 900,
+        "duration_s": 30,
+        "fps": "30/1",
+        "color_space": "bt709",
+        "color_primaries": "bt709",
+        "color_transfer": "bt709",
+        "pixel_format": "yuv422p10le",
+        "audio_streams": 0
+      },
+      {
+        "file": "mp4/04-ui-tour.mp4",
+        "bytes": 14357208,
+        "sha256": "eff359e97ef1b933521c65e8476b31d48701951ffd1d3e18c6ac107d18696dd0",
+        "codec": "h264",
+        "profile": "High",
+        "width": 1920,
+        "height": 1080,
+        "frames": 900,
+        "duration_s": 30,
+        "fps": "30/1",
+        "color_space": "bt709",
+        "color_primaries": "bt709",
+        "color_transfer": "bt709",
+        "pixel_format": "yuv420p",
+        "audio_streams": 0
+      },
+      {
+        "file": "masters/04-ui-tour.mov",
+        "bytes": 1902326092,
+        "sha256": "3784ff620d2e0a988abf24fd3e7b47d2acd9300fe3388265674f2773faf7fbcf",
+        "codec": "prores",
+        "profile": "HQ",
+        "width": 3840,
+        "height": 2160,
+        "frames": 900,
+        "duration_s": 30,
+        "fps": "30/1",
+        "color_space": "bt709",
+        "color_primaries": "bt709",
+        "color_transfer": "bt709",
+        "pixel_format": "yuv422p10le",
+        "audio_streams": 0
+      },
+      {
+        "file": "mp4/05-gpt-policy.mp4",
+        "bytes": 12408041,
+        "sha256": "e091dcdb52254124099f13048cd65fdc1ec16574896362e65fe4659c9713a27f",
+        "codec": "h264",
+        "profile": "High",
+        "width": 1920,
+        "height": 1080,
+        "frames": 900,
+        "duration_s": 30,
+        "fps": "30/1",
+        "color_space": "bt709",
+        "color_primaries": "bt709",
+        "color_transfer": "bt709",
+        "pixel_format": "yuv420p",
+        "audio_streams": 0
+      },
+      {
+        "file": "masters/05-gpt-policy.mov",
+        "bytes": 509703485,
+        "sha256": "0c2c8d625be5a07bd0413de00a375dc304a32412f7dc4ae3ecf97fcf421ecfec",
+        "codec": "prores",
+        "profile": "HQ",
+        "width": 1920,
+        "height": 1080,
+        "frames": 900,
+        "duration_s": 30,
+        "fps": "30/1",
+        "color_space": "bt709",
+        "color_primaries": "bt709",
+        "color_transfer": "bt709",
+        "pixel_format": "yuv422p10le",
+        "audio_streams": 0
+      },
+      {
+        "file": "mp4/05-jev-priorities.mp4",
+        "bytes": 13199011,
+        "sha256": "6d47a3aee2a9a389b4bb20707f0a9b36c0d61015a2ff33e151d529f1c43d77b6",
+        "codec": "h264",
+        "profile": "High",
+        "width": 1920,
+        "height": 1080,
+        "frames": 900,
+        "duration_s": 30,
+        "fps": "30/1",
+        "color_space": "bt709",
+        "color_primaries": "bt709",
+        "color_transfer": "bt709",
+        "pixel_format": "yuv420p",
+        "audio_streams": 0
+      },
+      {
+        "file": "masters/05-jev-priorities.mov",
+        "bytes": 473459682,
+        "sha256": "3833b6d26b5f771bc48c4fe64a76bbb957cd69cfa180a7cc0303a5f9a4ef753c",
+        "codec": "prores",
+        "profile": "HQ",
+        "width": 1920,
+        "height": 1080,
+        "frames": 900,
+        "duration_s": 30,
+        "fps": "30/1",
+        "color_space": "bt709",
+        "color_primaries": "bt709",
+        "color_transfer": "bt709",
+        "pixel_format": "yuv422p10le",
+        "audio_streams": 0
+      }
+    ],
+    "gif": {
+      "file": "docs/assets/sdl-future-lab.gif",
+      "bytes": 21916033,
+      "sha256": "33df923464eace7927655d7c456db672ddcff44bf44b9aefc1657646536de78d"
+    }
+  },
+  "scope": "Synthetic cinematic demonstration (future is a 480s truncated prefix, no completion score) plus unchanged published benchmark recordings. Public saved policy summaries, not private chain of thought or fresh inference. Clip 06 deferred."
+}
