@@ -27,13 +27,13 @@ function adjustResolution(id){
 async function lab(key,t,mode,camera,options={}){
  if(!data[key])throw new Error(key+' simulation is still being prepared');
  const replay=projectedReplay(data[key].replay,t),sig=key+':'+replay.layout.devices.map(d=>d.id).join(',');
- if(mode==='2d'){plan.set(replay,catalog);plan.draw(t,{labels:options.labels??false,ports:false,routes:true,reach:false});return $('#stage2');}
+ if(mode==='2d'){plan.set(replay,catalog);plan.draw(t,{labels:options.labels??false,activity:!['present','future'].includes(key),activityScale:canvas.width/1920,ports:false,routes:true,reach:false});return $('#stage2');}
  if(keyNow!==key||signature!==sig){await view.set(replay,catalog);if(['present','future'].includes(key))fixtures=furnish(view,replay);else{fixtures={sun:view.scene.children.find(o=>o.isDirectionalLight)};view.renderer.toneMapping=0;view.renderer.toneMappingExposure=1;view.scene.children.filter(o=>o.isHemisphereLight).forEach(l=>l.intensity=2.8);fixtures.sun.intensity=4;fixtures.sun.position.set(-4,-2,12);fixtures.sun.target.position.set(0,0,0);}keyNow=key;signature=sig;}
  else{view.result=replay;for(const machine of view.devices){const d=replay.layout.devices.find(d=>d.id===machine.d.id);if(d){machine.d=d;machine.group.position.x=d.x;machine.group.position.y=d.y;machine.group.rotation.z=d.rotation*Math.PI/180;}}}
  view.controls.enableDamping=false;view.controls.target.set(...camera.target);view.camera.position.set(...camera.at);view.camera.fov=camera.fov??40;view.camera.updateProjectionMatrix();
  const shadow=key!=='future'||options.close;view.renderer.shadowMap.enabled=Boolean(shadow);
  const sun=fixtures.sun,range=key==='future'?8:10;sun.shadow.camera.left=-range;sun.shadow.camera.right=range;sun.shadow.camera.top=range;sun.shadow.camera.bottom=-range;sun.shadow.camera.updateProjectionMatrix();
- view.draw(t,{labels:false,ports:false,reach:false});return view.renderer.domElement;
+ view.draw(t,{labels:false,activity:!['present','future'].includes(key),activityScale:canvas.width/1920,ports:false,reach:false});return view.renderer.domElement;
 }
 function presentCamera(sec){
  const shot=Math.floor(sec/10),f=(sec%10)/10;
@@ -105,4 +105,4 @@ async function capture(ids){
   if(n%15===0){status.textContent=id+' · '+n+' / 900';await new Promise(r=>setTimeout(r,0));}
  }}status.textContent='Export complete · '+ids.join(', ');}catch(e){status.textContent=e.message;console.error(e);}finally{busy=false;document.querySelectorAll('button,input,select').forEach(e=>e.disabled=false);}
 }
-$('#preview').onclick=()=>preview().catch(e=>status.textContent=e.message);$('#clip').onchange=preview;$('#at').oninput=preview;$('#export').onclick=()=>capture([$('#clip').value]);$('#all').onclick=()=>capture([...$('#clip').options].map(o=>o.value).filter(id=>!['01-present-sdl','04-ui-tour'].includes(id)));await preview();
+$('#preview').onclick=()=>preview().catch(e=>status.textContent=e.message);$('#clip').onchange=preview;$('#at').oninput=preview;$('#export').onclick=()=>capture([$('#clip').value]);$('#all').onclick=()=>capture([...$('#clip').options].map(o=>o.value).filter(id=>!['01-present-sdl','02-future-sdl','04-ui-tour'].includes(id)));await preview();
