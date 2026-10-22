@@ -28,7 +28,7 @@ Sessions pin the source hashes loaded by the server. After an implementation cha
 
 `agent/llm-scheduler.mjs` exports `createLLMController({generate})`. `generate` receives `{system, observation, output_schema, signal}` and must return a complete structured SchedulerDecision. The instructions and schema come from the public contract, not development AGENTS/skills. It does not implicitly read keys, select a model or make network calls.
 
-`agent/scheduler-controller.mjs` exports `runController(session, controller, {onEpoch, signal})`. It invokes the injected controller only at decision boundaries, enforces response timeouts, freezes simulation time during inference, logs host duration, and falls back to the last accepted priorities/layout after running-time timeout or call exhaustion. With no valid initial design, exhausted attempts terminate without a score. A host using SchedulerService should save on each epoch and after completion. Model/provider/prompt/token/spending metadata must be recorded by a real provider integration before any comparison; no live provider has been configured or invoked.
+`agent/scheduler-controller.mjs` exports `runController(session, controller, {onEpoch, signal})`. It invokes the injected controller only at decision boundaries, enforces response timeouts, freezes simulation time during inference, logs host duration, and falls back to the last accepted priorities/layout after running-time timeout or call exhaustion. With no valid initial design, exhausted attempts terminate without a score. A host using SchedulerService should save on each epoch and after completion. Model/provider/prompt/token/spending metadata must be recorded by a real provider integration for each fresh comparison. The published LeMat suite uses separate provider adapters.
 
 ## Physical movement model
 
@@ -42,4 +42,4 @@ The engine reserves disconnection, movement, reconnection and calibration interv
 
 ## Validation
 
-`npm run check` covers canonical/legacy contracts, Python boundary checks and Node behavioral/integration tests. `LABOPS_URL=http://127.0.0.1:4180 node scripts/smoke-scheduler.mjs` exercises the real HTTP API with deterministic manual decisions, including an actual physical arm/device move, retry identity and completion. These smokes are software validation only. The separately authorized LeMat suite runs fresh Luna/Jev inference through the bounded CLI provider adapters; see `docs/LEMAT_SDL_BENCHMARK.md`.
+`npm run check` covers canonical/legacy contracts, Python boundary checks and Node behavioral/integration tests. `LABOPS_URL=http://127.0.0.1:4180 node scripts/smoke-scheduler.mjs` exercises the real HTTP API with deterministic manual decisions, including an actual physical arm/device move, retry identity and completion. These smokes are software validation only. The published LeMat suite runs fresh Luna/Jev inference through the bounded CLI provider adapters; see `docs/LEMAT_SDL_BENCHMARK.md`.

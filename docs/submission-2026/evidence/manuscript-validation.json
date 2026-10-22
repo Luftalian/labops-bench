@@ -1,0 +1,110 @@
+{
+  "pages": 1,
+  "title": "LabOpsBench: Benchmarking AI Agents for Laboratory Configuration and Experiment Scheduling",
+  "authors": [
+    "Ryoma Yamamoto",
+    "Haruki Nakajima"
+  ],
+  "verified_result_rows": [
+    {
+      "scenario": "lemat-sdl-12-overfull-inventory",
+      "method": "fifo",
+      "makespan_s": 27581.27415721286,
+      "hours_display": "7.661",
+      "source_sha256": "e67829cb7ac135ff4a5a2ffe7d031c740fe9989ea838973b4887f78e71dc6a78"
+    },
+    {
+      "scenario": "lemat-sdl-12-overfull-inventory",
+      "method": "heuristic",
+      "makespan_s": 27581.27415721286,
+      "hours_display": "7.661",
+      "source_sha256": "83de91c5aec205a9a73551c86d0493f39507e57f1bf766008e2a5907abf83fdd"
+    },
+    {
+      "scenario": "lemat-sdl-12-overfull-inventory",
+      "method": "algorithm-advanced",
+      "makespan_s": 18244.321967253112,
+      "hours_display": "5.068",
+      "source_sha256": "62b6eff768ba60b9b2be21ad9f4e985b795346293000c416b7243b22c2ea43e1"
+    },
+    {
+      "scenario": "lemat-sdl-14-layout-distance",
+      "method": "algorithm-advanced",
+      "makespan_s": 2457.3181267681575,
+      "hours_display": "0.683",
+      "source_sha256": "d5574db3fd1aae6f3a70472defab18dea57fbad08deeaa286b70771b26e9cdd2"
+    },
+    {
+      "scenario": "lemat-sdl-12-overfull-inventory",
+      "method": "gpt-6-luna-medium",
+      "makespan_s": 17494.475228627874,
+      "hours_display": "4.860",
+      "source_sha256": "e1b38ce73bf65ef692e65beb577d2a4b3f69a18cc871677b1dcd1cd9a2d2571a"
+    },
+    {
+      "scenario": "lemat-sdl-14-layout-distance",
+      "method": "gpt-6-luna-medium",
+      "makespan_s": 2605.8756776074874,
+      "hours_display": "0.724",
+      "source_sha256": "d614dbe485acf0f6aae9a1e14e12b4811fdf170fc42a9212c38a7b6fcc14f060"
+    },
+    {
+      "scenario": "lemat-sdl-12-overfull-inventory",
+      "method": "jev",
+      "makespan_s": 19652.160983626552,
+      "hours_display": "5.459",
+      "source_sha256": "0418c27213d0828b437561186b7c41beb507e8955405ec2166c5421fc1162ab8"
+    },
+    {
+      "scenario": "lemat-sdl-14-layout-distance",
+      "method": "jev",
+      "makespan_s": 2457.3181267681575,
+      "hours_display": "0.683",
+      "source_sha256": "2b0b9b0bbe8590e2bbc67d3dc152147801286a85b90502dad62050be42101f89"
+    }
+  ],
+  "verified_completed_trials": 50,
+  "verified_methods": {
+    "fifo": 4,
+    "heuristic": 14,
+    "algorithm-advanced": 4,
+    "gpt-6-luna-medium": 14,
+    "jev": 14
+  },
+  "lemat_citations": {
+    "paper": "https://arxiv.org/abs/2510.26824v2",
+    "public_annotations": "https://github.com/LeMaterial/lematerial-llm-synthesis/tree/e4bacbcbac084544ca68d48242336c2e36f6ee15/annotations",
+    "source_records_used": 3,
+    "derived_scheduling_templates": 8
+  },
+  "first_sdl_citation": {
+    "label": 1,
+    "doi": "10.1021/acs.chemrev.4c00055"
+  },
+  "inline_official_sources": [
+    "https://acceleration.utoronto.ca/news/u-of-t-receives-200-million-grant-to-support-acceleration-consortiums-self-driving-labs-research",
+    "https://www.cmu.edu/news/stories/archives/2026/july/connecting-autonomous-laboratories-to-speed-scientific-advancement",
+    "https://www.jst.go.jp/program/arise/pdf/arise_siryo_st.pdf#page=8"
+  ],
+  "benchmark_scope": "Equipment configuration, prioritization of predefined experimental jobs, and allowed equipment exchanges in simulation; engine performs dispatch and robot motion.",
+  "original_evaluation_source_commit": "00e8c4f2ac9bf4f7cfa769a3b6fb668275f94d08",
+  "public_evaluation_source_commit": "57a6279a58305f7d847079ea4be58040a2b894f3",
+  "files": {
+    "LabOpsBench-one-page-summary-latex.pdf": {
+      "bytes": 265080,
+      "sha256": "5d01fe003f1539996a8e60859715e2a089df4329bafeb09633d416b04064f42a"
+    },
+    "LabOpsBench-evaluation-loop.png": {
+      "bytes": 419174,
+      "sha256": "2a514a81dde3a265c712c08936fddd6458094465c4dec476b144e41a47e12b0d"
+    },
+    "LabOpsBench-one-page-summary-latex-preview.png": {
+      "bytes": 744869,
+      "sha256": "58721f96663e7822ae231fedd304939763d7af7cfa670a4cef4abfc6dd702167"
+    },
+    "Citation-review.md": {
+      "bytes": 3157,
+      "sha256": "fc20b4f1c1a68a0add55ac14a7f42f0c504691bd1721fb6e1946940ed4f6c478"
+    }
+  }
+}

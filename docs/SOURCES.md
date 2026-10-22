@@ -79,7 +79,7 @@ annotation IDとarXiv IDが直接一致。採用は`sto-etch`の単位操作窓�
 - 撹拌機の寸法参照：[IKA RCT basic technical data](https://www.ika.com/en/Products-LabEq/Magnetic-Stirrers-pg188/RCT-basic-25008259/Technical-Data-cptd.html)。元catalogのgeometry欄にも参照を保持。
 - アームにはメーカーSTLと[catalog](../backend/poc/sim/v2/data/catalog.json)の到達・時間近似を使用する。実機の安全証明ではない。
 - 他の装置body、AMR、ポート、buffer、速度、搬出入・再接続・校正時間、部屋と到着条件は各catalog・task・[移設モデル](../backend/scheduler/data/relocation.json)の仮定。履歴の価格は採点へ使わない。
-- 紹介映像の短い処理時間・家具・大規模配置は撮影用synthetic条件。[映像の出典と再生成](HACKATHON_MEDIA_V2.md)を参照し、正式比較の成績に混ぜない。
+- 紹介映像の短い処理時間・家具・大規模配置は撮影用synthetic条件。[映像の出典と再生成](HACKATHON_MEDIA_V3.md)を参照し、正式比較の成績に混ぜない。
 
 ## ソフトウェア・モデル・配布
 

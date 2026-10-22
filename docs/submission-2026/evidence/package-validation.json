@@ -1,0 +1,33 @@
+{
+  "checked_on": "2026-10-22",
+  "scope": "Public distribution; source, result and author metadata preserved while internal documents and superseded drafts are excluded from history.",
+  "history": {
+    "retained_original_development_commits": 13,
+    "pruned_internal_setup_only_commits": 1,
+    "author_name_email_date_and_committer_name_email_date_preserved": true,
+    "excluded_original_document_blob_versions_absent": 105,
+    "shared_final_paper_screenshot_retained": true
+  },
+  "checks": {
+    "selected_recordings": 50,
+    "quoted_result_rows": 8,
+    "source_records": 3,
+    "workflow_templates": 8,
+    "bibliography_entries": 7,
+    "python_tests": 46,
+    "node_integration_tests": 49,
+    "poc_tests": 39,
+    "contract_checks": "passed",
+    "imported_source_integrity": "passed",
+    "archived_luna_decision_replay": "passed",
+    "offline_results_bundle": "passed",
+    "http_smoke_tests": [
+      "fixed counts",
+      "legacy integration",
+      "scheduler"
+    ]
+  },
+  "manuscript": "Final PDF and LaTeX source are byte-identical to the validated submission. No changes to recorded scientific inputs or scores.",
+  "license_status": "Project-wide license not yet selected; third-party licenses retained.",
+  "new_model_runs": 0
+}

@@ -4,4 +4,4 @@ These losslessly compressed engine results are intentionally tracked so a fresh 
 
 Generate only from the preserved raw run directories with `npm run publish:recordings`, after `npm run benchmark:report`. Run `npm run build:results` to verify hashes and produce the standalone viewer. See `docs/RESULTS_SHARING.md`.
 
-This is a selected replay distribution, not the complete raw experiment archive. Provider input/output, credentials, local sessions, journals and source snapshots are excluded from this distribution. It remains within the private repository's collaborator access.
+This is a selected replay distribution, not the complete raw experiment archive. Provider input/output, credentials, local sessions, journals and source snapshots are excluded from this distribution. The selected recordings are distributed in this public repository.

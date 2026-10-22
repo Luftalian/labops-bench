@@ -2,7 +2,7 @@ name: starter-checks
 on:
   pull_request:
   push:
-    branches: [main, feat/poc-integration]
+    branches: [main]
   workflow_dispatch:
 permissions:
   contents: read
@@ -25,10 +25,10 @@ jobs:
       - name: Viewer instructions
         run: |
           cat >> "$GITHUB_STEP_SUMMARY" <<'EOF'
-          ## Private benchmark results UI
+          ## Recorded benchmark results UI
           Download **labopsbench-results-ui** below, unzip it, then run `node serve.mjs` inside the extracted folder.
           Open http://127.0.0.1:4181/ to inspect all 50 saved trials, priorities, exchanges and 2D/3D playback.
-          No Python, npm install, model API key or new model call is needed. Access follows this private repository.
+          No Python, npm install, model API key or new model call is needed. Source and recorded results are available in the public repository.
           EOF
   contracts:
     runs-on: ubuntu-latest
@@ -45,6 +45,7 @@ jobs:
         with:
           node-version: '22'
       - run: python -m pip install -r requirements-lock.txt
+      - run: python docs/submission-2026/verify_evidence.py
       - run: python scripts/check_contracts.py
       - run: python -m unittest discover -s tests -v
       - run: node --version

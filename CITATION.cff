@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "Please cite LabOpsBench when using this benchmark or its recorded results."
+title: "LabOpsBench: Benchmarking AI Agents for Laboratory Configuration and Experiment Scheduling"
+type: software
+authors:
+  - family-names: Yamamoto
+    given-names: Ryoma
+  - family-names: Nakajima
+    given-names: Haruki
+repository-code: "https://github.com/Luftalian/labops-bench"
+url: "https://github.com/Luftalian/labops-bench"
+abstract: "A simulation-based benchmark for equipment configuration and experiment scheduling under laboratory resource constraints."
+keywords:
+  - self-driving laboratories
+  - AI agents
+  - scheduling
+  - simulation
+  - benchmark

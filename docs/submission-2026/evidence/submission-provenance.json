@@ -1,0 +1,39 @@
+{
+  "original_evaluation_source_commit": "00e8c4f2ac9bf4f7cfa769a3b6fb668275f94d08",
+  "public_evaluation_source_commit": "57a6279a58305f7d847079ea4be58040a2b894f3",
+  "original_submission_commit": "538e08094c5b18c5e494d8ea0bda9027efadfb37",
+  "public_submission_commit": "73ef01263a4270e001f7c27b4cfd1bd43d2f1b27",
+  "original_viewer_video_commit": "6ea24b35aa14ebdf5c39bbea8df1faeb9d13ec20",
+  "public_viewer_video_commit": "c0aa3ed0df17832673dc30eaba6ff822e061b248",
+  "unchanged_evaluation_inputs": [
+    {
+      "path": "benchmark/published/manifest.json",
+      "sha256": "b9ef748dd7f3d9d4ba621b20c927126471125331f4688563ad24356ab6f1a2f7",
+      "unchanged_since_evaluation_source": true
+    },
+    {
+      "path": "benchmark/lemat-sdl/scenarios.json",
+      "sha256": "f2563c9e1f38a98e5766774276f71d2b8a85e63bee05f8f23d2584d87279792c",
+      "unchanged_since_evaluation_source": true
+    },
+    {
+      "path": "benchmark/lemat-sdl/workflows.json",
+      "sha256": "a7a6eecc4e07c6bf9e1c85ac9ab4c72c9187a428397a188dff6373dcad2dc8d2",
+      "unchanged_since_evaluation_source": true
+    },
+    {
+      "path": "backend/scheduler/session.mjs",
+      "sha256": "585bbed72cb147f0b9c51efbac92cd7a4307fa3c85b0892eb34374f01f91de93",
+      "unchanged_since_evaluation_source": true
+    },
+    {
+      "path": "agent/policy-runtime.mjs",
+      "sha256": "380198769628ca0ee0bcd7fc2941ea3bef727628ea55d69063a98b97e25a1d76",
+      "unchanged_since_evaluation_source": true
+    }
+  ],
+  "canonical_paper": "latex/main.tex",
+  "selected_recordings_manifest": "benchmark/published/manifest.json",
+  "history_note": "Public history omits internal planning, research working notes and superseded drafts. Retained original commits preserve author and committer identities and timestamps; commit IDs changed. One internal-setup-only commit became empty and was pruned. Original result metadata retains its original source IDs; use the public mappings above.",
+  "new_model_runs": 0
+}

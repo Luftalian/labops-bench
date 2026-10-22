@@ -16,7 +16,7 @@ PoCが取得済みだった原本を読み、SHA-256を照合して再利用し�
 
 `workflows.json` にURL、revision、原本hash、extraction/material index、JSON pointer、元の時間値と単位、採用／対象外の工程、装置mapping、仮定を保持する。単位操作jobを「材料合成全体の完了」と数えない。`ha-full` / `cbi-full` も「抽出に記載された全工程の直列スケジューリング近似」であり、実験成功を保証する完全なロボットレシピではない。独立した前駆体調製を直列化し、手作業を自動化できることや標準容器への適合は仮定する。
 
-公開リポジトリには [Apache-2.0のLICENSE](https://github.com/LeMaterial/lematerial-llm-synthesis/blob/e4bacbcbac084544ca68d48242336c2e36f6ee15/LICENSE) があり、[原文を同梱](../licenses/LeMat-Synth-APACHE-2.0.txt)する。[帰属と加工表示](../benchmark/lemat-sdl/ATTRIBUTION.md)、[元論文・DOIと別の利用条件](SOURCES.md#主要ベンチマークの元論文)、[全レコード一覧](LEMAT_SOURCE_RECORDS.md)を保持する。原論文・図・ゲート付きデータ全体の再配布権へ拡張しない。rawはGit対象外で、再取得URL/hashを保存する。
+公開リポジトリには [Apache-2.0のLICENSE](https://github.com/LeMaterial/lematerial-llm-synthesis/blob/e4bacbcbac084544ca68d48242336c2e36f6ee15/LICENSE) があり、[原文を同梱](../licenses/LeMat-Synth-APACHE-2.0.txt)する。[帰属と加工表示](../benchmark/lemat-sdl/ATTRIBUTION.md)、[元論文・DOIと別の利用条件](SOURCES.md#主要ベンチマークの元論文)、[全レコード一覧](LEMAT_SOURCE_RECORDS.md)を保持する。原論文・図・ゲート付きデータ全体の再配布権へ拡張しない。使用した公開注釈の原本と再取得URL/hashを同梱する。
 
 ## 元の10課題で確認すること
 
@@ -59,7 +59,7 @@ PoCが取得済みだった原本を読み、SHA-256を照合して再利用し�
 
 Jevには同じ観測・候補からChoiceとjob別Scoreを依頼し、`round(score / 4 * 1000)` で優先度へ変換する。[Choice](https://docs.typesafe.ai/primitives/choice)、[Score](https://docs.typesafe.ai/primitives/score)、[公式API](https://docs.typesafe.ai/api/system-one)。`jev-1.14.0` を固定し、長文コンテキストを使用する。取得できたusageから文書化されたinput単価で見積もる。失敗時も保守的な予約額を残し、3ドルを超える呼出しは送らない。provider障害をヒューリスティックの結果へ置き換えない。
 
-Lunaはユーザー指定のCodex枠・`gpt-6-luna`・medium。専用サブエージェントが各観測を新たに読み、判断JSONを返す。再生はfresh inferenceと分ける。Lunaの請求額・token数を取得できない場合は未取得とし、推測値を作らない。[Codex非対話実行の公式説明](https://developers.openai.com/codex/noninteractive)。このマシンではCLIがhelpでも137終了したため、CLIを正常実行できたとは扱わない。
+保存試行のLunaはCodex経由の`gpt-6-luna`・medium。専用サブエージェントが各観測を新たに読み、判断JSONを返す。再生はfresh inferenceと分ける。Lunaの請求額・token数を取得できない場合は未取得とし、推測値を作らない。[Codex非対話実行の公式説明](https://developers.openai.com/codex/noninteractive)。このrunnerはCodex CLIを自動起動せず、別プロセスのcontestantからの回答を待つ。
 
 ## 再現コマンド
 
@@ -72,9 +72,9 @@ node scripts/curate-lemat-sdl.mjs results/local/lemat-source
 node scripts/run-lemat-sdl.mjs
 LABOPS_JEV_ENV_FILE=/path/to/.env node scripts/run-lemat-model.mjs jev
 
-# Lunaは専用Codex contestantが /private/tmp/labops-luna-sdl-inbox を読む。
+# Lunaは別プロセスのcontestantが専用inboxの観測を読み、回答JSONを書く。
 # fresh observation -> choice/priorities JSON。自動生成したpolicyの代用は禁止。
-node scripts/run-lemat-model.mjs luna
+LABOPS_LUNA_INBOX=/tmp/labops-fresh-inbox node scripts/run-lemat-model.mjs luna
 
 # 保存した判断を現在のエンジンで再生し、trace/jobs/layout/metricsを比較。
 node scripts/verify-lemat-replay.mjs results/lemat-sdl/<run-directory>
