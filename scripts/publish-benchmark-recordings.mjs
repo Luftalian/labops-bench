@@ -9,7 +9,7 @@ const digest=bytes=>createHash('sha256').update(bytes).digest('hex');
 export function publishRecordings(){
   const report=JSON.parse(fs.readFileSync(path.join(root,'frontend/benchmarks/report.json'))),folder=path.join(root,'benchmark/published'),files=[];
   for(const row of report.results){
-    if(!/^[a-zA-Z0-9T._-]+$/.test(row.run_id)||!/^lemat-sdl-[a-z0-9-]+$/.test(row.task_id))throw new Error('Invalid recording identity');
+    if(!/^[a-zA-Z0-9T._-]+$/.test(row.run_id)||!/^(?:lemat-sdl-[a-z0-9-]+|scheduler-room-\d+x\d+-dev)$/.test(row.task_id))throw new Error('Invalid recording identity');
     const raw=fs.readFileSync(path.join(root,'results/lemat-sdl',row.run_id,row.task_id,'result.json')),result=JSON.parse(raw);
     if(result.status!==row.status||result.context.task_hash!==row.task_hash||result.context.workload_hash!==row.workload_hash||result.metrics.makespan_s!==row.makespan_s)throw new Error('Report/result disagreement: '+row.task_id);
     const bytes=gzipSync(raw,{level:9});if(!gunzipSync(bytes).equals(raw))throw new Error('Lossy recording export');

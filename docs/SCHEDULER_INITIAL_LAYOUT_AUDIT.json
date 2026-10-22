@@ -1,13 +1,26 @@
 {
-  "generated_at": "2026-10-22T01:03:06.964Z",
+  "generated_at": "2026-10-22T12:25:47.059Z",
   "source": "Saved journal initial_design payloads; exact canonical signature includes selected counts, devices, arm poses and AMR count.",
   "checks": [
     {
       "task_id": "lemat-sdl-01-single-station",
       "track": "original-v1",
+      "comparison_method": "heuristic",
       "same_initial_as_reference": [
         {
+          "method": "fifo",
+          "same": true,
+          "candidate": "capacity",
+          "design_hash": "1a558064b3ecff106b21515093b53debb7389b8e6828a88d2def66efd18f6886"
+        },
+        {
           "method": "heuristic",
+          "same": true,
+          "candidate": "capacity",
+          "design_hash": "1a558064b3ecff106b21515093b53debb7389b8e6828a88d2def66efd18f6886"
+        },
+        {
+          "method": "algorithm-advanced",
           "same": true,
           "candidate": "capacity",
           "design_hash": "1a558064b3ecff106b21515093b53debb7389b8e6828a88d2def66efd18f6886"
@@ -29,9 +42,22 @@
     {
       "task_id": "lemat-sdl-02-cramped-exchange",
       "track": "original-v1",
+      "comparison_method": "heuristic",
       "same_initial_as_reference": [
         {
+          "method": "fifo",
+          "same": true,
+          "candidate": "capacity",
+          "design_hash": "b3f29e4b7ccc9d31be5d3c934c4bcf2a6473e6f8a8313f0b3dd27dc16dbb4619"
+        },
+        {
           "method": "heuristic",
+          "same": true,
+          "candidate": "capacity",
+          "design_hash": "b3f29e4b7ccc9d31be5d3c934c4bcf2a6473e6f8a8313f0b3dd27dc16dbb4619"
+        },
+        {
+          "method": "algorithm-advanced",
           "same": true,
           "candidate": "capacity",
           "design_hash": "b3f29e4b7ccc9d31be5d3c934c4bcf2a6473e6f8a8313f0b3dd27dc16dbb4619"
@@ -53,9 +79,22 @@
     {
       "task_id": "lemat-sdl-03-many-arms",
       "track": "original-v1",
+      "comparison_method": "heuristic",
       "same_initial_as_reference": [
         {
+          "method": "fifo",
+          "same": true,
+          "candidate": "capacity",
+          "design_hash": "f6d8aa19fd4c36a95f485a977a2256790c97b2466ac3f75dabec5cb17239e01a"
+        },
+        {
           "method": "heuristic",
+          "same": true,
+          "candidate": "capacity",
+          "design_hash": "f6d8aa19fd4c36a95f485a977a2256790c97b2466ac3f75dabec5cb17239e01a"
+        },
+        {
+          "method": "algorithm-advanced",
           "same": true,
           "candidate": "capacity",
           "design_hash": "f6d8aa19fd4c36a95f485a977a2256790c97b2466ac3f75dabec5cb17239e01a"
@@ -77,9 +116,22 @@
     {
       "task_id": "lemat-sdl-04-staggered-jobs",
       "track": "original-v1",
+      "comparison_method": "heuristic",
       "same_initial_as_reference": [
         {
+          "method": "fifo",
+          "same": true,
+          "candidate": "capacity",
+          "design_hash": "8ddba0c2f8bee9a49f70438d4141d44ea85156c413d83e111f52c4ae61280e6d"
+        },
+        {
           "method": "heuristic",
+          "same": true,
+          "candidate": "capacity",
+          "design_hash": "8ddba0c2f8bee9a49f70438d4141d44ea85156c413d83e111f52c4ae61280e6d"
+        },
+        {
+          "method": "algorithm-advanced",
           "same": true,
           "candidate": "capacity",
           "design_hash": "8ddba0c2f8bee9a49f70438d4141d44ea85156c413d83e111f52c4ae61280e6d"
@@ -101,9 +153,22 @@
     {
       "task_id": "lemat-sdl-05-bursty-demand",
       "track": "original-v1",
+      "comparison_method": "heuristic",
       "same_initial_as_reference": [
         {
+          "method": "fifo",
+          "same": true,
+          "candidate": "capacity",
+          "design_hash": "88c8068ea265fea3955d76ba31fc45dd3755b0d573c117bbefbd064a99e2e356"
+        },
+        {
           "method": "heuristic",
+          "same": true,
+          "candidate": "capacity",
+          "design_hash": "88c8068ea265fea3955d76ba31fc45dd3755b0d573c117bbefbd064a99e2e356"
+        },
+        {
+          "method": "algorithm-advanced",
           "same": true,
           "candidate": "capacity",
           "design_hash": "88c8068ea265fea3955d76ba31fc45dd3755b0d573c117bbefbd064a99e2e356"
@@ -125,9 +190,22 @@
     {
       "task_id": "lemat-sdl-06-long-process-overlap",
       "track": "original-v1",
+      "comparison_method": "heuristic",
       "same_initial_as_reference": [
         {
+          "method": "fifo",
+          "same": true,
+          "candidate": "capacity",
+          "design_hash": "a8953b5d2466d0082c7672d2fe4933b71ce09f6a394d12265a3780148111563d"
+        },
+        {
           "method": "heuristic",
+          "same": true,
+          "candidate": "capacity",
+          "design_hash": "a8953b5d2466d0082c7672d2fe4933b71ce09f6a394d12265a3780148111563d"
+        },
+        {
+          "method": "algorithm-advanced",
           "same": true,
           "candidate": "capacity",
           "design_hash": "a8953b5d2466d0082c7672d2fe4933b71ce09f6a394d12265a3780148111563d"
@@ -149,12 +227,25 @@
     {
       "task_id": "lemat-sdl-07-transport-pressure",
       "track": "original-v1",
+      "comparison_method": "heuristic",
       "same_initial_as_reference": [
+        {
+          "method": "fifo",
+          "same": true,
+          "candidate": "capacity",
+          "design_hash": "df7d492833a3d5615d1f25ee1aa699651b7620ab54b0f31c3d3509fa136f58b0"
+        },
         {
           "method": "heuristic",
           "same": true,
           "candidate": "capacity",
           "design_hash": "df7d492833a3d5615d1f25ee1aa699651b7620ab54b0f31c3d3509fa136f58b0"
+        },
+        {
+          "method": "algorithm-advanced",
+          "same": false,
+          "candidate": "reverse",
+          "design_hash": "b3182dd1ff837ab801c95059d42bf0d24d9ed11333461500a12f7cdc4d9cc03a"
         },
         {
           "method": "gpt-6-luna-medium",
@@ -173,9 +264,22 @@
     {
       "task_id": "lemat-sdl-08-finite-buffers",
       "track": "original-v1",
+      "comparison_method": "heuristic",
       "same_initial_as_reference": [
         {
+          "method": "fifo",
+          "same": true,
+          "candidate": "capacity",
+          "design_hash": "c81fd897d6d37e0643132df2245eb267efae7bc9739ad2023eef4fde0b70a902"
+        },
+        {
           "method": "heuristic",
+          "same": true,
+          "candidate": "capacity",
+          "design_hash": "c81fd897d6d37e0643132df2245eb267efae7bc9739ad2023eef4fde0b70a902"
+        },
+        {
+          "method": "algorithm-advanced",
           "same": true,
           "candidate": "capacity",
           "design_hash": "c81fd897d6d37e0643132df2245eb267efae7bc9739ad2023eef4fde0b70a902"
@@ -197,12 +301,25 @@
     {
       "task_id": "lemat-sdl-09-room-small",
       "track": "original-v1",
+      "comparison_method": "heuristic",
       "same_initial_as_reference": [
+        {
+          "method": "fifo",
+          "same": true,
+          "candidate": "capacity",
+          "design_hash": "b0acedf5bbe66a5038a88a84bf467b2f62bbe6bf2b2c194b682358ab1c8bcd63"
+        },
         {
           "method": "heuristic",
           "same": true,
           "candidate": "capacity",
           "design_hash": "b0acedf5bbe66a5038a88a84bf467b2f62bbe6bf2b2c194b682358ab1c8bcd63"
+        },
+        {
+          "method": "algorithm-advanced",
+          "same": false,
+          "candidate": "reverse",
+          "design_hash": "3e4563ad01ecc813faef1d3a7b773ac493673e9263ca3c0e1a3116aeb708e8fa"
         },
         {
           "method": "gpt-6-luna-medium",
@@ -221,12 +338,25 @@
     {
       "task_id": "lemat-sdl-10-room-wide",
       "track": "original-v1",
+      "comparison_method": "heuristic",
       "same_initial_as_reference": [
+        {
+          "method": "fifo",
+          "same": true,
+          "candidate": "capacity",
+          "design_hash": "36a27be432750ba8b9aeb71e1e049d17e15bdd943b2ac1a00ccea3a48cb0b3eb"
+        },
         {
           "method": "heuristic",
           "same": true,
           "candidate": "capacity",
           "design_hash": "36a27be432750ba8b9aeb71e1e049d17e15bdd943b2ac1a00ccea3a48cb0b3eb"
+        },
+        {
+          "method": "algorithm-advanced",
+          "same": false,
+          "candidate": "reverse",
+          "design_hash": "b88f0cb9ee6fd602ff1671f03e63a3e0fb545671cfdf0186ea7b9a03264e3747"
         },
         {
           "method": "gpt-6-luna-medium",
@@ -245,6 +375,7 @@
     {
       "task_id": "lemat-sdl-11-priority-tail",
       "track": "decision-challenge",
+      "comparison_method": "heuristic",
       "same_initial_as_reference": [
         {
           "method": "fifo",
@@ -281,6 +412,7 @@
     {
       "task_id": "lemat-sdl-12-overfull-inventory",
       "track": "decision-challenge",
+      "comparison_method": "heuristic",
       "same_initial_as_reference": [
         {
           "method": "fifo",
@@ -317,6 +449,7 @@
     {
       "task_id": "lemat-sdl-13-lookahead-exchange",
       "track": "decision-challenge",
+      "comparison_method": "heuristic",
       "same_initial_as_reference": [
         {
           "method": "fifo",
@@ -353,6 +486,7 @@
     {
       "task_id": "lemat-sdl-14-layout-distance",
       "track": "decision-challenge",
+      "comparison_method": "heuristic",
       "same_initial_as_reference": [
         {
           "method": "fifo",
@@ -383,6 +517,80 @@
           "same": false,
           "candidate": "packed-full",
           "design_hash": "cb64968b6abb012c154f3cccf71bedf19211c7e8fad72b3c3f6b2acaecb57980"
+        }
+      ]
+    },
+    {
+      "task_id": "scheduler-room-14x10-dev",
+      "track": "synthetic-development",
+      "comparison_method": "heuristic",
+      "same_initial_as_reference": [
+        {
+          "method": "fifo",
+          "same": true,
+          "candidate": "compact",
+          "design_hash": "9e9d2408f3d74d3d7b9458cc9284189009760c9512a01c78177fbecbf1f37dde"
+        },
+        {
+          "method": "heuristic",
+          "same": true,
+          "candidate": "compact",
+          "design_hash": "9e9d2408f3d74d3d7b9458cc9284189009760c9512a01c78177fbecbf1f37dde"
+        },
+        {
+          "method": "algorithm-advanced",
+          "same": true,
+          "candidate": "compact",
+          "design_hash": "9e9d2408f3d74d3d7b9458cc9284189009760c9512a01c78177fbecbf1f37dde"
+        },
+        {
+          "method": "gpt-6-luna-medium",
+          "same": true,
+          "candidate": "compact",
+          "design_hash": "9e9d2408f3d74d3d7b9458cc9284189009760c9512a01c78177fbecbf1f37dde"
+        },
+        {
+          "method": "jev",
+          "same": true,
+          "candidate": "compact",
+          "design_hash": "9e9d2408f3d74d3d7b9458cc9284189009760c9512a01c78177fbecbf1f37dde"
+        }
+      ]
+    },
+    {
+      "task_id": "scheduler-room-8x7-dev",
+      "track": "synthetic-development",
+      "comparison_method": "heuristic",
+      "same_initial_as_reference": [
+        {
+          "method": "fifo",
+          "same": true,
+          "candidate": "compact",
+          "design_hash": "c5930029b93d853c0b34defe485cd5817f6f6cd15de1f39906697337a1a4a252"
+        },
+        {
+          "method": "heuristic",
+          "same": true,
+          "candidate": "compact",
+          "design_hash": "c5930029b93d853c0b34defe485cd5817f6f6cd15de1f39906697337a1a4a252"
+        },
+        {
+          "method": "algorithm-advanced",
+          "same": true,
+          "candidate": "compact",
+          "design_hash": "c5930029b93d853c0b34defe485cd5817f6f6cd15de1f39906697337a1a4a252"
+        },
+        {
+          "method": "gpt-6-luna-medium",
+          "same": true,
+          "candidate": "compact",
+          "design_hash": "c5930029b93d853c0b34defe485cd5817f6f6cd15de1f39906697337a1a4a252"
+        },
+        {
+          "method": "jev",
+          "same": true,
+          "candidate": "compact",
+          "design_hash": "c5930029b93d853c0b34defe485cd5817f6f6cd15de1f39906697337a1a4a252"
         }
       ]
     }

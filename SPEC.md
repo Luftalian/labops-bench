@@ -6,7 +6,7 @@ LabOpsBench evaluates equipment configuration and scheduling decisions for finit
 
 | Mode | Decisions | Role |
 | --- | --- | --- |
-| Published LeMat scheduler suite | Initial shared configuration candidate, job priorities, permitted equipment exchanges | 14 scenarios and 50 selected recordings accompanying the submission |
+| Published scheduler suite | Initial shared configuration candidate, job priorities, permitted equipment exchanges | 16 scenarios (14 LeMat-derived, 2 synthetic) and 80 selected recordings, five methods per scenario |
 | Fixed-design v0.2 | Exact instrument, arm and AMR counts; explicit layout or shared layout heuristic | Separate count-constrained evaluator at /v2/; fixed execution policy after installation |
 | Historical v0.1 and PoC | Version-specific actions and objectives | Compatibility tests and historical replay; separate scores |
 
@@ -17,7 +17,7 @@ The published suite uses the canonical scheduler protocol through a finite-candi
 - Types and required fields: contracts/labops.schema.json.
 - HTTP APIs and retry accounting: contracts/README.md and backend/scheduler/README.md.
 - Scheduler observation, decision and time: docs/SCHEDULER_INTERFACE.md.
-- Published scenarios and workflow assumptions: benchmark/lemat-sdl/scenarios.json and workflows.json.
+- Published scenarios and workflow assumptions: benchmark/lemat-sdl/scenarios.json and workflows.json; the 16-scenario list and run selection: benchmark/scheduler-suite.mjs and benchmark/scheduler-refresh.json.
 - Scoring and comparison rules: docs/EVALUATION.md.
 - Physical execution assumptions: docs/SIMULATION.md.
 - Data and asset provenance: docs/DATA.md and docs/SOURCES.md.
@@ -28,7 +28,7 @@ Units are seconds, metres and integer resource counts. JSON fields use snake_cas
 
 Policies cannot rewrite task constraints, processing durations, completion state, reservations or scores. The engine checks geometry, capabilities, reach, buffers and transport feasibility. A failed layout heuristic is not proof that no feasible layout exists.
 
-The fixed-design evaluator installs exactly the submitted counts and disables dynamic changes. Its development fixtures share a workload and limits in 8×7 m and 14×10 m rooms. These fixtures are synthetic software tests.
+The fixed-design evaluator installs exactly the submitted counts and disables dynamic changes. Its development fixtures share a workload and limits in 8×7 m and 14×10 m rooms. These fixtures are synthetic software tests. The published scheduler comparison also includes the two synthetic scheduler tasks for these rooms, with their task IDs and limits unchanged; they are labelled synthetic and are not evidence of scientific performance.
 
 The scheduler suite exposes known future arrivals as well as all remaining jobs. Custom room/count settings create a separate task identity; results from changed settings must not be merged into the original comparison.
 

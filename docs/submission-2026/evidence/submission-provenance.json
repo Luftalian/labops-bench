@@ -7,11 +7,6 @@
   "public_viewer_video_commit": "c0aa3ed0df17832673dc30eaba6ff822e061b248",
   "unchanged_evaluation_inputs": [
     {
-      "path": "benchmark/published/manifest.json",
-      "sha256": "b9ef748dd7f3d9d4ba621b20c927126471125331f4688563ad24356ab6f1a2f7",
-      "unchanged_since_evaluation_source": true
-    },
-    {
       "path": "benchmark/lemat-sdl/scenarios.json",
       "sha256": "f2563c9e1f38a98e5766774276f71d2b8a85e63bee05f8f23d2584d87279792c",
       "unchanged_since_evaluation_source": true
@@ -35,5 +30,22 @@
   "canonical_paper": "latex/main.tex",
   "selected_recordings_manifest": "benchmark/published/manifest.json",
   "history_note": "Public history omits internal planning, research working notes and superseded drafts. Retained original commits preserve author and committer identities and timestamps; commit IDs changed. One internal-setup-only commit became empty and was pruned. Original result metadata retains its original source IDs; use the public mappings above.",
-  "new_model_runs": 0
+  "result_refresh": {
+    "date": "2026-10-22",
+    "original_base_commit": "6ea24b35aa14ebdf5c39bbea8df1faeb9d13ec20",
+    "public_base_commit": "c0aa3ed0df17832673dc30eaba6ff822e061b248",
+    "source_hashes": "docs/SCHEDULER_REFRESH_VALIDATION.json#source_hashes_at_validation",
+    "selection": "benchmark/scheduler-refresh.json",
+    "selected_recordings_manifest_sha256": "9b988e1ff87a0927f8ea229d07f466a8d7782a4b9c66407e276f07305110bed0",
+    "report_sha256": "0938bfadcdc778fb9f8f854ca2e824b15326f3fcb3446aee7d10cc0cae94790e",
+    "retained_results": 20,
+    "fresh_results": 60,
+    "fresh_model_runs": [
+      "2026-10-22T11-41-27.612Z-gpt-6-luna-medium-e86af7cf",
+      "2026-10-22T12-11-06.739Z-gpt-6-luna-medium-3fc85534",
+      "2026-10-22T11-27-39.418Z-jev-73f2b071"
+    ],
+    "quoted_paper_runs_unchanged": true
+  },
+  "model_calls_during_packaging": 0
 }

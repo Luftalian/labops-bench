@@ -63,13 +63,13 @@
       "source_sha256": "2b0b9b0bbe8590e2bbc67d3dc152147801286a85b90502dad62050be42101f89"
     }
   ],
-  "verified_completed_trials": 50,
+  "verified_completed_trials": 80,
   "verified_methods": {
-    "fifo": 4,
-    "heuristic": 14,
-    "algorithm-advanced": 4,
-    "gpt-6-luna-medium": 14,
-    "jev": 14
+    "fifo": 16,
+    "heuristic": 16,
+    "algorithm-advanced": 16,
+    "gpt-6-luna-medium": 16,
+    "jev": 16
   },
   "lemat_citations": {
     "paper": "https://arxiv.org/abs/2510.26824v2",
@@ -91,20 +91,20 @@
   "public_evaluation_source_commit": "57a6279a58305f7d847079ea4be58040a2b894f3",
   "files": {
     "LabOpsBench-one-page-summary-latex.pdf": {
-      "bytes": 265080,
-      "sha256": "5d01fe003f1539996a8e60859715e2a089df4329bafeb09633d416b04064f42a"
+      "bytes": 265415,
+      "sha256": "d5f68ad6daa476264ba49a212b775a17a0795b0509fcfaa6303db5dc8f884f2f"
     },
     "LabOpsBench-evaluation-loop.png": {
-      "bytes": 419174,
-      "sha256": "2a514a81dde3a265c712c08936fddd6458094465c4dec476b144e41a47e12b0d"
+      "bytes": 649361,
+      "sha256": "406947efcd05b2ea9d729e31993bc0e492e30b7be0eadcb159a9474fdc3fc8d5"
     },
     "LabOpsBench-one-page-summary-latex-preview.png": {
-      "bytes": 744869,
-      "sha256": "58721f96663e7822ae231fedd304939763d7af7cfa670a4cef4abfc6dd702167"
+      "bytes": 744773,
+      "sha256": "840ea3fca17dc999fe884d448f5767677d16078707a7752bc263bb193ee1a892"
     },
     "Citation-review.md": {
       "bytes": 3157,
-      "sha256": "fc20b4f1c1a68a0add55ac14a7f42f0c504691bd1721fb6e1946940ed4f6c478"
+      "sha256": "106962218d4ddf4089e139a651c727d9c59183f6d32258c577f348514dfa5163"
     }
   }
 }

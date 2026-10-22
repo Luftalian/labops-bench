@@ -10,13 +10,13 @@ Ryoma Yamamoto · Haruki Nakajima
 | Full-page preview | [PNG](LabOpsBench-one-page-summary-latex-preview.png) |
 | Evaluation-loop figure | [PNG](LabOpsBench-evaluation-loop.png) |
 | Claims and supporting sources | [Citation-review.md](Citation-review.md) |
-| All 50 selected trial values | [benchmark-results.json](evidence/benchmark-results.json) |
+| All 80 selected trial values | [benchmark-results.json](evidence/benchmark-results.json) |
 | Paper's quoted values and artifact hashes | [manuscript-validation.json](evidence/manuscript-validation.json) |
 | Source records, revisions and hashes | [source-records.json](evidence/source-records.json) |
 | Evaluation source and public-history mapping | [submission-provenance.json](evidence/submission-provenance.json) |
 | Package checksums | [package-manifest.json](evidence/package-manifest.json) |
 
-The paper uses 14 scenarios: three methods on ten scenarios and five on four additional challenges. The 50 distributed runs are selected recordings, not the full experimental history. The original simulation results, workflow definitions, manuscript and screenshots are preserved. Later viewer/video improvements do not change the recorded comparison.
+The paper uses 16 scenarios with five methods each: 14 derived from public LeMat-Synth annotations and two synthetic scheduler tasks. The 80 distributed runs are selected recordings, not the full experimental history. The quoted scenario 12 and 14 runs are unchanged from the first 50-trial version; on 2026-10-22, scenarios 01-10 and the two synthetic tasks were freshly run for all five methods under the same task and configuration hashes ([selection](../LEMAT_SDL_BENCHMARK.md), [validation](../SCHEDULER_REFRESH_VALIDATION.json)). Workflow definitions and screenshots are preserved; superseded recordings remain in the repository but are not part of the comparison.
 
 ## Verify and rebuild
 

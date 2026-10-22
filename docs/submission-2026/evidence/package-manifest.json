@@ -9,42 +9,42 @@
     {
       "path": "Citation-review.md",
       "bytes": 3157,
-      "sha256": "fc20b4f1c1a68a0add55ac14a7f42f0c504691bd1721fb6e1946940ed4f6c478"
+      "sha256": "106962218d4ddf4089e139a651c727d9c59183f6d32258c577f348514dfa5163"
     },
     {
       "path": "LabOpsBench-evaluation-loop.png",
-      "bytes": 419174,
-      "sha256": "2a514a81dde3a265c712c08936fddd6458094465c4dec476b144e41a47e12b0d"
+      "bytes": 649361,
+      "sha256": "406947efcd05b2ea9d729e31993bc0e492e30b7be0eadcb159a9474fdc3fc8d5"
     },
     {
       "path": "LabOpsBench-one-page-summary-latex-preview.png",
-      "bytes": 744869,
-      "sha256": "58721f96663e7822ae231fedd304939763d7af7cfa670a4cef4abfc6dd702167"
+      "bytes": 744773,
+      "sha256": "840ea3fca17dc999fe884d448f5767677d16078707a7752bc263bb193ee1a892"
     },
     {
       "path": "LabOpsBench-one-page-summary-latex.pdf",
-      "bytes": 265080,
-      "sha256": "5d01fe003f1539996a8e60859715e2a089df4329bafeb09633d416b04064f42a"
+      "bytes": 265415,
+      "sha256": "d5f68ad6daa476264ba49a212b775a17a0795b0509fcfaa6303db5dc8f884f2f"
     },
     {
       "path": "README.md",
-      "bytes": 2212,
-      "sha256": "2972ecfca1ed903666a1f9dc9a3c5c6dd9c7c8797426c5b2ff7569a0dd560865"
+      "bytes": 2531,
+      "sha256": "e7e8af256e71865a0344b46202a2ff821cb455b20774bedd141feada247ddb85"
     },
     {
       "path": "evidence/benchmark-results.json",
-      "bytes": 11510,
-      "sha256": "858916745a32fd86bc7fed99e89b8d63be4d27e673a52471075061292bd7511b"
+      "bytes": 21272,
+      "sha256": "d5eda80d4030fde82bc5106918a33c1682e4a10aa71a2f74665c9f83d3a5115f"
     },
     {
       "path": "evidence/manuscript-validation.json",
-      "bytes": 4196,
-      "sha256": "60acfc67e69a609a8e7ae14c4a25932b3f06c02c4ada97dd55d7578f360a6957"
+      "bytes": 4198,
+      "sha256": "18bd365cc2a8d825726699131148a5b5f6221f5fc81b45c88d79fe9abde7bcd8"
     },
     {
       "path": "evidence/package-validation.json",
-      "bytes": 1256,
-      "sha256": "2caa9f973a2a47aae9e09ce7c6a7e68877a7a7bb60b5b04cf6fc30dd1948c62f"
+      "bytes": 1311,
+      "sha256": "67463888fa03b0afb419d60619fe8107487189247492206ffe174afc8acf07e4"
     },
     {
       "path": "evidence/source-records.json",
@@ -53,13 +53,13 @@
     },
     {
       "path": "evidence/submission-provenance.json",
-      "bytes": 1971,
-      "sha256": "82c58a13b6d98672ab0e1c07d202e4271cedb2c757450801b3d716983946ad48"
+      "bytes": 2622,
+      "sha256": "1a6bc9e855cef675ae7f8da5e4b3ab42f6f85055df5782adc69ef088f3381aba"
     },
     {
       "path": "latex/README.md",
-      "bytes": 1789,
-      "sha256": "75674141b0e6d6791c2c39b17bbf3ec46a6592c1eab08d7915d82fb33d8932e4"
+      "bytes": 2043,
+      "sha256": "dd54df815cd1cbaff0e88d1b95338f7248d1be8fb14fa6bcc437855de251bee7"
     },
     {
       "path": "latex/assets/lab-runtime-angle.jpg",
@@ -73,13 +73,13 @@
     },
     {
       "path": "latex/main.tex",
-      "bytes": 6687,
-      "sha256": "8469e13ef2a6df202b6ae4b1482fa454a362e9875b73941ce779732951d2fdf5"
+      "bytes": 6717,
+      "sha256": "743c46d5fc0deb6fd94075b4593277353cca10e7ab3f6a38c11175b868f44ec9"
     },
     {
       "path": "latex/protocol-figure.tex",
       "bytes": 4466,
-      "sha256": "0be082fd1fe9eac949fca22011aca1c0f4c2850dc4e4f7ae7ad5d5e32db9036b"
+      "sha256": "ab81194fb907d124a9f1a4a885a921ef91a73d99768eee9af01d696770f54c97"
     },
     {
       "path": "latex/references.bib",
@@ -88,8 +88,8 @@
     },
     {
       "path": "verify_evidence.py",
-      "bytes": 5039,
-      "sha256": "d61fc6a1f06d5c92e951450cdf8285977d30098f67e4384c2403d2f014d710f2"
+      "bytes": 5575,
+      "sha256": "285954499355042d621597ea8255e303886538cce7c732d83ed760b74bd5611e"
     }
   ]
 }

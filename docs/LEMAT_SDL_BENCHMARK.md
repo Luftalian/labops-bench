@@ -88,6 +88,18 @@ npm run check:poc:replay
 
 同じモデル入力でもfresh inferenceの同一結果は保証しない。探索範囲内の1回ずつの試行であり、方式の一般的な優劣や大域最適性は結論できない。ソフトウェアの再生一致と実機科学的妥当性の確認は別である。
 
-最終検証の記録は [LEMAT_SDL_VALIDATION.json](LEMAT_SDL_VALIDATION.json)、元の3方式×10課題と追加5方式×4課題の結果は [LEMAT_SDL_RESULTS.md](LEMAT_SDL_RESULTS.md)。比較表の各時間ボタンから、保存した判断・priority・搬出入・工程イベントを2D/3Dで再生できる: [ローカル比較画面](http://127.0.0.1:4180/benchmarks/)。
+元の10課題の検証記録は [LEMAT_SDL_VALIDATION.json](LEMAT_SDL_VALIDATION.json)（前回時点）、全16課題×5方式の比較結果は [LEMAT_SDL_RESULTS.md](LEMAT_SDL_RESULTS.md)。比較表の各時間ボタンから、保存した判断・priority・搬出入・工程イベントを2D/3Dで再生できる: [ローカル比較画面](http://127.0.0.1:4180/benchmarks/)。
 
 追加4課題と共通policy adapter、密な配置の設定、比較の限界は [SCHEDULER_CHALLENGES.md](SCHEDULER_CHALLENGES.md)。追加分の検証は [SCHEDULER_CHALLENGES_VALIDATION.json](SCHEDULER_CHALLENGES_VALIDATION.json) に保存する。元の検証JSONは前回時点の記録として保持する。
+
+## 16課題の最新比較
+
+2026-10-22の更新では、上記14課題に、既存のsynthetic scheduler開発課題2件（14×10m、8×7m）を加え、全16課題×5方式を比較する。synthetic課題のseedは17、900秒間隔の6jobであり、LeMat由来ではない。元の課題IDと条件を保持し、scheduler判断周期・上限は比較共通の1800秒・32回を用いる。one-arm-per-cell配置候補のうち8アーム上限を超えるcapacity/reverse案を除き、元のcompact案を使う。これは課題上限の変更や物理的不可能性の証明ではない。
+
+11〜14の20試行は保存済みrun（提出論文・動画が引用する値と同じrun）を維持し、それ以外の60試行をfreshに更新する。全体の列挙は`benchmark/scheduler-suite.mjs`、選択時刻と保持run IDは`benchmark/scheduler-refresh.json`。現在のTask hash/version/workload/configと一致し、更新対象では指定開始時刻以降の最新試行だけを採用する。旧結果へのfallbackは行わない。
+
+表示名はArrival-order FIFO、Capacity + longest remaining work、Bottleneck / travel + downstream-first、GPT-6 Luna (medium)、Jev 1.14.0。内部method IDは既存runとの対応のため保持する。各ルールの説明は生成reportのmethods.descriptionで確認できる。表示・共有結果の生成は`node scripts/build-lemat-report.mjs`、`node scripts/validate-scheduler-refresh.mjs`、`npm run publish:recordings`、`npm run build:results`。結果更新の検証記録は`SCHEDULER_REFRESH_VALIDATION.json`を参照。
+
+Lunaは`gpt-6-luna`・medium・fork_turns=noneの専用contestantで、公開観測だけを読むfresh inferenceを行った。最初のsessionの163回答のうち、04〜06の3課題で計29件のjob一覧が現在の未完了job集合と一致しなかった。元の回答・controller_failure journal・検証失敗ログを保存したうえで、この3課題だけを新しいsessionで再実行し、92回答すべてのjob ID集合・候補・整数priorityを照合した。成績による選別や回答の後編集は行っていない。比較表は各条件の最新の有効試行を表示し、旧失敗は`report.json`の`prior_attempts`（各runの`controller_failures`）に残す。この3条件は推論回数が他方式と異なるため、統計的順位は結論しない。
+
+新しい80試行すべてで、保存判断の再実行によるmetrics/trace/jobs/layout historyの一致と、現在のTask/config・公開初期問題の一致を確認した。11〜14以外の旧30試行（heuristic・Luna・Jev）の録画は、旧50試行版の提出物との対応のため`benchmark/published/recordings/`に残すが、比較表には使わない。

@@ -46,7 +46,12 @@ export function initialCandidates(o) {
       amr_count:Math.min(o.context.resource_limits.amrs,id==='compact'?1:o.context.resource_limits.amrs),layout};
     candidates.push({id,description: id==='capacity'?'Install maximum offered parallel station cells.':id==='reverse'?'Same counts, reversed instrument-to-cell assignment.':'Use half of each multi-instance instrument count, fewer arms and one AMR.',design});
   }
-  return candidates;
+  // Existing synthetic scheduler tasks allow 8 arms for 12 device ceilings.
+  // The one-arm-per-cell menu must offer only feasible selections; do not
+  // change the task ceilings or silently shrink an installed design.
+  return o.context.task_id.startsWith('scheduler-room-')
+    ? candidates.filter(c=>c.design.arm_count<=o.context.resource_limits.arms)
+    : candidates;
 }
 export function layoutCandidates(o) {
   if(isChallenge(o))return challengeLayoutCandidates(o);

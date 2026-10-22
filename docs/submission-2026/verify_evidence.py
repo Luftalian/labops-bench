@@ -56,11 +56,19 @@ def main():
         require(key not in results, f"Duplicate selected result: {key}")
         results[key] = (item, metrics)
         counts[item["method"]] += 1
-    require(len(results) == 50, "Expected 50 selected trials")
-    require(len({task for _, task in results}) == 14, "Expected 14 scenarios")
+    require(len(results) == 80, "Expected 80 selected trials")
+    require(len({task for _, task in results}) == 16, "Expected 16 scenarios")
+    require(len(counts) == 5 and set(counts.values()) == {16},
+            "Expected five methods on every scenario")
+
+    validation = read_json(REPO / "docs/SCHEDULER_REFRESH_VALIDATION.json")
+    require(validation["complete"] and validation["source_report_sha256"] == manifest["source_report_sha256"],
+            "Refresh validation does not match the selected recordings")
+    require(validation["selected_results"] == validation["exact_recorded_replays"] == 80,
+            "Refresh validation does not cover every selected trial")
 
     table = read_json(HERE / "evidence/benchmark-results.json")
-    require(len(table["rows"]) == 50, "Incomplete evidence table")
+    require(len(table["rows"]) == 80, "Incomplete evidence table")
     for row in table["rows"]:
         item, metrics = results[(row["method"], row["task_id"])]
         require(row["run_id"] == item["run_id"], "Run identity mismatch")
@@ -100,10 +108,10 @@ def main():
 
     print(json.dumps({"package_files_verified": len(inventory["files"]),
                       "recordings_verified": len(results),
-                      "scenarios": 14, "methods": dict(counts),
+                      "scenarios": 16, "methods": dict(counts),
                       "quoted_result_rows": len(manuscript["verified_result_rows"]),
                       "source_records": 3, "scheduling_templates": 8,
-                      "bibliography_entries": 7, "new_model_runs": 0}, indent=2))
+                      "bibliography_entries": 7, "model_calls": 0}, indent=2))
 
 
 if __name__ == "__main__":

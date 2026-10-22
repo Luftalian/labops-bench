@@ -14,7 +14,7 @@
 \definecolor{rulegray}{HTML}{88968F}
 \hypersetup{pdftitle={LabOpsBench: Benchmarking AI Agents for Laboratory Configuration and Experiment Scheduling},
   pdfauthor={Ryoma Yamamoto, Haruki Nakajima},
-  pdfsubject={Hackathon extended abstract; feat/poc-integration at 00e8c4f}}
+  pdfsubject={Hackathon extended abstract; 80 selected trials, results refreshed 2026-10-22}}
 \pagestyle{empty}
 \setlength{\parindent}{1em}
 \setlength{\parskip}{0pt}
@@ -61,7 +61,7 @@ These constraints motivate evaluating agents' equipment configuration and job pr
 We developed LabOpsBench, a simulation-based benchmark that evaluates how AI agents select equipment configurations and prioritize predefined experimental jobs.
 Jobs comprise dependent operations with fixed durations and required capabilities.
 The simulator models instruments, robot arms, autonomous mobile robots (AMRs), queues, and finite buffers.
-Its 14 scenarios span small cells to a facility with 32 instruments, 32 arms, and 64 jobs (Fig.~\ref{fig:loop}).
+Its 16 scenarios span small cells to a facility with 32 instruments, 32 arms, and 64 jobs (Fig.~\ref{fig:loop}).
 
 At each decision point, policies receive unfinished jobs, including future arrivals, and the laboratory state.
 In this track, they return priorities and select configurations or equipment exchanges from shared candidates.
@@ -74,7 +74,7 @@ The engine validates decisions, dispatches feasible operations, and controls rob
 \input{protocol-figure.tex}
 \captionof{figure}{\textbf{A shared evaluation loop.}
   LLM agents, heuristics, and algorithms share the observation--decision--execution interface.
-  Panels (a) and (b) show recorded replays of cases 12 and 03, two examples from the 14-scenario suite. Each run evaluates one scenario.}
+  Panels (a) and (b) show recorded replays of cases 12 and 03, two examples from the 16-scenario suite. Each run evaluates one scenario.}
 \label{fig:loop}
 \end{minipage}
 \par\vspace{4.7mm}
@@ -86,9 +86,9 @@ After the 32-submission cap, the last valid policy continues.
 Exchanges wait for admitted jobs to finish and incur handling, movement, reconnection, and calibration time.
 \emph{Makespan} includes final unloading; incomplete runs receive no finite completion score.
 
-The pilot contains 50 selected, completed trials: three methods on ten scenarios and five on four additional challenges.
+The pilot contains 80 selected, completed trials: five methods on each of 16 scenarios, two of which are synthetic.
 Within each scenario, methods share workload, seed, resource limits, and candidate-generation rules.
-We adapted eight scheduling templates from three public LeMat-Synth annotation records~\cite{lederbauer2026,lematannotations}; equipment mappings and missing timings are modeling assumptions.
+For the other 14, we adapted eight scheduling templates from three public LeMat-Synth annotation records~\cite{lederbauer2026,lematannotations}; equipment mappings and missing timings are modeling assumptions.
 Chemical outcomes and transfer to physical laboratories remain unvalidated.
 \columnbreak
 \section{Pilot Results and Conclusions}

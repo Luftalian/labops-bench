@@ -6,7 +6,7 @@ import {digest} from '../backend/scheduler/tasks.mjs';
 import {sourceManifest} from './run-lemat-sdl.mjs';
 
 const directory=path.resolve(process.argv[2]),checks=[];
-for(const id of fs.readdirSync(directory).filter(n=>n.startsWith('lemat-sdl-'))) {
+for(const id of fs.readdirSync(directory).filter(n=>n.startsWith('lemat-sdl-')||n.startsWith('scheduler-room-'))) {
   const folder=path.join(directory,id),resultFile=path.join(folder,'result.json');if(!fs.existsSync(resultFile))continue;
   const old=JSON.parse(fs.readFileSync(resultFile)),bundle=JSON.parse(fs.readFileSync(path.join(folder,'task.json')));
   const journal=fs.readFileSync(path.join(folder,'journal.jsonl'),'utf8').trim().split('\n').map(s=>JSON.parse(s));

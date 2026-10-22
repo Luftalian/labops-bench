@@ -8,7 +8,7 @@ Equipment prices, fewer installed resources and throughput at a fixed horizon ar
 
 ## Published scheduler comparison
 
-The distributed suite has 14 scenarios and 50 selected trials: three methods on ten scenarios and five on four decision challenges. Settings are defined in [LEMAT_SDL_BENCHMARK.md](LEMAT_SDL_BENCHMARK.md), with additional candidate-space and ordering controls in [SCHEDULER_CHALLENGES.md](SCHEDULER_CHALLENGES.md).
+The distributed suite has 16 scenarios and 80 selected trials: five methods on every scenario. Fourteen scenarios derive from public LeMat-Synth annotations and two are synthetic scheduler tasks. The four decision-challenge results (scenarios 11-14) are retained runs; the other 60 trials are fresh runs from 2026-10-22 under the current task and configuration hashes ([selection](LEMAT_SDL_BENCHMARK.md), [validation](SCHEDULER_REFRESH_VALIDATION.json)). Settings are defined in [LEMAT_SDL_BENCHMARK.md](LEMAT_SDL_BENCHMARK.md), with additional candidate-space and ordering controls in [SCHEDULER_CHALLENGES.md](SCHEDULER_CHALLENGES.md).
 
 All methods in a comparison share task/version, workload, future-arrival visibility, seed, room, resource ceilings, processing programs, buffers, transport and relocation assumptions, candidate space and decision budget. The published period is 1,800 simulation seconds, maximum decisions 32, response timeout 300 wall seconds and simulation cutoff 365 days.
 

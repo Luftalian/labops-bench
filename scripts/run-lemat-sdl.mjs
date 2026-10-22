@@ -3,7 +3,8 @@ import path from 'node:path';
 import {createHash,randomUUID} from 'node:crypto';
 import {execFileSync} from 'node:child_process';
 import {fileURLToPath} from 'node:url';
-import {suite,suiteConfig} from '../benchmark/lemat-sdl/suite.mjs';
+import {suiteConfig} from '../benchmark/lemat-sdl/suite.mjs';
+import {benchmarkSuite} from '../benchmark/scheduler-suite.mjs';
 import {SchedulerSession} from '../backend/scheduler/session.mjs';
 import {runController} from '../agent/scheduler-controller.mjs';
 import {heuristicController} from '../agent/benchmark-actions.mjs';
@@ -14,7 +15,7 @@ export function sourceManifest() {
   const folders=['agent','backend/counts','backend/scheduler','backend/poc/sim/v2','backend/poc/sim/v4','benchmark/lemat-sdl'];
   const files=[];
   const walk=p=>{for(const d of fs.readdirSync(p,{withFileTypes:true})){const f=path.join(p,d.name);if(d.isDirectory()&&d.name!=='tests'&&d.name!=='__pycache__'&&d.name!=='raw')walk(f);else if(d.isFile()&&/\.(mjs|json|py)$/.test(f))files.push(f);}};
-  folders.forEach(f=>walk(path.join(ROOT,f)));files.push(path.join(ROOT,'contracts/labops.schema.json'));
+  folders.forEach(f=>walk(path.join(ROOT,f)));files.push(...['contracts/labops.schema.json','benchmark/scheduler-suite.mjs','scripts/run-lemat-sdl.mjs','scripts/run-lemat-model.mjs'].map(f=>path.join(ROOT,f)));
   return Object.fromEntries(files.sort().map(f=>[path.relative(ROOT,f),createHash('sha256').update(fs.readFileSync(f)).digest('hex')]));
 }
 export function concurrency(replay) {
@@ -29,7 +30,7 @@ export async function runSuite({method='heuristic',controller=createRuleControll
   for(const file of Object.keys(source)){const dest=path.join(dir,'source-snapshot',file);fs.mkdirSync(path.dirname(dest),{recursive:true});fs.copyFileSync(path.join(ROOT,file),dest);}
   fs.writeFileSync(path.join(dir,'manifest.json'),JSON.stringify({method,created_at:new Date().toISOString(),node:process.version,git_base_commit:execFileSync('git',['rev-parse','HEAD'],{cwd:ROOT,encoding:'utf8'}).trim(),git_dirty:!!execFileSync('git',['status','--porcelain'],{cwd:ROOT,encoding:'utf8'}).trim(),source_hashes:source,
     config:suiteConfig,trials_per_scenario:1,authorization:{jev_max_usd:3,luna:'Codex allowance'},comparison_scope:'Public candidate menus, shared job priorities/engine; exploratory n=1, no optimum or robust ranking claim.'},null,2));
-  for(const bundle of suite().filter(b=>!ids||ids.some(id=>b.task.task_id.includes(id)))) {
+  for(const bundle of benchmarkSuite().filter(b=>!ids||ids.some(id=>b.task.task_id.includes(id)))) {
     const session=new SchedulerSession(bundle,{config:suiteConfig});session.record('provenance',{method,source_hashes:source});
     const folder=path.join(dir,bundle.task.task_id);fs.mkdirSync(folder,{recursive:true});fs.writeFileSync(path.join(folder,'task.json'),JSON.stringify(bundle,null,2));
     const started=performance.now();

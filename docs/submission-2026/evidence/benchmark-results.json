@@ -1,11 +1,95 @@
 {
-  "commit": "00e8c4f2ac9bf4f7cfa769a3b6fb668275f94d08",
-  "verified_recordings": 50,
+  "evaluation_sources": {
+    "retained": "Scenarios 11-14: original commit 00e8c4f2ac9bf4f7cfa769a3b6fb668275f94d08 (public 57a6279a58305f7d847079ea4be58040a2b894f3).",
+    "refreshed": "Scenarios 01-10 and two synthetic tasks, 2026-10-22: original base 6ea24b35aa14ebdf5c39bbea8df1faeb9d13ec20 with working-tree sources whose hashes are in docs/SCHEDULER_REFRESH_VALIDATION.json (public base c0aa3ed0df17832673dc30eaba6ff822e061b248)."
+  },
+  "verified_recordings": 80,
   "rows": [
+    {
+      "method": "fifo",
+      "task_id": "lemat-sdl-01-single-station",
+      "run_id": "2026-10-22T11-27-29.241Z-fifo-09da504a",
+      "selection": "refreshed",
+      "makespan_s": 15247.215054545957,
+      "hours": 4.235337515151655
+    },
+    {
+      "method": "fifo",
+      "task_id": "lemat-sdl-02-cramped-exchange",
+      "run_id": "2026-10-22T11-27-29.241Z-fifo-09da504a",
+      "selection": "refreshed",
+      "makespan_s": 10433.538351515317,
+      "hours": 2.8982050976431437
+    },
+    {
+      "method": "fifo",
+      "task_id": "lemat-sdl-03-many-arms",
+      "run_id": "2026-10-22T11-27-29.241Z-fifo-09da504a",
+      "selection": "refreshed",
+      "makespan_s": 7249.93458787883,
+      "hours": 2.0138707188552307
+    },
+    {
+      "method": "fifo",
+      "task_id": "lemat-sdl-04-staggered-jobs",
+      "run_id": "2026-10-22T11-27-29.241Z-fifo-09da504a",
+      "selection": "refreshed",
+      "makespan_s": 397079.210958396,
+      "hours": 110.29978082177668
+    },
+    {
+      "method": "fifo",
+      "task_id": "lemat-sdl-05-bursty-demand",
+      "run_id": "2026-10-22T11-27-29.241Z-fifo-09da504a",
+      "selection": "refreshed",
+      "makespan_s": 48673.42461664231,
+      "hours": 13.520395726845086
+    },
+    {
+      "method": "fifo",
+      "task_id": "lemat-sdl-06-long-process-overlap",
+      "run_id": "2026-10-22T11-27-29.241Z-fifo-09da504a",
+      "selection": "refreshed",
+      "makespan_s": 185218.15507526937,
+      "hours": 51.44948752090816
+    },
+    {
+      "method": "fifo",
+      "task_id": "lemat-sdl-07-transport-pressure",
+      "run_id": "2026-10-22T11-27-29.241Z-fifo-09da504a",
+      "selection": "refreshed",
+      "makespan_s": 4278.320771604023,
+      "hours": 1.1884224365566731
+    },
+    {
+      "method": "fifo",
+      "task_id": "lemat-sdl-08-finite-buffers",
+      "run_id": "2026-10-22T11-27-29.241Z-fifo-09da504a",
+      "selection": "refreshed",
+      "makespan_s": 46306.10268462417,
+      "hours": 12.862806301284493
+    },
+    {
+      "method": "fifo",
+      "task_id": "lemat-sdl-09-room-small",
+      "run_id": "2026-10-22T11-27-29.241Z-fifo-09da504a",
+      "selection": "refreshed",
+      "makespan_s": 11174.740040208057,
+      "hours": 3.104094455613349
+    },
+    {
+      "method": "fifo",
+      "task_id": "lemat-sdl-10-room-wide",
+      "run_id": "2026-10-22T11-27-29.241Z-fifo-09da504a",
+      "selection": "refreshed",
+      "makespan_s": 11395.1721006325,
+      "hours": 3.165325583509028
+    },
     {
       "method": "fifo",
       "task_id": "lemat-sdl-11-priority-tail",
       "run_id": "2026-10-21T16-41-19.195Z-fifo-9838c9f6",
+      "selection": "retained",
       "makespan_s": 45451.30643463218,
       "hours": 12.625362898508937
     },
@@ -13,6 +97,7 @@
       "method": "fifo",
       "task_id": "lemat-sdl-12-overfull-inventory",
       "run_id": "2026-10-21T16-41-19.195Z-fifo-9838c9f6",
+      "selection": "retained",
       "makespan_s": 27581.27415721286,
       "hours": 7.66146504367024
     },
@@ -20,6 +105,7 @@
       "method": "fifo",
       "task_id": "lemat-sdl-13-lookahead-exchange",
       "run_id": "2026-10-21T16-41-19.195Z-fifo-9838c9f6",
+      "selection": "retained",
       "makespan_s": 26882.72576756944,
       "hours": 7.467423824324845
     },
@@ -27,76 +113,103 @@
       "method": "fifo",
       "task_id": "lemat-sdl-14-layout-distance",
       "run_id": "2026-10-21T16-41-19.195Z-fifo-9838c9f6",
+      "selection": "retained",
       "makespan_s": 4915.8617631731795,
       "hours": 1.3655171564369943
     },
     {
+      "method": "fifo",
+      "task_id": "scheduler-room-14x10-dev",
+      "run_id": "2026-10-22T11-27-29.241Z-fifo-09da504a",
+      "selection": "refreshed",
+      "makespan_s": 5566.006516644046,
+      "hours": 1.5461129212900129
+    },
+    {
+      "method": "fifo",
+      "task_id": "scheduler-room-8x7-dev",
+      "run_id": "2026-10-22T11-27-29.241Z-fifo-09da504a",
+      "selection": "refreshed",
+      "makespan_s": 5494.450961088492,
+      "hours": 1.5262363780801365
+    },
+    {
       "method": "heuristic",
       "task_id": "lemat-sdl-01-single-station",
-      "run_id": "2026-10-21T15-46-17.105Z-heuristic-6dfffc34",
+      "run_id": "2026-10-22T11-27-30.419Z-heuristic-2f556b24",
+      "selection": "refreshed",
       "makespan_s": 15247.215054545957,
       "hours": 4.235337515151655
     },
     {
       "method": "heuristic",
       "task_id": "lemat-sdl-02-cramped-exchange",
-      "run_id": "2026-10-21T15-46-17.105Z-heuristic-6dfffc34",
+      "run_id": "2026-10-22T11-27-30.419Z-heuristic-2f556b24",
+      "selection": "refreshed",
       "makespan_s": 9871.738351515318,
       "hours": 2.742149542087588
     },
     {
       "method": "heuristic",
       "task_id": "lemat-sdl-03-many-arms",
-      "run_id": "2026-10-21T16-07-38.074Z-heuristic-6dbb5d6c",
+      "run_id": "2026-10-22T11-27-30.419Z-heuristic-2f556b24",
+      "selection": "refreshed",
       "makespan_s": 7249.93458787883,
       "hours": 2.0138707188552307
     },
     {
       "method": "heuristic",
       "task_id": "lemat-sdl-04-staggered-jobs",
-      "run_id": "2026-10-21T15-46-17.105Z-heuristic-6dfffc34",
+      "run_id": "2026-10-22T11-27-30.419Z-heuristic-2f556b24",
+      "selection": "refreshed",
       "makespan_s": 408486.43942099303,
       "hours": 113.46845539472028
     },
     {
       "method": "heuristic",
       "task_id": "lemat-sdl-05-bursty-demand",
-      "run_id": "2026-10-21T15-46-17.105Z-heuristic-6dfffc34",
+      "run_id": "2026-10-22T11-27-30.419Z-heuristic-2f556b24",
+      "selection": "refreshed",
       "makespan_s": 48673.42461664231,
       "hours": 13.520395726845086
     },
     {
       "method": "heuristic",
       "task_id": "lemat-sdl-06-long-process-overlap",
-      "run_id": "2026-10-21T15-46-17.105Z-heuristic-6dfffc34",
+      "run_id": "2026-10-22T11-27-30.419Z-heuristic-2f556b24",
+      "selection": "refreshed",
       "makespan_s": 185263.06973731742,
       "hours": 51.46196381592151
     },
     {
       "method": "heuristic",
       "task_id": "lemat-sdl-07-transport-pressure",
-      "run_id": "2026-10-21T15-46-17.105Z-heuristic-6dfffc34",
+      "run_id": "2026-10-22T11-27-30.419Z-heuristic-2f556b24",
+      "selection": "refreshed",
       "makespan_s": 4278.320771604022,
       "hours": 1.188422436556673
     },
     {
       "method": "heuristic",
       "task_id": "lemat-sdl-08-finite-buffers",
-      "run_id": "2026-10-21T15-46-17.105Z-heuristic-6dfffc34",
+      "run_id": "2026-10-22T11-27-30.419Z-heuristic-2f556b24",
+      "selection": "refreshed",
       "makespan_s": 46304.32490684639,
       "hours": 12.862312474123998
     },
     {
       "method": "heuristic",
       "task_id": "lemat-sdl-09-room-small",
-      "run_id": "2026-10-21T15-46-17.105Z-heuristic-6dfffc34",
+      "run_id": "2026-10-22T11-27-30.419Z-heuristic-2f556b24",
+      "selection": "refreshed",
       "makespan_s": 11129.137096969822,
       "hours": 3.091426971380506
     },
     {
       "method": "heuristic",
       "task_id": "lemat-sdl-10-room-wide",
-      "run_id": "2026-10-21T15-46-17.105Z-heuristic-6dfffc34",
+      "run_id": "2026-10-22T11-27-30.419Z-heuristic-2f556b24",
+      "selection": "refreshed",
       "makespan_s": 11372.627808954821,
       "hours": 3.159063280265228
     },
@@ -104,6 +217,7 @@
       "method": "heuristic",
       "task_id": "lemat-sdl-11-priority-tail",
       "run_id": "2026-10-21T16-41-21.456Z-heuristic-fcee444d",
+      "selection": "retained",
       "makespan_s": 29915.532251123215,
       "hours": 8.309870069756448
     },
@@ -111,6 +225,7 @@
       "method": "heuristic",
       "task_id": "lemat-sdl-12-overfull-inventory",
       "run_id": "2026-10-21T16-41-21.456Z-heuristic-fcee444d",
+      "selection": "retained",
       "makespan_s": 27581.27415721286,
       "hours": 7.66146504367024
     },
@@ -118,6 +233,7 @@
       "method": "heuristic",
       "task_id": "lemat-sdl-13-lookahead-exchange",
       "run_id": "2026-10-21T16-41-21.456Z-heuristic-fcee444d",
+      "selection": "retained",
       "makespan_s": 26882.72576756944,
       "hours": 7.467423824324845
     },
@@ -125,13 +241,111 @@
       "method": "heuristic",
       "task_id": "lemat-sdl-14-layout-distance",
       "run_id": "2026-10-21T16-41-21.456Z-heuristic-fcee444d",
+      "selection": "retained",
       "makespan_s": 4874.798953976983,
       "hours": 1.354110820549162
+    },
+    {
+      "method": "heuristic",
+      "task_id": "scheduler-room-14x10-dev",
+      "run_id": "2026-10-22T11-27-30.419Z-heuristic-2f556b24",
+      "selection": "refreshed",
+      "makespan_s": 5566.006516644046,
+      "hours": 1.5461129212900129
+    },
+    {
+      "method": "heuristic",
+      "task_id": "scheduler-room-8x7-dev",
+      "run_id": "2026-10-22T11-27-30.419Z-heuristic-2f556b24",
+      "selection": "refreshed",
+      "makespan_s": 5494.450961088492,
+      "hours": 1.5262363780801365
+    },
+    {
+      "method": "algorithm-advanced",
+      "task_id": "lemat-sdl-01-single-station",
+      "run_id": "2026-10-22T11-27-31.619Z-algorithm-advanced-8a1e6180",
+      "selection": "refreshed",
+      "makespan_s": 15247.215054545957,
+      "hours": 4.235337515151655
+    },
+    {
+      "method": "algorithm-advanced",
+      "task_id": "lemat-sdl-02-cramped-exchange",
+      "run_id": "2026-10-22T11-27-31.619Z-algorithm-advanced-8a1e6180",
+      "selection": "refreshed",
+      "makespan_s": 9871.738351515318,
+      "hours": 2.742149542087588
+    },
+    {
+      "method": "algorithm-advanced",
+      "task_id": "lemat-sdl-03-many-arms",
+      "run_id": "2026-10-22T11-27-31.619Z-algorithm-advanced-8a1e6180",
+      "selection": "refreshed",
+      "makespan_s": 7249.93458787883,
+      "hours": 2.0138707188552307
+    },
+    {
+      "method": "algorithm-advanced",
+      "task_id": "lemat-sdl-04-staggered-jobs",
+      "run_id": "2026-10-22T11-27-31.619Z-algorithm-advanced-8a1e6180",
+      "selection": "refreshed",
+      "makespan_s": 408389.94251699804,
+      "hours": 113.44165069916612
+    },
+    {
+      "method": "algorithm-advanced",
+      "task_id": "lemat-sdl-05-bursty-demand",
+      "run_id": "2026-10-22T11-27-31.619Z-algorithm-advanced-8a1e6180",
+      "selection": "refreshed",
+      "makespan_s": 48673.42461664231,
+      "hours": 13.520395726845086
+    },
+    {
+      "method": "algorithm-advanced",
+      "task_id": "lemat-sdl-06-long-process-overlap",
+      "run_id": "2026-10-22T11-27-31.619Z-algorithm-advanced-8a1e6180",
+      "selection": "refreshed",
+      "makespan_s": 185263.06973731742,
+      "hours": 51.46196381592151
+    },
+    {
+      "method": "algorithm-advanced",
+      "task_id": "lemat-sdl-07-transport-pressure",
+      "run_id": "2026-10-22T11-27-31.619Z-algorithm-advanced-8a1e6180",
+      "selection": "refreshed",
+      "makespan_s": 4473.189622727634,
+      "hours": 1.2425526729798984
+    },
+    {
+      "method": "algorithm-advanced",
+      "task_id": "lemat-sdl-08-finite-buffers",
+      "run_id": "2026-10-22T11-27-31.619Z-algorithm-advanced-8a1e6180",
+      "selection": "refreshed",
+      "makespan_s": 46304.32490684639,
+      "hours": 12.862312474123998
+    },
+    {
+      "method": "algorithm-advanced",
+      "task_id": "lemat-sdl-09-room-small",
+      "run_id": "2026-10-22T11-27-31.619Z-algorithm-advanced-8a1e6180",
+      "selection": "refreshed",
+      "makespan_s": 11161.137096969822,
+      "hours": 3.100315860269395
+    },
+    {
+      "method": "algorithm-advanced",
+      "task_id": "lemat-sdl-10-room-wide",
+      "run_id": "2026-10-22T11-27-31.619Z-algorithm-advanced-8a1e6180",
+      "selection": "refreshed",
+      "makespan_s": 11481.072253399267,
+      "hours": 3.1891867370553517
     },
     {
       "method": "algorithm-advanced",
       "task_id": "lemat-sdl-11-priority-tail",
       "run_id": "2026-10-21T16-41-20.287Z-algorithm-advanced-f136f93d",
+      "selection": "retained",
       "makespan_s": 29814.953705275577,
       "hours": 8.281931584798771
     },
@@ -139,6 +353,7 @@
       "method": "algorithm-advanced",
       "task_id": "lemat-sdl-12-overfull-inventory",
       "run_id": "2026-10-21T16-41-20.287Z-algorithm-advanced-f136f93d",
+      "selection": "retained",
       "makespan_s": 18244.321967253112,
       "hours": 5.067867213125864
     },
@@ -146,6 +361,7 @@
       "method": "algorithm-advanced",
       "task_id": "lemat-sdl-13-lookahead-exchange",
       "run_id": "2026-10-21T16-41-20.287Z-algorithm-advanced-f136f93d",
+      "selection": "retained",
       "makespan_s": 23751.58462636672,
       "hours": 6.597662396212978
     },
@@ -153,76 +369,103 @@
       "method": "algorithm-advanced",
       "task_id": "lemat-sdl-14-layout-distance",
       "run_id": "2026-10-21T16-41-20.287Z-algorithm-advanced-f136f93d",
+      "selection": "retained",
       "makespan_s": 2457.3181267681575,
       "hours": 0.6825883685467105
     },
     {
+      "method": "algorithm-advanced",
+      "task_id": "scheduler-room-14x10-dev",
+      "run_id": "2026-10-22T11-27-31.619Z-algorithm-advanced-8a1e6180",
+      "selection": "refreshed",
+      "makespan_s": 5566.006516644046,
+      "hours": 1.5461129212900129
+    },
+    {
+      "method": "algorithm-advanced",
+      "task_id": "scheduler-room-8x7-dev",
+      "run_id": "2026-10-22T11-27-31.619Z-algorithm-advanced-8a1e6180",
+      "selection": "refreshed",
+      "makespan_s": 5494.450961088492,
+      "hours": 1.5262363780801365
+    },
+    {
       "method": "gpt-6-luna-medium",
       "task_id": "lemat-sdl-01-single-station",
-      "run_id": "2026-10-21T15-43-22.737Z-gpt-6-luna-medium-4c5abf9d",
+      "run_id": "2026-10-22T11-41-27.612Z-gpt-6-luna-medium-e86af7cf",
+      "selection": "refreshed",
       "makespan_s": 15247.215054545957,
       "hours": 4.235337515151655
     },
     {
       "method": "gpt-6-luna-medium",
       "task_id": "lemat-sdl-02-cramped-exchange",
-      "run_id": "2026-10-21T15-43-22.737Z-gpt-6-luna-medium-4c5abf9d",
+      "run_id": "2026-10-22T11-41-27.612Z-gpt-6-luna-medium-e86af7cf",
+      "selection": "refreshed",
       "makespan_s": 9871.738351515318,
       "hours": 2.742149542087588
     },
     {
       "method": "gpt-6-luna-medium",
       "task_id": "lemat-sdl-03-many-arms",
-      "run_id": "2026-10-21T16-09-37.772Z-gpt-6-luna-medium-24a0cb5a",
+      "run_id": "2026-10-22T11-41-27.612Z-gpt-6-luna-medium-e86af7cf",
+      "selection": "refreshed",
       "makespan_s": 7249.93458787883,
       "hours": 2.0138707188552307
     },
     {
       "method": "gpt-6-luna-medium",
       "task_id": "lemat-sdl-04-staggered-jobs",
-      "run_id": "2026-10-21T15-43-22.737Z-gpt-6-luna-medium-4c5abf9d",
+      "run_id": "2026-10-22T12-11-06.739Z-gpt-6-luna-medium-3fc85534",
+      "selection": "refreshed",
       "makespan_s": 406054.6930288604,
       "hours": 112.79297028579455
     },
     {
       "method": "gpt-6-luna-medium",
       "task_id": "lemat-sdl-05-bursty-demand",
-      "run_id": "2026-10-21T15-43-22.737Z-gpt-6-luna-medium-4c5abf9d",
+      "run_id": "2026-10-22T12-11-06.739Z-gpt-6-luna-medium-3fc85534",
+      "selection": "refreshed",
       "makespan_s": 48673.42461664231,
       "hours": 13.520395726845086
     },
     {
       "method": "gpt-6-luna-medium",
       "task_id": "lemat-sdl-06-long-process-overlap",
-      "run_id": "2026-10-21T15-43-22.737Z-gpt-6-luna-medium-4c5abf9d",
+      "run_id": "2026-10-22T12-11-06.739Z-gpt-6-luna-medium-3fc85534",
+      "selection": "refreshed",
       "makespan_s": 185218.15507526937,
       "hours": 51.44948752090816
     },
     {
       "method": "gpt-6-luna-medium",
       "task_id": "lemat-sdl-07-transport-pressure",
-      "run_id": "2026-10-21T15-43-22.737Z-gpt-6-luna-medium-4c5abf9d",
-      "makespan_s": 4278.320771604023,
-      "hours": 1.1884224365566731
+      "run_id": "2026-10-22T11-41-27.612Z-gpt-6-luna-medium-e86af7cf",
+      "selection": "refreshed",
+      "makespan_s": 4285.204557055957,
+      "hours": 1.1903345991822103
     },
     {
       "method": "gpt-6-luna-medium",
       "task_id": "lemat-sdl-08-finite-buffers",
-      "run_id": "2026-10-21T15-43-22.737Z-gpt-6-luna-medium-4c5abf9d",
+      "run_id": "2026-10-22T11-41-27.612Z-gpt-6-luna-medium-e86af7cf",
+      "selection": "refreshed",
       "makespan_s": 46306.10268462417,
       "hours": 12.862806301284493
     },
     {
       "method": "gpt-6-luna-medium",
       "task_id": "lemat-sdl-09-room-small",
-      "run_id": "2026-10-21T15-43-22.737Z-gpt-6-luna-medium-4c5abf9d",
+      "run_id": "2026-10-22T11-41-27.612Z-gpt-6-luna-medium-e86af7cf",
+      "selection": "refreshed",
       "makespan_s": 11174.740040208057,
       "hours": 3.104094455613349
     },
     {
       "method": "gpt-6-luna-medium",
       "task_id": "lemat-sdl-10-room-wide",
-      "run_id": "2026-10-21T15-43-22.737Z-gpt-6-luna-medium-4c5abf9d",
+      "run_id": "2026-10-22T11-41-27.612Z-gpt-6-luna-medium-e86af7cf",
+      "selection": "refreshed",
       "makespan_s": 11395.1721006325,
       "hours": 3.165325583509028
     },
@@ -230,6 +473,7 @@
       "method": "gpt-6-luna-medium",
       "task_id": "lemat-sdl-11-priority-tail",
       "run_id": "2026-10-22T00-54-02.898Z-gpt-6-luna-medium-227bf651",
+      "selection": "retained",
       "makespan_s": 29765.636597585242,
       "hours": 8.268232388218124
     },
@@ -237,6 +481,7 @@
       "method": "gpt-6-luna-medium",
       "task_id": "lemat-sdl-12-overfull-inventory",
       "run_id": "2026-10-22T00-54-02.898Z-gpt-6-luna-medium-227bf651",
+      "selection": "retained",
       "makespan_s": 17494.475228627874,
       "hours": 4.859576452396632
     },
@@ -244,6 +489,7 @@
       "method": "gpt-6-luna-medium",
       "task_id": "lemat-sdl-13-lookahead-exchange",
       "run_id": "2026-10-22T00-54-02.898Z-gpt-6-luna-medium-227bf651",
+      "selection": "retained",
       "makespan_s": 21273.24689638129,
       "hours": 5.909235248994802
     },
@@ -251,76 +497,103 @@
       "method": "gpt-6-luna-medium",
       "task_id": "lemat-sdl-14-layout-distance",
       "run_id": "2026-10-22T00-54-02.898Z-gpt-6-luna-medium-227bf651",
+      "selection": "retained",
       "makespan_s": 2605.8756776074874,
       "hours": 0.7238543548909687
     },
     {
+      "method": "gpt-6-luna-medium",
+      "task_id": "scheduler-room-14x10-dev",
+      "run_id": "2026-10-22T11-41-27.612Z-gpt-6-luna-medium-e86af7cf",
+      "selection": "refreshed",
+      "makespan_s": 5566.006516644046,
+      "hours": 1.5461129212900129
+    },
+    {
+      "method": "gpt-6-luna-medium",
+      "task_id": "scheduler-room-8x7-dev",
+      "run_id": "2026-10-22T11-41-27.612Z-gpt-6-luna-medium-e86af7cf",
+      "selection": "refreshed",
+      "makespan_s": 5494.450961088492,
+      "hours": 1.5262363780801365
+    },
+    {
       "method": "jev",
       "task_id": "lemat-sdl-01-single-station",
-      "run_id": "2026-10-21T15-46-21.130Z-jev-38a8a851",
+      "run_id": "2026-10-22T11-27-39.418Z-jev-73f2b071",
+      "selection": "refreshed",
       "makespan_s": 15247.215054545957,
       "hours": 4.235337515151655
     },
     {
       "method": "jev",
       "task_id": "lemat-sdl-02-cramped-exchange",
-      "run_id": "2026-10-21T15-46-21.130Z-jev-38a8a851",
+      "run_id": "2026-10-22T11-27-39.418Z-jev-73f2b071",
+      "selection": "refreshed",
       "makespan_s": 9871.738351515318,
       "hours": 2.742149542087588
     },
     {
       "method": "jev",
       "task_id": "lemat-sdl-03-many-arms",
-      "run_id": "2026-10-21T16-08-32.444Z-jev-8fe16bf8",
+      "run_id": "2026-10-22T11-27-39.418Z-jev-73f2b071",
+      "selection": "refreshed",
       "makespan_s": 7249.93458787883,
       "hours": 2.0138707188552307
     },
     {
       "method": "jev",
       "task_id": "lemat-sdl-04-staggered-jobs",
-      "run_id": "2026-10-21T15-46-21.130Z-jev-38a8a851",
-      "makespan_s": 402016.2077025195,
-      "hours": 111.67116880625541
+      "run_id": "2026-10-22T11-27-39.418Z-jev-73f2b071",
+      "selection": "refreshed",
+      "makespan_s": 395611.95727923745,
+      "hours": 109.89221035534374
     },
     {
       "method": "jev",
       "task_id": "lemat-sdl-05-bursty-demand",
-      "run_id": "2026-10-21T15-46-21.130Z-jev-38a8a851",
+      "run_id": "2026-10-22T11-27-39.418Z-jev-73f2b071",
+      "selection": "refreshed",
       "makespan_s": 48673.42461664231,
       "hours": 13.520395726845086
     },
     {
       "method": "jev",
       "task_id": "lemat-sdl-06-long-process-overlap",
-      "run_id": "2026-10-21T15-46-21.130Z-jev-38a8a851",
-      "makespan_s": 185263.06973731745,
-      "hours": 51.461963815921514
+      "run_id": "2026-10-22T11-27-39.418Z-jev-73f2b071",
+      "selection": "refreshed",
+      "makespan_s": 185218.1550752694,
+      "hours": 51.449487520908164
     },
     {
       "method": "jev",
       "task_id": "lemat-sdl-07-transport-pressure",
-      "run_id": "2026-10-21T15-46-21.130Z-jev-38a8a851",
+      "run_id": "2026-10-22T11-27-39.418Z-jev-73f2b071",
+      "selection": "refreshed",
       "makespan_s": 4278.320771604022,
       "hours": 1.188422436556673
     },
     {
       "method": "jev",
       "task_id": "lemat-sdl-08-finite-buffers",
-      "run_id": "2026-10-21T15-46-21.130Z-jev-38a8a851",
-      "makespan_s": 46300.769351290844,
-      "hours": 12.861324819803013
+      "run_id": "2026-10-22T11-27-39.418Z-jev-73f2b071",
+      "selection": "refreshed",
+      "makespan_s": 46304.32490684639,
+      "hours": 12.862312474123998
     },
     {
       "method": "jev",
       "task_id": "lemat-sdl-09-room-small",
-      "run_id": "2026-10-21T15-46-21.130Z-jev-38a8a851",
+      "run_id": "2026-10-22T11-27-39.418Z-jev-73f2b071",
+      "selection": "refreshed",
       "makespan_s": 11129.137096969822,
       "hours": 3.091426971380506
     },
     {
       "method": "jev",
       "task_id": "lemat-sdl-10-room-wide",
-      "run_id": "2026-10-21T15-46-21.130Z-jev-38a8a851",
+      "run_id": "2026-10-22T11-27-39.418Z-jev-73f2b071",
+      "selection": "refreshed",
       "makespan_s": 11372.627808954821,
       "hours": 3.159063280265228
     },
@@ -328,6 +601,7 @@
       "method": "jev",
       "task_id": "lemat-sdl-11-priority-tail",
       "run_id": "2026-10-22T00-54-26.159Z-jev-5460ce3c",
+      "selection": "retained",
       "makespan_s": 29976.77393847163,
       "hours": 8.326881649575453
     },
@@ -335,6 +609,7 @@
       "method": "jev",
       "task_id": "lemat-sdl-12-overfull-inventory",
       "run_id": "2026-10-22T00-54-26.159Z-jev-5460ce3c",
+      "selection": "retained",
       "makespan_s": 19652.160983626552,
       "hours": 5.4589336065629315
     },
@@ -342,6 +617,7 @@
       "method": "jev",
       "task_id": "lemat-sdl-13-lookahead-exchange",
       "run_id": "2026-10-22T00-54-26.159Z-jev-5460ce3c",
+      "selection": "retained",
       "makespan_s": 26445.91390447741,
       "hours": 7.3460871956881695
     },
@@ -349,8 +625,25 @@
       "method": "jev",
       "task_id": "lemat-sdl-14-layout-distance",
       "run_id": "2026-10-22T00-54-26.159Z-jev-5460ce3c",
+      "selection": "retained",
       "makespan_s": 2457.3181267681575,
       "hours": 0.6825883685467105
+    },
+    {
+      "method": "jev",
+      "task_id": "scheduler-room-14x10-dev",
+      "run_id": "2026-10-22T11-27-39.418Z-jev-73f2b071",
+      "selection": "refreshed",
+      "makespan_s": 5566.006516644046,
+      "hours": 1.5461129212900129
+    },
+    {
+      "method": "jev",
+      "task_id": "scheduler-room-8x7-dev",
+      "run_id": "2026-10-22T11-27-39.418Z-jev-73f2b071",
+      "selection": "refreshed",
+      "makespan_s": 5494.450961088492,
+      "hours": 1.5262363780801365
     }
   ]
 }

@@ -27,7 +27,7 @@ jobs:
           cat >> "$GITHUB_STEP_SUMMARY" <<'EOF'
           ## Recorded benchmark results UI
           Download **labopsbench-results-ui** below, unzip it, then run `node serve.mjs` inside the extracted folder.
-          Open http://127.0.0.1:4181/ to inspect all 50 saved trials, priorities, exchanges and 2D/3D playback.
+          Open http://127.0.0.1:4181/ to inspect all 80 saved trials, priorities, exchanges and 2D/3D playback.
           No Python, npm install, model API key or new model call is needed. Source and recorded results are available in the public repository.
           EOF
   contracts:

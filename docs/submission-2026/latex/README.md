@@ -22,6 +22,8 @@ benchmark/published/recordings/2026-10-21T16-09-37.772Z-gpt-6-luna-medium-24a0cb
 
 Decompressed SHA-256: 8a22c3867a2daadf9d8849dcc87c1675b0707c3959cdd7b3f293739384230ff8.
 
+This recording belongs to the first 50-trial selection and remains in the repository. The refreshed 80-trial comparison uses run 2026-10-22T11-41-27.612Z-gpt-6-luna-medium-e86af7cf for scenario 03, with the same makespan (7,249.935 simulation seconds).
+
 The PDF is A4, one page, with 10 pt body text and a vector observation–decision–execution loop. The evaluated component includes algorithms and heuristics as well as AI agents. Numeric examples are converted from recorded seconds to hours, rounded to three decimals.
 
 See [citation support](../Citation-review.md), [source and result evidence](../README.md), and [the protocol](../../LEMAT_SDL_BENCHMARK.md).

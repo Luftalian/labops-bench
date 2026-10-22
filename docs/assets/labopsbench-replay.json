@@ -1,0 +1,24 @@
+{
+  "file": "docs/assets/labopsbench-replay.gif",
+  "source": "Recorded-results viewer (npm run view:results), scrubbed through a saved engine result; no simulation, model call or hand-drawn content",
+  "task_id": "lemat-sdl-12-overfull-inventory",
+  "method": "gpt-6-luna-medium",
+  "run_id": "2026-10-22T00-54-02.898Z-gpt-6-luna-medium-227bf651",
+  "view": "three",
+  "status": "completed",
+  "makespan_s": 17494.475228627874,
+  "recording": "benchmark/published/recordings/2026-10-22T00-54-02.898Z-gpt-6-luna-medium-227bf651/lemat-sdl-12-overfull-inventory/result.json.gz",
+  "recording_gzip_sha256": "f46bb15da988ab60628b8d71a4cf3f457235c1149091c7d488c85306a55de182",
+  "simulation_seconds": {
+    "from": 0,
+    "to": 17494.475228627874
+  },
+  "frames": 240,
+  "fps": 24,
+  "width_px": 1200,
+  "viewer_sources_sha256": {
+    "frontend/benchmarks/app.mjs": "8e6f8d8cdb541b0e44990af97496644c8cc600a9829e952f0adaee338f110a17",
+    "frontend/benchmarks/index.html": "a360acc2a3253fea93d635e0c81ee70c1987ddc6c00dcc435e98aa474694b33a",
+    "frontend/benchmarks/styles.css": "7d04791edd601dc27fb1ff394fc53ae90dab9147843f9c4216f5c3e2d9bc1468"
+  }
+}

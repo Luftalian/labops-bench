@@ -6,9 +6,9 @@ Ryoma Yamamoto · Haruki Nakajima
 
 LabOpsBench asks a policy to select equipment configurations and prioritize predefined experimental jobs under room, equipment, robot-arm and transport constraints. The simulator executes those decisions, accounts for contention and permitted equipment moves, and measures the time until the complete workload finishes.
 
-![Recorded laboratory simulation](docs/assets/sdl-future-lab.gif)
+![Results viewer replaying GPT-6 Luna on scenario 12](docs/assets/labopsbench-replay.gif)
 
-This animation is a synthetic demonstration of the simulator. The benchmark results below come from separately recorded evaluation scenarios.
+A recorded benchmark run in the results viewer: GPT-6 Luna (medium) on scenario 12, *More equipment than space* (4 × 3.4 m room, 22 jobs, two active bays for 36 owned instruments). The 4.86-hour run plays as a time-lapse. The active equipment is exchanged twice as the scheduler's decisions take effect. Frames are captured from the saved engine result ([capture record](docs/assets/labopsbench-replay.json), `scripts/capture-readme-replay.mjs`).
 
 [One-page summary](docs/submission-2026/LabOpsBench-one-page-summary-latex.pdf) · [Evaluation protocol](docs/LEMAT_SDL_BENCHMARK.md) · [Recorded results](docs/LEMAT_SDL_RESULTS.md) · [Agent interface](docs/SCHEDULER_INTERFACE.md)
 
@@ -25,9 +25,10 @@ npm run view:results
 
 Select a completion time in the scenario-by-policy table, inspect the 2D/3D laboratory replay, and follow the recorded scheduling decisions. Scores are read from saved engine results.
 
-The distribution contains **14 scenarios and 50 selected trials**:
-- Ten scenarios compare a reference heuristic, GPT-6 Luna (medium), and Jev.
-- Four decision challenges additionally compare FIFO and a workload-aware algorithm.
+The distribution contains **16 scenarios and 80 selected trials**: five methods on every scenario.
+- Methods: arrival-order FIFO, capacity + longest remaining work, bottleneck/travel + downstream-first, GPT-6 Luna (medium), and Jev 1.14.0.
+- Fourteen scenarios derive from public LeMat-Synth annotations; two are synthetic scheduler tasks in 8×7 m and 14×10 m rooms.
+- Scenarios 11–14 keep the runs quoted in the paper; the other 60 trials are fresh runs under the same task and configuration hashes ([selection and validation](docs/LEMAT_SDL_BENCHMARK.md)).
 
 The challenges include scarce equipment, future arrivals, finite buffers, transport contention, equipment exchanges, and dense layouts. These are exploratory, single-trial comparisons within declared candidate spaces. They do not establish a general ranking of models.
 
@@ -43,7 +44,7 @@ The challenges include scarce equipment, future arrivals, finite buffers, transp
 
 The simulation clock pauses while a policy responds. Model latency and cost are separate from simulated makespan. The canonical interface also supports explicit layouts; the published comparison evaluates shared finite configuration candidates. See [comparison scope](docs/SCHEDULER_CHALLENGES.md).
 
-Workflows derive from three public LeMat-Synth annotation records, normalized into eight scheduling templates. Equipment mappings and missing durations contain documented assumptions. LabOpsBench evaluates scheduling in simulation; it does not generate new scientific hypotheses or predict reaction success.
+The LeMat-derived workflows come from three public LeMat-Synth annotation records, normalized into eight scheduling templates. Equipment mappings and missing durations contain documented assumptions. LabOpsBench evaluates scheduling in simulation; it does not generate new scientific hypotheses or predict reaction success.
 
 ## Run the simulator or evaluate a policy
 
@@ -75,7 +76,7 @@ npm run check:poc
 npm run check:poc:replay
 ```
 
-The first command uses the Python standard library to verify all 50 distributed recordings, the paper's quoted values, source annotations and manuscript assets. The other checks use the environment installed above. Recorded replay and fresh inference are different operations.
+The first command uses the Python standard library to verify all 80 distributed recordings, the paper's quoted values, source annotations and manuscript assets. The other checks use the environment installed above. Recorded replay and fresh inference are different operations.
 
 - [Paper, editable LaTeX, citations and numerical evidence](docs/submission-2026/README.md)
 - [Task settings, model identities and reproduction commands](docs/LEMAT_SDL_BENCHMARK.md)

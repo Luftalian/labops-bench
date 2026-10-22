@@ -22,7 +22,7 @@ These examples cover facility expansion, inter-laboratory connections and integr
 
 ## Project-specific evidence
 
-The benchmark definition, 14 scenarios, 50 selected trials, model settings, three source records and eight workflow templates are supported by the repository's code, configuration and recordings. External papers do not validate LabOpsBench's particular motion model.
+The benchmark definition, 16 scenarios, 80 selected trials, model settings, three source records and eight workflow templates are supported by the repository's code, configuration and recordings. External papers do not validate LabOpsBench's particular motion model.
 
 The compared policies choose configurations/exchanges from shared candidates and prioritize predefined jobs. The engine validates and dispatches operations and controls simulated transport. The benchmark does not evaluate scientific hypothesis generation.
 

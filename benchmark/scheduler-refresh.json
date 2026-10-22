@@ -1,0 +1,137 @@
+{
+  "requested_at": "2026-10-22T11:26:08.943Z",
+  "refreshed_task_ids": [
+    "lemat-sdl-01-single-station",
+    "lemat-sdl-02-cramped-exchange",
+    "lemat-sdl-03-many-arms",
+    "lemat-sdl-04-staggered-jobs",
+    "lemat-sdl-05-bursty-demand",
+    "lemat-sdl-06-long-process-overlap",
+    "lemat-sdl-07-transport-pressure",
+    "lemat-sdl-08-finite-buffers",
+    "lemat-sdl-09-room-small",
+    "lemat-sdl-10-room-wide",
+    "scheduler-room-14x10-dev",
+    "scheduler-room-8x7-dev"
+  ],
+  "retained_task_ids": [
+    "lemat-sdl-11-priority-tail",
+    "lemat-sdl-12-overfull-inventory",
+    "lemat-sdl-13-lookahead-exchange",
+    "lemat-sdl-14-layout-distance"
+  ],
+  "retained_results": [
+    {
+      "task_id": "lemat-sdl-11-priority-tail",
+      "method": "fifo",
+      "run_id": "2026-10-21T16-41-19.195Z-fifo-9838c9f6"
+    },
+    {
+      "task_id": "lemat-sdl-12-overfull-inventory",
+      "method": "fifo",
+      "run_id": "2026-10-21T16-41-19.195Z-fifo-9838c9f6"
+    },
+    {
+      "task_id": "lemat-sdl-13-lookahead-exchange",
+      "method": "fifo",
+      "run_id": "2026-10-21T16-41-19.195Z-fifo-9838c9f6"
+    },
+    {
+      "task_id": "lemat-sdl-14-layout-distance",
+      "method": "fifo",
+      "run_id": "2026-10-21T16-41-19.195Z-fifo-9838c9f6"
+    },
+    {
+      "task_id": "lemat-sdl-11-priority-tail",
+      "method": "heuristic",
+      "run_id": "2026-10-21T16-41-21.456Z-heuristic-fcee444d"
+    },
+    {
+      "task_id": "lemat-sdl-12-overfull-inventory",
+      "method": "heuristic",
+      "run_id": "2026-10-21T16-41-21.456Z-heuristic-fcee444d"
+    },
+    {
+      "task_id": "lemat-sdl-13-lookahead-exchange",
+      "method": "heuristic",
+      "run_id": "2026-10-21T16-41-21.456Z-heuristic-fcee444d"
+    },
+    {
+      "task_id": "lemat-sdl-14-layout-distance",
+      "method": "heuristic",
+      "run_id": "2026-10-21T16-41-21.456Z-heuristic-fcee444d"
+    },
+    {
+      "task_id": "lemat-sdl-11-priority-tail",
+      "method": "algorithm-advanced",
+      "run_id": "2026-10-21T16-41-20.287Z-algorithm-advanced-f136f93d"
+    },
+    {
+      "task_id": "lemat-sdl-12-overfull-inventory",
+      "method": "algorithm-advanced",
+      "run_id": "2026-10-21T16-41-20.287Z-algorithm-advanced-f136f93d"
+    },
+    {
+      "task_id": "lemat-sdl-13-lookahead-exchange",
+      "method": "algorithm-advanced",
+      "run_id": "2026-10-21T16-41-20.287Z-algorithm-advanced-f136f93d"
+    },
+    {
+      "task_id": "lemat-sdl-14-layout-distance",
+      "method": "algorithm-advanced",
+      "run_id": "2026-10-21T16-41-20.287Z-algorithm-advanced-f136f93d"
+    },
+    {
+      "task_id": "lemat-sdl-11-priority-tail",
+      "method": "gpt-6-luna-medium",
+      "run_id": "2026-10-22T00-54-02.898Z-gpt-6-luna-medium-227bf651"
+    },
+    {
+      "task_id": "lemat-sdl-12-overfull-inventory",
+      "method": "gpt-6-luna-medium",
+      "run_id": "2026-10-22T00-54-02.898Z-gpt-6-luna-medium-227bf651"
+    },
+    {
+      "task_id": "lemat-sdl-13-lookahead-exchange",
+      "method": "gpt-6-luna-medium",
+      "run_id": "2026-10-22T00-54-02.898Z-gpt-6-luna-medium-227bf651"
+    },
+    {
+      "task_id": "lemat-sdl-14-layout-distance",
+      "method": "gpt-6-luna-medium",
+      "run_id": "2026-10-22T00-54-02.898Z-gpt-6-luna-medium-227bf651"
+    },
+    {
+      "task_id": "lemat-sdl-11-priority-tail",
+      "method": "jev",
+      "run_id": "2026-10-22T00-54-26.159Z-jev-5460ce3c"
+    },
+    {
+      "task_id": "lemat-sdl-12-overfull-inventory",
+      "method": "jev",
+      "run_id": "2026-10-22T00-54-26.159Z-jev-5460ce3c"
+    },
+    {
+      "task_id": "lemat-sdl-13-lookahead-exchange",
+      "method": "jev",
+      "run_id": "2026-10-22T00-54-26.159Z-jev-5460ce3c"
+    },
+    {
+      "task_id": "lemat-sdl-14-layout-distance",
+      "method": "jev",
+      "run_id": "2026-10-22T00-54-26.159Z-jev-5460ce3c"
+    }
+  ],
+  "model_reruns": [
+    {
+      "method": "gpt-6-luna-medium",
+      "original_run_id": "2026-10-22T11-41-27.612Z-gpt-6-luna-medium-e86af7cf",
+      "task_ids": [
+        "lemat-sdl-04-staggered-jobs",
+        "lemat-sdl-05-bursty-demand",
+        "lemat-sdl-06-long-process-overlap"
+      ],
+      "reason": "Saved answers failed the canonical exact-current-job-set validation. Preserve the failed attempts; rerun fresh inference with local schema/ID validation before writing. No task, engine, budget, candidate or score changes."
+    }
+  ]
+}

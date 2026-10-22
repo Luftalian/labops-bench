@@ -2,7 +2,7 @@
 
 ## 前回の初期配置が同じだった理由
 
-保存された最初の `initial_design` を照合すると、元の10課題すべてでheuristic・Luna・Jevの台数、機器位置、アーム位置、AMR数が完全に一致していた。監査は `scripts/build-lemat-report.mjs` で再生成する [SCHEDULER_INITIAL_LAYOUT_AUDIT.json](SCHEDULER_INITIAL_LAYOUT_AUDIT.json)。同じ完了時間だけから配置一致を推測したわけではない。
+保存された最初の `initial_design` を照合すると、元の10課題すべてでheuristic・Luna・Jevの台数、機器位置、アーム位置、AMR数が完全に一致していた。これは前回時点の観測である。現在の選択結果の監査は `scripts/build-lemat-report.mjs` で再生成する [SCHEDULER_INITIAL_LAYOUT_AUDIT.json](SCHEDULER_INITIAL_LAYOUT_AUDIT.json)。同じ完了時間だけから配置一致を推測したわけではない。
 
 当時は3候補（上限台数を部屋全体へ均等配置、同じ台数で機器順を反転、半分の台数）の選択に限定していた。多くの課題では上限台数が自然な選択で、均等配置以外の自由度もほぼなかった。モデルが自由に座標を設計した比較ではない。前回の30試行はこの制限付きの比較として保存し、新課題の結果と区別する。priorityは別に判断しており、初期配置が一致しても完了時間が必ず一致するわけではない。
 
@@ -48,8 +48,8 @@
 ## 今回のルール
 
 - **FIFO**：到着時刻→job ID。通常の課題はspread配置、外部待機は先に待っている種類を優先して2bayへ配置。将来需要を見ない。
-- **Reference rule**：通常課題はspread配置。到着済みを優先し、残り処理時間の合計が大きいjobから処理。外部待機は先のcohortから処理する。
-- **Workload-aware algorithm**：機器ごとの残り処理負荷・移動距離のproxyで配置を選ぶ。外部待機は直近の将来需要も含む負荷圧と交換コストを使う。jobは下流工程の残り時間が大きいものを優先し、他装置の立ち上がりを早める。固定ルールであり、大域最適や最強baselineではない。
+- **Capacity + longest remaining work**：通常課題はspread配置。到着済みを優先し、残り処理時間の合計が大きいjobから処理。外部待機は先のcohortから処理する。
+- **Bottleneck / travel + downstream-first**：機器ごとの残り処理負荷・移動距離のproxyで配置を選ぶ。外部待機は直近の将来需要も含む負荷圧と交換コストを使う。jobは下流工程の残り時間が大きいものを優先し、他装置の立ち上がりを早める。固定ルールであり、大域最適や最強baselineではない。
 
 LLMの勝ちを合格条件にはしない。差が出ることは、何を判断した結果かを確認するためであり、LLMが良い成績になることを保証するものではない。
 
@@ -84,3 +84,7 @@ npm run check
 モデルが返すreasonは未検証の説明で、engineの事実とは区別する。たとえば今回のLuna・課題12の初期理由には「2slotで4試料を同時処理できる」との記述があったが、このschedulerのdispatchは装置ごと1工程ずつで、実際のprocess peakは2だった。raw回答は修正せず保存し、画面では `Policy rationale (unverified)` と表示する。比較の時間・台数・同時数はreasonの数値ではなくengine eventから集計する。一般のcatalog上限とこのdispatch policyの有効並列数は同じとは限らない。
 
 `node scripts/check-staging-checkpoint.mjs` はこの境界を確認するsoftware診断。HAp多段job1件に必要な3種類のうち2種類だけを室内へ置いて維持すると、幾何的には受理されるがjobは入場できず、判断上限後は `scheduler_deadlock / makespan_s=null / completed_jobs=0` となることを確認した。3種類のどの2種類を選んでも全工程のrouteは揃わない。現在の交換課題が単位操作を使う理由であり、途中試料の外部checkpointは今後の別機能になる。診断の入力・判断・結果は `results/local/validation/scheduler-challenges/whole-job-staging-diagnostic.json`。
+
+## 全16課題の更新
+
+追加4課題の既存20試行を保持し、元10課題と既存synthetic scheduler 2課題を全5方式で新規実行する。表示は全16件が既定で、synthetic課題を明示する。採用時刻・保持runを固定する`benchmark/scheduler-refresh.json`と現在のTask/config hashで旧結果へのfallbackを防ぐ。[更新方法](LEMAT_SDL_BENCHMARK.md#16課題の最新比較)、[全体結果](LEMAT_SDL_RESULTS.md)、[更新検証](SCHEDULER_REFRESH_VALIDATION.json)を参照。以前の`SCHEDULER_CHALLENGES_VALIDATION.json`は前回の記録である。
