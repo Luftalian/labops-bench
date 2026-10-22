@@ -106,5 +106,105 @@
       "bytes": 3157,
       "sha256": "106962218d4ddf4089e139a651c727d9c59183f6d32258c577f348514dfa5163"
     }
+  },
+  "gallery_submission": {
+    "source_repository": "Luftalian/labops-bench",
+    "source_ref": "main",
+    "source_commit": "d19ec428edd714b0ce52700b03a925d6604ed030",
+    "checked_on": "2026-10-22",
+    "selected_recordings_manifest_sha256": "9b988e1ff87a0927f8ea229d07f466a8d7782a4b9c66407e276f07305110bed0",
+    "scenarios": 16,
+    "selected_completed_trials": 80,
+    "methods": 5,
+    "refreshed_trials": 60,
+    "retained_challenge_trials": 20,
+    "runtime_files_matched_to_refresh_validation": 49,
+    "luna_conditions_with_prior_malformed_attempts": 3,
+    "model_calls_during_preparation": 0,
+    "verified_result_rows": [
+      {
+        "scenario": "lemat-sdl-04-staggered-jobs",
+        "method": "fifo",
+        "run_id": "2026-10-22T11-27-29.241Z-fifo-09da504a",
+        "makespan_s": 397079.210958396,
+        "hours_display": "110.300",
+        "source_sha256": "2942c716bb08c3dcdaaefd3840e46d7c5911d8b8a7d4a4b6ca01cff5e0acfdd2"
+      },
+      {
+        "scenario": "lemat-sdl-12-overfull-inventory",
+        "method": "fifo",
+        "run_id": "2026-10-21T16-41-19.195Z-fifo-9838c9f6",
+        "makespan_s": 27581.27415721286,
+        "hours_display": "7.661",
+        "source_sha256": "e67829cb7ac135ff4a5a2ffe7d031c740fe9989ea838973b4887f78e71dc6a78"
+      },
+      {
+        "scenario": "lemat-sdl-12-overfull-inventory",
+        "method": "heuristic",
+        "run_id": "2026-10-21T16-41-21.456Z-heuristic-fcee444d",
+        "makespan_s": 27581.27415721286,
+        "hours_display": "7.661",
+        "source_sha256": "83de91c5aec205a9a73551c86d0493f39507e57f1bf766008e2a5907abf83fdd"
+      },
+      {
+        "scenario": "lemat-sdl-12-overfull-inventory",
+        "method": "algorithm-advanced",
+        "run_id": "2026-10-21T16-41-20.287Z-algorithm-advanced-f136f93d",
+        "makespan_s": 18244.321967253112,
+        "hours_display": "5.068",
+        "source_sha256": "62b6eff768ba60b9b2be21ad9f4e985b795346293000c416b7243b22c2ea43e1"
+      },
+      {
+        "scenario": "lemat-sdl-04-staggered-jobs",
+        "method": "gpt-6-luna-medium",
+        "run_id": "2026-10-22T12-11-06.739Z-gpt-6-luna-medium-3fc85534",
+        "makespan_s": 406054.6930288604,
+        "hours_display": "112.793",
+        "source_sha256": "de361c38a76981aca2586d3b62496b0879a07399bb66323247542256cf62ae9e"
+      },
+      {
+        "scenario": "lemat-sdl-12-overfull-inventory",
+        "method": "gpt-6-luna-medium",
+        "run_id": "2026-10-22T00-54-02.898Z-gpt-6-luna-medium-227bf651",
+        "makespan_s": 17494.475228627874,
+        "hours_display": "4.860",
+        "source_sha256": "e1b38ce73bf65ef692e65beb577d2a4b3f69a18cc871677b1dcd1cd9a2d2571a"
+      },
+      {
+        "scenario": "lemat-sdl-04-staggered-jobs",
+        "method": "jev",
+        "run_id": "2026-10-22T11-27-39.418Z-jev-73f2b071",
+        "makespan_s": 395611.95727923745,
+        "hours_display": "109.892",
+        "source_sha256": "69f0d67eaf2ec22f7b8ed5413afb419f66aa55d980c21b246fa57936c87f1073"
+      },
+      {
+        "scenario": "lemat-sdl-12-overfull-inventory",
+        "method": "jev",
+        "run_id": "2026-10-22T00-54-26.159Z-jev-5460ce3c",
+        "makespan_s": 19652.160983626552,
+        "hours_display": "5.459",
+        "source_sha256": "0418c27213d0828b437561186b7c41beb507e8955405ec2166c5421fc1162ab8"
+      }
+    ],
+    "files": {
+      "LabOpsBench-one-page-submit.md": {
+        "bytes": 4682,
+        "sha256": "e6d78f2545146974573b17fcaac6ec04ac47f44dfc10bc30f710a6c1f373a302"
+      },
+      "LabOpsBench-one-page-submit.html": {
+        "bytes": 873226,
+        "sha256": "cb19b46a0818ccb874f772a76b4f18354a95bee4cca22b9cc7f8358d95063d31"
+      }
+    },
+    "demo_video": {
+      "watch_url": "https://www.youtube.com/watch?v=tVD-mtF-0fY",
+      "embed_url": "https://www.youtube.com/embed/tVD-mtF-0fY",
+      "title": "LabOpsBench: Benchmarking AI Agents for Self-Driving Labs | OSI Hackathon 2026",
+      "channel": "LabWeave",
+      "placement": "HTML only: after the opening summary, before Motivation; omitted from Markdown",
+      "print_rendering": "Video link; player hidden",
+      "autoplay": false
+    }
   }
 }

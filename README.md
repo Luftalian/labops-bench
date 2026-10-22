@@ -10,7 +10,7 @@ LabOpsBench asks a policy to select equipment configurations and prioritize pred
 
 A recorded benchmark run in the results viewer: GPT-6 Luna (medium) on scenario 12, *More equipment than space* (4 × 3.4 m room, 22 jobs, two active bays for 36 owned instruments). The 4.86-hour run plays as a time-lapse. The active equipment is exchanged twice as the scheduler's decisions take effect. Frames are captured from the saved engine result ([capture record](docs/assets/labopsbench-replay.json), `scripts/capture-readme-replay.mjs`).
 
-[One-page summary](docs/submission-2026/LabOpsBench-one-page-summary-latex.pdf) · [Evaluation protocol](docs/LEMAT_SDL_BENCHMARK.md) · [Recorded results](docs/LEMAT_SDL_RESULTS.md) · [Agent interface](docs/SCHEDULER_INTERFACE.md)
+[Demo video](https://www.youtube.com/watch?v=tVD-mtF-0fY) · [One-page summary](docs/submission-2026/LabOpsBench-one-page-summary-latex.pdf) · [Evaluation protocol](docs/LEMAT_SDL_BENCHMARK.md) · [Recorded results](docs/LEMAT_SDL_RESULTS.md) · [Agent interface](docs/SCHEDULER_INTERFACE.md)
 
 ## Try the recorded benchmark
 
@@ -86,6 +86,6 @@ The first command uses the Python standard library to verify all 80 distributed 
 
 ## Citation and licensing
 
-Use [CITATION.cff](CITATION.cff) for the project authors and repository URL. The project-wide code license has not yet been selected. Bundled third-party code, data and assets retain their own licenses and notices in [licenses/](licenses/README.md).
+Use [CITATION.cff](CITATION.cff) for the project authors and repository URL. LabOpsBench's original code and associated documentation are licensed under the [MIT License](LICENSE). Bundled third-party code, data and assets retain their own licenses and notices in [licenses/](licenses/README.md) and [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
 
 This public repository retains the authors and timestamps of the included development commits. Internal planning documents, research working notes and superseded submission drafts were excluded from its history.
