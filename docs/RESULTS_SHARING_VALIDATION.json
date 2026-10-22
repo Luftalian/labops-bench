@@ -42,6 +42,18 @@
       "check": "Staged files checked against configured credential value, environment file paths and private-key markers",
       "status": "passed",
       "findings": 0
+    },
+    {
+      "command": "node scripts/check-poc-replay.mjs in a fresh Git clone",
+      "status": "passed",
+      "output_directory_created": true,
+      "original_verifier_unchanged": true,
+      "trace_sha256": "21d570dfc49d4ab5c82453d76adf264a3c6776f1b94d335994c86157a4fcdd5d"
+    },
+    {
+      "command": "scripts/smoke-counts.mjs and scripts/smoke-integration.mjs against a fresh Git clone",
+      "status": "passed",
+      "fixture_only": true
     }
   ],
   "artifact": {
@@ -54,5 +66,10 @@
   "notes": [
     "No model inference performed during packaging or viewing.",
     "One existing whitespace warning in the unmodified vendored Three.js source is preserved to retain upstream hashes."
-  ]
+  ],
+  "initial_ci_run": {
+    "url": "https://github.com/Luftalian/labopsbench/actions/runs/39705655177",
+    "results_viewer": "success",
+    "regression": "failed because the imported replay verifier expected an ignored output directory to exist"
+  }
 }
