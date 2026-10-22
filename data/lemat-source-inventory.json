@@ -16,7 +16,7 @@
     "backend/poc/sim/v2/data/procedures.json": "9634bfe3e1cb98136901d7e9c33d0f75bd67263ed7515eb79491c31704255ecf",
     "backend/poc/demo/workshop/data/procedures.json": "f3ad1ce45baf9fb30807780097c3428fbdfb3e3d0c2b3bbefb553bdc874179c2",
     "benchmark/lemat-sdl/workflows.json": "a7a6eecc4e07c6bf9e1c85ac9ab4c72c9187a428397a188dff6373dcad2dc8d2",
-    "data/source-references.json": "f0029f4b4a2818a6c8ffb83ebb70521cbfe64b9981381210dccc6b024f5ddf40"
+    "data/source-references.json": "600be9cd3587044d72d73f3bc0a254de70db170a62c740178369a441eac7ee41"
   },
   "licenses": [
     {

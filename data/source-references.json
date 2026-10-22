@@ -3,6 +3,20 @@
   "scope": "Bibliographic and rights metadata; does not change tasks, engine inputs or saved results.",
   "references": [
     {
+      "id": "self-building-labs",
+      "title": "Self-Building Labs",
+      "authors": "Jiaru Bai; Yuchi Zhao; Han Hao; Miroslav Bogdanovic; Yang Cao; Varinia Bernales; Alán Aspuru-Guzik",
+      "year": 2026,
+      "version": "arXiv:2610.23826v1 (2026-10-16)",
+      "url": "https://arxiv.org/abs/2610.23826v1",
+      "doi": "10.48550/arXiv.2610.23826",
+      "role": "Conceptual reference for laboratory configuration and executable digital twins. No SBL data, code, CAD, learned skills or experimental traces identified in inspected acquisition manifests and code. Not an end-to-end reproduction.",
+      "paper_license": "CC-BY-4.0 (article only; not a blanket license for separate artifacts)",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "local_evidence": ["backend/poc/demo/workshop/app.mjs", "backend/poc/sim/data/README.md", "backend/poc/IMPORT_MANIFEST.json", "backend/poc/sim/v2/data/source-manifest.json"],
+      "verification_urls": ["https://arxiv.org/abs/2610.23826v1", "https://arxiv.org/html/2610.23826v1"]
+    },
+    {
       "id": "lemat-synth",
       "title": "LeMat-Synth: a multi-modal toolbox to curate broad synthesis procedure databases from scientific literature",
       "authors": "Magdalena Lederbauer et al.",

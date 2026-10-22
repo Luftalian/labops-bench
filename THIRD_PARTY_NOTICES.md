@@ -2,6 +2,10 @@
 
 LabOpsBench includes third-party code, robot geometry and derived scientific annotations. Their original terms remain in force. This file does not grant a license to the project's own code, model services, original papers, or third-party trademarks. Project-wide licensing has not been selected.
 
+## Self-Building Labs reference
+
+Jiaru Bai et al., *Self-Building Labs*, [arXiv:2610.23826v1](https://arxiv.org/abs/2610.23826v1), 16 October 2026, is a conceptual reference for configuring executable laboratories. Its article is CC BY 4.0. The inspected acquisition manifests and code identify no imported SBL data, code, CAD, learned skills or experimental traces. This citation does not imply an end-to-end reproduction or grant permission for separate SBL artifacts. See [the scope and bibliographic record](docs/SOURCES.md#self-building-labsとの関係).
+
 ## LeMat-Synth annotations
 
 Source: [LeMaterial/lematerial-llm-synthesis](https://github.com/LeMaterial/lematerial-llm-synthesis), revision `e4bacbcbac084544ca68d48242336c2e36f6ee15`. Attribution: LeMaterial and the LeMat-Synth contributors; see the [LeMat-Synth paper](https://arxiv.org/abs/2510.26824v2).

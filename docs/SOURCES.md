@@ -6,6 +6,7 @@
 
 | 使用物 | 取得元・固定版 | 用途と利用条件 |
 |---|---|---|
+| Self-Building Labs | Bai et al., [arXiv:2610.23826v1](https://arxiv.org/abs/2610.23826v1) | ラボ構成・digital twin・実行という設計の参考文献。取得manifestとコードでSBLのデータ・CAD・コードの取り込みは確認していない。下記参照 |
 | LeMat-Synth公開注釈 | [LeMaterial/lematerial-llm-synthesis](https://github.com/LeMaterial/lematerial-llm-synthesis/tree/e4bacbcbac084544ca68d48242336c2e36f6ee15)、`e4bacbcbac084544ca68d48242336c2e36f6ee15` | 抽出手順・時間をスケジューリング入力へ変換。upstreamはApache-2.0、[本文同梱](../licenses/LeMat-Synth-APACHE-2.0.txt)。原論文の条件は別 |
 | xArm6のvisual STL 7個 | [メーカーのuf-gym](https://github.com/xArm-Developer/uf-gym/tree/5d93e0419193bfed8a7cefc7bbe9b045a650f049/urdf/xarm)、`5d93e0419193bfed8a7cefc7bbe9b045a650f049` | base、link1〜link6の3D表示。MIT、© 2020 Quentin Gallouédec / © 2024 UFACTORY Inc。[原文](../backend/poc/sim/physics/assets/xarm6/LICENSE)と未改変STLを保持 |
 | Three.js、OrbitControls、STLLoader | [Three.js](https://github.com/mrdoob/three.js)。同梱版hashは[取込manifest](../backend/poc/IMPORT_MANIFEST.json) | 3D描画、カメラ、STL読込。MIT、© 2010–2026 three.js authors。[原文](../backend/poc/demo/vendor/LICENSE-three.txt)とmoduleヘッダを保持 |
@@ -13,6 +14,14 @@
 | 部屋・台数・到着job・搬送 | [scenarios](../benchmark/lemat-sdl/scenarios.json)、[suite生成器](../benchmark/lemat-sdl/suite.mjs)、catalog | プロジェクトで設計した比較条件。LeMatや実測SDLから得た条件ではない |
 | GPT Luna / Jev | [方式・モデル・記録](LEMAT_SDL_BENCHMARK.md#同一条件での実行) | hosted serviceが候補・priorityを選ぶ。モデル重みは配布せず、保存出力の再生と新規推論を区別 |
 | FFmpeg | [公式ライセンス説明](https://ffmpeg.org/legal.html) | 外部のローカル編集コマンド。実行ファイル・ライブラリは素材に同梱しない |
+
+## Self-Building Labsとの関係
+
+Jiaru Bai, Yuchi Zhao, Han Hao, Miroslav Bogdanovic, Yang Cao, Varinia Bernales, Alán Aspuru-Guzik. *Self-Building Labs*. [arXiv:2610.23826v1](https://arxiv.org/abs/2610.23826v1), 2026-10-16. [DOI: 10.48550/arXiv.2610.23826](https://doi.org/10.48550/arXiv.2610.23826)。[論文HTML](https://arxiv.org/html/2610.23826v1)の表示はCC BY 4.0。これは論文の許諾であり、別配布のデータ・コード・CADの許諾を一律に定めるものではない。
+
+PoCではラボを構成して実行する方向性の参考にしており、[既存viewerのAbout](../backend/poc/demo/workshop/app.mjs)にもSBL-inspiredと比較・引用を記載している。今回点検した取得manifestとコードでは、SBL配布物由来のデータ、CAD、コード、学習済みskill、実験traceの取り込みは確認されていない。実際の入力値はLeMat注釈、アームmeshはuf-gym、装置寸法はメーカー資料という別の取得経路を持つ。
+
+LabOpsBenchは施設規模の配置・台数・順序・搬送を評価する。SBLが扱う自律的なskill開発や実機観測による校正、論文のend-to-end実験を再現したとは主張しない。参考設計の引用と、データやソフトウェアを取り込んだ場合の帰属・許諾を区別する。
 
 ## LeMatからベンチマークまで
 

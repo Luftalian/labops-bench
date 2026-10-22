@@ -17,7 +17,8 @@ export function exportBenchmarkUI(output=path.join(root,'dist/benchmark-ui')){
   }
   write('benchmarks/report.json',JSON.stringify(report));write('benchmarks/catalog.json',JSON.stringify(JSON.parse(read('fixtures/counts/room-14x10.json')).catalog));
   let html=read('frontend/benchmarks/index.html').replaceAll('="/','="../').replaceAll('":"/','":"../');
-  html=html.replace(/<nav>[\s\S]*?<\/nav>/,'<nav><a href="https://github.com/Luftalian/labopsbench/tree/feat/poc-integration">GitHub repository ↗</a><a href="../docs/SCHEDULER_CHALLENGES_RESULTS.md">Results &amp; assumptions ↗</a><a href="../docs/SOURCES.md">Sources &amp; papers ↗</a><a href="../THIRD_PARTY_NOTICES.md">Licenses ↗</a><span class="badge" id="suite-badge">RECORDED RESULTS</span></nav>');
+  html=html.replace(/<nav\b[^>]*>[\s\S]*?<\/nav>/,'<nav><a href="https://github.com/Luftalian/labopsbench/tree/feat/poc-integration">GitHub repository ↗</a><a href="../docs/SCHEDULER_CHALLENGES_RESULTS.md">Results &amp; assumptions ↗</a><a href="../docs/SOURCES.md">Sources &amp; papers ↗</a><a href="../THIRD_PARTY_NOTICES.md">Licenses ↗</a><span class="badge">RECORDED RESULTS</span></nav>');
+  if(!html.includes('id="suite-badge"'))html=html.replace('class="badge">','class="badge" id="suite-badge">');
   write('benchmarks/index.html',html);
   for(const p of ['frontend/benchmarks/app.mjs','frontend/benchmarks/styles.css','frontend/replay-layout.mjs','frontend/stage1.css']){
     let text=read(p);if(p.endsWith('/app.mjs'))text=text.replaceAll("from '/","from '../").replaceAll("import('/","import('../").replaceAll("fetch('/benchmarks/","fetch('./");
