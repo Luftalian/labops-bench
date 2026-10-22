@@ -1,0 +1,77 @@
+{
+  "date": "2026-10-21",
+  "branch": "feat/poc-integration",
+  "base_commit": "e83f88e68c1c126d7e14db56f32b844f9e30f2fa",
+  "changes_committed": false,
+  "python": "Python 3.12.3",
+  "node": "v18.16.0",
+  "test_counts": {
+    "python_contract_and_stage1": 27,
+    "node_integration": 8,
+    "poc_regression": 39
+  },
+  "total_tests": 74,
+  "tests_status": "passed",
+  "poc_import_files_verified": 170,
+  "luna_replay": {
+    "status": "passed",
+    "source": "archived-verified",
+    "completed": 24,
+    "decisions": 10,
+    "trace_sha256": "21d570dfc49d4ab5c82453d76adf264a3c6776f1b94d335994c86157a4fcdd5d",
+    "scope": "Saved Luna actions replayed against the verified original simulator snapshot. No model calls."
+  },
+  "http_integration": {
+    "status": "passed",
+    "base": "http://127.0.0.1:4180",
+    "checks": [
+      "12-second canonical HTTP result",
+      "retry identity",
+      "invalid and call accounting",
+      "four archived PoC replays",
+      "live PoC worker",
+      "shared CSS chain, 2D/3D and CAD assets"
+    ],
+    "stage1_makespan_s": 12,
+    "dynamic_completed": 3
+  },
+  "source_sha256": {
+    "backend/stage1/engine.py": "ddf229298f7ce2363b516644bd309924bded5105de07bf9a6195742816be53c5",
+    "backend/stage1/cli.py": "7f8c323066c37cc8131b20d2efdea46669f32cd60294a964f158fa9de0338e25",
+    "backend/stage1/service.mjs": "9a5080d691bed161a4e33caaf6a63e7eb444489e2a28914dd0aac14795478d0e",
+    "frontend/stage1-adapter.mjs": "abbace9cb10869442c7af0270e4e3072a42de36884ffbf1025ec80ea1bc41790",
+    "frontend/stage1.mjs": "5f15f45140385837f9fa683614342faed55019515a129acb3b99864cd3c9c23e",
+    "frontend/stage1.css": "766aa8d75607366deb96c281dfe247a35a0ff2534a528a9bee6839ca30a92929",
+    "scripts/serve.mjs": "be56d691b56060fa110e099a1157e5641493c46099af768813e584bbfb096e9a",
+    "scripts/smoke-integration.mjs": "dc7d32580f27cd23db5dad87d565b8499735e86b7dbc9f982793ccd5fdbbf478",
+    "contracts/labops.schema.json": "2ef7e9c682bd1360aed20908e3fed426bdc5aa53544570ab7a646ebce7dcf5d6",
+    "requirements-lock.txt": "2150e2de4a3df47ce5d15217c7bb628b1060e1b2687a88950d53c774ec7d1ce2"
+  },
+  "commands": [
+    "npm run check",
+    "npm run check:poc",
+    "npm run check:import",
+    "npm run check:poc:replay",
+    "PORT=4180 npm start",
+    "LABOPS_URL=http://127.0.0.1:4180 node scripts/smoke-integration.mjs"
+  ],
+  "browser_checks": [
+    "Formal 2D replay",
+    "PoC equipment models in formal 3D replay",
+    "Invalid design hides old scene and scores",
+    "Playback 16x -> 4x",
+    "Playback beyond H to complete drain retains fixed-H scores",
+    "Additional PoC mode opens original Luna recording with verified archived source"
+  ],
+  "local_evidence_files": {
+    "main-checks.log": "0a35f49df6c6e537c7d82e1116dfcc082404e00bdde4c1909d6fab8a6279df1f",
+    "poc-tests.tap": "dfef93d552bf64a24cf5f4c884b8e8d04d408121224dfdf3d1b292f22adf4b08",
+    "http-integration.json": "0879ab150fb51a16a1d1285d98f8b054b9334b3073e9db9ab99254810a3dbf38",
+    "stage1-3d.png": "fd0f4a6fdb1fab2591c417d0393622f7342d92af8bf28320e03dde10f5fd8e2d"
+  },
+  "limits": [
+    "Software/contract verification only; no chemistry or robot safety validation.",
+    "No live Stage 1 LLM inference, paid model usage, or scientific model ranking.",
+    "No remote CI execution; no commit, push, PR or main merge."
+  ]
+}

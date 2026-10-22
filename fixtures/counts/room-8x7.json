@@ -1,0 +1,1144 @@
+{
+  "fixture_note": "Software integration fixture only; no expected performance or global optimum claimed.",
+  "catalog": {
+    "catalog_id": "poc-shared-hall",
+    "version": "counts-1",
+    "track": "synthetic",
+    "provenance": "Imported PoC v4 model; dimensions, adapters and handling include declared assumptions. See backend/poc/IMPORT_MANIFEST.json.",
+    "placement_grid_m": 0.1,
+    "route_grid_m": 0.2,
+    "robot": {
+      "model": "xArm6",
+      "reach_m": 0.7,
+      "min_reach_m": 0.12,
+      "mount_height_m": 0.78,
+      "shoulder_height_m": 1.047,
+      "tool_height_range_m": [
+        0.85,
+        1.35
+      ],
+      "base_radius_m": 0.13,
+      "approach_cos_min": 0.45,
+      "handoff_offset_m": [
+        0,
+        0.55
+      ],
+      "dock_offset_m": [
+        0,
+        0.95
+      ],
+      "buffer_slots": 8,
+      "handle_base_s": 6,
+      "handle_speed_m_s": 0.15,
+      "geometry_source": "sim/physics/assets/xarm6/xarm6.urdf"
+    },
+    "carrier": {
+      "radius_m": 0.22,
+      "speed_m_s": 0.45,
+      "pickup_s": 2,
+      "dropoff_s": 2
+    },
+    "equipment": {
+      "flex_centrifuge": {
+        "name": "Benchtop centrifuge module",
+        "family": "centrifuge",
+        "size_m": [
+          0.72,
+          0.58,
+          0.68
+        ],
+        "mount_height_m": 0.78,
+        "mobility": "mobile",
+        "ports": {
+          "input": {
+            "point_m": [
+              -0.12,
+              0.29,
+              1
+            ],
+            "normal": [
+              0,
+              1
+            ],
+            "approach": "front"
+          },
+          "output": {
+            "point_m": [
+              0.12,
+              0.29,
+              1
+            ],
+            "normal": [
+              0,
+              1
+            ],
+            "approach": "front"
+          }
+        },
+        "service_depth_m": 0.22,
+        "process": {
+          "default_s": 600,
+          "clean_s": 60
+        },
+        "batch": {
+          "max_slots": 4,
+          "capacity_provenance": "Assumed balanced four-position carrier; all active slots share one speed/time program."
+        },
+        "geometry": {
+          "kind": "modular-envelope-assumption",
+          "note": "Shared 720 × 580 mm docking envelope, hypothetical swappable process modules. Source process defaults retained; not certified interoperable hardware."
+        },
+        "capability": "centrifuge"
+      },
+      "flex_filter": {
+        "name": "Filtration manifold module",
+        "family": "filter",
+        "size_m": [
+          0.72,
+          0.58,
+          0.68
+        ],
+        "mount_height_m": 0.78,
+        "mobility": "mobile",
+        "ports": {
+          "input": {
+            "point_m": [
+              -0.12,
+              0.29,
+              1
+            ],
+            "normal": [
+              0,
+              1
+            ],
+            "approach": "front"
+          },
+          "output": {
+            "point_m": [
+              0.12,
+              0.29,
+              1
+            ],
+            "normal": [
+              0,
+              1
+            ],
+            "approach": "front"
+          }
+        },
+        "service_depth_m": 0.22,
+        "process": {
+          "default_s": 240,
+          "clean_s": 60
+        },
+        "batch": {
+          "max_slots": 1
+        },
+        "geometry": {
+          "kind": "modular-envelope-assumption",
+          "note": "Shared 720 × 580 mm docking envelope, hypothetical swappable process modules. Source process defaults retained; not certified interoperable hardware."
+        },
+        "capability": "filter"
+      },
+      "flex_grinder": {
+        "name": "Grinding / milling station module",
+        "family": "grinder",
+        "size_m": [
+          0.72,
+          0.58,
+          0.68
+        ],
+        "mount_height_m": 0.78,
+        "mobility": "mobile",
+        "ports": {
+          "input": {
+            "point_m": [
+              -0.12,
+              0.29,
+              1
+            ],
+            "normal": [
+              0,
+              1
+            ],
+            "approach": "front"
+          },
+          "output": {
+            "point_m": [
+              0.12,
+              0.29,
+              1
+            ],
+            "normal": [
+              0,
+              1
+            ],
+            "approach": "front"
+          }
+        },
+        "service_depth_m": 0.22,
+        "process": {
+          "default_s": 600,
+          "clean_s": 90
+        },
+        "batch": {
+          "max_slots": 1
+        },
+        "geometry": {
+          "kind": "modular-envelope-assumption",
+          "note": "Shared 720 × 580 mm docking envelope, hypothetical swappable process modules. Source process defaults retained; not certified interoperable hardware."
+        },
+        "capability": "grinder"
+      },
+      "flex_liquid_handler": {
+        "name": "Liquid handling deck module",
+        "family": "liquid",
+        "size_m": [
+          0.72,
+          0.58,
+          0.68
+        ],
+        "mount_height_m": 0.78,
+        "mobility": "mobile",
+        "ports": {
+          "input": {
+            "point_m": [
+              -0.12,
+              0.29,
+              1
+            ],
+            "normal": [
+              0,
+              1
+            ],
+            "approach": "front"
+          },
+          "output": {
+            "point_m": [
+              0.12,
+              0.29,
+              1
+            ],
+            "normal": [
+              0,
+              1
+            ],
+            "approach": "front"
+          }
+        },
+        "service_depth_m": 0.22,
+        "process": {
+          "default_s": 90,
+          "clean_s": 45
+        },
+        "batch": {
+          "max_slots": 1
+        },
+        "geometry": {
+          "kind": "modular-envelope-assumption",
+          "note": "Shared 720 × 580 mm docking envelope, hypothetical swappable process modules. Source process defaults retained; not certified interoperable hardware."
+        },
+        "capability": "liquid_handler"
+      },
+      "flex_press": {
+        "name": "Pellet press module",
+        "family": "press",
+        "size_m": [
+          0.72,
+          0.58,
+          0.68
+        ],
+        "mount_height_m": 0.78,
+        "mobility": "mobile",
+        "ports": {
+          "input": {
+            "point_m": [
+              -0.12,
+              0.29,
+              1
+            ],
+            "normal": [
+              0,
+              1
+            ],
+            "approach": "front"
+          },
+          "output": {
+            "point_m": [
+              0.12,
+              0.29,
+              1
+            ],
+            "normal": [
+              0,
+              1
+            ],
+            "approach": "front"
+          }
+        },
+        "service_depth_m": 0.22,
+        "process": {
+          "default_s": 120,
+          "clean_s": 30
+        },
+        "batch": {
+          "max_slots": 1
+        },
+        "geometry": {
+          "kind": "modular-envelope-assumption",
+          "note": "Shared 720 × 580 mm docking envelope, hypothetical swappable process modules. Source process defaults retained; not certified interoperable hardware."
+        },
+        "capability": "press"
+      },
+      "flex_sonicator": {
+        "name": "Ultrasonic bath module",
+        "family": "bath",
+        "size_m": [
+          0.72,
+          0.58,
+          0.68
+        ],
+        "mount_height_m": 0.78,
+        "mobility": "mobile",
+        "ports": {
+          "input": {
+            "point_m": [
+              -0.12,
+              0.29,
+              1
+            ],
+            "normal": [
+              0,
+              1
+            ],
+            "approach": "front"
+          },
+          "output": {
+            "point_m": [
+              0.12,
+              0.29,
+              1
+            ],
+            "normal": [
+              0,
+              1
+            ],
+            "approach": "front"
+          }
+        },
+        "service_depth_m": 0.22,
+        "process": {
+          "default_s": 600,
+          "clean_s": 30
+        },
+        "batch": {
+          "max_slots": 2,
+          "capacity_provenance": "Assumed two-holder bath fixture."
+        },
+        "geometry": {
+          "kind": "modular-envelope-assumption",
+          "note": "Shared 720 × 580 mm docking envelope, hypothetical swappable process modules. Source process defaults retained; not certified interoperable hardware."
+        },
+        "capability": "sonicator"
+      },
+      "flex_stirrer": {
+        "name": "Hotplate / stirrer module",
+        "family": "stirrer",
+        "size_m": [
+          0.72,
+          0.58,
+          0.68
+        ],
+        "mount_height_m": 0.78,
+        "mobility": "mobile",
+        "ports": {
+          "input": {
+            "point_m": [
+              -0.12,
+              0.29,
+              1
+            ],
+            "normal": [
+              0,
+              1
+            ],
+            "approach": "front"
+          },
+          "output": {
+            "point_m": [
+              0.12,
+              0.29,
+              1
+            ],
+            "normal": [
+              0,
+              1
+            ],
+            "approach": "front"
+          }
+        },
+        "service_depth_m": 0.22,
+        "process": {
+          "default_s": 300,
+          "clean_s": 30
+        },
+        "batch": {
+          "max_slots": 1
+        },
+        "geometry": {
+          "kind": "modular-envelope-assumption",
+          "note": "Shared 720 × 580 mm docking envelope, hypothetical swappable process modules. Source process defaults retained; not certified interoperable hardware."
+        },
+        "capability": "stirrer"
+      },
+      "furnace": {
+        "name": "ELF-size chamber furnace",
+        "family": "furnace",
+        "size_m": [
+          0.41,
+          0.42,
+          0.58
+        ],
+        "mount_height_m": 0.78,
+        "mobility": "fixed",
+        "ports": {
+          "input": {
+            "point_m": [
+              0,
+              0.21,
+              1
+            ],
+            "normal": [
+              0,
+              1
+            ],
+            "approach": "front"
+          },
+          "output": {
+            "point_m": [
+              0,
+              0.21,
+              1
+            ],
+            "normal": [
+              0,
+              1
+            ],
+            "approach": "front"
+          }
+        },
+        "service_depth_m": 0.22,
+        "process": {
+          "default_s": 7200,
+          "clean_s": 120,
+          "max_temperature_c": 1100,
+          "ramp_c_min": 5,
+          "cool_tau_s": 3600,
+          "unload_c": 60
+        },
+        "batch": {
+          "max_slots": 4,
+          "uniform_zone_m": [
+            0.14,
+            0.14,
+            0.125
+          ],
+          "vessel_diameter_m": 0.05,
+          "vessel_gap_m": 0.015,
+          "layers": 1,
+          "capacity_provenance": "2 × 2 hypothetical single-layer vessels in the manufacturer uniform zone; not a certified manufacturer sample count."
+        },
+        "geometry": {
+          "kind": "manufacturer-dimensions",
+          "model": "Carbolite ELF 11/6",
+          "url": "https://www.carbolite.com/files/450755/product-data-sheet-elf.pdf",
+          "note": "External dimensions and uniform zone from datasheet. Doors/adapters, vessel arrangement, heating/cooling and batch compatibility are model assumptions."
+        }
+      },
+      "oven": {
+        "name": "Drying oven",
+        "family": "oven",
+        "size_m": [
+          0.52,
+          0.55,
+          0.64
+        ],
+        "mount_height_m": 0.78,
+        "mobility": "fixed",
+        "ports": {
+          "input": {
+            "point_m": [
+              0,
+              0.275,
+              1
+            ],
+            "normal": [
+              0,
+              1
+            ],
+            "approach": "front"
+          },
+          "output": {
+            "point_m": [
+              0,
+              0.275,
+              1
+            ],
+            "normal": [
+              0,
+              1
+            ],
+            "approach": "front"
+          }
+        },
+        "service_depth_m": 0.22,
+        "process": {
+          "default_s": 1800,
+          "clean_s": 45,
+          "max_temperature_c": 300,
+          "ramp_c_min": 4,
+          "cool_tau_s": 900,
+          "unload_c": 45
+        },
+        "batch": {
+          "max_slots": 6,
+          "capacity_provenance": "Assumed six-vessel shelf fixture; no certified loading count."
+        },
+        "geometry": {
+          "kind": "surrogate",
+          "note": "Parametric task-relevant reconstruction; dimensions, access adapter and control capability are assumptions, not manufacturer CAD."
+        }
+      },
+      "xrd": {
+        "name": "X-ray diffraction station",
+        "family": "xrd",
+        "size_m": [
+          0.86,
+          0.7,
+          0.62
+        ],
+        "mount_height_m": 0.78,
+        "mobility": "fixed",
+        "ports": {
+          "input": {
+            "point_m": [
+              0,
+              0.35,
+              1
+            ],
+            "normal": [
+              0,
+              1
+            ],
+            "approach": "front"
+          },
+          "output": {
+            "point_m": [
+              0,
+              0.35,
+              1
+            ],
+            "normal": [
+              0,
+              1
+            ],
+            "approach": "front"
+          }
+        },
+        "service_depth_m": 0.22,
+        "process": {
+          "default_s": 900,
+          "clean_s": 15
+        },
+        "batch": {
+          "max_slots": 1
+        },
+        "geometry": {
+          "kind": "surrogate",
+          "note": "Parametric task-relevant reconstruction; dimensions, access adapter and control capability are assumptions, not manufacturer CAD."
+        }
+      }
+    }
+  },
+  "workflow": {
+    "workflow_id": "ambient-screening",
+    "version": "poc-v4-counts-1",
+    "track": "synthetic",
+    "description": "Six pinned synthetic ambient screening jobs; no chemistry prediction or model result."
+  },
+  "task": {
+    "schema_version": "0.2",
+    "task_id": "counts-room-8x7-dev",
+    "version": "1",
+    "catalog_id": "poc-shared-hall",
+    "catalog_version": "counts-1",
+    "workflow_id": "ambient-screening",
+    "workflow_version": "poc-v4-counts-1",
+    "room": {
+      "width_m": 8,
+      "depth_m": 7
+    },
+    "resource_limits": {
+      "equipment": {
+        "flex_centrifuge": 2,
+        "flex_filter": 2,
+        "flex_grinder": 2,
+        "flex_liquid_handler": 2,
+        "flex_press": 0,
+        "flex_sonicator": 2,
+        "flex_stirrer": 2,
+        "furnace": 0,
+        "oven": 0,
+        "xrd": 0
+      },
+      "arms": 8,
+      "amrs": 2
+    },
+    "objective": "minimize_makespan_s",
+    "simulation_seed": 17,
+    "simulation_cutoff_s": 604800,
+    "workload_parameters": {
+      "family": "screening-mix",
+      "jobs": 6,
+      "seed": 17,
+      "arrival_interval_s": 0,
+      "benches": 7,
+      "furnaces": 0,
+      "ovens": 0,
+      "xrd": 0,
+      "amrs": 1,
+      "batch_slots": 1
+    },
+    "jobs": [
+      {
+        "id": "H00001",
+        "line": "formulation",
+        "name": "Formulation screen",
+        "procedure_id": null,
+        "source_kind": "synthetic-controlled",
+        "arrival_s": 0,
+        "due_s": 259200,
+        "priority": 2,
+        "nodes": [
+          {
+            "capability": "liquid_handler",
+            "label": "liquid handler",
+            "duration_s": 90,
+            "program": [
+              {
+                "action": "dwell",
+                "duration_s": 90,
+                "temperature_c": null,
+                "atmosphere": "air",
+                "duration_source": "synthetic-fixture"
+              }
+            ],
+            "recipe_key": "formulation",
+            "vessel": "standard-50mm",
+            "id": "op-0",
+            "parents": [],
+            "source_indices": [],
+            "compatibility_key": "a4e28e8441780cc856a9cda734d06002165a89b0d91cfbccf71e475a283e38e6"
+          },
+          {
+            "capability": "stirrer",
+            "label": "stirrer",
+            "duration_s": 360,
+            "program": [
+              {
+                "action": "dwell",
+                "duration_s": 360,
+                "temperature_c": null,
+                "atmosphere": "air",
+                "duration_source": "synthetic-fixture"
+              }
+            ],
+            "recipe_key": "formulation",
+            "vessel": "standard-50mm",
+            "id": "op-1",
+            "parents": [
+              "op-0"
+            ],
+            "source_indices": [],
+            "compatibility_key": "377d22075e50706a32bd4eeb7e5cb9acb34e0b474f7b358dc7e446c1bf061f56"
+          },
+          {
+            "capability": "filter",
+            "label": "filter",
+            "duration_s": 120,
+            "program": [
+              {
+                "action": "dwell",
+                "duration_s": 120,
+                "temperature_c": null,
+                "atmosphere": "air",
+                "duration_source": "synthetic-fixture"
+              }
+            ],
+            "recipe_key": "formulation",
+            "vessel": "standard-50mm",
+            "id": "op-2",
+            "parents": [
+              "op-1"
+            ],
+            "source_indices": [],
+            "compatibility_key": "a3686cb8613873ab6d125875aee0001a9f34e254c922f11e51b72093564ed2e8"
+          }
+        ]
+      },
+      {
+        "id": "H00002",
+        "line": "dispersion",
+        "name": "Dispersion screen",
+        "procedure_id": null,
+        "source_kind": "synthetic-controlled",
+        "arrival_s": 0,
+        "due_s": 259200,
+        "priority": 1,
+        "nodes": [
+          {
+            "capability": "liquid_handler",
+            "label": "liquid handler",
+            "duration_s": 60,
+            "program": [
+              {
+                "action": "dwell",
+                "duration_s": 60,
+                "temperature_c": null,
+                "atmosphere": "air",
+                "duration_source": "synthetic-fixture"
+              }
+            ],
+            "recipe_key": "dispersion",
+            "vessel": "standard-50mm",
+            "id": "op-0",
+            "parents": [],
+            "source_indices": [],
+            "compatibility_key": "fe44f0d451b12e554c3216f4d8f68fb5be572cd2c22b6ebc0fd4e26b1edc47e8"
+          },
+          {
+            "capability": "sonicator",
+            "label": "sonicator",
+            "duration_s": 300,
+            "program": [
+              {
+                "action": "dwell",
+                "duration_s": 300,
+                "temperature_c": null,
+                "atmosphere": "air",
+                "duration_source": "synthetic-fixture"
+              }
+            ],
+            "recipe_key": "dispersion",
+            "vessel": "standard-50mm",
+            "id": "op-1",
+            "parents": [
+              "op-0"
+            ],
+            "source_indices": [],
+            "compatibility_key": "286b4f41568dab30ab9d473d832d424b989e5a36d70ef43099feaeeb9b1e2875"
+          },
+          {
+            "capability": "centrifuge",
+            "label": "centrifuge",
+            "duration_s": 120,
+            "program": [
+              {
+                "action": "dwell",
+                "duration_s": 120,
+                "temperature_c": null,
+                "atmosphere": "air",
+                "duration_source": "synthetic-fixture"
+              }
+            ],
+            "recipe_key": "dispersion",
+            "vessel": "standard-50mm",
+            "id": "op-2",
+            "parents": [
+              "op-1"
+            ],
+            "source_indices": [],
+            "compatibility_key": "b4a50728f5340b0981a9d32a47a9077faf25e96c3af9ac05f5dd7e6a247994d5"
+          }
+        ]
+      },
+      {
+        "id": "H00003",
+        "line": "recovery",
+        "name": "Solid recovery screen",
+        "procedure_id": null,
+        "source_kind": "synthetic-controlled",
+        "arrival_s": 0,
+        "due_s": 259200,
+        "priority": 1,
+        "nodes": [
+          {
+            "capability": "grinder",
+            "label": "grinder",
+            "duration_s": 180,
+            "program": [
+              {
+                "action": "dwell",
+                "duration_s": 180,
+                "temperature_c": null,
+                "atmosphere": "air",
+                "duration_source": "synthetic-fixture"
+              }
+            ],
+            "recipe_key": "recovery",
+            "vessel": "standard-50mm",
+            "id": "op-0",
+            "parents": [],
+            "source_indices": [],
+            "compatibility_key": "43e240edbecd629253f25462c26022aab8269da951089c61cde00b7ab6516930"
+          },
+          {
+            "capability": "stirrer",
+            "label": "stirrer",
+            "duration_s": 120,
+            "program": [
+              {
+                "action": "dwell",
+                "duration_s": 120,
+                "temperature_c": null,
+                "atmosphere": "air",
+                "duration_source": "synthetic-fixture"
+              }
+            ],
+            "recipe_key": "recovery",
+            "vessel": "standard-50mm",
+            "id": "op-1",
+            "parents": [
+              "op-0"
+            ],
+            "source_indices": [],
+            "compatibility_key": "c3a0442e721ea43b1582394e61ccfddfb7969d18e719d980355e0922d5eb1db9"
+          },
+          {
+            "capability": "centrifuge",
+            "label": "centrifuge",
+            "duration_s": 180,
+            "program": [
+              {
+                "action": "dwell",
+                "duration_s": 180,
+                "temperature_c": null,
+                "atmosphere": "air",
+                "duration_source": "synthetic-fixture"
+              }
+            ],
+            "recipe_key": "recovery",
+            "vessel": "standard-50mm",
+            "id": "op-2",
+            "parents": [
+              "op-1"
+            ],
+            "source_indices": [],
+            "compatibility_key": "d05afc748704d840b6e6b0f96f9d411261988a3d5bbabb5ee6e0c7ac22787cbf"
+          },
+          {
+            "capability": "filter",
+            "label": "filter",
+            "duration_s": 120,
+            "program": [
+              {
+                "action": "dwell",
+                "duration_s": 120,
+                "temperature_c": null,
+                "atmosphere": "air",
+                "duration_source": "synthetic-fixture"
+              }
+            ],
+            "recipe_key": "recovery",
+            "vessel": "standard-50mm",
+            "id": "op-3",
+            "parents": [
+              "op-2"
+            ],
+            "source_indices": [],
+            "compatibility_key": "24ec3d27f75304308f88795f38c0eafbc89000d2f01ef80f47364f0961fbef7c"
+          }
+        ]
+      },
+      {
+        "id": "H00004",
+        "line": "formulation",
+        "name": "Formulation screen",
+        "procedure_id": null,
+        "source_kind": "synthetic-controlled",
+        "arrival_s": 0,
+        "due_s": 259200,
+        "priority": 1,
+        "nodes": [
+          {
+            "capability": "liquid_handler",
+            "label": "liquid handler",
+            "duration_s": 90,
+            "program": [
+              {
+                "action": "dwell",
+                "duration_s": 90,
+                "temperature_c": null,
+                "atmosphere": "air",
+                "duration_source": "synthetic-fixture"
+              }
+            ],
+            "recipe_key": "formulation",
+            "vessel": "standard-50mm",
+            "id": "op-0",
+            "parents": [],
+            "source_indices": [],
+            "compatibility_key": "a4e28e8441780cc856a9cda734d06002165a89b0d91cfbccf71e475a283e38e6"
+          },
+          {
+            "capability": "stirrer",
+            "label": "stirrer",
+            "duration_s": 360,
+            "program": [
+              {
+                "action": "dwell",
+                "duration_s": 360,
+                "temperature_c": null,
+                "atmosphere": "air",
+                "duration_source": "synthetic-fixture"
+              }
+            ],
+            "recipe_key": "formulation",
+            "vessel": "standard-50mm",
+            "id": "op-1",
+            "parents": [
+              "op-0"
+            ],
+            "source_indices": [],
+            "compatibility_key": "377d22075e50706a32bd4eeb7e5cb9acb34e0b474f7b358dc7e446c1bf061f56"
+          },
+          {
+            "capability": "filter",
+            "label": "filter",
+            "duration_s": 120,
+            "program": [
+              {
+                "action": "dwell",
+                "duration_s": 120,
+                "temperature_c": null,
+                "atmosphere": "air",
+                "duration_source": "synthetic-fixture"
+              }
+            ],
+            "recipe_key": "formulation",
+            "vessel": "standard-50mm",
+            "id": "op-2",
+            "parents": [
+              "op-1"
+            ],
+            "source_indices": [],
+            "compatibility_key": "a3686cb8613873ab6d125875aee0001a9f34e254c922f11e51b72093564ed2e8"
+          }
+        ]
+      },
+      {
+        "id": "H00005",
+        "line": "dispersion",
+        "name": "Dispersion screen",
+        "procedure_id": null,
+        "source_kind": "synthetic-controlled",
+        "arrival_s": 0,
+        "due_s": 259200,
+        "priority": 1,
+        "nodes": [
+          {
+            "capability": "liquid_handler",
+            "label": "liquid handler",
+            "duration_s": 60,
+            "program": [
+              {
+                "action": "dwell",
+                "duration_s": 60,
+                "temperature_c": null,
+                "atmosphere": "air",
+                "duration_source": "synthetic-fixture"
+              }
+            ],
+            "recipe_key": "dispersion",
+            "vessel": "standard-50mm",
+            "id": "op-0",
+            "parents": [],
+            "source_indices": [],
+            "compatibility_key": "fe44f0d451b12e554c3216f4d8f68fb5be572cd2c22b6ebc0fd4e26b1edc47e8"
+          },
+          {
+            "capability": "sonicator",
+            "label": "sonicator",
+            "duration_s": 300,
+            "program": [
+              {
+                "action": "dwell",
+                "duration_s": 300,
+                "temperature_c": null,
+                "atmosphere": "air",
+                "duration_source": "synthetic-fixture"
+              }
+            ],
+            "recipe_key": "dispersion",
+            "vessel": "standard-50mm",
+            "id": "op-1",
+            "parents": [
+              "op-0"
+            ],
+            "source_indices": [],
+            "compatibility_key": "286b4f41568dab30ab9d473d832d424b989e5a36d70ef43099feaeeb9b1e2875"
+          },
+          {
+            "capability": "centrifuge",
+            "label": "centrifuge",
+            "duration_s": 120,
+            "program": [
+              {
+                "action": "dwell",
+                "duration_s": 120,
+                "temperature_c": null,
+                "atmosphere": "air",
+                "duration_source": "synthetic-fixture"
+              }
+            ],
+            "recipe_key": "dispersion",
+            "vessel": "standard-50mm",
+            "id": "op-2",
+            "parents": [
+              "op-1"
+            ],
+            "source_indices": [],
+            "compatibility_key": "b4a50728f5340b0981a9d32a47a9077faf25e96c3af9ac05f5dd7e6a247994d5"
+          }
+        ]
+      },
+      {
+        "id": "H00006",
+        "line": "recovery",
+        "name": "Solid recovery screen",
+        "procedure_id": null,
+        "source_kind": "synthetic-controlled",
+        "arrival_s": 0,
+        "due_s": 259200,
+        "priority": 1,
+        "nodes": [
+          {
+            "capability": "grinder",
+            "label": "grinder",
+            "duration_s": 180,
+            "program": [
+              {
+                "action": "dwell",
+                "duration_s": 180,
+                "temperature_c": null,
+                "atmosphere": "air",
+                "duration_source": "synthetic-fixture"
+              }
+            ],
+            "recipe_key": "recovery",
+            "vessel": "standard-50mm",
+            "id": "op-0",
+            "parents": [],
+            "source_indices": [],
+            "compatibility_key": "43e240edbecd629253f25462c26022aab8269da951089c61cde00b7ab6516930"
+          },
+          {
+            "capability": "stirrer",
+            "label": "stirrer",
+            "duration_s": 120,
+            "program": [
+              {
+                "action": "dwell",
+                "duration_s": 120,
+                "temperature_c": null,
+                "atmosphere": "air",
+                "duration_source": "synthetic-fixture"
+              }
+            ],
+            "recipe_key": "recovery",
+            "vessel": "standard-50mm",
+            "id": "op-1",
+            "parents": [
+              "op-0"
+            ],
+            "source_indices": [],
+            "compatibility_key": "c3a0442e721ea43b1582394e61ccfddfb7969d18e719d980355e0922d5eb1db9"
+          },
+          {
+            "capability": "centrifuge",
+            "label": "centrifuge",
+            "duration_s": 180,
+            "program": [
+              {
+                "action": "dwell",
+                "duration_s": 180,
+                "temperature_c": null,
+                "atmosphere": "air",
+                "duration_source": "synthetic-fixture"
+              }
+            ],
+            "recipe_key": "recovery",
+            "vessel": "standard-50mm",
+            "id": "op-2",
+            "parents": [
+              "op-1"
+            ],
+            "source_indices": [],
+            "compatibility_key": "d05afc748704d840b6e6b0f96f9d411261988a3d5bbabb5ee6e0c7ac22787cbf"
+          },
+          {
+            "capability": "filter",
+            "label": "filter",
+            "duration_s": 120,
+            "program": [
+              {
+                "action": "dwell",
+                "duration_s": 120,
+                "temperature_c": null,
+                "atmosphere": "air",
+                "duration_source": "synthetic-fixture"
+              }
+            ],
+            "recipe_key": "recovery",
+            "vessel": "standard-50mm",
+            "id": "op-3",
+            "parents": [
+              "op-2"
+            ],
+            "source_indices": [],
+            "compatibility_key": "24ec3d27f75304308f88795f38c0eafbc89000d2f01ef80f47364f0961fbef7c"
+          }
+        ]
+      }
+    ],
+    "workload_hash": "b86bf9a9d974d06c045900b5bde7a25ed60839ff6c7ba4351caeecc53b5a8c8c",
+    "policies": {
+      "placement": "poc-exact-counts-v1",
+      "execution": "poc-fixed-dispatch-v1",
+      "transport": "poc-closed-tours-v1",
+      "completion": "final-arm-unload-v1"
+    },
+    "provenance": "Synthetic development fixture. Room and count limits are benchmark assumptions, not measured laboratory requirements."
+  },
+  "request": {
+    "schema_version": "0.2",
+    "submission_id": "development-smoke",
+    "task_id": "counts-room-8x7-dev",
+    "task_version": "1",
+    "equipment_counts": {
+      "flex_centrifuge": 1,
+      "flex_filter": 1,
+      "flex_grinder": 1,
+      "flex_liquid_handler": 1,
+      "flex_press": 0,
+      "flex_sonicator": 1,
+      "flex_stirrer": 1,
+      "furnace": 0,
+      "oven": 0,
+      "xrd": 0
+    },
+    "arm_count": 3,
+    "amr_count": 1,
+    "simulation_seed": 17
+  }
+}

@@ -7,7 +7,7 @@ from pathlib import Path
 from jsonschema import Draft202012Validator
 
 ROOT = Path(__file__).resolve().parents[1]
-SCHEMA = json.loads((ROOT / "contracts/labops.schema.json").read_text())
+SCHEMA = json.loads((ROOT / "contracts/archive/labops-v0.1.schema.json").read_text())
 
 
 def validate_shape(value, definition="Fixture"):
@@ -183,7 +183,11 @@ def main():
     for path in paths:
         check_fixture(json.loads(path.read_text()))
         print(f"PASS {path.name}")
-    print("Contract checks passed. Simulator behavior is not implemented or tested here.")
+    print("Legacy 0.1 contract checks passed. Behavior is checked separately in tests/test_stage1.py.")
+    from check_count_contracts import main as check_counts
+    check_counts()
+    from check_scheduler_contracts import main as check_scheduler
+    check_scheduler()
 
 
 if __name__ == "__main__":

@@ -1,0 +1,1293 @@
+{
+  "schema_version": "labops.catalog.v2",
+  "units": "metres / seconds / degrees Celsius",
+  "placement_grid_m": 0.1,
+  "route_grid_m": 0.2,
+  "equipment": {
+    "balance": {
+      "name": "Analytical balance",
+      "family": "balance",
+      "size_m": [
+        0.28,
+        0.42,
+        0.34
+      ],
+      "mount_height_m": 0.78,
+      "mobility": "mobile",
+      "ports": {
+        "input": {
+          "point_m": [
+            0,
+            0.21,
+            1.02
+          ],
+          "normal": [
+            0,
+            1
+          ],
+          "approach": "top"
+        },
+        "output": {
+          "point_m": [
+            0,
+            0.21,
+            1.02
+          ],
+          "normal": [
+            0,
+            1
+          ],
+          "approach": "top"
+        }
+      },
+      "service_depth_m": 0.22,
+      "cost_units": 1,
+      "process": {
+        "default_s": 300,
+        "clean_s": 30
+      },
+      "batch": {
+        "max_slots": 1
+      },
+      "geometry": {
+        "kind": "surrogate",
+        "note": "Parametric task-relevant reconstruction; dimensions, access adapter and control capability are assumptions, not manufacturer CAD."
+      }
+    },
+    "liquid_handler": {
+      "name": "Liquid handling deck",
+      "family": "liquid",
+      "size_m": [
+        0.62,
+        0.48,
+        0.38
+      ],
+      "mount_height_m": 0.78,
+      "mobility": "mobile",
+      "ports": {
+        "input": {
+          "point_m": [
+            0,
+            0.24,
+            1
+          ],
+          "normal": [
+            0,
+            1
+          ],
+          "approach": "top"
+        },
+        "output": {
+          "point_m": [
+            0,
+            0.24,
+            1
+          ],
+          "normal": [
+            0,
+            1
+          ],
+          "approach": "top"
+        }
+      },
+      "service_depth_m": 0.22,
+      "cost_units": 1,
+      "process": {
+        "default_s": 90,
+        "clean_s": 45
+      },
+      "batch": {
+        "max_slots": 1
+      },
+      "geometry": {
+        "kind": "surrogate",
+        "note": "Parametric task-relevant reconstruction; dimensions, access adapter and control capability are assumptions, not manufacturer CAD."
+      }
+    },
+    "stirrer": {
+      "name": "Hotplate / stirrer",
+      "family": "stirrer",
+      "size_m": [
+        0.16,
+        0.2,
+        0.1
+      ],
+      "mount_height_m": 0.78,
+      "mobility": "mobile",
+      "ports": {
+        "input": {
+          "point_m": [
+            0,
+            0.1,
+            0.93
+          ],
+          "normal": [
+            0,
+            1
+          ],
+          "approach": "top"
+        },
+        "output": {
+          "point_m": [
+            0,
+            0.1,
+            0.93
+          ],
+          "normal": [
+            0,
+            1
+          ],
+          "approach": "top"
+        }
+      },
+      "service_depth_m": 0.22,
+      "cost_units": 1,
+      "process": {
+        "default_s": 300,
+        "clean_s": 30
+      },
+      "batch": {
+        "max_slots": 1
+      },
+      "geometry": {
+        "kind": "manufacturer-dimensions",
+        "model": "IKA RCT basic",
+        "url": "https://www.ika.com/en/Products-LabEq/Magnetic-Stirrers-pg188/RCT-basic-25008259/Technical-Data-cptd.html",
+        "note": "160 × 100 × 200 mm W×H×D; hypothetical robot vessel adapter."
+      }
+    },
+    "grinder": {
+      "name": "Grinding / milling station",
+      "family": "grinder",
+      "size_m": [
+        0.42,
+        0.44,
+        0.52
+      ],
+      "mount_height_m": 0.78,
+      "mobility": "mobile",
+      "ports": {
+        "input": {
+          "point_m": [
+            0,
+            0.22,
+            1
+          ],
+          "normal": [
+            0,
+            1
+          ],
+          "approach": "front"
+        },
+        "output": {
+          "point_m": [
+            0,
+            0.22,
+            1
+          ],
+          "normal": [
+            0,
+            1
+          ],
+          "approach": "front"
+        }
+      },
+      "service_depth_m": 0.22,
+      "cost_units": 1,
+      "process": {
+        "default_s": 600,
+        "clean_s": 90
+      },
+      "batch": {
+        "max_slots": 1
+      },
+      "geometry": {
+        "kind": "surrogate",
+        "note": "Parametric task-relevant reconstruction; dimensions, access adapter and control capability are assumptions, not manufacturer CAD."
+      }
+    },
+    "press": {
+      "name": "Pellet press",
+      "family": "press",
+      "size_m": [
+        0.38,
+        0.46,
+        0.68
+      ],
+      "mount_height_m": 0.78,
+      "mobility": "mobile",
+      "ports": {
+        "input": {
+          "point_m": [
+            0,
+            0.23,
+            1
+          ],
+          "normal": [
+            0,
+            1
+          ],
+          "approach": "front"
+        },
+        "output": {
+          "point_m": [
+            0,
+            0.23,
+            1
+          ],
+          "normal": [
+            0,
+            1
+          ],
+          "approach": "front"
+        }
+      },
+      "service_depth_m": 0.22,
+      "cost_units": 1,
+      "process": {
+        "default_s": 120,
+        "clean_s": 30
+      },
+      "batch": {
+        "max_slots": 1
+      },
+      "geometry": {
+        "kind": "surrogate",
+        "note": "Parametric task-relevant reconstruction; dimensions, access adapter and control capability are assumptions, not manufacturer CAD."
+      }
+    },
+    "furnace": {
+      "name": "ELF-size chamber furnace",
+      "family": "furnace",
+      "size_m": [
+        0.41,
+        0.42,
+        0.58
+      ],
+      "mount_height_m": 0.78,
+      "mobility": "fixed",
+      "ports": {
+        "input": {
+          "point_m": [
+            0,
+            0.21,
+            1
+          ],
+          "normal": [
+            0,
+            1
+          ],
+          "approach": "front"
+        },
+        "output": {
+          "point_m": [
+            0,
+            0.21,
+            1
+          ],
+          "normal": [
+            0,
+            1
+          ],
+          "approach": "front"
+        }
+      },
+      "service_depth_m": 0.22,
+      "cost_units": 4,
+      "process": {
+        "default_s": 7200,
+        "clean_s": 120,
+        "max_temperature_c": 1100,
+        "ramp_c_min": 5,
+        "cool_tau_s": 3600,
+        "unload_c": 60
+      },
+      "batch": {
+        "max_slots": 4,
+        "uniform_zone_m": [
+          0.14,
+          0.14,
+          0.125
+        ],
+        "vessel_diameter_m": 0.05,
+        "vessel_gap_m": 0.015,
+        "layers": 1,
+        "capacity_provenance": "2 × 2 hypothetical single-layer vessels in the manufacturer uniform zone; not a certified manufacturer sample count."
+      },
+      "geometry": {
+        "kind": "manufacturer-dimensions",
+        "model": "Carbolite ELF 11/6",
+        "url": "https://www.carbolite.com/files/450755/product-data-sheet-elf.pdf",
+        "note": "External dimensions and uniform zone from datasheet. Doors/adapters, vessel arrangement, heating/cooling and batch compatibility are model assumptions."
+      }
+    },
+    "furnace_large": {
+      "name": "Large batch furnace",
+      "family": "furnace",
+      "size_m": [
+        0.66,
+        0.68,
+        0.86
+      ],
+      "mount_height_m": 0.78,
+      "mobility": "fixed",
+      "ports": {
+        "input": {
+          "point_m": [
+            0,
+            0.34,
+            1
+          ],
+          "normal": [
+            0,
+            1
+          ],
+          "approach": "front"
+        },
+        "output": {
+          "point_m": [
+            0,
+            0.34,
+            1
+          ],
+          "normal": [
+            0,
+            1
+          ],
+          "approach": "front"
+        }
+      },
+      "service_depth_m": 0.22,
+      "cost_units": 6,
+      "process": {
+        "default_s": 7200,
+        "clean_s": 180,
+        "max_temperature_c": 1800,
+        "ramp_c_min": 5,
+        "cool_tau_s": 4800,
+        "unload_c": 60
+      },
+      "batch": {
+        "max_slots": 9,
+        "uniform_zone_m": [
+          0.24,
+          0.24,
+          0.18
+        ],
+        "vessel_diameter_m": 0.05,
+        "vessel_gap_m": 0.015,
+        "layers": 1,
+        "capacity_provenance": "Assumed generic uniform zone and single-layer vessel fixture; not a named product specification."
+      },
+      "geometry": {
+        "kind": "surrogate",
+        "note": "Parametric task-relevant reconstruction; dimensions, access adapter and control capability are assumptions, not manufacturer CAD."
+      }
+    },
+    "tube_furnace": {
+      "name": "Tube furnace",
+      "family": "tube",
+      "size_m": [
+        1.08,
+        0.4,
+        0.6
+      ],
+      "mount_height_m": 0.78,
+      "mobility": "fixed",
+      "ports": {
+        "input": {
+          "point_m": [
+            0,
+            0.2,
+            1
+          ],
+          "normal": [
+            0,
+            1
+          ],
+          "approach": "front"
+        },
+        "output": {
+          "point_m": [
+            0,
+            0.2,
+            1
+          ],
+          "normal": [
+            0,
+            1
+          ],
+          "approach": "front"
+        }
+      },
+      "service_depth_m": 0.22,
+      "cost_units": 5,
+      "process": {
+        "default_s": 7200,
+        "clean_s": 180,
+        "max_temperature_c": 1500,
+        "ramp_c_min": 5,
+        "cool_tau_s": 2400,
+        "unload_c": 60
+      },
+      "batch": {
+        "max_slots": 2,
+        "capacity_provenance": "Assumed two-boat fixture; chemistry/gas compatibility additionally required."
+      },
+      "geometry": {
+        "kind": "surrogate",
+        "note": "Parametric task-relevant reconstruction; dimensions, access adapter and control capability are assumptions, not manufacturer CAD."
+      }
+    },
+    "oven": {
+      "name": "Drying oven",
+      "family": "oven",
+      "size_m": [
+        0.52,
+        0.55,
+        0.64
+      ],
+      "mount_height_m": 0.78,
+      "mobility": "fixed",
+      "ports": {
+        "input": {
+          "point_m": [
+            0,
+            0.275,
+            1
+          ],
+          "normal": [
+            0,
+            1
+          ],
+          "approach": "front"
+        },
+        "output": {
+          "point_m": [
+            0,
+            0.275,
+            1
+          ],
+          "normal": [
+            0,
+            1
+          ],
+          "approach": "front"
+        }
+      },
+      "service_depth_m": 0.22,
+      "cost_units": 1,
+      "process": {
+        "default_s": 1800,
+        "clean_s": 45,
+        "max_temperature_c": 300,
+        "ramp_c_min": 4,
+        "cool_tau_s": 900,
+        "unload_c": 45
+      },
+      "batch": {
+        "max_slots": 6,
+        "capacity_provenance": "Assumed six-vessel shelf fixture; no certified loading count."
+      },
+      "geometry": {
+        "kind": "surrogate",
+        "note": "Parametric task-relevant reconstruction; dimensions, access adapter and control capability are assumptions, not manufacturer CAD."
+      }
+    },
+    "centrifuge": {
+      "name": "Benchtop centrifuge",
+      "family": "centrifuge",
+      "size_m": [
+        0.31,
+        0.42,
+        0.28
+      ],
+      "mount_height_m": 0.78,
+      "mobility": "mobile",
+      "ports": {
+        "input": {
+          "point_m": [
+            0,
+            0.21,
+            1.1
+          ],
+          "normal": [
+            0,
+            1
+          ],
+          "approach": "top"
+        },
+        "output": {
+          "point_m": [
+            0,
+            0.21,
+            1.1
+          ],
+          "normal": [
+            0,
+            1
+          ],
+          "approach": "top"
+        }
+      },
+      "service_depth_m": 0.22,
+      "cost_units": 1,
+      "process": {
+        "default_s": 600,
+        "clean_s": 60
+      },
+      "batch": {
+        "max_slots": 4,
+        "capacity_provenance": "Assumed balanced four-position carrier; all active slots share one speed/time program."
+      },
+      "geometry": {
+        "kind": "surrogate",
+        "note": "Parametric task-relevant reconstruction; dimensions, access adapter and control capability are assumptions, not manufacturer CAD."
+      }
+    },
+    "filter": {
+      "name": "Filtration manifold",
+      "family": "filter",
+      "size_m": [
+        0.4,
+        0.32,
+        0.42
+      ],
+      "mount_height_m": 0.78,
+      "mobility": "mobile",
+      "ports": {
+        "input": {
+          "point_m": [
+            0,
+            0.16,
+            1
+          ],
+          "normal": [
+            0,
+            1
+          ],
+          "approach": "top"
+        },
+        "output": {
+          "point_m": [
+            0,
+            0.16,
+            1
+          ],
+          "normal": [
+            0,
+            1
+          ],
+          "approach": "top"
+        }
+      },
+      "service_depth_m": 0.22,
+      "cost_units": 1,
+      "process": {
+        "default_s": 240,
+        "clean_s": 60
+      },
+      "batch": {
+        "max_slots": 1
+      },
+      "geometry": {
+        "kind": "surrogate",
+        "note": "Parametric task-relevant reconstruction; dimensions, access adapter and control capability are assumptions, not manufacturer CAD."
+      }
+    },
+    "sonicator": {
+      "name": "Ultrasonic bath",
+      "family": "bath",
+      "size_m": [
+        0.38,
+        0.3,
+        0.27
+      ],
+      "mount_height_m": 0.78,
+      "mobility": "mobile",
+      "ports": {
+        "input": {
+          "point_m": [
+            0,
+            0.15,
+            1.08
+          ],
+          "normal": [
+            0,
+            1
+          ],
+          "approach": "top"
+        },
+        "output": {
+          "point_m": [
+            0,
+            0.15,
+            1.08
+          ],
+          "normal": [
+            0,
+            1
+          ],
+          "approach": "top"
+        }
+      },
+      "service_depth_m": 0.22,
+      "cost_units": 1,
+      "process": {
+        "default_s": 600,
+        "clean_s": 30
+      },
+      "batch": {
+        "max_slots": 2,
+        "capacity_provenance": "Assumed two-holder bath fixture."
+      },
+      "geometry": {
+        "kind": "surrogate",
+        "note": "Parametric task-relevant reconstruction; dimensions, access adapter and control capability are assumptions, not manufacturer CAD."
+      }
+    },
+    "hydrothermal": {
+      "name": "Autoclave heating station",
+      "family": "autoclave",
+      "size_m": [
+        0.5,
+        0.5,
+        0.6
+      ],
+      "mount_height_m": 0.78,
+      "mobility": "fixed",
+      "ports": {
+        "input": {
+          "point_m": [
+            0,
+            0.25,
+            1.05
+          ],
+          "normal": [
+            0,
+            1
+          ],
+          "approach": "front"
+        },
+        "output": {
+          "point_m": [
+            0,
+            0.25,
+            1.05
+          ],
+          "normal": [
+            0,
+            1
+          ],
+          "approach": "front"
+        }
+      },
+      "service_depth_m": 0.22,
+      "cost_units": 1,
+      "process": {
+        "default_s": 10800,
+        "clean_s": 120,
+        "max_temperature_c": 300,
+        "ramp_c_min": 3,
+        "cool_tau_s": 3600,
+        "unload_c": 45
+      },
+      "batch": {
+        "max_slots": 2,
+        "capacity_provenance": "Assumed two sealed-vessel fixture; actual pressure/chemistry not simulated."
+      },
+      "geometry": {
+        "kind": "surrogate",
+        "note": "Parametric task-relevant reconstruction; dimensions, access adapter and control capability are assumptions, not manufacturer CAD."
+      }
+    },
+    "microwave": {
+      "name": "Microwave reactor",
+      "family": "microwave",
+      "size_m": [
+        0.56,
+        0.54,
+        0.58
+      ],
+      "mount_height_m": 0.78,
+      "mobility": "fixed",
+      "ports": {
+        "input": {
+          "point_m": [
+            0,
+            0.27,
+            1
+          ],
+          "normal": [
+            0,
+            1
+          ],
+          "approach": "front"
+        },
+        "output": {
+          "point_m": [
+            0,
+            0.27,
+            1
+          ],
+          "normal": [
+            0,
+            1
+          ],
+          "approach": "front"
+        }
+      },
+      "service_depth_m": 0.22,
+      "cost_units": 1,
+      "process": {
+        "default_s": 900,
+        "clean_s": 90
+      },
+      "batch": {
+        "max_slots": 1
+      },
+      "geometry": {
+        "kind": "surrogate",
+        "note": "Parametric task-relevant reconstruction; dimensions, access adapter and control capability are assumptions, not manufacturer CAD."
+      }
+    },
+    "deposition": {
+      "name": "Pulsed-laser deposition system",
+      "family": "vacuum",
+      "size_m": [
+        1.2,
+        0.9,
+        1.5
+      ],
+      "mount_height_m": 0,
+      "mobility": "fixed",
+      "ports": {
+        "input": {
+          "point_m": [
+            0,
+            0.45,
+            1
+          ],
+          "normal": [
+            0,
+            1
+          ],
+          "approach": "front"
+        },
+        "output": {
+          "point_m": [
+            0,
+            0.45,
+            1
+          ],
+          "normal": [
+            0,
+            1
+          ],
+          "approach": "front"
+        }
+      },
+      "service_depth_m": 0.22,
+      "cost_units": 9,
+      "process": {
+        "default_s": 1200,
+        "clean_s": 300
+      },
+      "batch": {
+        "max_slots": 1
+      },
+      "geometry": {
+        "kind": "surrogate",
+        "note": "Parametric task-relevant reconstruction; dimensions, access adapter and control capability are assumptions, not manufacturer CAD."
+      }
+    },
+    "epitaxy": {
+      "name": "Molecular-beam epitaxy system",
+      "family": "vacuum",
+      "size_m": [
+        1.4,
+        1.05,
+        1.75
+      ],
+      "mount_height_m": 0,
+      "mobility": "fixed",
+      "ports": {
+        "input": {
+          "point_m": [
+            0,
+            0.525,
+            1
+          ],
+          "normal": [
+            0,
+            1
+          ],
+          "approach": "front"
+        },
+        "output": {
+          "point_m": [
+            0,
+            0.525,
+            1
+          ],
+          "normal": [
+            0,
+            1
+          ],
+          "approach": "front"
+        }
+      },
+      "service_depth_m": 0.22,
+      "cost_units": 12,
+      "process": {
+        "default_s": 1800,
+        "clean_s": 600
+      },
+      "batch": {
+        "max_slots": 1
+      },
+      "geometry": {
+        "kind": "surrogate",
+        "note": "Parametric task-relevant reconstruction; dimensions, access adapter and control capability are assumptions, not manufacturer CAD."
+      }
+    },
+    "cvd": {
+      "name": "CVD reactor",
+      "family": "tube",
+      "size_m": [
+        1.1,
+        0.48,
+        0.66
+      ],
+      "mount_height_m": 0.78,
+      "mobility": "fixed",
+      "ports": {
+        "input": {
+          "point_m": [
+            0,
+            0.24,
+            1
+          ],
+          "normal": [
+            0,
+            1
+          ],
+          "approach": "front"
+        },
+        "output": {
+          "point_m": [
+            0,
+            0.24,
+            1
+          ],
+          "normal": [
+            0,
+            1
+          ],
+          "approach": "front"
+        }
+      },
+      "service_depth_m": 0.22,
+      "cost_units": 7,
+      "process": {
+        "default_s": 1800,
+        "clean_s": 180
+      },
+      "batch": {
+        "max_slots": 1
+      },
+      "geometry": {
+        "kind": "surrogate",
+        "note": "Parametric task-relevant reconstruction; dimensions, access adapter and control capability are assumptions, not manufacturer CAD."
+      }
+    },
+    "ald": {
+      "name": "Atomic-layer deposition system",
+      "family": "vacuum",
+      "size_m": [
+        0.95,
+        0.7,
+        1.25
+      ],
+      "mount_height_m": 0,
+      "mobility": "fixed",
+      "ports": {
+        "input": {
+          "point_m": [
+            0,
+            0.35,
+            1
+          ],
+          "normal": [
+            0,
+            1
+          ],
+          "approach": "front"
+        },
+        "output": {
+          "point_m": [
+            0,
+            0.35,
+            1
+          ],
+          "normal": [
+            0,
+            1
+          ],
+          "approach": "front"
+        }
+      },
+      "service_depth_m": 0.22,
+      "cost_units": 8,
+      "process": {
+        "default_s": 1800,
+        "clean_s": 180
+      },
+      "batch": {
+        "max_slots": 1
+      },
+      "geometry": {
+        "kind": "surrogate",
+        "note": "Parametric task-relevant reconstruction; dimensions, access adapter and control capability are assumptions, not manufacturer CAD."
+      }
+    },
+    "electrochemical": {
+      "name": "Electrochemical workstation",
+      "family": "electrochemical",
+      "size_m": [
+        0.48,
+        0.4,
+        0.38
+      ],
+      "mount_height_m": 0.78,
+      "mobility": "mobile",
+      "ports": {
+        "input": {
+          "point_m": [
+            0,
+            0.2,
+            1
+          ],
+          "normal": [
+            0,
+            1
+          ],
+          "approach": "top"
+        },
+        "output": {
+          "point_m": [
+            0,
+            0.2,
+            1
+          ],
+          "normal": [
+            0,
+            1
+          ],
+          "approach": "top"
+        }
+      },
+      "service_depth_m": 0.22,
+      "cost_units": 1,
+      "process": {
+        "default_s": 1800,
+        "clean_s": 60
+      },
+      "batch": {
+        "max_slots": 1
+      },
+      "geometry": {
+        "kind": "surrogate",
+        "note": "Parametric task-relevant reconstruction; dimensions, access adapter and control capability are assumptions, not manufacturer CAD."
+      }
+    },
+    "arc_melter": {
+      "name": "Arc-melting chamber",
+      "family": "vacuum",
+      "size_m": [
+        0.78,
+        0.65,
+        1
+      ],
+      "mount_height_m": 0,
+      "mobility": "fixed",
+      "ports": {
+        "input": {
+          "point_m": [
+            0,
+            0.325,
+            0.95
+          ],
+          "normal": [
+            0,
+            1
+          ],
+          "approach": "front"
+        },
+        "output": {
+          "point_m": [
+            0,
+            0.325,
+            0.95
+          ],
+          "normal": [
+            0,
+            1
+          ],
+          "approach": "front"
+        }
+      },
+      "service_depth_m": 0.22,
+      "cost_units": 8,
+      "process": {
+        "default_s": 900,
+        "clean_s": 180
+      },
+      "batch": {
+        "max_slots": 1
+      },
+      "geometry": {
+        "kind": "surrogate",
+        "note": "Parametric task-relevant reconstruction; dimensions, access adapter and control capability are assumptions, not manufacturer CAD."
+      }
+    },
+    "sps": {
+      "name": "Spark-plasma sintering station",
+      "family": "press",
+      "size_m": [
+        0.8,
+        0.72,
+        1.45
+      ],
+      "mount_height_m": 0,
+      "mobility": "fixed",
+      "ports": {
+        "input": {
+          "point_m": [
+            0,
+            0.36,
+            0.95
+          ],
+          "normal": [
+            0,
+            1
+          ],
+          "approach": "front"
+        },
+        "output": {
+          "point_m": [
+            0,
+            0.36,
+            0.95
+          ],
+          "normal": [
+            0,
+            1
+          ],
+          "approach": "front"
+        }
+      },
+      "service_depth_m": 0.22,
+      "cost_units": 9,
+      "process": {
+        "default_s": 1200,
+        "clean_s": 180
+      },
+      "batch": {
+        "max_slots": 1
+      },
+      "geometry": {
+        "kind": "surrogate",
+        "note": "Parametric task-relevant reconstruction; dimensions, access adapter and control capability are assumptions, not manufacturer CAD."
+      }
+    },
+    "freeze_dryer": {
+      "name": "Freeze dryer",
+      "family": "freeze",
+      "size_m": [
+        0.65,
+        0.57,
+        0.75
+      ],
+      "mount_height_m": 0.78,
+      "mobility": "fixed",
+      "ports": {
+        "input": {
+          "point_m": [
+            0,
+            0.285,
+            1.1
+          ],
+          "normal": [
+            0,
+            1
+          ],
+          "approach": "front"
+        },
+        "output": {
+          "point_m": [
+            0,
+            0.285,
+            1.1
+          ],
+          "normal": [
+            0,
+            1
+          ],
+          "approach": "front"
+        }
+      },
+      "service_depth_m": 0.22,
+      "cost_units": 1,
+      "process": {
+        "default_s": 14400,
+        "clean_s": 90
+      },
+      "batch": {
+        "max_slots": 4,
+        "capacity_provenance": "Assumed four-vessel fixture."
+      },
+      "geometry": {
+        "kind": "surrogate",
+        "note": "Parametric task-relevant reconstruction; dimensions, access adapter and control capability are assumptions, not manufacturer CAD."
+      }
+    },
+    "xrd": {
+      "name": "X-ray diffraction station",
+      "family": "xrd",
+      "size_m": [
+        0.86,
+        0.7,
+        0.62
+      ],
+      "mount_height_m": 0.78,
+      "mobility": "fixed",
+      "ports": {
+        "input": {
+          "point_m": [
+            0,
+            0.35,
+            1
+          ],
+          "normal": [
+            0,
+            1
+          ],
+          "approach": "front"
+        },
+        "output": {
+          "point_m": [
+            0,
+            0.35,
+            1
+          ],
+          "normal": [
+            0,
+            1
+          ],
+          "approach": "front"
+        }
+      },
+      "service_depth_m": 0.22,
+      "cost_units": 7,
+      "process": {
+        "default_s": 900,
+        "clean_s": 15
+      },
+      "batch": {
+        "max_slots": 1
+      },
+      "geometry": {
+        "kind": "surrogate",
+        "note": "Parametric task-relevant reconstruction; dimensions, access adapter and control capability are assumptions, not manufacturer CAD."
+      }
+    },
+    "flow_reactor": {
+      "name": "Through-flow reactor",
+      "family": "flow",
+      "size_m": [
+        0.78,
+        0.36,
+        0.3
+      ],
+      "mount_height_m": 0.78,
+      "mobility": "fixed",
+      "ports": {
+        "input": {
+          "point_m": [
+            -0.39,
+            0,
+            1
+          ],
+          "normal": [
+            -1,
+            0
+          ],
+          "approach": "front"
+        },
+        "output": {
+          "point_m": [
+            0.39,
+            0,
+            1
+          ],
+          "normal": [
+            1,
+            0
+          ],
+          "approach": "front"
+        }
+      },
+      "service_depth_m": 0.22,
+      "cost_units": 1,
+      "process": {
+        "default_s": 240,
+        "clean_s": 60
+      },
+      "batch": {
+        "max_slots": 1
+      },
+      "geometry": {
+        "kind": "surrogate",
+        "note": "Parametric task-relevant reconstruction; dimensions, access adapter and control capability are assumptions, not manufacturer CAD."
+      }
+    }
+  },
+  "robot": {
+    "model": "xArm6",
+    "reach_m": 0.7,
+    "min_reach_m": 0.12,
+    "mount_height_m": 0.78,
+    "shoulder_height_m": 1.047,
+    "tool_height_range_m": [
+      0.85,
+      1.35
+    ],
+    "base_radius_m": 0.13,
+    "approach_cos_min": 0.45,
+    "handoff_offset_m": [
+      0,
+      0.55
+    ],
+    "dock_offset_m": [
+      0,
+      0.95
+    ],
+    "buffer_slots": 8,
+    "handle_base_s": 6,
+    "handle_speed_m_s": 0.15,
+    "geometry_source": "sim/physics/assets/xarm6/xarm6.urdf"
+  },
+  "carrier": {
+    "radius_m": 0.22,
+    "speed_m_s": 0.45,
+    "pickup_s": 2,
+    "dropoff_s": 2
+  },
+  "assumptions": [
+    "Instrument bodies other than ELF-size furnace and IKA stirrer are declared surrogates. All automation adapters, door articulation, ports and service zones are assumptions.",
+    "Planar reach/approach/clearance validation is distinct from optional on-demand MuJoCo checks. No physical laboratory calibration, chemical yield, vacuum or force-feedback guarantee.",
+    "Single-layer furnace vessel counts are fixture assumptions; co-batching additionally requires identical full thermal program, atmosphere and contamination key.",
+    "Source dwell durations remain unchanged. Missing durations, ramps, cooling and transport/handling speeds are explicit model parameters."
+  ]
+}

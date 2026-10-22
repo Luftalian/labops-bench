@@ -1,75 +1,37 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "LabOpsBench v0.1",
-  "description": "Draft preparation contract; semantic checks live in scripts/check_contracts.py. Runtime simulator not implemented.",
+  "title": "LabOpsBench 0.2 — room/count limits, minimize makespan",
+  "description": "Canonical count-constrained shared PoC engine contract. Legacy credit/H contract is archived separately. Scheduler* definitions describe the separate labops.scheduler.v0.2-draft interface; they do not change fixed 0.2 execution.",
   "$ref": "#/$defs/Fixture",
   "$defs": {
-    "Provenance": {
-      "type": "object",
-      "properties": {
-        "kind": {
-          "enum": [
-            "literature",
-            "assumed",
-            "synthetic",
-            "derived"
-          ]
-        },
-        "source_ref": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "locator": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "note": {
-          "type": "string",
-          "minLength": 1
-        }
-      },
-      "required": [
-        "kind",
-        "source_ref",
-        "locator",
-        "note"
-      ],
-      "additionalProperties": false,
-      "allOf": [
-        {
-          "if": {
-            "properties": {
-              "kind": {
-                "enum": [
-                  "literature",
-                  "derived"
-                ]
-              }
-            }
-          },
-          "then": {
-            "properties": {
-              "source_ref": {
-                "type": "string",
-                "minLength": 1
-              }
-            }
-          }
-        }
-      ]
-    },
     "Counts": {
       "type": "object",
       "properties": {
-        "analyzer": {
+        "flex_centrifuge": {
           "type": "integer",
           "minimum": 0
         },
-        "dryer": {
+        "flex_filter": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "flex_grinder": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "flex_liquid_handler": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "flex_press": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "flex_sonicator": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "flex_stirrer": {
           "type": "integer",
           "minimum": 0
         },
@@ -77,25 +39,251 @@
           "type": "integer",
           "minimum": 0
         },
-        "mixer": {
+        "oven": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "xrd": {
           "type": "integer",
           "minimum": 0
         }
       },
       "required": [
-        "analyzer",
-        "dryer",
+        "flex_centrifuge",
+        "flex_filter",
+        "flex_grinder",
+        "flex_liquid_handler",
+        "flex_press",
+        "flex_sonicator",
+        "flex_stirrer",
         "furnace",
-        "mixer"
+        "oven",
+        "xrd"
       ],
       "additionalProperties": false
+    },
+    "Room": {
+      "type": "object",
+      "properties": {
+        "width_m": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "depth_m": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        }
+      },
+      "required": [
+        "width_m",
+        "depth_m"
+      ],
+      "additionalProperties": false
+    },
+    "Arm": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "x": {
+          "type": "number",
+          "minimum": 0
+        },
+        "y": {
+          "type": "number",
+          "minimum": 0
+        },
+        "yaw": {
+          "enum": [
+            0,
+            90,
+            180,
+            270
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "x",
+        "y",
+        "yaw"
+      ],
+      "additionalProperties": false
+    },
+    "Device": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "model": {
+          "enum": [
+            "flex_centrifuge",
+            "flex_filter",
+            "flex_grinder",
+            "flex_liquid_handler",
+            "flex_press",
+            "flex_sonicator",
+            "flex_stirrer",
+            "furnace",
+            "oven",
+            "xrd"
+          ]
+        },
+        "x": {
+          "type": "number",
+          "minimum": 0
+        },
+        "y": {
+          "type": "number",
+          "minimum": 0
+        },
+        "rotation": {
+          "enum": [
+            0,
+            90,
+            180,
+            270
+          ]
+        },
+        "input_robot_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "output_robot_id": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "id",
+        "model",
+        "x",
+        "y",
+        "rotation",
+        "input_robot_id",
+        "output_robot_id"
+      ],
+      "additionalProperties": false
+    },
+    "Layout": {
+      "type": "object",
+      "properties": {
+        "devices": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Device"
+          }
+        },
+        "robots": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Arm"
+          }
+        },
+        "parked_devices": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ParkedDevice"
+          }
+        }
+      },
+      "required": [
+        "devices",
+        "robots"
+      ],
+      "additionalProperties": false
+    },
+    "ResourceLimits": {
+      "type": "object",
+      "properties": {
+        "equipment": {
+          "$ref": "#/$defs/Counts"
+        },
+        "arms": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "amrs": {
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "equipment",
+        "arms",
+        "amrs"
+      ],
+      "additionalProperties": false
+    },
+    "Policies": {
+      "type": "object",
+      "properties": {
+        "placement": {
+          "enum": [
+            "poc-exact-counts-v1",
+            "public-cell-candidates-v1",
+            "dense-cell-candidates-v2"
+          ]
+        },
+        "execution": {
+          "enum": [
+            "poc-fixed-dispatch-v1",
+            "job-priority-nonpreemptive-v1"
+          ]
+        },
+        "transport": {
+          "const": "poc-closed-tours-v1"
+        },
+        "completion": {
+          "const": "final-arm-unload-v1"
+        },
+        "inventory": {
+          "enum": [
+            "fixed-owned-v1"
+          ]
+        }
+      },
+      "required": [
+        "placement",
+        "execution",
+        "transport",
+        "completion"
+      ],
+      "additionalProperties": false
+    },
+    "Job": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "arrival_s": {
+          "type": "number",
+          "minimum": 0
+        },
+        "nodes": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object"
+          }
+        }
+      },
+      "required": [
+        "id",
+        "arrival_s",
+        "nodes"
+      ],
+      "additionalProperties": true
     },
     "Catalog": {
       "type": "object",
       "properties": {
-        "schema_version": {
-          "const": "0.1"
-        },
         "catalog_id": {
           "type": "string",
           "minLength": 1
@@ -104,80 +292,92 @@
           "type": "string",
           "minLength": 1
         },
-        "model_provenance": {
-          "$ref": "#/$defs/Provenance"
+        "track": {
+          "const": "synthetic"
         },
-        "devices": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "device_type": {
-                "enum": [
-                  "analyzer",
-                  "dryer",
-                  "furnace",
-                  "mixer"
-                ]
-              },
-              "unit_cost_credits": {
-                "type": "number",
-                "exclusiveMinimum": 0
-              },
-              "width_m": {
-                "type": "number",
-                "exclusiveMinimum": 0
-              },
-              "depth_m": {
-                "type": "number",
-                "exclusiveMinimum": 0
-              },
-              "batch_capacity": {
-                "type": "integer",
-                "minimum": 1
-              },
-              "max_instances": {
-                "type": "integer",
-                "minimum": 1
-              },
-              "supported_operations": {
-                "type": "array",
-                "items": {
-                  "type": "string",
-                  "minLength": 1
-                },
-                "minItems": 1
-              }
+        "provenance": {
+          "type": "string",
+          "minLength": 1
+        },
+        "placement_grid_m": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "route_grid_m": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "robot": {
+          "type": "object"
+        },
+        "carrier": {
+          "type": "object"
+        },
+        "equipment": {
+          "type": "object",
+          "properties": {
+            "flex_centrifuge": {
+              "type": "object"
             },
-            "required": [
-              "device_type",
-              "unit_cost_credits",
-              "width_m",
-              "depth_m",
-              "batch_capacity",
-              "max_instances",
-              "supported_operations"
-            ],
-            "additionalProperties": false
+            "flex_filter": {
+              "type": "object"
+            },
+            "flex_grinder": {
+              "type": "object"
+            },
+            "flex_liquid_handler": {
+              "type": "object"
+            },
+            "flex_press": {
+              "type": "object"
+            },
+            "flex_sonicator": {
+              "type": "object"
+            },
+            "flex_stirrer": {
+              "type": "object"
+            },
+            "furnace": {
+              "type": "object"
+            },
+            "oven": {
+              "type": "object"
+            },
+            "xrd": {
+              "type": "object"
+            }
           },
-          "minItems": 1
+          "required": [
+            "flex_centrifuge",
+            "flex_filter",
+            "flex_grinder",
+            "flex_liquid_handler",
+            "flex_press",
+            "flex_sonicator",
+            "flex_stirrer",
+            "furnace",
+            "oven",
+            "xrd"
+          ],
+          "additionalProperties": false
         }
       },
       "required": [
-        "schema_version",
         "catalog_id",
         "version",
-        "model_provenance",
-        "devices"
+        "track",
+        "provenance",
+        "placement_grid_m",
+        "route_grid_m",
+        "robot",
+        "carrier",
+        "equipment"
       ],
       "additionalProperties": false
     },
     "Workflow": {
       "type": "object",
       "properties": {
-        "schema_version": {
-          "const": "0.1"
-        },
         "workflow_id": {
           "type": "string",
           "minLength": 1
@@ -189,103 +389,27 @@
         "track": {
           "enum": [
             "synthetic",
-            "literature_derived"
+            "literature-derived"
           ]
         },
-        "source_ref": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "steps": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "step_id": {
-                "type": "string",
-                "minLength": 1
-              },
-              "operation": {
-                "type": "string",
-                "minLength": 1
-              },
-              "device_type": {
-                "enum": [
-                  "analyzer",
-                  "dryer",
-                  "furnace",
-                  "mixer"
-                ]
-              },
-              "duration_s": {
-                "type": "number",
-                "exclusiveMinimum": 0
-              },
-              "depends_on": {
-                "type": "array",
-                "items": {
-                  "type": "string",
-                  "minLength": 1
-                },
-                "minItems": 0
-              },
-              "duration_provenance": {
-                "$ref": "#/$defs/Provenance"
-              },
-              "device_mapping_provenance": {
-                "$ref": "#/$defs/Provenance"
-              }
-            },
-            "required": [
-              "step_id",
-              "operation",
-              "device_type",
-              "duration_s",
-              "depends_on",
-              "duration_provenance",
-              "device_mapping_provenance"
-            ],
-            "additionalProperties": false
-          },
-          "minItems": 1
+        "description": {
+          "type": "string",
+          "minLength": 1
         }
       },
       "required": [
-        "schema_version",
         "workflow_id",
         "version",
         "track",
-        "source_ref",
-        "steps"
+        "description"
       ],
-      "additionalProperties": false,
-      "allOf": [
-        {
-          "if": {
-            "properties": {
-              "track": {
-                "const": "literature_derived"
-              }
-            }
-          },
-          "then": {
-            "properties": {
-              "source_ref": {
-                "type": "string",
-                "minLength": 1
-              }
-            }
-          }
-        }
-      ]
+      "additionalProperties": false
     },
     "Task": {
       "type": "object",
       "properties": {
         "schema_version": {
-          "const": "0.1"
+          "const": "0.2"
         },
         "task_id": {
           "type": "string",
@@ -311,212 +435,50 @@
           "type": "string",
           "minLength": 1
         },
-        "equipment_budget_credits": {
-          "type": "number",
-          "exclusiveMinimum": 0
-        },
-        "horizon_s": {
-          "type": "number",
-          "exclusiveMinimum": 0
-        },
-        "drain_limit_s": {
-          "type": "number",
-          "exclusiveMinimum": 0
-        },
         "room": {
-          "type": "object",
-          "properties": {
-            "width_m": {
-              "type": "number",
-              "exclusiveMinimum": 0
-            },
-            "depth_m": {
-              "type": "number",
-              "exclusiveMinimum": 0
-            }
-          },
-          "required": [
-            "width_m",
-            "depth_m"
-          ],
-          "additionalProperties": false
+          "$ref": "#/$defs/Room"
+        },
+        "resource_limits": {
+          "$ref": "#/$defs/ResourceLimits"
+        },
+        "objective": {
+          "const": "minimize_makespan_s"
+        },
+        "simulation_seed": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "simulation_cutoff_s": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "workload_parameters": {
+          "type": "object"
         },
         "jobs": {
           "type": "array",
+          "minItems": 1,
           "items": {
-            "type": "object",
-            "properties": {
-              "job_id": {
-                "type": "string",
-                "minLength": 1
-              },
-              "release_at_s": {
-                "type": "number",
-                "minimum": 0
-              }
-            },
-            "required": [
-              "job_id",
-              "release_at_s"
-            ],
-            "additionalProperties": false
-          },
-          "minItems": 1
+            "$ref": "#/$defs/Job"
+          }
         },
-        "slots": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "slot_id": {
-                "type": "string",
-                "minLength": 1
-              },
-              "x_m": {
-                "type": "number",
-                "minimum": 0
-              },
-              "y_m": {
-                "type": "number",
-                "minimum": 0
-              },
-              "width_m": {
-                "type": "number",
-                "exclusiveMinimum": 0
-              },
-              "depth_m": {
-                "type": "number",
-                "exclusiveMinimum": 0
-              },
-              "port_node": {
-                "type": "string",
-                "minLength": 1
-              }
-            },
-            "required": [
-              "slot_id",
-              "x_m",
-              "y_m",
-              "width_m",
-              "depth_m",
-              "port_node"
-            ],
-            "additionalProperties": false
-          },
-          "minItems": 1
-        },
-        "transport": {
-          "type": "object",
-          "properties": {
-            "velocity_m_s": {
-              "type": "number",
-              "exclusiveMinimum": 0
-            },
-            "pick_s": {
-              "type": "number",
-              "minimum": 0
-            },
-            "drop_s": {
-              "type": "number",
-              "minimum": 0
-            },
-            "entry_node": {
-              "type": "string",
-              "minLength": 1
-            },
-            "exit_node": {
-              "type": "string",
-              "minLength": 1
-            },
-            "nodes": {
-              "type": "array",
-              "items": {
-                "type": "object",
-                "properties": {
-                  "node_id": {
-                    "type": "string",
-                    "minLength": 1
-                  },
-                  "x_m": {
-                    "type": "number",
-                    "minimum": 0
-                  },
-                  "y_m": {
-                    "type": "number",
-                    "minimum": 0
-                  }
-                },
-                "required": [
-                  "node_id",
-                  "x_m",
-                  "y_m"
-                ],
-                "additionalProperties": false
-              },
-              "minItems": 1
-            },
-            "edges": {
-              "type": "array",
-              "items": {
-                "type": "object",
-                "properties": {
-                  "from_node": {
-                    "type": "string",
-                    "minLength": 1
-                  },
-                  "to_node": {
-                    "type": "string",
-                    "minLength": 1
-                  },
-                  "distance_m": {
-                    "type": "number",
-                    "exclusiveMinimum": 0
-                  }
-                },
-                "required": [
-                  "from_node",
-                  "to_node",
-                  "distance_m"
-                ],
-                "additionalProperties": false
-              },
-              "minItems": 1
-            }
-          },
-          "required": [
-            "velocity_m_s",
-            "pick_s",
-            "drop_s",
-            "entry_node",
-            "exit_node",
-            "nodes",
-            "edges"
-          ],
-          "additionalProperties": false
+        "workload_hash": {
+          "type": "string",
+          "minLength": 1
         },
         "policies": {
-          "type": "object",
-          "properties": {
-            "placement": {
-              "const": "ordered-slots-v1"
-            },
-            "dispatch": {
-              "const": "ready-fifo-reserve-v1"
-            },
-            "transport": {
-              "const": "single-robot-graph-v1"
-            },
-            "batch": {
-              "const": "single-sample-v1"
-            }
-          },
-          "required": [
-            "placement",
-            "dispatch",
-            "transport",
-            "batch"
-          ],
-          "additionalProperties": false
+          "$ref": "#/$defs/Policies"
+        },
+        "provenance": {
+          "type": "string",
+          "minLength": 1
+        },
+        "external_staging": {
+          "$ref": "#/$defs/ExternalStaging"
+        },
+        "initial_sample_policy": {
+          "const": "local-arm-buffer"
         }
       },
       "required": [
@@ -527,14 +489,16 @@
         "catalog_version",
         "workflow_id",
         "workflow_version",
-        "equipment_budget_credits",
-        "horizon_s",
-        "drain_limit_s",
         "room",
+        "resource_limits",
+        "objective",
+        "simulation_seed",
+        "simulation_cutoff_s",
+        "workload_parameters",
         "jobs",
-        "slots",
-        "transport",
-        "policies"
+        "workload_hash",
+        "policies",
+        "provenance"
       ],
       "additionalProperties": false
     },
@@ -542,7 +506,7 @@
       "type": "object",
       "properties": {
         "schema_version": {
-          "const": "0.1"
+          "const": "0.2"
         },
         "submission_id": {
           "type": "string",
@@ -556,15 +520,24 @@
           "type": "string",
           "minLength": 1
         },
-        "stage": {
-          "const": 1
-        },
         "equipment_counts": {
           "$ref": "#/$defs/Counts"
         },
-        "simulation_seed": {
+        "arm_count": {
           "type": "integer",
           "minimum": 0
+        },
+        "amr_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "simulation_seed": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "layout": {
+          "$ref": "#/$defs/Layout"
         }
       },
       "required": [
@@ -572,73 +545,84 @@
         "submission_id",
         "task_id",
         "task_version",
-        "stage",
         "equipment_counts",
+        "arm_count",
+        "amr_count",
         "simulation_seed"
       ],
       "additionalProperties": false
     },
-    "Placement": {
+    "Metrics": {
       "type": "object",
       "properties": {
-        "instance_id": {
-          "type": "string",
-          "minLength": 1
+        "total_jobs": {
+          "type": "integer",
+          "minimum": 1
         },
-        "device_type": {
-          "enum": [
-            "analyzer",
-            "dryer",
-            "furnace",
-            "mixer"
-          ]
+        "completed_jobs": {
+          "type": "integer",
+          "minimum": 0
         },
-        "slot_id": {
-          "type": "string",
-          "minLength": 1
+        "makespan_s": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0
         },
-        "port_node": {
-          "type": "string",
-          "minLength": 1
+        "elapsed_s": {
+          "type": "number",
+          "minimum": 0
+        },
+        "arm_busy_s": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "number",
+            "minimum": 0
+          }
         }
       },
       "required": [
-        "instance_id",
-        "device_type",
-        "slot_id",
-        "port_node"
+        "total_jobs",
+        "completed_jobs",
+        "makespan_s",
+        "elapsed_s",
+        "arm_busy_s"
+      ],
+      "additionalProperties": false
+    },
+    "InstalledResources": {
+      "type": "object",
+      "properties": {
+        "equipment_counts": {
+          "$ref": "#/$defs/Counts"
+        },
+        "arms": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "amrs": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "equipment_counts",
+        "arms",
+        "amrs"
       ],
       "additionalProperties": false
     },
     "Event": {
       "type": "object",
       "properties": {
-        "event_id": {
-          "type": "string",
-          "minLength": 1
-        },
-        "job_id": {
-          "type": "string",
-          "minLength": 1
-        },
-        "step_id": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "resource_id": {
+        "resource": {
           "type": "string",
           "minLength": 1
         },
         "kind": {
-          "enum": [
-            "transport_empty",
-            "transport_loaded",
-            "handling",
-            "process",
-            "job_complete"
-          ]
+          "type": "string",
+          "minLength": 1
         },
         "start_s": {
           "type": "number",
@@ -647,86 +631,15 @@
         "end_s": {
           "type": "number",
           "minimum": 0
-        },
-        "path_nodes": {
-          "type": "array",
-          "items": {
-            "type": "string",
-            "minLength": 1
-          },
-          "minItems": 0
-        },
-        "distance_m": {
-          "type": "number",
-          "minimum": 0
         }
       },
       "required": [
-        "event_id",
-        "job_id",
-        "step_id",
-        "resource_id",
+        "resource",
         "kind",
         "start_s",
-        "end_s",
-        "path_nodes",
-        "distance_m"
+        "end_s"
       ],
-      "additionalProperties": false
-    },
-    "Metrics": {
-      "type": "object",
-      "properties": {
-        "completed_jobs": {
-          "type": "integer",
-          "minimum": 0
-        },
-        "throughput_jobs_per_hour": {
-          "type": "number",
-          "minimum": 0
-        },
-        "equipment_cost_credits": {
-          "type": "number",
-          "exclusiveMinimum": 0
-        },
-        "cost_efficiency": {
-          "type": "number",
-          "minimum": 0
-        },
-        "makespan_s": {
-          "anyOf": [
-            {
-              "type": "number",
-              "minimum": 0
-            },
-            {
-              "type": "null"
-            }
-          ]
-        },
-        "transport_distance_m": {
-          "type": "number",
-          "minimum": 0
-        },
-        "utilization": {
-          "type": "object",
-          "additionalProperties": {
-            "type": "number",
-            "minimum": 0,
-            "maximum": 1
-          }
-        }
-      },
-      "required": [
-        "completed_jobs",
-        "throughput_jobs_per_hour",
-        "equipment_cost_credits",
-        "cost_efficiency",
-        "makespan_s",
-        "transport_distance_m",
-        "utilization"
-      ],
-      "additionalProperties": false
+      "additionalProperties": true
     },
     "Violation": {
       "type": "object",
@@ -746,11 +659,39 @@
       ],
       "additionalProperties": false
     },
+    "Failure": {
+      "type": "object",
+      "properties": {
+        "method": {
+          "type": "string",
+          "minLength": 1
+        },
+        "attempts": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 64
+        },
+        "infeasibility_proven": {
+          "const": false
+        },
+        "message": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "method",
+        "attempts",
+        "infeasibility_proven",
+        "message"
+      ],
+      "additionalProperties": false
+    },
     "EvaluationResult": {
       "type": "object",
       "properties": {
         "schema_version": {
-          "const": "0.1"
+          "const": "0.2"
         },
         "submission_id": {
           "type": "string",
@@ -765,10 +706,7 @@
           "minLength": 1
         },
         "result_origin": {
-          "enum": [
-            "hand_calculated_fixture",
-            "simulation"
-          ]
+          "const": "simulation"
         },
         "valid": {
           "type": "boolean"
@@ -778,6 +716,7 @@
             "completed",
             "truncated",
             "invalid",
+            "layout_search_failed",
             "error"
           ]
         },
@@ -785,8 +724,7 @@
           "type": "array",
           "items": {
             "$ref": "#/$defs/Violation"
-          },
-          "minItems": 0
+          }
         },
         "metrics": {
           "anyOf": [
@@ -798,19 +736,45 @@
             }
           ]
         },
-        "resolved_placement": {
-          "type": "array",
-          "items": {
-            "$ref": "#/$defs/Placement"
-          },
-          "minItems": 0
+        "installed_resources": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/InstalledResources"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "events": {
           "type": "array",
           "items": {
             "$ref": "#/$defs/Event"
-          },
-          "minItems": 0
+          }
+        },
+        "replay": {
+          "type": [
+            "object",
+            "null"
+          ]
+        },
+        "task_hash": {
+          "type": "string",
+          "minLength": 1
+        },
+        "workload_hash": {
+          "type": "string",
+          "minLength": 1
+        },
+        "failure": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Failure"
+            },
+            {
+              "type": "null"
+            }
+          ]
         }
       },
       "required": [
@@ -823,8 +787,12 @@
         "status",
         "violations",
         "metrics",
-        "resolved_placement",
-        "events"
+        "installed_resources",
+        "events",
+        "replay",
+        "task_hash",
+        "workload_hash",
+        "failure"
       ],
       "additionalProperties": false,
       "allOf": [
@@ -833,13 +801,32 @@
             "properties": {
               "status": {
                 "enum": [
-                  "invalid",
-                  "error"
+                  "completed",
+                  "truncated"
                 ]
               }
             }
           },
           "then": {
+            "properties": {
+              "valid": {
+                "const": true
+              },
+              "metrics": {
+                "$ref": "#/$defs/Metrics"
+              },
+              "installed_resources": {
+                "$ref": "#/$defs/InstalledResources"
+              },
+              "replay": {
+                "type": "object"
+              },
+              "violations": {
+                "maxItems": 0
+              }
+            }
+          },
+          "else": {
             "properties": {
               "valid": {
                 "const": false
@@ -850,21 +837,11 @@
               "events": {
                 "maxItems": 0
               },
+              "replay": {
+                "type": "null"
+              },
               "violations": {
                 "minItems": 1
-              }
-            }
-          },
-          "else": {
-            "properties": {
-              "valid": {
-                "const": true
-              },
-              "metrics": {
-                "$ref": "#/$defs/Metrics"
-              },
-              "violations": {
-                "maxItems": 0
               }
             }
           }
@@ -930,17 +907,6 @@
         },
         "request": {
           "$ref": "#/$defs/DesignRequest"
-        },
-        "expected_violation_codes": {
-          "type": "array",
-          "items": {
-            "type": "string",
-            "minLength": 1
-          },
-          "minItems": 0
-        },
-        "result": {
-          "$ref": "#/$defs/EvaluationResult"
         }
       },
       "required": [
@@ -948,8 +914,1035 @@
         "catalog",
         "workflow",
         "task",
-        "request",
-        "expected_violation_codes"
+        "request"
+      ],
+      "additionalProperties": false
+    },
+    "SchedulerConfig": {
+      "type": "object",
+      "properties": {
+        "protocol": {
+          "const": "labops.scheduler.v0.2-draft"
+        },
+        "decision_interval_s": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "max_decisions": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "response_timeout_ms": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "max_drain_s": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "visibility": {
+          "const": "full_remaining_workload"
+        },
+        "dispatch_policy": {
+          "const": "job-priority-nonpreemptive-v1"
+        },
+        "clock_policy": {
+          "const": "paused-during-decision"
+        },
+        "allow_device_relocation": {
+          "type": "boolean"
+        },
+        "allow_arm_relocation": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "protocol",
+        "decision_interval_s",
+        "max_decisions",
+        "response_timeout_ms",
+        "max_drain_s",
+        "visibility",
+        "dispatch_policy",
+        "clock_policy",
+        "allow_device_relocation",
+        "allow_arm_relocation"
+      ],
+      "additionalProperties": false
+    },
+    "SchedulerContext": {
+      "type": "object",
+      "properties": {
+        "task_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "task_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "task_hash": {
+          "type": "string",
+          "minLength": 1
+        },
+        "catalog_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "catalog_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "workload_hash": {
+          "type": "string",
+          "minLength": 1
+        },
+        "room": {
+          "$ref": "#/$defs/Room"
+        },
+        "resource_limits": {
+          "$ref": "#/$defs/ResourceLimits"
+        },
+        "simulation_seed": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "simulation_cutoff_s": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "objective": {
+          "const": "minimize_makespan_s"
+        },
+        "transition_models": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/SchedulerTransitionModel"
+          }
+        },
+        "external_staging": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ExternalStaging"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "initial_sample_policy": {
+          "enum": [
+            "local-arm-buffer",
+            null
+          ]
+        },
+        "placement_policy": {
+          "type": "string",
+          "minLength": 1
+        },
+        "buffer_slots": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "inventory_policy": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "task_id",
+        "task_version",
+        "task_hash",
+        "catalog_id",
+        "catalog_version",
+        "workload_hash",
+        "room",
+        "resource_limits",
+        "simulation_seed",
+        "simulation_cutoff_s",
+        "objective",
+        "transition_models"
+      ],
+      "additionalProperties": false
+    },
+    "SchedulerNode": {
+      "type": "object",
+      "properties": {
+        "node_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "depends_on": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "required_capability": {
+          "type": "string",
+          "minLength": 1
+        },
+        "process_s": {
+          "type": "number",
+          "minimum": 0
+        },
+        "remaining_process_s": {
+          "anyOf": [
+            {
+              "type": "number",
+              "minimum": 0
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "status": {
+          "enum": [
+            "pending",
+            "reserved",
+            "running",
+            "completed"
+          ]
+        },
+        "assigned_device_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "node_id",
+        "depends_on",
+        "required_capability",
+        "process_s",
+        "remaining_process_s",
+        "status",
+        "assigned_device_id"
+      ],
+      "additionalProperties": false
+    },
+    "SchedulerJob": {
+      "type": "object",
+      "properties": {
+        "job_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "arrival_s": {
+          "type": "number",
+          "minimum": 0
+        },
+        "due_s": {
+          "anyOf": [
+            {
+              "type": "number",
+              "minimum": 0
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "status": {
+          "enum": [
+            "future",
+            "queued",
+            "admitted",
+            "running"
+          ]
+        },
+        "current_priority": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 1000
+        },
+        "nodes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/SchedulerNode"
+          },
+          "minItems": 1
+        },
+        "sample_location": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "job_id",
+        "arrival_s",
+        "due_s",
+        "status",
+        "current_priority",
+        "nodes"
+      ],
+      "additionalProperties": false
+    },
+    "SchedulerPriority": {
+      "type": "object",
+      "properties": {
+        "job_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "priority": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 1000
+        }
+      },
+      "required": [
+        "job_id",
+        "priority"
+      ],
+      "additionalProperties": false
+    },
+    "SchedulerResource": {
+      "type": "object",
+      "properties": {
+        "resource_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "kind": {
+          "enum": [
+            "device",
+            "arm",
+            "amr",
+            "buffer",
+            "configuration_cart"
+          ]
+        },
+        "state": {
+          "enum": [
+            "idle",
+            "reserved",
+            "busy",
+            "disabled"
+          ]
+        },
+        "available_s": {
+          "type": "number",
+          "minimum": 0
+        },
+        "committed_job_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "capacity_slots": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "occupied_slots": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "future_reserved_slots": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        }
+      },
+      "required": [
+        "resource_id",
+        "kind",
+        "state",
+        "available_s",
+        "committed_job_ids",
+        "capacity_slots",
+        "occupied_slots",
+        "future_reserved_slots"
+      ],
+      "additionalProperties": false
+    },
+    "SchedulerReconfiguration": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "mode": {
+              "const": "keep"
+            }
+          },
+          "required": [
+            "mode"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "mode": {
+              "const": "replace_layout"
+            },
+            "layout": {
+              "$ref": "#/$defs/Layout"
+            }
+          },
+          "required": [
+            "mode",
+            "layout"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "SchedulerReconfigurationState": {
+      "type": "object",
+      "properties": {
+        "phase": {
+          "enum": [
+            "idle",
+            "draining",
+            "transitioning"
+          ]
+        },
+        "decision_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "deadline_s": {
+          "anyOf": [
+            {
+              "type": "number",
+              "minimum": 0
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "target_layout": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Layout"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "phase",
+        "decision_id",
+        "deadline_s",
+        "target_layout"
+      ],
+      "additionalProperties": false
+    },
+    "SchedulerInstalledResources": {
+      "type": "object",
+      "properties": {
+        "equipment_counts": {
+          "$ref": "#/$defs/Counts"
+        },
+        "arms": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "amrs": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "equipment_counts",
+        "arms",
+        "amrs"
+      ],
+      "additionalProperties": false
+    },
+    "SchedulerReceipt": {
+      "type": "object",
+      "properties": {
+        "protocol": {
+          "const": "labops.scheduler.v0.2-draft"
+        },
+        "session_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "decision_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "decision_hash": {
+          "type": "string",
+          "minLength": 1
+        },
+        "epoch_id": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "state_version": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "time_s": {
+          "type": "number",
+          "minimum": 0
+        },
+        "status": {
+          "enum": [
+            "rejected",
+            "accepted_pending",
+            "applied",
+            "expired"
+          ]
+        },
+        "priority_status": {
+          "enum": [
+            "kept",
+            "applied",
+            "rejected"
+          ]
+        },
+        "layout_status": {
+          "enum": [
+            "kept",
+            "draining",
+            "transitioning",
+            "applied",
+            "rejected",
+            "expired"
+          ]
+        },
+        "applied_time_s": {
+          "anyOf": [
+            {
+              "type": "number",
+              "minimum": 0
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "code": {
+          "type": "string",
+          "minLength": 1
+        },
+        "violations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Violation"
+          }
+        }
+      },
+      "required": [
+        "protocol",
+        "session_id",
+        "decision_id",
+        "decision_hash",
+        "epoch_id",
+        "state_version",
+        "time_s",
+        "status",
+        "priority_status",
+        "layout_status",
+        "applied_time_s",
+        "code",
+        "violations"
+      ],
+      "additionalProperties": false
+    },
+    "SchedulerObservation": {
+      "type": "object",
+      "properties": {
+        "protocol": {
+          "const": "labops.scheduler.v0.2-draft"
+        },
+        "session_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "snapshot_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "epoch_id": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "state_version": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "time_s": {
+          "type": "number",
+          "minimum": 0
+        },
+        "phase": {
+          "enum": [
+            "initial_design",
+            "reschedule",
+            "done"
+          ]
+        },
+        "config": {
+          "$ref": "#/$defs/SchedulerConfig"
+        },
+        "context": {
+          "$ref": "#/$defs/SchedulerContext"
+        },
+        "catalog": {
+          "$ref": "#/$defs/Catalog"
+        },
+        "layout": {
+          "$ref": "#/$defs/Layout"
+        },
+        "installed_resources": {
+          "$ref": "#/$defs/SchedulerInstalledResources"
+        },
+        "jobs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/SchedulerJob"
+          }
+        },
+        "completed_jobs": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "total_jobs": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "resources": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/SchedulerResource"
+          }
+        },
+        "reservations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Event"
+          }
+        },
+        "reconfiguration_state": {
+          "$ref": "#/$defs/SchedulerReconfigurationState"
+        },
+        "recent_receipts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/SchedulerReceipt"
+          }
+        },
+        "decision_required": {
+          "type": "boolean"
+        },
+        "decisions_remaining": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "protocol",
+        "session_id",
+        "snapshot_id",
+        "epoch_id",
+        "state_version",
+        "time_s",
+        "phase",
+        "config",
+        "context",
+        "catalog",
+        "layout",
+        "installed_resources",
+        "jobs",
+        "completed_jobs",
+        "total_jobs",
+        "resources",
+        "reservations",
+        "reconfiguration_state",
+        "recent_receipts",
+        "decision_required",
+        "decisions_remaining"
+      ],
+      "additionalProperties": false
+    },
+    "SchedulerDecision": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "protocol": {
+              "const": "labops.scheduler.v0.2-draft"
+            },
+            "session_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "snapshot_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "epoch_id": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "state_version": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "decision_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "reason": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 1000
+            },
+            "priorities": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/SchedulerPriority"
+              }
+            },
+            "type": {
+              "const": "initial_design"
+            },
+            "initial_design": {
+              "$ref": "#/$defs/DesignRequest"
+            }
+          },
+          "required": [
+            "protocol",
+            "session_id",
+            "snapshot_id",
+            "epoch_id",
+            "state_version",
+            "decision_id",
+            "reason",
+            "priorities",
+            "type",
+            "initial_design"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "protocol": {
+              "const": "labops.scheduler.v0.2-draft"
+            },
+            "session_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "snapshot_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "epoch_id": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "state_version": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "decision_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "reason": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 1000
+            },
+            "priorities": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/SchedulerPriority"
+              }
+            },
+            "type": {
+              "const": "reschedule"
+            },
+            "reconfiguration": {
+              "$ref": "#/$defs/SchedulerReconfiguration"
+            }
+          },
+          "required": [
+            "protocol",
+            "session_id",
+            "snapshot_id",
+            "epoch_id",
+            "state_version",
+            "decision_id",
+            "reason",
+            "priorities",
+            "type",
+            "reconfiguration"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "SchedulerTransitionModel": {
+      "type": "object",
+      "properties": {
+        "operation": {
+          "enum": [
+            "device_relocation",
+            "arm_relocation"
+          ]
+        },
+        "model_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "parameters": {
+          "type": "object"
+        },
+        "provenance": {
+          "type": "string",
+          "minLength": 1
+        },
+        "evidence_type": {
+          "enum": [
+            "assumption",
+            "measurement"
+          ]
+        }
+      },
+      "required": [
+        "operation",
+        "model_id",
+        "version",
+        "parameters",
+        "provenance",
+        "evidence_type"
+      ],
+      "additionalProperties": false
+    },
+    "SchedulerSessionRequest": {
+      "type": "object",
+      "properties": {
+        "task_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "task_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "config": {
+          "$ref": "#/$defs/SchedulerConfig"
+        }
+      },
+      "required": [
+        "task_id",
+        "task_version"
+      ],
+      "additionalProperties": false
+    },
+    "SchedulerResult": {
+      "type": "object",
+      "properties": {
+        "protocol": {
+          "const": "labops.scheduler.v0.2-draft"
+        },
+        "session_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "status": {
+          "enum": [
+            "initial_design",
+            "reschedule",
+            "completed",
+            "truncated",
+            "error"
+          ]
+        },
+        "terminal_reason": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "objective": {
+          "const": "minimize_makespan_s"
+        },
+        "metrics": {
+          "type": "object",
+          "properties": {
+            "makespan_s": {
+              "type": [
+                "number",
+                "null"
+              ],
+              "minimum": 0
+            },
+            "elapsed_s": {
+              "type": "number",
+              "minimum": 0
+            },
+            "total_jobs": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "completed_jobs": {
+              "type": "integer",
+              "minimum": 0
+            }
+          },
+          "required": [
+            "makespan_s",
+            "elapsed_s",
+            "total_jobs",
+            "completed_jobs"
+          ],
+          "additionalProperties": false
+        },
+        "installed_resources": {
+          "$ref": "#/$defs/SchedulerInstalledResources"
+        },
+        "context": {
+          "$ref": "#/$defs/SchedulerContext"
+        },
+        "config": {
+          "$ref": "#/$defs/SchedulerConfig"
+        },
+        "used_decisions": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "receipts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/SchedulerReceipt"
+          }
+        },
+        "replay": {
+          "type": [
+            "object",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "protocol",
+        "session_id",
+        "status",
+        "terminal_reason",
+        "objective",
+        "metrics",
+        "installed_resources",
+        "context",
+        "config",
+        "used_decisions",
+        "receipts",
+        "replay"
+      ],
+      "additionalProperties": false
+    },
+    "ParkedDevice": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "model": {
+          "enum": [
+            "flex_centrifuge",
+            "flex_filter",
+            "flex_grinder",
+            "flex_liquid_handler",
+            "flex_press",
+            "flex_sonicator",
+            "flex_stirrer",
+            "furnace",
+            "oven",
+            "xrd"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "model"
+      ],
+      "additionalProperties": false
+    },
+    "ExternalStaging": {
+      "type": "object",
+      "properties": {
+        "capacity": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "max_active_devices": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "handling_s_per_device": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "gate": {
+          "type": "object",
+          "properties": {
+            "x": {
+              "type": "number",
+              "minimum": 0
+            },
+            "width_m": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            }
+          },
+          "required": [
+            "x",
+            "width_m"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "capacity",
+        "max_active_devices",
+        "handling_s_per_device",
+        "gate"
       ],
       "additionalProperties": false
     }

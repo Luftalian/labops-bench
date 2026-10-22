@@ -1,0 +1,55 @@
+{
+  "status": "done",
+  "scope": "One 24-job engineering-fixture trial. Same layout, hardware, workload, manager cadence (600 s) and fixed executor. Luna controls exchanges/holds only. Not a full-action LLM or layout benchmark.",
+  "replay_trace_verified": true,
+  "runs": [
+    {
+      "family": "screening-mix",
+      "jobs": 24,
+      "seed": 17,
+      "amrs": 2,
+      "folder": "results/v4/codex-luna-screening-2026-10-21",
+      "policy": "codex-luna-manager",
+      "status": "completed",
+      "workload_hash": "ce381afc92c22d82d77a32e22738e90ebb7855a390a35ec632e865ffc230f61b",
+      "config_hash": "2fe82667a330aa25c3e2d66e71ae7dbcc0e1da7c4465ba0f186a47146db192c9",
+      "completed": 24,
+      "makespan_s": 5922.204877983272,
+      "peak_parallel": 5,
+      "module_changes": 7,
+      "invalid_actions": 0
+    },
+    {
+      "family": "screening-mix",
+      "jobs": 24,
+      "seed": 17,
+      "amrs": 2,
+      "folder": "results/v4/2026-10-21T02-44-30.186Z-fixed-cadenced",
+      "policy": "fixed-cadenced",
+      "status": "completed",
+      "workload_hash": "ce381afc92c22d82d77a32e22738e90ebb7855a390a35ec632e865ffc230f61b",
+      "config_hash": "2fe82667a330aa25c3e2d66e71ae7dbcc0e1da7c4465ba0f186a47146db192c9",
+      "completed": 24,
+      "makespan_s": 6516.939085197052,
+      "peak_parallel": 5,
+      "module_changes": 0,
+      "invalid_actions": 0
+    },
+    {
+      "family": "screening-mix",
+      "jobs": 24,
+      "seed": 17,
+      "amrs": 2,
+      "folder": "results/v4/2026-10-21T02-44-31.735Z-adaptive-cadenced",
+      "policy": "adaptive-cadenced",
+      "status": "completed",
+      "workload_hash": "ce381afc92c22d82d77a32e22738e90ebb7855a390a35ec632e865ffc230f61b",
+      "config_hash": "2fe82667a330aa25c3e2d66e71ae7dbcc0e1da7c4465ba0f186a47146db192c9",
+      "completed": 24,
+      "makespan_s": 4787.789028394099,
+      "peak_parallel": 6,
+      "module_changes": 1,
+      "invalid_actions": 0
+    }
+  ]
+}

@@ -1,0 +1,441 @@
+{
+  "generated_at": "2026-10-21T16:28:09.012Z",
+  "scope": "Software correctness and deterministic replay validation; not chemical or real laboratory validation.",
+  "git_observed_at_validation": {
+    "head": "e83f88e68c1c126d7e14db56f32b844f9e30f2fa",
+    "branch": "feat/poc-integration",
+    "working_tree_dirty": true,
+    "note": "Observed after experiments, not reconstructed run-start metadata. Individual run manifests preserve actual source snapshots."
+  },
+  "runtime": {
+    "node": "v18.16.0",
+    "platform": "darwin",
+    "arch": "arm64"
+  },
+  "checks": [
+    {
+      "command": "npm run check",
+      "status": "passed",
+      "log": "results/local/validation/lemat-sdl-final/lemat-release-check.log",
+      "sha256": "e4ec0633802598bed4f17df41495a95f3e64a8220cb8308c610f31e3c1dafa12"
+    },
+    {
+      "command": "npm run check:poc",
+      "status": "passed",
+      "log": "results/local/validation/lemat-sdl-final/lemat-poc-check-final.log",
+      "sha256": "cf60efa4114c355582632286db0ef0e7c24e3ec51baf47f52126d71ae3eae847"
+    },
+    {
+      "command": "LABOPS_URL=http://127.0.0.1:4180 node scripts/smoke-counts.mjs",
+      "status": "passed",
+      "log": "results/local/validation/lemat-sdl-final/lemat-counts-http.log",
+      "sha256": "4c9a465c7f0fbacd5e53638ffb284cdcc7c9464781baa834eb7745db3e34a80f"
+    },
+    {
+      "command": "LABOPS_URL=http://127.0.0.1:4180 node scripts/smoke-scheduler.mjs",
+      "status": "passed",
+      "log": "results/local/validation/lemat-sdl-final/lemat-scheduler-http.log",
+      "sha256": "bba097b5a216ff18b68a0bb3329ae3d3a0a038e0ae59be59c77a0cce6338f3fa"
+    }
+  ],
+  "import_verification": "PASS 170 imported originals verified; 11 explicit source patch(es) verified separately",
+  "completed_comparisons": [
+    {
+      "task_id": "lemat-sdl-01-single-station",
+      "task_version": "1",
+      "task_hash": "02c463de69175a240bc535fe8d041e9590068871cade41caeade835a46a80e33",
+      "workload_hash": "b388e5f0cf0278ea94c850d1d2b937b03710bd95ff66d7d1ee33fd18f3e9099d",
+      "completed_methods": [
+        "heuristic",
+        "gpt-6-luna-medium",
+        "jev"
+      ],
+      "peaks": [
+        {
+          "method": "heuristic",
+          "peak_processes": 1,
+          "peak_arm_actions": 1,
+          "makespan_s": 15247.215054545957
+        },
+        {
+          "method": "gpt-6-luna-medium",
+          "peak_processes": 1,
+          "peak_arm_actions": 1,
+          "makespan_s": 15247.215054545957
+        },
+        {
+          "method": "jev",
+          "peak_processes": 1,
+          "peak_arm_actions": 1,
+          "makespan_s": 15247.215054545957
+        }
+      ]
+    },
+    {
+      "task_id": "lemat-sdl-02-cramped-exchange",
+      "task_version": "1",
+      "task_hash": "e09c2b0901a5f8cb892be60c16cbf1148b7eafa2b9abe9a02374fdb58ea6594f",
+      "workload_hash": "88621251d2e78d90a537f1499112a97480c6cc1939912abc43bba84eac43a368",
+      "completed_methods": [
+        "heuristic",
+        "gpt-6-luna-medium",
+        "jev"
+      ],
+      "peaks": [
+        {
+          "method": "heuristic",
+          "peak_processes": 1,
+          "peak_arm_actions": 1,
+          "makespan_s": 9871.738351515318
+        },
+        {
+          "method": "gpt-6-luna-medium",
+          "peak_processes": 1,
+          "peak_arm_actions": 1,
+          "makespan_s": 9871.738351515318
+        },
+        {
+          "method": "jev",
+          "peak_processes": 1,
+          "peak_arm_actions": 1,
+          "makespan_s": 9871.738351515318
+        }
+      ]
+    },
+    {
+      "task_id": "lemat-sdl-03-many-arms",
+      "task_version": "2",
+      "task_hash": "dbe3fc660556975dd3532f9244dc7c0719c5573c0388b02600d4298b2c82263c",
+      "workload_hash": "6509b0beade1c2e556e569a6dcf0a52e00c56238c89877b07ab1915d56188275",
+      "completed_methods": [
+        "heuristic",
+        "gpt-6-luna-medium",
+        "jev"
+      ],
+      "peaks": [
+        {
+          "method": "heuristic",
+          "peak_processes": 32,
+          "peak_arm_actions": 32,
+          "makespan_s": 7249.93458787883
+        },
+        {
+          "method": "gpt-6-luna-medium",
+          "peak_processes": 32,
+          "peak_arm_actions": 32,
+          "makespan_s": 7249.93458787883
+        },
+        {
+          "method": "jev",
+          "peak_processes": 32,
+          "peak_arm_actions": 32,
+          "makespan_s": 7249.93458787883
+        }
+      ]
+    },
+    {
+      "task_id": "lemat-sdl-04-staggered-jobs",
+      "task_version": "1",
+      "task_hash": "454f715d0b3618dbea5126747002c056279df474ca7a3caafe8baf7795a7da71",
+      "workload_hash": "712dce4eb78e73907463de2803be06695d5c9479688e5fb1c40e7ddf47c8a4e4",
+      "completed_methods": [
+        "heuristic",
+        "gpt-6-luna-medium",
+        "jev"
+      ],
+      "peaks": [
+        {
+          "method": "heuristic",
+          "peak_processes": 7,
+          "peak_arm_actions": 3,
+          "makespan_s": 408486.43942099303
+        },
+        {
+          "method": "gpt-6-luna-medium",
+          "peak_processes": 8,
+          "peak_arm_actions": 3,
+          "makespan_s": 406054.6930288604
+        },
+        {
+          "method": "jev",
+          "peak_processes": 8,
+          "peak_arm_actions": 3,
+          "makespan_s": 402016.2077025195
+        }
+      ]
+    },
+    {
+      "task_id": "lemat-sdl-05-bursty-demand",
+      "task_version": "1",
+      "task_hash": "48eeca4bad7bccbaa40a240d2759169ff0a0327320b8e8e4764ca25138ff635b",
+      "workload_hash": "24b4cc8f552c39f1f4b294af9276ff2a7c9eacfa098b139033b2b42510aabb72",
+      "completed_methods": [
+        "heuristic",
+        "gpt-6-luna-medium",
+        "jev"
+      ],
+      "peaks": [
+        {
+          "method": "heuristic",
+          "peak_processes": 6,
+          "peak_arm_actions": 2,
+          "makespan_s": 48673.42461664231
+        },
+        {
+          "method": "gpt-6-luna-medium",
+          "peak_processes": 6,
+          "peak_arm_actions": 2,
+          "makespan_s": 48673.42461664231
+        },
+        {
+          "method": "jev",
+          "peak_processes": 6,
+          "peak_arm_actions": 2,
+          "makespan_s": 48673.42461664231
+        }
+      ]
+    },
+    {
+      "task_id": "lemat-sdl-06-long-process-overlap",
+      "task_version": "1",
+      "task_hash": "6493d76daf6032d02a41347c80bd11b5941a1fcd4358e821721ddce27c7a2ab4",
+      "workload_hash": "4b0ae3ceb5f7d6a15b3e2bfda9b530991fae0b718d6bbc585a66fd446d52a889",
+      "completed_methods": [
+        "heuristic",
+        "gpt-6-luna-medium",
+        "jev"
+      ],
+      "peaks": [
+        {
+          "method": "heuristic",
+          "peak_processes": 7,
+          "peak_arm_actions": 3,
+          "makespan_s": 185263.06973731742
+        },
+        {
+          "method": "gpt-6-luna-medium",
+          "peak_processes": 6,
+          "peak_arm_actions": 3,
+          "makespan_s": 185218.15507526937
+        },
+        {
+          "method": "jev",
+          "peak_processes": 6,
+          "peak_arm_actions": 3,
+          "makespan_s": 185263.06973731745
+        }
+      ]
+    },
+    {
+      "task_id": "lemat-sdl-07-transport-pressure",
+      "task_version": "1",
+      "task_hash": "56bd41c139b55a989d4637c0325e78d13de2820a8d6b7db667535758786e5d6b",
+      "workload_hash": "2cb88a23526ddd52704907c5568e51041c947c4eaec65601ad1fcc3985dd7409",
+      "completed_methods": [
+        "heuristic",
+        "gpt-6-luna-medium",
+        "jev"
+      ],
+      "peaks": [
+        {
+          "method": "heuristic",
+          "peak_processes": 5,
+          "peak_arm_actions": 3,
+          "makespan_s": 4278.320771604022
+        },
+        {
+          "method": "gpt-6-luna-medium",
+          "peak_processes": 5,
+          "peak_arm_actions": 3,
+          "makespan_s": 4278.320771604023
+        },
+        {
+          "method": "jev",
+          "peak_processes": 5,
+          "peak_arm_actions": 3,
+          "makespan_s": 4278.320771604022
+        }
+      ]
+    },
+    {
+      "task_id": "lemat-sdl-08-finite-buffers",
+      "task_version": "1",
+      "task_hash": "bab96ca2f8214e377a8ad3ae57d4230f26b374ac9ce6938bbd865360f07193ee",
+      "workload_hash": "3306e8c91a126edf0af9705fa9d1cca7c726fb4ea114c5be016ff93e5beb45ed",
+      "completed_methods": [
+        "heuristic",
+        "gpt-6-luna-medium",
+        "jev"
+      ],
+      "peaks": [
+        {
+          "method": "heuristic",
+          "peak_processes": 5,
+          "peak_arm_actions": 2,
+          "makespan_s": 46304.32490684639
+        },
+        {
+          "method": "gpt-6-luna-medium",
+          "peak_processes": 5,
+          "peak_arm_actions": 2,
+          "makespan_s": 46306.10268462417
+        },
+        {
+          "method": "jev",
+          "peak_processes": 5,
+          "peak_arm_actions": 2,
+          "makespan_s": 46300.769351290844
+        }
+      ]
+    },
+    {
+      "task_id": "lemat-sdl-09-room-small",
+      "task_version": "1",
+      "task_hash": "b2552949d7ad3ae5a72955a0b305c2aeaf6334bc4118fe9c78f1b4761ff9258b",
+      "workload_hash": "ef3ae8df665e47e6d77b46c00a525b31e4346ec2128761bd4b8a2c9efbfb1bdf",
+      "completed_methods": [
+        "heuristic",
+        "gpt-6-luna-medium",
+        "jev"
+      ],
+      "peaks": [
+        {
+          "method": "heuristic",
+          "peak_processes": 6,
+          "peak_arm_actions": 2,
+          "makespan_s": 11129.137096969822
+        },
+        {
+          "method": "gpt-6-luna-medium",
+          "peak_processes": 6,
+          "peak_arm_actions": 2,
+          "makespan_s": 11174.740040208057
+        },
+        {
+          "method": "jev",
+          "peak_processes": 6,
+          "peak_arm_actions": 2,
+          "makespan_s": 11129.137096969822
+        }
+      ]
+    },
+    {
+      "task_id": "lemat-sdl-10-room-wide",
+      "task_version": "1",
+      "task_hash": "b9d43e42ec495a4d668e3259a246fff3fbf166ed5b9204ae47c05caa2e07928b",
+      "workload_hash": "ef3ae8df665e47e6d77b46c00a525b31e4346ec2128761bd4b8a2c9efbfb1bdf",
+      "completed_methods": [
+        "heuristic",
+        "gpt-6-luna-medium",
+        "jev"
+      ],
+      "peaks": [
+        {
+          "method": "heuristic",
+          "peak_processes": 6,
+          "peak_arm_actions": 2,
+          "makespan_s": 11372.627808954821
+        },
+        {
+          "method": "gpt-6-luna-medium",
+          "peak_processes": 6,
+          "peak_arm_actions": 2,
+          "makespan_s": 11395.1721006325
+        },
+        {
+          "method": "jev",
+          "peak_processes": 6,
+          "peak_arm_actions": 2,
+          "makespan_s": 11372.627808954821
+        }
+      ]
+    }
+  ],
+  "deterministic_replays": [
+    {
+      "run": "2026-10-21T15-46-17.105Z-heuristic-6dfffc34",
+      "file": "results/lemat-sdl/2026-10-21T15-46-17.105Z-heuristic-6dfffc34/replay-verification.json",
+      "sha256": "26d0d6c33d0655640dc418aab4fd2fd13e818ac563d6cef2e337d0278b8fbfa9",
+      "exact_matches": 10
+    },
+    {
+      "run": "2026-10-21T16-07-38.074Z-heuristic-6dbb5d6c",
+      "file": "results/lemat-sdl/2026-10-21T16-07-38.074Z-heuristic-6dbb5d6c/replay-verification.json",
+      "sha256": "74eeebebde28bfde7dcbb1bb05342dbd3d2ae4ccd40949c364ac891fc987a5fb",
+      "exact_matches": 1
+    },
+    {
+      "run": "2026-10-21T15-43-22.737Z-gpt-6-luna-medium-4c5abf9d",
+      "file": "results/lemat-sdl/2026-10-21T15-43-22.737Z-gpt-6-luna-medium-4c5abf9d/replay-verification.json",
+      "sha256": "ecc8fe852dec8dbd6cff1a6820a7afb4fc5e5bd838953fe389473c2aa4cf80bb",
+      "exact_matches": 10
+    },
+    {
+      "run": "2026-10-21T16-09-37.772Z-gpt-6-luna-medium-24a0cb5a",
+      "file": "results/lemat-sdl/2026-10-21T16-09-37.772Z-gpt-6-luna-medium-24a0cb5a/replay-verification.json",
+      "sha256": "74eeebebde28bfde7dcbb1bb05342dbd3d2ae4ccd40949c364ac891fc987a5fb",
+      "exact_matches": 1
+    },
+    {
+      "run": "2026-10-21T15-46-21.130Z-jev-38a8a851",
+      "file": "results/lemat-sdl/2026-10-21T15-46-21.130Z-jev-38a8a851/replay-verification.json",
+      "sha256": "551effced34892ae9ea68f8bece25a5b38f985f2a4f3c633179dc1e71d3d8703",
+      "exact_matches": 10
+    },
+    {
+      "run": "2026-10-21T16-08-32.444Z-jev-8fe16bf8",
+      "file": "results/lemat-sdl/2026-10-21T16-08-32.444Z-jev-8fe16bf8/replay-verification.json",
+      "sha256": "8a1aa5675b3d6c10f0781e7be764f443dba9896ffae918bd8dedd90b1d88d254",
+      "exact_matches": 1
+    }
+  ],
+  "source_records": [
+    {
+      "paper_id": "8c37fd10addf6d79f84ec2d5f4a8e5c6d6ef676f",
+      "url": "https://raw.githubusercontent.com/LeMaterial/lematerial-llm-synthesis/e4bacbcbac084544ca68d48242336c2e36f6ee15/annotations/8c37fd10addf6d79f84ec2d5f4a8e5c6d6ef676f/result.json",
+      "commit": "e4bacbcbac084544ca68d48242336c2e36f6ee15",
+      "sha256": "fadc829558123c39efe6f6dd12128a8980eac5edb4f05f6bf00af3e962077a45",
+      "raw_file": "raw/8c37fd10addf6d79f84ec2d5f4a8e5c6d6ef676f/result.json"
+    },
+    {
+      "paper_id": "73c6aeebd5877d2eb17d4961577d98216d503e6f",
+      "url": "https://raw.githubusercontent.com/LeMaterial/lematerial-llm-synthesis/e4bacbcbac084544ca68d48242336c2e36f6ee15/annotations/73c6aeebd5877d2eb17d4961577d98216d503e6f/result.json",
+      "commit": "e4bacbcbac084544ca68d48242336c2e36f6ee15",
+      "sha256": "2131eb2d9dcb25e5ed0357dc54cfd7d23e44ecc2fa04b688aaba4c964f9ae81b",
+      "raw_file": "raw/73c6aeebd5877d2eb17d4961577d98216d503e6f/result.json"
+    },
+    {
+      "paper_id": "1706.00484",
+      "url": "https://raw.githubusercontent.com/LeMaterial/lematerial-llm-synthesis/e4bacbcbac084544ca68d48242336c2e36f6ee15/annotations/1706.00484/result.json",
+      "commit": "e4bacbcbac084544ca68d48242336c2e36f6ee15",
+      "sha256": "a2a3f7b6d1af7b9c21ab67cc89681330b921f2c34a3f7ee197f636015104cfb8",
+      "raw_file": "raw/1706.00484/result.json"
+    }
+  ],
+  "jev": {
+    "model": "jev-1.14.0",
+    "known_input_cost_usd": 0.12939481800000008,
+    "charged_or_reserved_usd": 0.17386790399999982,
+    "max_usd": 3,
+    "requests": 186,
+    "note": "Usage-based input cost estimate at documented price, not an invoice. Failed requests retain conservative reserved costs; prior over-duplicated bounds were tightened without assuming zero failure billing."
+  },
+  "ui_checks": [
+    "30 saved trials shown in comparison table",
+    "3D replay and equipment label visibility toggle",
+    "32 simultaneous arm motions and 32 device processes in case03 v2, all methods",
+    "100 x 70 m / 100 arms / 20 AMRs custom condition accepted in settings; base tasks preserved"
+  ],
+  "screenshots": [
+    "results/local/lemat-sdl-ui/32-arms.png",
+    "results/local/lemat-sdl-ui/taller-amr.png"
+  ],
+  "limitations": [
+    "Public LeMat annotation subset, not gated Hugging Face dump; source records and scopes are pinned.",
+    "Literature-derived scheduling proxies with synthetic geometry, handling, staging and missing times; not measured SDL performance.",
+    "One final trial per method/scenario version; no uncertainty estimate or general model ranking.",
+    "Scenario 03 v2 explicitly starts prepared samples in local finite arm buffers; pre-staging transport is outside its task boundary. Version 1 intake-fed results are archived, not mixed into v2. Device and arm-motion peaks are reported separately.",
+    "After the common 32-decision cap, the last priorities persist while the engine runs to completion.",
+    "Model calls see identical public state and finite layout candidates; heuristic does not run hidden look-ahead simulation."
+  ]
+}

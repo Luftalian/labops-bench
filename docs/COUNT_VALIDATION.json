@@ -1,0 +1,121 @@
+{
+  "date": "2026-10-21",
+  "contract_version": "0.2",
+  "branch": "feat/poc-integration",
+  "base_commit": "e83f88e68c1c126d7e14db56f32b844f9e30f2fa",
+  "changes_committed": false,
+  "objective": "minimize completed full-workload makespan_s",
+  "constraints": [
+    "room width/depth and geometry",
+    "per-model equipment count ceilings",
+    "robot-arm count ceiling",
+    "sample-AMR count ceiling"
+  ],
+  "engine": "Shared PoC HallEnvironment with fixed formal policy and opt-in closed tours for every fleet size",
+  "test_counts": {
+    "python_contracts_and_legacy": 32,
+    "node_integration_and_counts": 19,
+    "poc_regression": 39
+  },
+  "total_tests": 90,
+  "tests_status": "passed",
+  "python": "Python 3.12.3",
+  "node": "v18.16.0",
+  "http": {
+    "status": "passed",
+    "contract_version": "0.2",
+    "base": "http://127.0.0.1:4180",
+    "scope": "Software integration fixture only; no model or method-comparison benchmark executed.",
+    "checks": [
+      "room/count task context",
+      "same workload across room sizes",
+      "shared PoC engine",
+      "real arm events and exact arm count",
+      "completed makespan",
+      "no credit or fixed-H score in default UI",
+      "invalid arm count",
+      "retry identity and call accounting",
+      "legacy and PoC routes"
+    ]
+  },
+  "legacy_http": {
+    "status": "passed",
+    "base": "http://127.0.0.1:4180",
+    "checks": [
+      "12-second canonical HTTP result",
+      "retry identity",
+      "invalid and call accounting",
+      "four archived PoC replays",
+      "live PoC worker",
+      "shared CSS chain, 2D/3D and CAD assets"
+    ],
+    "stage1_makespan_s": 12,
+    "dynamic_completed": 3
+  },
+  "archived_luna_replay": {
+    "status": "passed",
+    "source": "archived-verified",
+    "completed": 24,
+    "decisions": 10,
+    "trace_sha256": "21d570dfc49d4ab5c82453d76adf264a3c6776f1b94d335994c86157a4fcdd5d",
+    "scope": "Saved Luna actions replayed against the verified original simulator snapshot. No model calls."
+  },
+  "original_import_files_verified": 170,
+  "explicit_import_patches": {
+    "files": {
+      "sim/v4/core.mjs": {
+        "original_sha256": "a9c27a7b858fe60e9bcfa0ef9fe893106b5a8f775fa9c5b1a8e7702cf6fe35ca",
+        "patched_sha256": "0ca8d3373a62175e44bd8d3bf41fe264df382181e36d7ce9d450050392178292",
+        "original_path": "source-originals/sim/v4/core.mjs",
+        "reason": "Opt-in closed_tours for the versioned 0.2 formal policy. Legacy/default PoC execution retains the original one-car behavior."
+      }
+    }
+  },
+  "source_sha256": {
+    "contracts/labops.schema.json": "30b9c492a422b1eb7932dbfa448f42b9b9a133b669503707b6ea6e9a9b8e6f42",
+    "backend/counts/evaluator.mjs": "9175a296e4558fa291fd1246f2d5d0b7107ff83ac274ff27f785448e459d7456",
+    "backend/counts/tasks.mjs": "70a2a273acc09809aad6aee15f2af95145ccbba7762a14aa8e395001ba1160ca",
+    "backend/counts/service.mjs": "8b004b46fbc49e2ec8650cdd8fbb4bd98a6076edb89c7641db8dc01f3ff6f85a",
+    "backend/counts/worker.mjs": "37eaf27a208e05ecf25d9223510cbf0fd67cc0a4feb92e10e608116a62c9356b",
+    "backend/counts/validate.py": "f507ffbc14bf0eedd4c15d27e647a4053abb8c771ca05d3464202a65a9e09d92",
+    "backend/stage1/service.mjs": "00828c460f85c3fd23c0c1b3415419933268f7e29100c3013dc492d93488bb13",
+    "backend/poc/sim/v4/core.mjs": "0ca8d3373a62175e44bd8d3bf41fe264df382181e36d7ce9d450050392178292",
+    "backend/poc/IMPORT_PATCHES.json": "c810b00f0cf1d8e4aa75afbe571106b150fd111533a87b837a286d5de0dd4f05",
+    "frontend/counts.mjs": "400df5fc1c4f38ae811326317987c62f39b0d53b5375f7ac74bf44e65436790f",
+    "frontend/index.html": "e7a4103517ffedd80334c4cd6a7ff8958d8c79670d73288fe9cfa1e73793f4b6",
+    "scripts/serve.mjs": "f14e6f6b06b6b0c7abf5154837345d8b6a9123c07992bb83d9ba5aac3f81ea43",
+    "tests/integration/counts.test.mjs": "c5d6dd277c1771aeff6679a554f19026f49ee03e650782a0ddfb783e17e72d75",
+    "fixtures/counts/room-8x7.json": "299b42429aff5b9014a5c667e0466db407aa1c537e6fc4d94dfd1293fb097aa0",
+    "fixtures/counts/room-14x10.json": "53e50a30a98302fd79c57ec9f3d8b55536706edf979a8f2affea66a9959a8a06"
+  },
+  "browser_checks": [
+    "Count ceilings and room dimensions replace credits/H in the default page",
+    "Actual arm count and PoC arm load/unload events in 2D/3D",
+    "No-arm candidate is invalid, has no finite score and hides old 3D scene",
+    "Recorded result remains fixed while scrubbing",
+    "Historical valid replay can be reopened after invalid input"
+  ],
+  "commands": [
+    "npm run check",
+    "node --test tests/integration/*.test.mjs",
+    "npm run check:poc",
+    "npm run check:import",
+    "npm run check:poc:replay",
+    "PORT=4180 npm start",
+    "LABOPS_URL=http://127.0.0.1:4180 node scripts/smoke-counts.mjs",
+    "LABOPS_URL=http://127.0.0.1:4180 node scripts/smoke-integration.mjs"
+  ],
+  "local_artifact_sha256": {
+    "counts-main-checks.log": "1d77fd4fa8495cbb4620ed85a1d12e6ff276b366380f9061ae4759733637cccf",
+    "counts-node.tap": "de107920b74747d488a346d24c2e1b3e3476f21bd11e42f370bcca9ef5133719",
+    "counts-poc.tap": "af35b9a5f8d7b7b38d0c5a138cca3dd206a834aefad57d7b05b1b1bd8cf0d18d",
+    "counts-http.json": "4c9a465c7f0fbacd5e53638ffb284cdcc7c9464781baa834eb7745db3e34a80f",
+    "counts-arms-3d.png": "74766aefc7d919f9bba16405f73db1b3c1df4eb8397f0bd70bdf03e2b1d01b21"
+  },
+  "limits": [
+    "Synthetic software fixtures only; no live LLM calls or model/method-comparison benchmark run.",
+    "Layout heuristic failure is not an infeasibility proof; no global optimum claimed.",
+    "No chemistry or joint-space robot safety validation.",
+    "No remote CI run, commit, push or merge."
+  ]
+}

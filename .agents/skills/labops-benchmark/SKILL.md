@@ -1,18 +1,18 @@
 ---
 name: labops-benchmark
-description: Implement or inspect LabOpsBench search runs, baselines, runtime AI tool loops, scoring and reproducible comparisons under fixed evaluation budgets.
+description: Implement or inspect LabOpsBench count-constrained makespan scoring, search runs, baselines and reproducible comparisons.
 ---
 
-# Fair scaling benchmark
+# Fair count-constrained benchmark
 
-Read `docs/EVALUATION.md`, `contracts/README.md` and the Task/DesignRequest/EvaluationResult definitions from the repository root.
+Read `docs/EVALUATION.md`, `contracts/README.md` and the current Task/DesignRequest/EvaluationResult definitions.
 
-Route every contestant through the same evaluator and server-side call counter. Include initial, rejected and repeated proposals in the budget. Each greedy candidate evaluation is a call. Deduplicate transport retries only by the same submission ID and identical payload.
+Use identical room geometry, per-type equipment limits, arm/AMR ceilings, workload, seed, execution policy and evaluator call cap across methods. Rank completed simulation results by full-workload makespan alone. Equal times tie; partial, failed and invalid runs have no finite completion score.
 
-Keep equipment credits, evaluator calls, simulation time and API spending distinct. Use configured task versions, release schedule and horizon. Do not tune these after viewing final results. Separate development and final evaluation tasks.
+Route every contestant through the same evaluator and server-owned call counter. Count initial, rejected, repeated and greedy-neighbor proposals. Retry identity requires the same submission ID and identical input. Preserve every result and failure.
 
-The runtime agent receives public task/catalog and tool observations; coding skills and reference optimums are not runtime context. Record concise proposal rationales, tool calls and outcomes, not private chain-of-thought. Respect the configured model and API spending limit.
+The runtime agent receives public task/catalog and tool observations; development skills and hidden reference optima stay outside contestant context. Record concise proposal rationales, tool calls and outcomes. Model/provider and spending follow explicit user authorization.
 
-Implement Random and Greedy under the same call cap. Persist all runs including failures. Distinguish search randomness from simulation randomness, and trace replay from a fresh LLM rerun. Report aggregate sample count and spread, with synthetic and literature-derived tracks separated.
+When evaluation is requested, compare room/count conditions with recorded task versions and all search runs, distinguishing search randomness, simulation seed, replay and fresh model inference. Report sample count, spread and the searched layout/design space. A heuristic best candidate is not a general optimum.
 
-Reject fixture-origin results from final score tables. A fair negative result for the AI is a valid outcome. Include provenance sufficient to recompute published numbers.
+Development fixtures are software evidence. Keep old 0.1 credit/H results and recorded PoC dynamic trials separate from current formal rankings.

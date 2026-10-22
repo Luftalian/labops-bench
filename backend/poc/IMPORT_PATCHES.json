@@ -1,0 +1,70 @@
+{
+  "files": {
+    "sim/v4/core.mjs": {
+      "original_sha256": "a9c27a7b858fe60e9bcfa0ef9fe893106b5a8f775fa9c5b1a8e7702cf6fe35ca",
+      "patched_sha256": "3ca4ddcf18beaa3facbed97ad6a5244e4b2d5b9a07a5c61bb16750cc302ed55e",
+      "original_path": "source-originals/sim/v4/core.mjs",
+      "reason": "Opt-in closed_tours for the versioned 0.2 formal policy. Legacy/default PoC execution retains the original one-car behavior. Opt-in local-arm-buffer task policy stages prepared first-operation samples in finite buffers at t=0, consumes each input token once and uses the existing local arm load path. Legacy tasks retain intake origins."
+    },
+    "demo/workshop/plan-view.mjs": {
+      "original_sha256": "02a0d0467880ddfc97c1ebc665c6e52d32a2dbcd429a1cbcca791b166874a3c3",
+      "patched_sha256": "eea7c6ab0bc5044fd57d33530522e71bc991824f6538638877c2d634963d0ffa",
+      "original_path": "source-originals/demo/workshop/plan-view.mjs",
+      "reason": "Render rotated physical arm/buffer/dock poses and idle hand targets for scheduler relocation. Original source retained; yaw=0 behavior and historical simulation records preserved."
+    },
+    "demo/workshop/timeline.mjs": {
+      "original_sha256": "0ae64b51e830d6b8bc19baad501b25fe9c8849ca3bb2ee24cbd67654271577bb",
+      "patched_sha256": "2abf0163dc53799364e2b36a17175edb6e412870529ad3eed04b0e4fec1c3d2f",
+      "original_path": "source-originals/demo/workshop/timeline.mjs",
+      "reason": "Render rotated physical arm/buffer/dock poses and idle hand targets for scheduler relocation. Original source retained; yaw=0 behavior and historical simulation records preserved."
+    },
+    "demo/workshop/three-view.mjs": {
+      "original_sha256": "421aba30ce42a5f065ddaef0938728acf229f0b54f4fc36dc8437e0a12cdce2a",
+      "patched_sha256": "b4fc8f99ed00216e8edd3016cba117a2da8b64862facece136336e7b71206a2c",
+      "original_path": "source-originals/demo/workshop/three-view.mjs",
+      "reason": "Taller AMR cabinet, tray and lidar visual; floor footprint and simulation collision/transport model unchanged."
+    },
+    "sim/v4/tasks.mjs": {
+      "original_sha256": "25a7cb69919e6c43f2442d8682f6d6d49e6ea20c6111c37dbb421ad609bc67ff",
+      "patched_sha256": "740e0ef13d290b95cecd0295f450e79b1799f973a69afb477444f62c08188e43",
+      "original_path": "source-originals/sim/v4/tasks.mjs",
+      "reason": "Remove arbitrary product ceilings for room dimensions, equipment, AMR, job and buffer settings; preserve finite nonnegative/integer checks and task-owned constraints. Imported originals and historical source snapshots retained."
+    },
+    "demo/hall/app.mjs": {
+      "original_sha256": "5d697e0be13978f3d6b8ae221c138afd82d5fb53d901e158d649d936c9aac389",
+      "patched_sha256": "fb133a31123e75d25b7189f778245ab03344c82ca4e805f3785d913eadf821fc",
+      "original_path": "source-originals/demo/hall/app.mjs",
+      "reason": "Remove arbitrary product ceilings for room dimensions, equipment, AMR, job and buffer settings; preserve finite nonnegative/integer checks and task-owned constraints. Imported originals and historical source snapshots retained."
+    },
+    "sim/v4/fleet.mjs": {
+      "original_sha256": "30feb803989fefc5c75ff7d860bacc0764d7a0255c0c7bc0e03184721208a4bc",
+      "patched_sha256": "57e268dab40ca694a5e4d28b31c6b7bf44e33f7e61473b871a81885b36a4756d",
+      "original_path": "source-originals/sim/v4/fleet.mjs",
+      "reason": "Opt-in fleet_bay_spacing_m for public-cell-candidates-v1; 1.2 m avoids blocked grid exits at large fleets. Legacy/default spacing retained; exact fleet failures include bay/destination diagnostics."
+    },
+    "sim/v2/geometry.mjs": {
+      "original_sha256": "22d8ff37137e80ac1e0b088991947f616d5c8550502508995da1d30ec91b6333",
+      "patched_sha256": "b87a9b4d0f26466fc163ea52bf82196332ade1b92e412a7035ff84a9c32a921c",
+      "original_path": "source-originals/sim/v2/geometry.mjs",
+      "reason": "Use explicit task layout_limits when supplied, otherwise no arbitrary default device/arm ceiling. Geometry, inventory and reach checks remain active."
+    },
+    "sim/v4/tests/fleet.test.mjs": {
+      "original_sha256": "5cec568db8f814386d13f2540c14b2a97657f2303155c618d73274b50f9d222e",
+      "patched_sha256": "7a46a89d6b5293faf315c3ee3fa978dc50c9722f28cb29006072a963b2bb3901",
+      "original_path": "source-originals/sim/v4/tests/fleet.test.mjs",
+      "reason": "Update obsolete product-ceiling assertions for the user-requested configurable resource ranges. Keep invalid-domain, workload-preservation, inventory and geometry checks."
+    },
+    "sim/v4/tests/scale.test.mjs": {
+      "original_sha256": "3d10559b77994320432c7e2dff1f34d876d1f65a7ee92d442d59feca477ba451",
+      "patched_sha256": "d80e5667f8e3c5ffd5bea84576761d893efab229363f991503913c56d9c8e24e",
+      "original_path": "source-originals/sim/v4/tests/scale.test.mjs",
+      "reason": "Update obsolete product-ceiling assertions for the user-requested configurable resource ranges. Keep invalid-domain, workload-preservation, inventory and geometry checks."
+    },
+    "sim/v4/tests/workloads.test.mjs": {
+      "original_sha256": "3b6fbba7e0930e1acf97183aaf815d371b1d53eee4b14969425d6793c545119c",
+      "patched_sha256": "a55bf6288e674e16449925b222ee99d507f897ea3bb1298e954ab340bd9caa29",
+      "original_path": "source-originals/sim/v4/tests/workloads.test.mjs",
+      "reason": "Update obsolete product-ceiling assertions for the user-requested configurable resource ranges. Keep invalid-domain, workload-preservation, inventory and geometry checks."
+    }
+  }
+}

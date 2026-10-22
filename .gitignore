@@ -11,3 +11,15 @@ data/raw/
 results/local/
 *.log
 .DS_Store
+
+# New PoC runs are local; preserve only explicitly imported recordings.
+/backend/poc/results/v4/*/
+!/backend/poc/results/v4/2026-10-21T02-44-30.186Z-fixed-cadenced/
+!/backend/poc/results/v4/2026-10-21T02-44-31.735Z-adaptive-cadenced/
+!/backend/poc/results/v4/2026-10-21T03-02-20.779Z-fixed-846e01/
+!/backend/poc/results/v4/2026-10-21T03-02-21.871Z-fixed-65b5c2/
+!/backend/poc/results/v4/2026-10-21T03-03-25.046Z-fixed-989750/
+!/backend/poc/results/v4/codex-luna-screening-2026-10-21/
+
+# Full benchmark traces and immutable source snapshots stay local; publish generated summaries.
+/results/lemat-sdl/

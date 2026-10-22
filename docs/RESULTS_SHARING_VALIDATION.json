@@ -1,0 +1,58 @@
+{
+  "validated_at": "2026-10-22T01:25:50.450Z",
+  "sharing_scope": "Existing private GitHub repository collaborators only; no public deployment or visibility change.",
+  "recordings": 50,
+  "uncompressed_bytes": 22620464,
+  "compressed_bytes": 1459355,
+  "source_report_sha256": "9f24981f05cd544cc2b351ea25147f5443a2c1bc1e3dde7e8ec5c6c3d7630427",
+  "checks": [
+    {
+      "command": "npm run check",
+      "python_tests": 46,
+      "node_tests": 49,
+      "status": "passed"
+    },
+    {
+      "command": "npm run build:results",
+      "status": "passed",
+      "all_recording_hashes_verified": true
+    },
+    {
+      "command": "Git staged checkout export, then scripts/check_poc_import.py",
+      "status": "passed",
+      "imported_originals": 170,
+      "explicit_patches": 11
+    },
+    {
+      "check": "Clean staged checkout served selected result with gzip fallback",
+      "status": "passed",
+      "no_local_raw_results": true,
+      "no_virtualenv": true,
+      "http_status": 200,
+      "source_hash_matches": true
+    },
+    {
+      "check": "Standalone viewer in browser",
+      "status": "passed",
+      "comparison_trials": 50,
+      "compressed_recording_loaded": true,
+      "three_dimensional_meshes_rendered": true
+    },
+    {
+      "check": "Staged files checked against configured credential value, environment file paths and private-key markers",
+      "status": "passed",
+      "findings": 0
+    }
+  ],
+  "artifact": {
+    "name": "labopsbench-results-ui",
+    "retention_days": 30,
+    "command": "node serve.mjs",
+    "url": "http://127.0.0.1:4181/"
+  },
+  "reproduction": "npm run view:results",
+  "notes": [
+    "No model inference performed during packaging or viewing.",
+    "One existing whitespace warning in the unmodified vendored Three.js source is preserved to retain upstream hashes."
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "task_name": "/root/luna_hall_trial",
+  "model_override": "gpt-6-luna",
+  "reasoning_effort": "medium",
+  "fork_turns": "none",
+  "prompt_file": "docs/luna-controller-prompt.txt",
+  "prompt_sha256": "725ffac2fc21056634b06e300d4ba28890cb99f6f9575f7a2645164b1a7f675a",
+  "result_sha256": "46054f4cf95820b092f5e61f296572ccab96729efca70ac0d0238a83a98aaac8",
+  "usage": "not exposed by collaboration tool",
+  "scope": "One 24-job engineering-fixture trial. Same layout, hardware, workload, manager cadence (600 s) and fixed executor. Luna controls exchanges/holds only. Not a full-action LLM or layout benchmark."
+}

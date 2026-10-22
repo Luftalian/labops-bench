@@ -1,0 +1,26 @@
+[
+  {
+    "id": "luna",
+    "name": "GPT-6 Luna · 24-job recorded trial",
+    "description": "10 model decisions. Original simulator snapshot retained. Module manager + rule executor.",
+    "folder": "results/v4/codex-luna-screening-2026-10-21"
+  },
+  {
+    "id": "burst-100",
+    "name": "100-job mixed workflow burst",
+    "description": "100/100 completed · 64 stations · peak 8 processing jobs · 30 × 30 m · fixed",
+    "folder": "results/v4/2026-10-21T03-03-25.046Z-fixed-989750"
+  },
+  {
+    "id": "furnaces-50",
+    "name": "30 × 30 m · 50-furnace hall",
+    "description": "200/200 completed · 57 stations · peak 150 processing jobs · 30 × 30 m · fixed",
+    "folder": "results/v4/2026-10-21T03-02-21.871Z-fixed-65b5c2"
+  },
+  {
+    "id": "parallel-100",
+    "name": "100 jobs actually processing concurrently",
+    "description": "100/100 completed · 100 stations · peak 100 processing jobs · 30 × 30 m · fixed",
+    "folder": "results/v4/2026-10-21T03-02-20.779Z-fixed-846e01"
+  }
+]

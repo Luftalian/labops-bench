@@ -2,12 +2,38 @@ name: starter-checks
 on:
   pull_request:
   push:
-    branches: [main]
+    branches: [main, feat/poc-integration]
+  workflow_dispatch:
 permissions:
   contents: read
 jobs:
+  results-viewer:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+      - run: npm run build:results
+      - uses: actions/upload-artifact@v7
+        with:
+          name: labopsbench-results-ui
+          path: dist/benchmark-ui/
+          retention-days: 30
+      - name: Viewer instructions
+        run: |
+          cat >> "$GITHUB_STEP_SUMMARY" <<'EOF'
+          ## Private benchmark results UI
+          Download **labopsbench-results-ui** below, unzip it, then run `node serve.mjs` inside the extracted folder.
+          Open http://127.0.0.1:4181/ to inspect all 50 saved trials, priorities, exchanges and 2D/3D playback.
+          No Python, npm install, model API key or new model call is needed. Access follows this private repository.
+          EOF
   contracts:
     runs-on: ubuntu-latest
+    env:
+      LABOPS_PYTHON: python
     steps:
       - uses: actions/checkout@v7
         with:
@@ -15,6 +41,21 @@ jobs:
       - uses: actions/setup-python@v7
         with:
           python-version: '3.11'
-      - run: python -m pip install -r requirements-dev.txt
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+      - run: python -m pip install -r requirements-lock.txt
       - run: python scripts/check_contracts.py
       - run: python -m unittest discover -s tests -v
+      - run: node --version
+      - run: node --test tests/integration/*.test.mjs
+      - run: python scripts/check_poc_import.py
+      - run: npm run check:poc
+      - run: npm run check:poc:replay
+      - name: Combined HTTP smoke test
+        run: |
+          node scripts/serve.mjs &
+          server_pid=$!
+          trap 'kill "$server_pid"' EXIT
+          node scripts/smoke-counts.mjs
+          node scripts/smoke-integration.mjs

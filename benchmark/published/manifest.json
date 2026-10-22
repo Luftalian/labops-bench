@@ -1,0 +1,508 @@
+{
+  "version": "labops.shared-recordings.v1",
+  "source_report_generated_at": "2026-10-22T01:03:06.964Z",
+  "source_report_sha256": "9f24981f05cd544cc2b351ea25147f5443a2c1bc1e3dde7e8ec5c6c3d7630427",
+  "scope": "Selected engine results only, exact lossless compression. API credentials, provider requests, local journals and source snapshots are excluded.",
+  "files": [
+    {
+      "run_id": "2026-10-21T16-41-19.195Z-fifo-9838c9f6",
+      "task_id": "lemat-sdl-11-priority-tail",
+      "method": "fifo",
+      "path": "recordings/2026-10-21T16-41-19.195Z-fifo-9838c9f6/lemat-sdl-11-priority-tail/result.json.gz",
+      "source_sha256": "524d6bb4b07af6057374ac95f374d83a0d820869bd80d058268c3853a16e2f42",
+      "gzip_sha256": "242ae4e9fe3fbcdd55b1969a71a27f6c884fde4b6481e243c6d59b6b5c21bfb6",
+      "bytes": 201094,
+      "gzip_bytes": 17844
+    },
+    {
+      "run_id": "2026-10-21T16-41-19.195Z-fifo-9838c9f6",
+      "task_id": "lemat-sdl-12-overfull-inventory",
+      "method": "fifo",
+      "path": "recordings/2026-10-21T16-41-19.195Z-fifo-9838c9f6/lemat-sdl-12-overfull-inventory/result.json.gz",
+      "source_sha256": "e67829cb7ac135ff4a5a2ffe7d031c740fe9989ea838973b4887f78e71dc6a78",
+      "gzip_sha256": "dfae49960b43ac745665aad8939d91b0b1ece85409c34cc921db4220cc72c5f4",
+      "bytes": 151025,
+      "gzip_bytes": 14709
+    },
+    {
+      "run_id": "2026-10-21T16-41-19.195Z-fifo-9838c9f6",
+      "task_id": "lemat-sdl-13-lookahead-exchange",
+      "method": "fifo",
+      "path": "recordings/2026-10-21T16-41-19.195Z-fifo-9838c9f6/lemat-sdl-13-lookahead-exchange/result.json.gz",
+      "source_sha256": "d7e5771e144c02eb3625e2253c8874ddebc7713912b9e19f78f3bf3419aa9b54",
+      "gzip_sha256": "6481b4f27bc87d6b6c4413d83fac979c602262a117ef1294d17bfa7409046298",
+      "bytes": 226136,
+      "gzip_bytes": 20121
+    },
+    {
+      "run_id": "2026-10-21T16-41-19.195Z-fifo-9838c9f6",
+      "task_id": "lemat-sdl-14-layout-distance",
+      "method": "fifo",
+      "path": "recordings/2026-10-21T16-41-19.195Z-fifo-9838c9f6/lemat-sdl-14-layout-distance/result.json.gz",
+      "source_sha256": "ce1df0b530655616e057f2abf93943eacb700efe302a6d6a494a2aabe2b09dd4",
+      "gzip_sha256": "458f7800c46afe5261a7fd9ebde52836ac866ac5c69f0585712eb73c1519e69f",
+      "bytes": 531321,
+      "gzip_bytes": 32186
+    },
+    {
+      "run_id": "2026-10-21T15-46-17.105Z-heuristic-6dfffc34",
+      "task_id": "lemat-sdl-01-single-station",
+      "method": "heuristic",
+      "path": "recordings/2026-10-21T15-46-17.105Z-heuristic-6dfffc34/lemat-sdl-01-single-station/result.json.gz",
+      "source_sha256": "c268fe1f3d21f6f30b1beab9f0384098b51f248f1e3f73483850793606c34162",
+      "gzip_sha256": "6b30090d072e6c4d8c7516327b61e64b90b32ae89d5eecf8611d3176a5a7fe8d",
+      "bytes": 129225,
+      "gzip_bytes": 11967
+    },
+    {
+      "run_id": "2026-10-21T15-46-17.105Z-heuristic-6dfffc34",
+      "task_id": "lemat-sdl-02-cramped-exchange",
+      "method": "heuristic",
+      "path": "recordings/2026-10-21T15-46-17.105Z-heuristic-6dfffc34/lemat-sdl-02-cramped-exchange/result.json.gz",
+      "source_sha256": "f0b41a97b792387119a1b9aad944a80cf96696e00db4c36c614482e22914636c",
+      "gzip_sha256": "a34c212982c94668fba3e55229f3246baf522a0536240b79fe1299b5724f3b39",
+      "bytes": 103906,
+      "gzip_bytes": 10146
+    },
+    {
+      "run_id": "2026-10-21T16-07-38.074Z-heuristic-6dbb5d6c",
+      "task_id": "lemat-sdl-03-many-arms",
+      "method": "heuristic",
+      "path": "recordings/2026-10-21T16-07-38.074Z-heuristic-6dbb5d6c/lemat-sdl-03-many-arms/result.json.gz",
+      "source_sha256": "72f7d46aa5781b48d0945d2673f38c8aeb817b395be4291cff418c871b18b436",
+      "gzip_sha256": "01b4bbd8045ec93f6300430fd8e640406c0de1b3d597c37a4c20d10e812b475b",
+      "bytes": 296269,
+      "gzip_bytes": 19268
+    },
+    {
+      "run_id": "2026-10-21T15-46-17.105Z-heuristic-6dfffc34",
+      "task_id": "lemat-sdl-04-staggered-jobs",
+      "method": "heuristic",
+      "path": "recordings/2026-10-21T15-46-17.105Z-heuristic-6dfffc34/lemat-sdl-04-staggered-jobs/result.json.gz",
+      "source_sha256": "f179c6eea22c379feb427e9b2bd38defd6228ff6f367aa2811a87b3c9f09de4c",
+      "gzip_sha256": "24bd3064e729aedafd4ba76b3a8ef3b89162e5da22dbb4761091994cf50fe973",
+      "bytes": 2013482,
+      "gzip_bytes": 114748
+    },
+    {
+      "run_id": "2026-10-21T15-46-17.105Z-heuristic-6dfffc34",
+      "task_id": "lemat-sdl-05-bursty-demand",
+      "method": "heuristic",
+      "path": "recordings/2026-10-21T15-46-17.105Z-heuristic-6dfffc34/lemat-sdl-05-bursty-demand/result.json.gz",
+      "source_sha256": "a7e29501a203e363984e82e3e4bb46143724aecae939a01d7682d4e2c82050f6",
+      "gzip_sha256": "bdd6e48a3ec4b6a27cc170c5ee24cb5136c5f2f64b342edb14fe53bd34cd32ff",
+      "bytes": 497266,
+      "gzip_bytes": 28689
+    },
+    {
+      "run_id": "2026-10-21T15-46-17.105Z-heuristic-6dfffc34",
+      "task_id": "lemat-sdl-06-long-process-overlap",
+      "method": "heuristic",
+      "path": "recordings/2026-10-21T15-46-17.105Z-heuristic-6dfffc34/lemat-sdl-06-long-process-overlap/result.json.gz",
+      "source_sha256": "548ba2967ebf0b59498a81186b264775a2613e7d746b24180a332ef491348d26",
+      "gzip_sha256": "6615980baa0e4a2af05520dbe1b1a7142ef6ffd8dc047f18d099919449325f39",
+      "bytes": 595464,
+      "gzip_bytes": 37960
+    },
+    {
+      "run_id": "2026-10-21T15-46-17.105Z-heuristic-6dfffc34",
+      "task_id": "lemat-sdl-07-transport-pressure",
+      "method": "heuristic",
+      "path": "recordings/2026-10-21T15-46-17.105Z-heuristic-6dfffc34/lemat-sdl-07-transport-pressure/result.json.gz",
+      "source_sha256": "2824a1ad2fa2d2c77f01788050e83a7afa0c2e75dda5a7a0553f83815d236e67",
+      "gzip_sha256": "4f00e24f0025d0798cb8a52dae9901746b0848e86f684f22cdfa10bc9e770343",
+      "bytes": 483044,
+      "gzip_bytes": 29888
+    },
+    {
+      "run_id": "2026-10-21T15-46-17.105Z-heuristic-6dfffc34",
+      "task_id": "lemat-sdl-08-finite-buffers",
+      "method": "heuristic",
+      "path": "recordings/2026-10-21T15-46-17.105Z-heuristic-6dfffc34/lemat-sdl-08-finite-buffers/result.json.gz",
+      "source_sha256": "512e36e714b569b3cde3eeac9ebd02f90dfba7aad3fa3e65a494895d3384ed3f",
+      "gzip_sha256": "2c6cfc60e16b12846864f6647fae81f7f2753608827c3465d712c1cd5cb7da26",
+      "bytes": 1031879,
+      "gzip_bytes": 60288
+    },
+    {
+      "run_id": "2026-10-21T15-46-17.105Z-heuristic-6dfffc34",
+      "task_id": "lemat-sdl-09-room-small",
+      "method": "heuristic",
+      "path": "recordings/2026-10-21T15-46-17.105Z-heuristic-6dfffc34/lemat-sdl-09-room-small/result.json.gz",
+      "source_sha256": "2473851b336382de9ef378e28ed423ad29386a9ad4acf664296582fde3d993d8",
+      "gzip_sha256": "b30e2d1ee9495f90323cf17abd617d175c5b7bae91820ba51750b676458e1feb",
+      "bytes": 276101,
+      "gzip_bytes": 18793
+    },
+    {
+      "run_id": "2026-10-21T15-46-17.105Z-heuristic-6dfffc34",
+      "task_id": "lemat-sdl-10-room-wide",
+      "method": "heuristic",
+      "path": "recordings/2026-10-21T15-46-17.105Z-heuristic-6dfffc34/lemat-sdl-10-room-wide/result.json.gz",
+      "source_sha256": "8e1918172e28487b608f1b5a92befb0d062ed7a84dcbb5c3db3317cc1053d9db",
+      "gzip_sha256": "17cf41465651d531e47d9b2b9846baf710cb00e65580e67d0b1b87590e5ac017",
+      "bytes": 501575,
+      "gzip_bytes": 26868
+    },
+    {
+      "run_id": "2026-10-21T16-41-21.456Z-heuristic-fcee444d",
+      "task_id": "lemat-sdl-11-priority-tail",
+      "method": "heuristic",
+      "path": "recordings/2026-10-21T16-41-21.456Z-heuristic-fcee444d/lemat-sdl-11-priority-tail/result.json.gz",
+      "source_sha256": "b2d1b7b9344aa8e69e25094e8f7fd0ebfe108f0a2527431d89ef333076aeead5",
+      "gzip_sha256": "3e02ba3b836c992920e071c91e938bcad2431654ed854dff1d3fdd978b866673",
+      "bytes": 194392,
+      "gzip_bytes": 17071
+    },
+    {
+      "run_id": "2026-10-21T16-41-21.456Z-heuristic-fcee444d",
+      "task_id": "lemat-sdl-12-overfull-inventory",
+      "method": "heuristic",
+      "path": "recordings/2026-10-21T16-41-21.456Z-heuristic-fcee444d/lemat-sdl-12-overfull-inventory/result.json.gz",
+      "source_sha256": "83de91c5aec205a9a73551c86d0493f39507e57f1bf766008e2a5907abf83fdd",
+      "gzip_sha256": "709ea09248d713a8e3a6c9ace41442ab7650dfde9c7de994e879b0de934a73ad",
+      "bytes": 151086,
+      "gzip_bytes": 14687
+    },
+    {
+      "run_id": "2026-10-21T16-41-21.456Z-heuristic-fcee444d",
+      "task_id": "lemat-sdl-13-lookahead-exchange",
+      "method": "heuristic",
+      "path": "recordings/2026-10-21T16-41-21.456Z-heuristic-fcee444d/lemat-sdl-13-lookahead-exchange/result.json.gz",
+      "source_sha256": "6a55125deae42422e3626e59c03a56fdd36e6fb294cc34d121bb59df7af246b3",
+      "gzip_sha256": "1e5af2dd494b8ee7e3f82065101c2d21572ddd2946228cd1fc9fde1dcd06cc26",
+      "bytes": 226198,
+      "gzip_bytes": 20074
+    },
+    {
+      "run_id": "2026-10-21T16-41-21.456Z-heuristic-fcee444d",
+      "task_id": "lemat-sdl-14-layout-distance",
+      "method": "heuristic",
+      "path": "recordings/2026-10-21T16-41-21.456Z-heuristic-fcee444d/lemat-sdl-14-layout-distance/result.json.gz",
+      "source_sha256": "5b50ec2f178725fa2e496c2eb2ebce59465075b6377eb44349130e82a4bb4545",
+      "gzip_sha256": "1c70e403aeee9e9a653f51c1e5ff80c903ba39b7e7910a52ec0d063fc9f6522e",
+      "bytes": 531549,
+      "gzip_bytes": 32173
+    },
+    {
+      "run_id": "2026-10-21T16-41-20.287Z-algorithm-advanced-f136f93d",
+      "task_id": "lemat-sdl-11-priority-tail",
+      "method": "algorithm-advanced",
+      "path": "recordings/2026-10-21T16-41-20.287Z-algorithm-advanced-f136f93d/lemat-sdl-11-priority-tail/result.json.gz",
+      "source_sha256": "b371b07f55749085fac20d6d8383f22b0f26c9b461efd25a6071b38774a46be7",
+      "gzip_sha256": "ef72c5a6dd6aa72c9fc013fbe03fff5e51f427103c63f51cf1091c6484d7d031",
+      "bytes": 162060,
+      "gzip_bytes": 16345
+    },
+    {
+      "run_id": "2026-10-21T16-41-20.287Z-algorithm-advanced-f136f93d",
+      "task_id": "lemat-sdl-12-overfull-inventory",
+      "method": "algorithm-advanced",
+      "path": "recordings/2026-10-21T16-41-20.287Z-algorithm-advanced-f136f93d/lemat-sdl-12-overfull-inventory/result.json.gz",
+      "source_sha256": "62b6eff768ba60b9b2be21ad9f4e985b795346293000c416b7243b22c2ea43e1",
+      "gzip_sha256": "e95378cb7cf3ec32911337bbdd2a3015997c191de73de46198a168e14949e5f6",
+      "bytes": 179313,
+      "gzip_bytes": 14796
+    },
+    {
+      "run_id": "2026-10-21T16-41-20.287Z-algorithm-advanced-f136f93d",
+      "task_id": "lemat-sdl-13-lookahead-exchange",
+      "method": "algorithm-advanced",
+      "path": "recordings/2026-10-21T16-41-20.287Z-algorithm-advanced-f136f93d/lemat-sdl-13-lookahead-exchange/result.json.gz",
+      "source_sha256": "df15ec74a2ea317f82456a8095d870764befcf4530686d3d9c90b84ef78c80c4",
+      "gzip_sha256": "13997305b2babde22df8051c96e943eae4582104835d54fea7f6db661ff647e4",
+      "bytes": 270895,
+      "gzip_bytes": 21418
+    },
+    {
+      "run_id": "2026-10-21T16-41-20.287Z-algorithm-advanced-f136f93d",
+      "task_id": "lemat-sdl-14-layout-distance",
+      "method": "algorithm-advanced",
+      "path": "recordings/2026-10-21T16-41-20.287Z-algorithm-advanced-f136f93d/lemat-sdl-14-layout-distance/result.json.gz",
+      "source_sha256": "d5574db3fd1aae6f3a70472defab18dea57fbad08deeaa286b70771b26e9cdd2",
+      "gzip_sha256": "10048f755b14b97981916c63c8c873ee20cdb5ec445a522f02b43d65f305fd10",
+      "bytes": 271810,
+      "gzip_bytes": 19327
+    },
+    {
+      "run_id": "2026-10-21T15-43-22.737Z-gpt-6-luna-medium-4c5abf9d",
+      "task_id": "lemat-sdl-01-single-station",
+      "method": "gpt-6-luna-medium",
+      "path": "recordings/2026-10-21T15-43-22.737Z-gpt-6-luna-medium-4c5abf9d/lemat-sdl-01-single-station/result.json.gz",
+      "source_sha256": "8d5365bfae939846ce89429b58085db783b19a19dc3ffa04c0a3959c30786e73",
+      "gzip_sha256": "6d112a0c188acb5b2ad8893d9a756fed63409611aa32bae775f77d35b6cfa312",
+      "bytes": 129972,
+      "gzip_bytes": 12023
+    },
+    {
+      "run_id": "2026-10-21T15-43-22.737Z-gpt-6-luna-medium-4c5abf9d",
+      "task_id": "lemat-sdl-02-cramped-exchange",
+      "method": "gpt-6-luna-medium",
+      "path": "recordings/2026-10-21T15-43-22.737Z-gpt-6-luna-medium-4c5abf9d/lemat-sdl-02-cramped-exchange/result.json.gz",
+      "source_sha256": "3f697138d051da8c05ee72d0772a585226f72dfa6f8127103f5d37d7df556fff",
+      "gzip_sha256": "2bd03f025cc42c3bcf48e7f7b7a930b81172b23e79ede3a320d7042249da962a",
+      "bytes": 104719,
+      "gzip_bytes": 10419
+    },
+    {
+      "run_id": "2026-10-21T16-09-37.772Z-gpt-6-luna-medium-24a0cb5a",
+      "task_id": "lemat-sdl-03-many-arms",
+      "method": "gpt-6-luna-medium",
+      "path": "recordings/2026-10-21T16-09-37.772Z-gpt-6-luna-medium-24a0cb5a/lemat-sdl-03-many-arms/result.json.gz",
+      "source_sha256": "8a22c3867a2daadf9d8849dcc87c1675b0707c3959cdd7b3f293739384230ff8",
+      "gzip_sha256": "1911547825a035a58530b49b58ad0fbcacb6b58bd03ecbc50589c9394dff7f32",
+      "bytes": 297413,
+      "gzip_bytes": 18860
+    },
+    {
+      "run_id": "2026-10-21T15-43-22.737Z-gpt-6-luna-medium-4c5abf9d",
+      "task_id": "lemat-sdl-04-staggered-jobs",
+      "method": "gpt-6-luna-medium",
+      "path": "recordings/2026-10-21T15-43-22.737Z-gpt-6-luna-medium-4c5abf9d/lemat-sdl-04-staggered-jobs/result.json.gz",
+      "source_sha256": "b997d50c6577ef77161bd5ba429920a57146b8951789c628f12d35cc8cb8f387",
+      "gzip_sha256": "689ae64b17b6dadbc2afca5af6fb0339ccf1af7a26506b0912ac6893ea5fef7d",
+      "bytes": 2045420,
+      "gzip_bytes": 115868
+    },
+    {
+      "run_id": "2026-10-21T15-43-22.737Z-gpt-6-luna-medium-4c5abf9d",
+      "task_id": "lemat-sdl-05-bursty-demand",
+      "method": "gpt-6-luna-medium",
+      "path": "recordings/2026-10-21T15-43-22.737Z-gpt-6-luna-medium-4c5abf9d/lemat-sdl-05-bursty-demand/result.json.gz",
+      "source_sha256": "f6cd361b8e0a8168cf327727a8c71c2eb309374d287d201529b56d84d48ba843",
+      "gzip_sha256": "b8d54ea19d93e1a30267ddae7e0b1f29312612da06aee2f622e3cf970ba093fa",
+      "bytes": 499672,
+      "gzip_bytes": 29266
+    },
+    {
+      "run_id": "2026-10-21T15-43-22.737Z-gpt-6-luna-medium-4c5abf9d",
+      "task_id": "lemat-sdl-06-long-process-overlap",
+      "method": "gpt-6-luna-medium",
+      "path": "recordings/2026-10-21T15-43-22.737Z-gpt-6-luna-medium-4c5abf9d/lemat-sdl-06-long-process-overlap/result.json.gz",
+      "source_sha256": "74a578ce1410a3764b9c29318535fa34ceab08c29cb6c00419acc4a5d7a69b27",
+      "gzip_sha256": "444507de86937c88bf3ba2447abe2b6446a322ebb0474884ba02e8ca04faab48",
+      "bytes": 596999,
+      "gzip_bytes": 38767
+    },
+    {
+      "run_id": "2026-10-21T15-43-22.737Z-gpt-6-luna-medium-4c5abf9d",
+      "task_id": "lemat-sdl-07-transport-pressure",
+      "method": "gpt-6-luna-medium",
+      "path": "recordings/2026-10-21T15-43-22.737Z-gpt-6-luna-medium-4c5abf9d/lemat-sdl-07-transport-pressure/result.json.gz",
+      "source_sha256": "289e86f7ba0e3b1cce40e35df0782244d733c5dad3658f957b0fccbfbd877a4b",
+      "gzip_sha256": "46d5a15a4eeef2a9f86608bc40af1b5f51605e029f47ddea2b2500e5b53193f1",
+      "bytes": 483470,
+      "gzip_bytes": 28970
+    },
+    {
+      "run_id": "2026-10-21T15-43-22.737Z-gpt-6-luna-medium-4c5abf9d",
+      "task_id": "lemat-sdl-08-finite-buffers",
+      "method": "gpt-6-luna-medium",
+      "path": "recordings/2026-10-21T15-43-22.737Z-gpt-6-luna-medium-4c5abf9d/lemat-sdl-08-finite-buffers/result.json.gz",
+      "source_sha256": "e930d98581615232efa9922cc2e391caf9aeeaf643fa2ba7689a2699f6da424a",
+      "gzip_sha256": "1272d1d71b21ca531043b9c5c59840d9e0d2e23e0af4e46134bff8e27bcda685",
+      "bytes": 1062559,
+      "gzip_bytes": 62280
+    },
+    {
+      "run_id": "2026-10-21T15-43-22.737Z-gpt-6-luna-medium-4c5abf9d",
+      "task_id": "lemat-sdl-09-room-small",
+      "method": "gpt-6-luna-medium",
+      "path": "recordings/2026-10-21T15-43-22.737Z-gpt-6-luna-medium-4c5abf9d/lemat-sdl-09-room-small/result.json.gz",
+      "source_sha256": "e9a249dd4957b1d2faf038f30da75750b0107c8dd788c7cedf40630d91833026",
+      "gzip_sha256": "d6dedf4d3ac873e1ac8e59420d1b7e2837089b6c3c2e72b7e7c714e321c16ee8",
+      "bytes": 276986,
+      "gzip_bytes": 18913
+    },
+    {
+      "run_id": "2026-10-21T15-43-22.737Z-gpt-6-luna-medium-4c5abf9d",
+      "task_id": "lemat-sdl-10-room-wide",
+      "method": "gpt-6-luna-medium",
+      "path": "recordings/2026-10-21T15-43-22.737Z-gpt-6-luna-medium-4c5abf9d/lemat-sdl-10-room-wide/result.json.gz",
+      "source_sha256": "325f0a4ec39731d7127e1096759db4d38206943ab900f7f2367915d78cfe2e22",
+      "gzip_sha256": "381fb1b972b9b46d5f018d30562ac3e66adfeb592b8d3a942a06beb8c2fa8faa",
+      "bytes": 496142,
+      "gzip_bytes": 27243
+    },
+    {
+      "run_id": "2026-10-22T00-54-02.898Z-gpt-6-luna-medium-227bf651",
+      "task_id": "lemat-sdl-11-priority-tail",
+      "method": "gpt-6-luna-medium",
+      "path": "recordings/2026-10-22T00-54-02.898Z-gpt-6-luna-medium-227bf651/lemat-sdl-11-priority-tail/result.json.gz",
+      "source_sha256": "0938ab662a72c62f6bf09fbca0dbacb7d7624ed2efa97038042d13f35cbfa397",
+      "gzip_sha256": "cda483ee11abf9f34d695c843a36e845a492d84475d122953a40b4c6cc86c0c3",
+      "bytes": 160435,
+      "gzip_bytes": 17144
+    },
+    {
+      "run_id": "2026-10-22T00-54-02.898Z-gpt-6-luna-medium-227bf651",
+      "task_id": "lemat-sdl-12-overfull-inventory",
+      "method": "gpt-6-luna-medium",
+      "path": "recordings/2026-10-22T00-54-02.898Z-gpt-6-luna-medium-227bf651/lemat-sdl-12-overfull-inventory/result.json.gz",
+      "source_sha256": "e1b38ce73bf65ef692e65beb577d2a4b3f69a18cc871677b1dcd1cd9a2d2571a",
+      "gzip_sha256": "f46bb15da988ab60628b8d71a4cf3f457235c1149091c7d488c85306a55de182",
+      "bytes": 161310,
+      "gzip_bytes": 14585
+    },
+    {
+      "run_id": "2026-10-22T00-54-02.898Z-gpt-6-luna-medium-227bf651",
+      "task_id": "lemat-sdl-13-lookahead-exchange",
+      "method": "gpt-6-luna-medium",
+      "path": "recordings/2026-10-22T00-54-02.898Z-gpt-6-luna-medium-227bf651/lemat-sdl-13-lookahead-exchange/result.json.gz",
+      "source_sha256": "329ef9b550c9a13c321d83bdaa70af07f4f95dcb603decfcb31824d7977dc331",
+      "gzip_sha256": "dc0cfaa09b3c5c869f143b6962794d3ac78dab770f8dce2977d068d164109df5",
+      "bytes": 235844,
+      "gzip_bytes": 19502
+    },
+    {
+      "run_id": "2026-10-22T00-54-02.898Z-gpt-6-luna-medium-227bf651",
+      "task_id": "lemat-sdl-14-layout-distance",
+      "method": "gpt-6-luna-medium",
+      "path": "recordings/2026-10-22T00-54-02.898Z-gpt-6-luna-medium-227bf651/lemat-sdl-14-layout-distance/result.json.gz",
+      "source_sha256": "d614dbe485acf0f6aae9a1e14e12b4811fdf170fc42a9212c38a7b6fcc14f060",
+      "gzip_sha256": "cbf9476faec8c0ba56964fb592c473eff091d06f6ec7ba83fb484abfe62d26ed",
+      "bytes": 273305,
+      "gzip_bytes": 18875
+    },
+    {
+      "run_id": "2026-10-21T15-46-21.130Z-jev-38a8a851",
+      "task_id": "lemat-sdl-01-single-station",
+      "method": "jev",
+      "path": "recordings/2026-10-21T15-46-21.130Z-jev-38a8a851/lemat-sdl-01-single-station/result.json.gz",
+      "source_sha256": "24a09069ba9a8dd8327b84c7196a4756978d3d0dc73a3b5540b4b64441c48471",
+      "gzip_sha256": "fd6919d6497cc8f0e012554b8eb6fa4a7d7a1f077ff58571fa7c9a70b26febf8",
+      "bytes": 128625,
+      "gzip_bytes": 11931
+    },
+    {
+      "run_id": "2026-10-21T15-46-21.130Z-jev-38a8a851",
+      "task_id": "lemat-sdl-02-cramped-exchange",
+      "method": "jev",
+      "path": "recordings/2026-10-21T15-46-21.130Z-jev-38a8a851/lemat-sdl-02-cramped-exchange/result.json.gz",
+      "source_sha256": "bbbfb7670a13d2f80ca48cc83213426a93e401a08b488d13931e2aee6d3cf8bf",
+      "gzip_sha256": "7c3a9ec21afc1fec6e6b84147a72a2a7b92d952075ef725baa51073ee81698fc",
+      "bytes": 103448,
+      "gzip_bytes": 10113
+    },
+    {
+      "run_id": "2026-10-21T16-08-32.444Z-jev-8fe16bf8",
+      "task_id": "lemat-sdl-03-many-arms",
+      "method": "jev",
+      "path": "recordings/2026-10-21T16-08-32.444Z-jev-8fe16bf8/lemat-sdl-03-many-arms/result.json.gz",
+      "source_sha256": "cff896d07c29b563f77c71caf970b4df308a51bf2326080cb6af96b15dfb12aa",
+      "gzip_sha256": "257020fe18815a1ab1c292269385a67d1c4d2778efaccc3f4be5c984b2dc731f",
+      "bytes": 295974,
+      "gzip_bytes": 19257
+    },
+    {
+      "run_id": "2026-10-21T15-46-21.130Z-jev-38a8a851",
+      "task_id": "lemat-sdl-04-staggered-jobs",
+      "method": "jev",
+      "path": "recordings/2026-10-21T15-46-21.130Z-jev-38a8a851/lemat-sdl-04-staggered-jobs/result.json.gz",
+      "source_sha256": "2154745d97d2636138899c52062f9b2cee83993c8d8be9d6a85041826168003b",
+      "gzip_sha256": "6ce2ad51f92af586ad4c366d560aa4880e7175614ee02320ebbc76288a0c4991",
+      "bytes": 2030762,
+      "gzip_bytes": 114185
+    },
+    {
+      "run_id": "2026-10-21T15-46-21.130Z-jev-38a8a851",
+      "task_id": "lemat-sdl-05-bursty-demand",
+      "method": "jev",
+      "path": "recordings/2026-10-21T15-46-21.130Z-jev-38a8a851/lemat-sdl-05-bursty-demand/result.json.gz",
+      "source_sha256": "99afdeb6e5e0b322ad537fa0e019a51285d301225ddc9e39988872398b1733a1",
+      "gzip_sha256": "7e2c72fb80f11d860ee4c847cde583135b569b808f925ad161f016a04e513a87",
+      "bytes": 495307,
+      "gzip_bytes": 28746
+    },
+    {
+      "run_id": "2026-10-21T15-46-21.130Z-jev-38a8a851",
+      "task_id": "lemat-sdl-06-long-process-overlap",
+      "method": "jev",
+      "path": "recordings/2026-10-21T15-46-21.130Z-jev-38a8a851/lemat-sdl-06-long-process-overlap/result.json.gz",
+      "source_sha256": "514c2c98af79f24493097590c17b47915cfe658b397d31c98c497389c9edd55f",
+      "gzip_sha256": "7acaa683a248eea3ec1284f459ee757bf112f219c698cec23c09288396f06eab",
+      "bytes": 592933,
+      "gzip_bytes": 38135
+    },
+    {
+      "run_id": "2026-10-21T15-46-21.130Z-jev-38a8a851",
+      "task_id": "lemat-sdl-07-transport-pressure",
+      "method": "jev",
+      "path": "recordings/2026-10-21T15-46-21.130Z-jev-38a8a851/lemat-sdl-07-transport-pressure/result.json.gz",
+      "source_sha256": "a071844f1d0e4b448ae46bc88da0273154b0ef14d9bf7ca86471433e03745377",
+      "gzip_sha256": "16b87b1958eadf18cd9732d8aec31d4a49c8cddfffd8db49e51c7b4201e2b81a",
+      "bytes": 482853,
+      "gzip_bytes": 29682
+    },
+    {
+      "run_id": "2026-10-21T15-46-21.130Z-jev-38a8a851",
+      "task_id": "lemat-sdl-08-finite-buffers",
+      "method": "jev",
+      "path": "recordings/2026-10-21T15-46-21.130Z-jev-38a8a851/lemat-sdl-08-finite-buffers/result.json.gz",
+      "source_sha256": "e8859c21a25ef0b25615fc6c347cdcc64d7eb6b6f822ffe4ecd30e69b259dfe8",
+      "gzip_sha256": "2d1d9b16a3a8789a1405f5904123562d9be13f26cf137cd549fd0f2503d6f33b",
+      "bytes": 1046303,
+      "gzip_bytes": 59861
+    },
+    {
+      "run_id": "2026-10-21T15-46-21.130Z-jev-38a8a851",
+      "task_id": "lemat-sdl-09-room-small",
+      "method": "jev",
+      "path": "recordings/2026-10-21T15-46-21.130Z-jev-38a8a851/lemat-sdl-09-room-small/result.json.gz",
+      "source_sha256": "9a7aa52e5bf7e5668cac54faf415d1388d011a2dd99f8c1be8a480133e2c0fce",
+      "gzip_sha256": "0e1a073d56f2183a01ffdc112346cc3e5c7bc29f5ce02179f725b5866c7216a1",
+      "bytes": 275616,
+      "gzip_bytes": 18699
+    },
+    {
+      "run_id": "2026-10-21T15-46-21.130Z-jev-38a8a851",
+      "task_id": "lemat-sdl-10-room-wide",
+      "method": "jev",
+      "path": "recordings/2026-10-21T15-46-21.130Z-jev-38a8a851/lemat-sdl-10-room-wide/result.json.gz",
+      "source_sha256": "46c3528c2521f143121839601450a2a07bb3515b582c805e66748f13a0a505e2",
+      "gzip_sha256": "bec2125c20b8696edfc2270f06db20cc75253c7a72a599e56bab200a19dc7b1c",
+      "bytes": 501061,
+      "gzip_bytes": 26762
+    },
+    {
+      "run_id": "2026-10-22T00-54-26.159Z-jev-5460ce3c",
+      "task_id": "lemat-sdl-11-priority-tail",
+      "method": "jev",
+      "path": "recordings/2026-10-22T00-54-26.159Z-jev-5460ce3c/lemat-sdl-11-priority-tail/result.json.gz",
+      "source_sha256": "09a73cac09f054139b8d9e7443ccdd2b06317afee9d30132615667ff4878ad70",
+      "gzip_sha256": "ae6caf00378a0f232afd0bb4b14df6064711df8f7f7729a7570711f90ebd0ea9",
+      "bytes": 159470,
+      "gzip_bytes": 16438
+    },
+    {
+      "run_id": "2026-10-22T00-54-26.159Z-jev-5460ce3c",
+      "task_id": "lemat-sdl-12-overfull-inventory",
+      "method": "jev",
+      "path": "recordings/2026-10-22T00-54-26.159Z-jev-5460ce3c/lemat-sdl-12-overfull-inventory/result.json.gz",
+      "source_sha256": "0418c27213d0828b437561186b7c41beb507e8955405ec2166c5421fc1162ab8",
+      "gzip_sha256": "4a6a7322eb652d8088bf448c2cf8f4fc49fa531005af8185348f0e46dae9070b",
+      "bytes": 159704,
+      "gzip_bytes": 14547
+    },
+    {
+      "run_id": "2026-10-22T00-54-26.159Z-jev-5460ce3c",
+      "task_id": "lemat-sdl-13-lookahead-exchange",
+      "method": "jev",
+      "path": "recordings/2026-10-22T00-54-26.159Z-jev-5460ce3c/lemat-sdl-13-lookahead-exchange/result.json.gz",
+      "source_sha256": "afe2b20c165615fb9e4b3eb8b494eb7835f5946978616723f029c8d25264af77",
+      "gzip_sha256": "8716dea0231115c94c08b677988031263b4aff8af97d8b35d44312322cd4d75d",
+      "bytes": 227397,
+      "gzip_bytes": 19816
+    },
+    {
+      "run_id": "2026-10-22T00-54-26.159Z-jev-5460ce3c",
+      "task_id": "lemat-sdl-14-layout-distance",
+      "method": "jev",
+      "path": "recordings/2026-10-22T00-54-26.159Z-jev-5460ce3c/lemat-sdl-14-layout-distance/result.json.gz",
+      "source_sha256": "2b0b9b0bbe8590e2bbc67d3dc152147801286a85b90502dad62050be42101f89",
+      "gzip_sha256": "e083a576da30dd060e1c5d0fe20147e08de6d8fcdf8af0ad66ca26fd837e5cac",
+      "bytes": 271675,
+      "gzip_bytes": 19102
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+import {resourceDiagnostics} from './diagnostics.mjs';
+import {SharedEventEngine} from './core.mjs';
+import {catalog,capabilities,validateLayout,matches,physicalCapacity} from './tasks.mjs';
+import {robotPoint,portPose,distance} from '../v2/geometry.mjs';
+const copy=structuredClone;
+export class HallEnvironment extends SharedEventEngine{
+ constructor(task){super(task);this.sealed=true;this.reconfigurations=[];this.moduleReturns=[];this.cartAvailable=0;}
+ stock(){return Object.fromEntries(capabilities.map(cap=>[cap,this.task.module_inventory[cap]-this.layout.devices.filter(d=>d.model==='flex_'+cap).length-this.moduleReturns.filter(r=>r.capability===cap&&r.available_s>this.time).length]));}
+ credits(jobs=this.jobs){const counts=Object.fromEntries(this.layout.robots.map(r=>[r.id,0]));for(const j of jobs)if(j.admitted_s!==undefined&&j.status!=='done')for(const node of j.nodes)for(const child of j.nodes.filter(c=>c.parents.includes(node.id)&&c.status==='pending')){const d=this.layout.devices.find(d=>d.id===j.routes[node.id]);if(d)counts[d.output_robot_id]++;}return counts;}
+ readyNodes(){return super.readyNodes().filter(({job})=>job.admitted_s!==undefined);}
+ observe({clone=true}={}){
+  const credits=this.credits();const {jobs:all,...task}=this.task,visible=this.jobs.filter(j=>j.arrival_s<=this.time+this.task.visibility_s),ready=this.readyNodes().map(({job,node})=>({job_id:job.id,node_id:node.id,device_id:job.routes[node.id],capability:node.capability,compatibility_key:node.compatibility_key,priority:job.priority,due_s:job.due_s}));
+  const observation={protocol:'labops.hall.v4',state_version:this.version,time_s:this.time,phase:this.phase,task,layout:this.layout,jobs:visible,ready,resources:{devices:this.deviceState,carrier:this.carrier,carriers:this.carriers,sample_tokens:this.tokens,buffers:this.layout.robots.map(r=>({robot_id:r.id,capacity:this.task.buffer_slots,occupied_and_reserved:this.tokens.filter(t=>t.robot_id===r.id).length,future_credits:credits[r.id]})),module_stock:this.stock(),configuration_cart_available_s:this.cartAvailable},next_event_s:this.nextEvent(),last_receipt:this.lastReceipt??null,terminal_reason:this.terminal_reason};return clone?copy(observation):observation;
+ }
+ apply(a){
+  if(!['admit','reconfigure'].includes(a?.type))return super.apply(a);
+  if(this.phase==='done')return {accepted:false,code:'episode_terminal',state_version:this.version};this.actions++;this.version++;
+  if(this.actions>this.task.action_budget){this.finish('action_budget');return this.reject('action_budget');}
+  if(a.state_version!==this.version-1)return this.reject('stale_state');if(this.phase!=='running')return this.reject('running_phase_required');
+  const fields=a.type==='admit'?['job_id','routes']:['device_id','capability'];if(Object.keys(a).some(k=>!['type','state_version','reason',...fields].includes(k))||typeof a.reason!=='string'||a.reason.length>1000)return this.reject('invalid_action_fields');
+  try{const receipt=a.type==='admit'?this.admit(a):this.reconfigure(a);if(!receipt.accepted)return receipt;return this.lastReceipt={accepted:true,state_version:this.version};}catch(e){return this.reject('invalid_action',{message:e.message});}
+ }
+ admit(a){
+  const job=this.jobs.find(j=>j.id===a.job_id);if(!job||job.arrival_s>this.time)return this.reject('job_not_arrived');if(job.admitted_s!==undefined)return this.reject('already_admitted');if(!a.routes||typeof a.routes!=='object'||Array.isArray(a.routes)||Object.keys(a.routes).length!==job.nodes.length)return this.reject('complete_route_required');
+  for(const n of job.nodes){const d=this.layout.devices.find(d=>d.id===a.routes[n.id]);if(!d||!matches(n.capability,d))return this.reject('route_capability_mismatch');}
+  const proposed={...job,admitted_s:this.time,routes:copy(a.routes)},credits=this.credits([...this.jobs.filter(j=>j!==job),proposed]);if(Object.values(credits).some(n=>n>this.task.buffer_slots))return this.reject('future_buffer_credit_exhausted');
+  job.admitted_s=this.time;job.routes=copy(a.routes);this.log('workflow_admitted',{job_id:job.id,line:job.line,routes:a.routes,reason:a.reason});return {accepted:true};
+ }
+ dispatch(a){for(const ref of a.operations??[]){const j=this.jobs.find(j=>j.id===ref.job_id);if(j?.admitted_s===undefined||j.routes[ref.node_id]!==a.device_id)return this.reject('admitted_route_required');}return super.dispatch(a);}
+ canReconfigure(d){return d?.model.startsWith('flex_')&&this.deviceState[d.id].available_s<=this.time+1e-7&&!this.jobs.some(j=>j.admitted_s!==undefined&&j.nodes.some(n=>n.status!=='done'&&j.routes[n.id]===d.id));}
+ reconfigure(a){
+  const d=this.layout.devices.find(d=>d.id===a.device_id);if(!d)return this.reject('unknown_device');if(!d.model.startsWith('flex_'))return this.reject('fixed_device');if(!capabilities.includes(a.capability))return this.reject('unsupported_module');if(d.model==='flex_'+a.capability)return this.reject('module_already_installed');if(!this.canReconfigure(d))return this.reject('station_has_committed_work');if(this.stock()[a.capability]<=0)return this.reject('module_stock_exhausted');
+  const layout=copy(this.layout),target=layout.devices.find(x=>x.id===d.id);target.model='flex_'+a.capability;const v=validateLayout(layout,this.task,catalog,{complete:false});if(!v.valid)return this.reject('invalid_layout',{validation:v});
+  const old=d.model.slice(5),arm=this.layout.robots.find(r=>r.id===d.input_robot_id),calendars=copy(this.calendars),trace=[];this.futureArmReservations=Object.values(calendars).flat().filter(s=>s.end_s>this.time);
+  const r=this.reserve(calendars[arm.id],Math.max(this.time,this.cartAvailable),this.task.setup_s,{resource:arm.id,kind:'commission_module',device_id:d.id,job_ids:[],from:robotPoint(arm,'handoff',catalog),to:portPose(d,'input',catalog).point},trace);
+  trace.push({resource:'configuration-cart',kind:'module_exchange',device_id:d.id,start_s:r.start_s,end_s:r.end_s,job_ids:[]});
+  const mid=r.start_s+this.task.setup_s*.5;trace.push({resource:d.id,kind:'clean_and_remove',start_s:r.start_s,end_s:mid,job_ids:[]},{resource:d.id,kind:'install_and_calibrate',start_s:mid,end_s:r.end_s,job_ids:[]});
+  this.layout=layout;this.calendars=calendars;this.trace.push(...trace);this.deviceState[d.id].available_s=r.end_s;this.deviceState[d.id].last_recipe=null;this.deviceState[d.id].batch_slots=physicalCapacity(catalog.equipment[target.model],this.task.batch_slots);this.cartAvailable=r.end_s;this.moduleReturns.push({capability:old,available_s:r.end_s});
+  const event={time_s:this.time,start_s:r.start_s,end_s:r.end_s,device_id:d.id,from_capability:old,to_capability:a.capability,reason:a.reason,other_running_batches:this.batches.filter(b=>b.process_start_s<=r.start_s&&b.process_end_s>r.start_s).map(b=>b.id)};this.reconfigurations.push(event);this.layoutHistory.push({time_s:this.time,layout:copy(layout)});this.log('module_reconfigured',event);return {accepted:true};
+ }
+ result(){
+  const r=super.result(),events=this.batches.flatMap(b=>[{t:b.process_start_s,d:1},{t:b.process_end_s,d:-1}]).sort((a,b)=>a.t-b.t||a.d-b.d);let parallel=0,peak=0,area=0,last=0;for(const e of events){const at=Math.min(this.time,e.t);if(at>last)area+=parallel*(at-last);last=at;if(e.t>this.time)break;parallel+=e.d;peak=Math.max(peak,parallel);}
+  return {...r,schema_version:'labops.hall.result.v4',workload_hash:this.task.workload_hash,diagnostics:resourceDiagnostics(r,catalog),reconfigurations:copy(this.reconfigurations),module_stock:this.stock(),metrics:{...r.metrics,floor_area_m2:this.task.room.width_m*this.task.room.depth_m,throughput_per_m2_h:r.metrics.throughput_jobs_h/(this.task.room.width_m*this.task.room.depth_m),peak_parallel_processes:peak,mean_parallel_processes:area/Math.max(1,this.time),module_changes:this.reconfigurations.length,reconfiguration_station_time_s:this.reconfigurations.reduce((s,e)=>s+Math.max(0,Math.min(e.end_s,this.time)-e.time_s),0),reconfigurations_during_other_processing:this.reconfigurations.filter(e=>e.other_running_batches.length>0).length,shared_amrs:this.carriers.length},evidence:{...r.evidence,topology:'One shared bounded room, one execution clock, a shared AMR fleet and common arm/buffer/device calendars. Workflow lines have no private equipment.',fleet:'Multiple vehicles use distinct perimeter bays, closed tours, and swept-grid space-time reservations including handoffs and return; crossings can be shared after clearance. Conservative discrete-event traffic, no vehicle dynamics certificate. One-car runs retain the original open-tour policy.',modules:'Hypothetical interchangeable modules on common-envelope mobile benches; finite module stock, setup cart and arm time, removal/installation/calibration charged. Reconfiguration retains bench pose; online bench relocation is not modeled by the adaptive reference.',admission:'Per-arm credits reserve every remaining routed output edge before admission. No facility-wide seven-job WIP limit.',agent:'Deterministic reference; no new LLM evaluation implied.'}};
+ }
+}

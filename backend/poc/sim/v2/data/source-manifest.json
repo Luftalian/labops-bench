@@ -1,0 +1,223 @@
+{
+  "commit": "e4bacbcbac084544ca68d48242336c2e36f6ee15",
+  "acquired_on": "2026-10-21",
+  "license": "Apache-2.0; original license in demo/data/raw/LICENSE-LeMat-Synth.txt",
+  "sources": [
+    {
+      "file": "raw/0307fa0472a682ab559ac343038ed0cfeb8fe815/result.json",
+      "url": "https://raw.githubusercontent.com/LeMaterial/lematerial-llm-synthesis/e4bacbcbac084544ca68d48242336c2e36f6ee15/annotations/0307fa0472a682ab559ac343038ed0cfeb8fe815/result.json",
+      "sha256": "925ce03da1cdb4cbc73553c21778e7bf06eecc71df0acddf7d90058654f897ff",
+      "paper_id": "0307fa0472a682ab559ac343038ed0cfeb8fe815"
+    },
+    {
+      "file": "raw/0d5ffdaf23a655e1eff80bc8b6b4978067de4d5b/result.json",
+      "url": "https://raw.githubusercontent.com/LeMaterial/lematerial-llm-synthesis/e4bacbcbac084544ca68d48242336c2e36f6ee15/annotations/0d5ffdaf23a655e1eff80bc8b6b4978067de4d5b/result.json",
+      "sha256": "531b50b85764bbf265526fb3390f6d359c618517251645e4ed3cf30fff493bcf",
+      "paper_id": "0d5ffdaf23a655e1eff80bc8b6b4978067de4d5b"
+    },
+    {
+      "file": "raw/1409.1070/result.json",
+      "url": "https://raw.githubusercontent.com/LeMaterial/lematerial-llm-synthesis/e4bacbcbac084544ca68d48242336c2e36f6ee15/annotations/1409.1070/result.json",
+      "sha256": "62009e019cfcf4431bd55d5f84122952433438418556afe4c29918d777883768",
+      "paper_id": "1409.1070"
+    },
+    {
+      "file": "raw/1602.02498/result.json",
+      "url": "https://raw.githubusercontent.com/LeMaterial/lematerial-llm-synthesis/e4bacbcbac084544ca68d48242336c2e36f6ee15/annotations/1602.02498/result.json",
+      "sha256": "bf18551648922eed2cdfa9966a86b20aec95b1db77a98efe3798932bbbc976f0",
+      "paper_id": "1602.02498"
+    },
+    {
+      "file": "raw/1605.04038/result.json",
+      "url": "https://raw.githubusercontent.com/LeMaterial/lematerial-llm-synthesis/e4bacbcbac084544ca68d48242336c2e36f6ee15/annotations/1605.04038/result.json",
+      "sha256": "4bf5004d7cae8bbf5811e2f551e05ff77ceadc3ca05d14ccf21215afedc7080b",
+      "paper_id": "1605.04038"
+    },
+    {
+      "file": "raw/1706.00484/result.json",
+      "url": "https://raw.githubusercontent.com/LeMaterial/lematerial-llm-synthesis/e4bacbcbac084544ca68d48242336c2e36f6ee15/annotations/1706.00484/result.json",
+      "sha256": "a2a3f7b6d1af7b9c21ab67cc89681330b921f2c34a3f7ee197f636015104cfb8",
+      "paper_id": "1706.00484"
+    },
+    {
+      "file": "raw/1709.00477/result.json",
+      "url": "https://raw.githubusercontent.com/LeMaterial/lematerial-llm-synthesis/e4bacbcbac084544ca68d48242336c2e36f6ee15/annotations/1709.00477/result.json",
+      "sha256": "6b4bfbbff83de50fe60a2d93e68632f0b7c5cd082b24fa27742192dfbd10a4ca",
+      "paper_id": "1709.00477"
+    },
+    {
+      "file": "raw/1902.03049/result.json",
+      "url": "https://raw.githubusercontent.com/LeMaterial/lematerial-llm-synthesis/e4bacbcbac084544ca68d48242336c2e36f6ee15/annotations/1902.03049/result.json",
+      "sha256": "792756c3826416e3b17fbe6d7805f14a3590b0dcb435ea18d43b40d8c03922d6",
+      "paper_id": "1902.03049"
+    },
+    {
+      "file": "raw/1df04f9e3f942b30d5e1c2bd1ab9cc3a79c23f13/result.json",
+      "url": "https://raw.githubusercontent.com/LeMaterial/lematerial-llm-synthesis/e4bacbcbac084544ca68d48242336c2e36f6ee15/annotations/1df04f9e3f942b30d5e1c2bd1ab9cc3a79c23f13/result.json",
+      "sha256": "cd702e5f1602e112ef215a4159218655813de3bb617a6eb88d726f9018820f7e",
+      "paper_id": "1df04f9e3f942b30d5e1c2bd1ab9cc3a79c23f13"
+    },
+    {
+      "file": "raw/2212.12506/result.json",
+      "url": "https://raw.githubusercontent.com/LeMaterial/lematerial-llm-synthesis/e4bacbcbac084544ca68d48242336c2e36f6ee15/annotations/2212.12506/result.json",
+      "sha256": "b643acb7a4213b1ace23cd575f4572ba0a95df9c4ab49441ee949fb616ac7b94",
+      "paper_id": "2212.12506"
+    },
+    {
+      "file": "raw/2306.14755/result.json",
+      "url": "https://raw.githubusercontent.com/LeMaterial/lematerial-llm-synthesis/e4bacbcbac084544ca68d48242336c2e36f6ee15/annotations/2306.14755/result.json",
+      "sha256": "cf27e7369b1a840e7a01fbc41bf7e9bf240b97ccbe34e003073abab886571365",
+      "paper_id": "2306.14755"
+    },
+    {
+      "file": "raw/2404.08872/result.json",
+      "url": "https://raw.githubusercontent.com/LeMaterial/lematerial-llm-synthesis/e4bacbcbac084544ca68d48242336c2e36f6ee15/annotations/2404.08872/result.json",
+      "sha256": "7310817090eb8fb9b6e682285bd1e0ec01971af05a7fc4c4cc1e07a805d40d0f",
+      "paper_id": "2404.08872"
+    },
+    {
+      "file": "raw/2502.03121/result.json",
+      "url": "https://raw.githubusercontent.com/LeMaterial/lematerial-llm-synthesis/e4bacbcbac084544ca68d48242336c2e36f6ee15/annotations/2502.03121/result.json",
+      "sha256": "c4402566f1e6779dea571d9925a7762e88a164fc81fd5b47ac09255db66663ea",
+      "paper_id": "2502.03121"
+    },
+    {
+      "file": "raw/2883daff26f16a13134a26ca5d366549a14fcc9c/result.json",
+      "url": "https://raw.githubusercontent.com/LeMaterial/lematerial-llm-synthesis/e4bacbcbac084544ca68d48242336c2e36f6ee15/annotations/2883daff26f16a13134a26ca5d366549a14fcc9c/result.json",
+      "sha256": "d31278c580e0d72ee346cda8d1d38032ef0629832c4edac0e1137e7c4f3cdb67",
+      "paper_id": "2883daff26f16a13134a26ca5d366549a14fcc9c"
+    },
+    {
+      "file": "raw/3325ac6dfb049a5efdaad7f876c1d51b17be0158/result.json",
+      "url": "https://raw.githubusercontent.com/LeMaterial/lematerial-llm-synthesis/e4bacbcbac084544ca68d48242336c2e36f6ee15/annotations/3325ac6dfb049a5efdaad7f876c1d51b17be0158/result.json",
+      "sha256": "ad88743d641b1d0c8a189049f959125f09dced97c4d0d64b8e96b152b9fd6b89",
+      "paper_id": "3325ac6dfb049a5efdaad7f876c1d51b17be0158"
+    },
+    {
+      "file": "raw/3b87159630bb0581024897961bb5fc922fc3db19/result.json",
+      "url": "https://raw.githubusercontent.com/LeMaterial/lematerial-llm-synthesis/e4bacbcbac084544ca68d48242336c2e36f6ee15/annotations/3b87159630bb0581024897961bb5fc922fc3db19/result.json",
+      "sha256": "b0cf4a26e5fcc9fc64fa6fa7e654ed7f05c7a74aaed0837b5173546a93c84522",
+      "paper_id": "3b87159630bb0581024897961bb5fc922fc3db19"
+    },
+    {
+      "file": "raw/60c74548469df43eacf434a6/result.json",
+      "url": "https://raw.githubusercontent.com/LeMaterial/lematerial-llm-synthesis/e4bacbcbac084544ca68d48242336c2e36f6ee15/annotations/60c74548469df43eacf434a6/result.json",
+      "sha256": "35d5195aaf5e5e8b131950a8c6b1bf09a08194e67738659e1e5bd2b7a88b56e9",
+      "paper_id": "60c74548469df43eacf434a6"
+    },
+    {
+      "file": "raw/61b80eb702d90d55416229c1/result.json",
+      "url": "https://raw.githubusercontent.com/LeMaterial/lematerial-llm-synthesis/e4bacbcbac084544ca68d48242336c2e36f6ee15/annotations/61b80eb702d90d55416229c1/result.json",
+      "sha256": "c269c923644834777ae3fe314cd42588479fb6f087150d5f84abb7bf69adf828",
+      "paper_id": "61b80eb702d90d55416229c1"
+    },
+    {
+      "file": "raw/62b4ce6b486c987262b0ff80/result.json",
+      "url": "https://raw.githubusercontent.com/LeMaterial/lematerial-llm-synthesis/e4bacbcbac084544ca68d48242336c2e36f6ee15/annotations/62b4ce6b486c987262b0ff80/result.json",
+      "sha256": "aeaf34c1b97e9e49343cd41e8b2dfdbf85a9cffc74b858c1e88648480003b80d",
+      "paper_id": "62b4ce6b486c987262b0ff80"
+    },
+    {
+      "file": "raw/62cff0f127b1e42fe039c25e/result.json",
+      "url": "https://raw.githubusercontent.com/LeMaterial/lematerial-llm-synthesis/e4bacbcbac084544ca68d48242336c2e36f6ee15/annotations/62cff0f127b1e42fe039c25e/result.json",
+      "sha256": "6110f7060c1308a5072483eb7654bbe95ec878a2ee74705b2e70c6a059868f9b",
+      "paper_id": "62cff0f127b1e42fe039c25e"
+    },
+    {
+      "file": "raw/64b40972b605c6803bd37ab4/result.json",
+      "url": "https://raw.githubusercontent.com/LeMaterial/lematerial-llm-synthesis/e4bacbcbac084544ca68d48242336c2e36f6ee15/annotations/64b40972b605c6803bd37ab4/result.json",
+      "sha256": "c17ad508215b1fc3088fc95cd7c90f3eece09b91eea9727c6024e69d18e61590",
+      "paper_id": "64b40972b605c6803bd37ab4"
+    },
+    {
+      "file": "raw/65e0464ce9ebbb4db98ae397/result.json",
+      "url": "https://raw.githubusercontent.com/LeMaterial/lematerial-llm-synthesis/e4bacbcbac084544ca68d48242336c2e36f6ee15/annotations/65e0464ce9ebbb4db98ae397/result.json",
+      "sha256": "9e4be5e19a552a67a7eb70270d0f28c0a63d5dce8993269bb823493f80683a0b",
+      "paper_id": "65e0464ce9ebbb4db98ae397"
+    },
+    {
+      "file": "raw/673b3fdd7be152b1d07c21f1/result.json",
+      "url": "https://raw.githubusercontent.com/LeMaterial/lematerial-llm-synthesis/e4bacbcbac084544ca68d48242336c2e36f6ee15/annotations/673b3fdd7be152b1d07c21f1/result.json",
+      "sha256": "c2945442c9c25f45f25f2c14352a68f043eb4ed67aff2464b4b9cfee7726acde",
+      "paper_id": "673b3fdd7be152b1d07c21f1"
+    },
+    {
+      "file": "raw/73c6aeebd5877d2eb17d4961577d98216d503e6f/result.json",
+      "url": "https://raw.githubusercontent.com/LeMaterial/lematerial-llm-synthesis/e4bacbcbac084544ca68d48242336c2e36f6ee15/annotations/73c6aeebd5877d2eb17d4961577d98216d503e6f/result.json",
+      "sha256": "2131eb2d9dcb25e5ed0357dc54cfd7d23e44ecc2fa04b688aaba4c964f9ae81b",
+      "paper_id": "73c6aeebd5877d2eb17d4961577d98216d503e6f"
+    },
+    {
+      "file": "raw/8c37fd10addf6d79f84ec2d5f4a8e5c6d6ef676f/result.json",
+      "url": "https://raw.githubusercontent.com/LeMaterial/lematerial-llm-synthesis/e4bacbcbac084544ca68d48242336c2e36f6ee15/annotations/8c37fd10addf6d79f84ec2d5f4a8e5c6d6ef676f/result.json",
+      "sha256": "fadc829558123c39efe6f6dd12128a8980eac5edb4f05f6bf00af3e962077a45",
+      "paper_id": "8c37fd10addf6d79f84ec2d5f4a8e5c6d6ef676f"
+    },
+    {
+      "file": "raw/90233593a9aa72b4bacfdeadc20050ae6d4b88e1/result.json",
+      "url": "https://raw.githubusercontent.com/LeMaterial/lematerial-llm-synthesis/e4bacbcbac084544ca68d48242336c2e36f6ee15/annotations/90233593a9aa72b4bacfdeadc20050ae6d4b88e1/result.json",
+      "sha256": "d31278c580e0d72ee346cda8d1d38032ef0629832c4edac0e1137e7c4f3cdb67",
+      "paper_id": "90233593a9aa72b4bacfdeadc20050ae6d4b88e1"
+    },
+    {
+      "file": "raw/914dfcfe8762e189e9d7873090587458e7c86695/result.json",
+      "url": "https://raw.githubusercontent.com/LeMaterial/lematerial-llm-synthesis/e4bacbcbac084544ca68d48242336c2e36f6ee15/annotations/914dfcfe8762e189e9d7873090587458e7c86695/result.json",
+      "sha256": "5d9e40d8738eebd6a20f3187ba8157e4b23223dcaf29c147f56e3db53366fd70",
+      "paper_id": "914dfcfe8762e189e9d7873090587458e7c86695"
+    },
+    {
+      "file": "raw/9a889c1a671fd3cae48285eaa95069d189d02fe3/result.json",
+      "url": "https://raw.githubusercontent.com/LeMaterial/lematerial-llm-synthesis/e4bacbcbac084544ca68d48242336c2e36f6ee15/annotations/9a889c1a671fd3cae48285eaa95069d189d02fe3/result.json",
+      "sha256": "d8f7df4da2ba5a89115fc8ba0293e80856d558f629563ffc63299c5b403b6510",
+      "paper_id": "9a889c1a671fd3cae48285eaa95069d189d02fe3"
+    },
+    {
+      "file": "raw/c47e0cbc8b6feb8d28c3d9c1c29f98772ede6c27/result.json",
+      "url": "https://raw.githubusercontent.com/LeMaterial/lematerial-llm-synthesis/e4bacbcbac084544ca68d48242336c2e36f6ee15/annotations/c47e0cbc8b6feb8d28c3d9c1c29f98772ede6c27/result.json",
+      "sha256": "aa830ba229b15b1f92e6a2557b36ebf1631f8cccc946f6c9aae2c754e428bf90",
+      "paper_id": "c47e0cbc8b6feb8d28c3d9c1c29f98772ede6c27"
+    },
+    {
+      "file": "raw/ccc7c5d70ae3ca3f9e975d0dc3b4d631586c1586/result.json",
+      "url": "https://raw.githubusercontent.com/LeMaterial/lematerial-llm-synthesis/e4bacbcbac084544ca68d48242336c2e36f6ee15/annotations/ccc7c5d70ae3ca3f9e975d0dc3b4d631586c1586/result.json",
+      "sha256": "fc8af07a7e3884a1431414abcb76c6d8876a4784f47c49be58d55ce1affd890e",
+      "paper_id": "ccc7c5d70ae3ca3f9e975d0dc3b4d631586c1586"
+    },
+    {
+      "file": "raw/cond-mat.0503432/result.json",
+      "url": "https://raw.githubusercontent.com/LeMaterial/lematerial-llm-synthesis/e4bacbcbac084544ca68d48242336c2e36f6ee15/annotations/cond-mat.0503432/result.json",
+      "sha256": "0481ebba6510feb7cc04853840ecef5dc1c4add883fc1807c5ee89897b8e1c7e",
+      "paper_id": "cond-mat.0503432"
+    },
+    {
+      "file": "raw/cond-mat.0510550/result.json",
+      "url": "https://raw.githubusercontent.com/LeMaterial/lematerial-llm-synthesis/e4bacbcbac084544ca68d48242336c2e36f6ee15/annotations/cond-mat.0510550/result.json",
+      "sha256": "10ae7d7602498c196ef1b06fed6cd1aa630588f21327167944e2d65578502eaa",
+      "paper_id": "cond-mat.0510550"
+    },
+    {
+      "file": "raw/cond-mat.0602418/result.json",
+      "url": "https://raw.githubusercontent.com/LeMaterial/lematerial-llm-synthesis/e4bacbcbac084544ca68d48242336c2e36f6ee15/annotations/cond-mat.0602418/result.json",
+      "sha256": "f0514e712442bb3d354f9e6b0e90579c9cb4586b1d1f8160d492d562916f5ba2",
+      "paper_id": "cond-mat.0602418"
+    },
+    {
+      "file": "raw/cond-mat.0603598/result.json",
+      "url": "https://raw.githubusercontent.com/LeMaterial/lematerial-llm-synthesis/e4bacbcbac084544ca68d48242336c2e36f6ee15/annotations/cond-mat.0603598/result.json",
+      "sha256": "077f2c2e8a98319faf6959c3089f27898a152bee2d0b7920ae4293ff3cc04f40",
+      "paper_id": "cond-mat.0603598"
+    },
+    {
+      "file": "raw/cond-mat.0607131/result.json",
+      "url": "https://raw.githubusercontent.com/LeMaterial/lematerial-llm-synthesis/e4bacbcbac084544ca68d48242336c2e36f6ee15/annotations/cond-mat.0607131/result.json",
+      "sha256": "a1220221ded4261a880b27804719bffe5a33f49be2502d156f7ecea3835adfd5",
+      "paper_id": "cond-mat.0607131"
+    },
+    {
+      "file": "raw/cond-mat.9604170/result.json",
+      "url": "https://raw.githubusercontent.com/LeMaterial/lematerial-llm-synthesis/e4bacbcbac084544ca68d48242336c2e36f6ee15/annotations/cond-mat.9604170/result.json",
+      "sha256": "bf18f9d22e18a2c90494c63289a818596bc926b5848849c8c790b37c8bf09076",
+      "paper_id": "cond-mat.9604170"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "created_at": "2026-10-21T05:12:27.843Z",
+  "original_source_hashes": {
+    "sim/v4/tasks.mjs": "ff6407dbc3c5f8654a14e9b65ef84743630fd2b7d61409fe61a34077465ff56e",
+    "sim/v4/core.mjs": "a9c27a7b858fe60e9bcfa0ef9fe893106b5a8f775fa9c5b1a8e7702cf6fe35ca",
+    "sim/v4/fleet.mjs": "c940a09eaeb48fb471c6a615e1e32dd531fd1d51c0656951ac6d2a5f9e436955",
+    "sim/v4/diagnostics.mjs": "c038c3a6595b5945b2d31e00128e7993a8900d8ad8e7e5c3e90f7d1a78b5dfde",
+    "sim/v4/concurrency.mjs": "0d53804910cf177f754677f675e6e6523be713e0d81462ca2258c81872afd300",
+    "sim/v4/environment.mjs": "48a4c26e94703cb66db245b01bf3f47c066b7751cbb6ba38973c7dc7d629d35f",
+    "sim/v4/agents.mjs": "226f93ac7ffc89c73a4cf088fbfa1d85b082b3a96bfb8475ebc63377ed6acece",
+    "sim/v2/geometry.mjs": "104291b7a2572abca5134f2123a2764216fa821d2b893e7d15395bfcb8c006a4",
+    "sim/v2/tasks.mjs": "3a53fb094646169bc7f2dcdfeb60d34a2ff8c451a7bab600fef754d0e4c8c2c7",
+    "sim/v2/data/catalog.json": "94177611195c04a54cf0e18fa1b44ec4801b4105f4ad10ec0e13f6a89adf3c62",
+    "sim/v2/data/procedures.json": "9634bfe3e1cb98136901d7e9c33d0f75bd67263ed7515eb79491c31704255ecf"
+  },
+  "snapshot_hashes": {
+    "sim/v4/tasks.mjs": "ff6407dbc3c5f8654a14e9b65ef84743630fd2b7d61409fe61a34077465ff56e",
+    "sim/v4/core.mjs": "a9c27a7b858fe60e9bcfa0ef9fe893106b5a8f775fa9c5b1a8e7702cf6fe35ca",
+    "sim/v4/fleet.mjs": "c940a09eaeb48fb471c6a615e1e32dd531fd1d51c0656951ac6d2a5f9e436955",
+    "sim/v4/diagnostics.mjs": "c038c3a6595b5945b2d31e00128e7993a8900d8ad8e7e5c3e90f7d1a78b5dfde",
+    "sim/v4/concurrency.mjs": "0d53804910cf177f754677f675e6e6523be713e0d81462ca2258c81872afd300",
+    "sim/v4/environment.mjs": "48a4c26e94703cb66db245b01bf3f47c066b7751cbb6ba38973c7dc7d629d35f",
+    "sim/v4/agents.mjs": "226f93ac7ffc89c73a4cf088fbfa1d85b082b3a96bfb8475ebc63377ed6acece",
+    "sim/v2/geometry.mjs": "104291b7a2572abca5134f2123a2764216fa821d2b893e7d15395bfcb8c006a4",
+    "sim/v2/tasks.mjs": "3a53fb094646169bc7f2dcdfeb60d34a2ff8c451a7bab600fef754d0e4c8c2c7",
+    "sim/v2/data/catalog.json": "94177611195c04a54cf0e18fa1b44ec4801b4105f4ad10ec0e13f6a89adf3c62",
+    "sim/v2/data/procedures.json": "9634bfe3e1cb98136901d7e9c33d0f75bd67263ed7515eb79491c31704255ecf"
+  }
+}

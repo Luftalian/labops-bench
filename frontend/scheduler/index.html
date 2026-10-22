@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LabOpsBench · Job scheduler</title><link rel="stylesheet" href="/hall/styles.css"><link rel="stylesheet" href="/stage1.css"><link rel="stylesheet" href="/scheduler/styles.css">
+</head><body>
+<header><a class="brand" href="/"><span class="mark">▦</span><b>LabOps<span>Bench</span></b></a><nav><a href="/benchmarks/">Benchmarks &amp; results ↗</a><a href="/">Fixed design ↗</a><span class="badge">JOB SCHEDULER · PHYSICAL RELOCATION</span></nav></header>
+<main><section class="mission"><div><p class="eyebrow">PRIORITIZE JOBS. REARRANGE THE LAB. MINIMIZE COMPLETION TIME.</p><h1>Schedule the next move<span>.</span></h1><p>Inspect remaining work, set priorities, and submit a layout decision at each simulation epoch.</p><p class="scenario-description">Select a development or LeMat-derived task · inspect recorded model runs under Benchmarks & results</p></div>
+<div class="config"><label>TASK<select id="task" aria-label="Scheduler task"></select></label><button id="parameters">Room / count settings</button><button id="new" class="primary">New session ↗</button></div></section>
+<section class="scheduler-workspace"><aside><section class="panel"><div class="heading"><h2>Initial equipment</h2></div><form id="counts"></form><label>Initial layout<select id="initial-layout" aria-label="Initial layout"></select></label><label>Column pitch (m)<input id="pitch-x" type="number" min="0.1" step="0.1" value="1.2"></label><label>Row pitch (m)<input id="pitch-y" type="number" min="0.1" step="0.1" value="2.6"></label><button id="pack">Generate tight layout</button><p class="note">Packing uses original device sizes, arm reach and AMR paths. Invalid spacing is rejected. Staging tasks offer active-model sets above. Selected inventory and models stay fixed; outside storage is explicit.</p></section>
+<section class="panel"><h2>Remaining jobs</h2><p class="note">Higher priority runs first when feasible. Reserved operations finish without interruption.</p><div id="jobs"></div></section></aside>
+<section><section class="panel factory"><div class="toolbar"><b id="epoch">NO SESSION</b><label class="label-toggle"><input id="show-labels" type="checkbox" checked> Equipment labels</label></div>
+<div class="hud"><div><small>COMPLETED JOBS</small><strong id="completed">—</strong></div><div><small>SIMULATION TIME</small><strong id="clock">0 s</strong></div><div><small>RELOCATION</small><strong id="relocation">idle</strong></div><div><small>COMPLETION TIME ↓</small><strong id="score">—</strong></div></div>
+<div class="world stage-world"><canvas id="plan-canvas" aria-label="Scheduler recorded device, arm and physical relocation replay"></canvas><div id="empty">Create a session and submit an initial decision.</div></div>
+<div class="playback"><button id="play" aria-label="Play or pause">▶</button><input id="timeline" type="range" min="0" max="1000" step="any" value="1000" aria-label="Scheduler replay time"><span id="replay-time">0 s</span></div></section>
+<section class="panel"><div class="heading"><h2>Next decision</h2><span id="calls">0 calls</span></div>
+<div class="decision-controls"><label>Layout action<select id="move" aria-label="Layout action"><option value="keep">Keep layout</option><option value="0.2">Move devices + arms 0.2 m right</option><option value="-0.2">Move devices + arms 0.2 m left</option></select></label><button id="fill">Fill from priorities</button><button id="rule">Fill rule priorities</button></div>
+<p class="note">Rule priorities favor shorter remaining modeled process time; this is a reference rule, not an optimal scheduler. Edit JSON to propose other coordinates. Physical moves wait for committed jobs and AMR returns.</p>
+<textarea id="decision" aria-label="Scheduler decision JSON" spellcheck="false"></textarea><button id="step" class="primary" disabled>Apply decision &amp; advance one epoch ↗</button>
+<p id="message" role="status"></p></section>
+<details class="panel"><summary>Public observation JSON</summary><pre id="observation"></pre></details></section>
+<aside><section class="panel"><div class="heading"><h2>Decision receipts</h2><button id="export" disabled>Export JSON ↗</button></div><div id="receipts"></div></section>
+<section class="panel"><h2>Engine activity</h2><div id="activity"></div></section></aside></section>
+<footer><span>Simulation model · movement paths checked with conservative planar envelopes · no chemistry prediction</span><span id="status">Ready</span></footer></main>
+<script type="module" src="/scheduler/app.mjs"></script></body></html>

@@ -1,0 +1,826 @@
+{
+  "version": "lemat-sdl-1",
+  "source_kind": "public LeMat-Synth annotation subset (not gated Hugging Face database dump)",
+  "review": "Raw hashes, field locators, scope and equipment mapping reviewed for scheduling representation; original papers and real SDL feasibility not independently validated.",
+  "assumptions": [
+    "Catalog sizes/handling/mobility and external staging are engineering assumptions.",
+    "No batching speedup; one job per device process slot.",
+    "Unit-operation jobs are not complete material syntheses.",
+    "No inferred chemistry yield, success or measured throughput."
+  ],
+  "excluded_records": [
+    {
+      "id": "LM-0bf4f9a26e",
+      "scope": "full workflow",
+      "reason": "Sample A and Sample B anneals are alternative branches; reject naive serial chain. Only etch window used."
+    },
+    {
+      "id": "LM-8553dcec84",
+      "scope": "full workflow",
+      "reason": "Spreading on table and week-long temperature-controlled curing are not stirring; reject inherited stirrer mapping."
+    }
+  ],
+  "records": [
+    {
+      "paper_id": "8c37fd10addf6d79f84ec2d5f4a8e5c6d6ef676f",
+      "url": "https://raw.githubusercontent.com/LeMaterial/lematerial-llm-synthesis/e4bacbcbac084544ca68d48242336c2e36f6ee15/annotations/8c37fd10addf6d79f84ec2d5f4a8e5c6d6ef676f/result.json",
+      "commit": "e4bacbcbac084544ca68d48242336c2e36f6ee15",
+      "sha256": "fadc829558123c39efe6f6dd12128a8980eac5edb4f05f6bf00af3e962077a45",
+      "raw_file": "raw/8c37fd10addf6d79f84ec2d5f4a8e5c6d6ef676f/result.json"
+    },
+    {
+      "paper_id": "73c6aeebd5877d2eb17d4961577d98216d503e6f",
+      "url": "https://raw.githubusercontent.com/LeMaterial/lematerial-llm-synthesis/e4bacbcbac084544ca68d48242336c2e36f6ee15/annotations/73c6aeebd5877d2eb17d4961577d98216d503e6f/result.json",
+      "commit": "e4bacbcbac084544ca68d48242336c2e36f6ee15",
+      "sha256": "2131eb2d9dcb25e5ed0357dc54cfd7d23e44ecc2fa04b688aaba4c964f9ae81b",
+      "raw_file": "raw/73c6aeebd5877d2eb17d4961577d98216d503e6f/result.json"
+    },
+    {
+      "paper_id": "1706.00484",
+      "url": "https://raw.githubusercontent.com/LeMaterial/lematerial-llm-synthesis/e4bacbcbac084544ca68d48242336c2e36f6ee15/annotations/1706.00484/result.json",
+      "commit": "e4bacbcbac084544ca68d48242336c2e36f6ee15",
+      "sha256": "a2a3f7b6d1af7b9c21ab67cc89681330b921f2c34a3f7ee197f636015104cfb8",
+      "raw_file": "raw/1706.00484/result.json"
+    }
+  ],
+  "workflows": [
+    {
+      "id": "ha-mix",
+      "source_procedure_id": "LM-1bae9a3992",
+      "source": {
+        "paper_id": "8c37fd10addf6d79f84ec2d5f4a8e5c6d6ef676f",
+        "url": "https://raw.githubusercontent.com/LeMaterial/lematerial-llm-synthesis/e4bacbcbac084544ca68d48242336c2e36f6ee15/annotations/8c37fd10addf6d79f84ec2d5f4a8e5c6d6ef676f/result.json",
+        "sha256": "fadc829558123c39efe6f6dd12128a8980eac5edb4f05f6bf00af3e962077a45",
+        "commit": "e4bacbcbac084544ca68d48242336c2e36f6ee15",
+        "extraction_index": 0,
+        "material_index": 1,
+        "extraction_model": "claude-sonnet-4.6",
+        "raw_file": "raw/8c37fd10addf6d79f84ec2d5f4a8e5c6d6ef676f/result.json",
+        "review_status": "public model extraction; original paper and automation feasibility not independently checked"
+      },
+      "material": "Ca10(PO4)6(OH)2",
+      "scope": "Prepared-sample unit-operation window; not a full synthesis workflow.",
+      "omitted_steps": [
+        {
+          "source_pointer": "/0/materials/1/synthesis/steps/0",
+          "action": "dissolve",
+          "reason": "Outside explicitly selected prepared-sample operation window; not counted as completed synthesis."
+        },
+        {
+          "source_pointer": "/0/materials/1/synthesis/steps/1",
+          "action": "add",
+          "reason": "Outside explicitly selected prepared-sample operation window; not counted as completed synthesis."
+        },
+        {
+          "source_pointer": "/0/materials/1/synthesis/steps/3",
+          "action": "precipitate",
+          "reason": "Outside explicitly selected prepared-sample operation window; not counted as completed synthesis."
+        },
+        {
+          "source_pointer": "/0/materials/1/synthesis/steps/4",
+          "action": "dry",
+          "reason": "Outside explicitly selected prepared-sample operation window; not counted as completed synthesis."
+        }
+      ],
+      "steps": [
+        {
+          "source_pointer": "/0/materials/1/synthesis/steps/2",
+          "source_step_number": 3,
+          "action": "mix",
+          "description": "Aggressive agitation was carried out on a magnetic stir-plate at 300 r/min for 10 min.",
+          "original_conditions": {
+            "temperature": null,
+            "temp_unit": null,
+            "duration": 10,
+            "time_unit": "min",
+            "pressure": null,
+            "pressure_unit": null,
+            "atmosphere": null,
+            "stirring": true,
+            "stirring_speed": 300,
+            "ph": null
+          },
+          "capability": "stirrer",
+          "duration_s": 600,
+          "duration_provenance": {
+            "kind": "literature",
+            "source_ref": "https://raw.githubusercontent.com/LeMaterial/lematerial-llm-synthesis/e4bacbcbac084544ca68d48242336c2e36f6ee15/annotations/8c37fd10addf6d79f84ec2d5f4a8e5c6d6ef676f/result.json",
+            "locator": "/0/materials/1/synthesis/steps/2/conditions",
+            "original_value": 10,
+            "original_unit": "min",
+            "note": "Extracted duration converted to seconds without acceleration. Hold time approximates process occupancy; handling remains separately simulated."
+          },
+          "mapping_provenance": {
+            "kind": "assumed",
+            "note": "Source action assigned to catalog equipment; generic sample vessel/automatic handling and chemical compatibility are assumptions."
+          }
+        }
+      ]
+    },
+    {
+      "id": "cbi-mix",
+      "source_procedure_id": "LM-07896924d3",
+      "source": {
+        "paper_id": "8c37fd10addf6d79f84ec2d5f4a8e5c6d6ef676f",
+        "url": "https://raw.githubusercontent.com/LeMaterial/lematerial-llm-synthesis/e4bacbcbac084544ca68d48242336c2e36f6ee15/annotations/8c37fd10addf6d79f84ec2d5f4a8e5c6d6ef676f/result.json",
+        "sha256": "fadc829558123c39efe6f6dd12128a8980eac5edb4f05f6bf00af3e962077a45",
+        "commit": "e4bacbcbac084544ca68d48242336c2e36f6ee15",
+        "extraction_index": 0,
+        "material_index": 0,
+        "extraction_model": "claude-sonnet-4.6",
+        "raw_file": "raw/8c37fd10addf6d79f84ec2d5f4a8e5c6d6ef676f/result.json",
+        "review_status": "public model extraction; original paper and automation feasibility not independently checked"
+      },
+      "material": "Cs3Bi2I9",
+      "scope": "Prepared-sample unit-operation window; not a full synthesis workflow.",
+      "omitted_steps": [
+        {
+          "source_pointer": "/0/materials/0/synthesis/steps/0",
+          "action": "dissolve",
+          "reason": "Outside explicitly selected prepared-sample operation window; not counted as completed synthesis."
+        },
+        {
+          "source_pointer": "/0/materials/0/synthesis/steps/1",
+          "action": "dissolve",
+          "reason": "Outside explicitly selected prepared-sample operation window; not counted as completed synthesis."
+        },
+        {
+          "source_pointer": "/0/materials/0/synthesis/steps/3",
+          "action": "centrifuge",
+          "reason": "Outside explicitly selected prepared-sample operation window; not counted as completed synthesis."
+        },
+        {
+          "source_pointer": "/0/materials/0/synthesis/steps/4",
+          "action": "dry",
+          "reason": "Outside explicitly selected prepared-sample operation window; not counted as completed synthesis."
+        }
+      ],
+      "steps": [
+        {
+          "source_pointer": "/0/materials/0/synthesis/steps/2",
+          "source_step_number": 3,
+          "action": "mix",
+          "description": "Mix the CsI aqueous solution with the BiI3 methanol solution and vigorously stir with magnetic bars for 1 h at room temperature. A color change and powder precipitation are immediately visible upon mixing.",
+          "original_conditions": {
+            "temperature": 25,
+            "temp_unit": "C",
+            "duration": 1,
+            "time_unit": "h",
+            "pressure": null,
+            "pressure_unit": null,
+            "atmosphere": null,
+            "stirring": true,
+            "stirring_speed": null,
+            "ph": null
+          },
+          "capability": "stirrer",
+          "duration_s": 3600,
+          "duration_provenance": {
+            "kind": "literature",
+            "source_ref": "https://raw.githubusercontent.com/LeMaterial/lematerial-llm-synthesis/e4bacbcbac084544ca68d48242336c2e36f6ee15/annotations/8c37fd10addf6d79f84ec2d5f4a8e5c6d6ef676f/result.json",
+            "locator": "/0/materials/0/synthesis/steps/2/conditions",
+            "original_value": 1,
+            "original_unit": "h",
+            "note": "Extracted duration converted to seconds without acceleration. Hold time approximates process occupancy; handling remains separately simulated."
+          },
+          "mapping_provenance": {
+            "kind": "assumed",
+            "note": "Source action assigned to catalog equipment; generic sample vessel/automatic handling and chemical compatibility are assumptions."
+          }
+        }
+      ]
+    },
+    {
+      "id": "cbi-separate",
+      "source_procedure_id": "LM-07896924d3",
+      "source": {
+        "paper_id": "8c37fd10addf6d79f84ec2d5f4a8e5c6d6ef676f",
+        "url": "https://raw.githubusercontent.com/LeMaterial/lematerial-llm-synthesis/e4bacbcbac084544ca68d48242336c2e36f6ee15/annotations/8c37fd10addf6d79f84ec2d5f4a8e5c6d6ef676f/result.json",
+        "sha256": "fadc829558123c39efe6f6dd12128a8980eac5edb4f05f6bf00af3e962077a45",
+        "commit": "e4bacbcbac084544ca68d48242336c2e36f6ee15",
+        "extraction_index": 0,
+        "material_index": 0,
+        "extraction_model": "claude-sonnet-4.6",
+        "raw_file": "raw/8c37fd10addf6d79f84ec2d5f4a8e5c6d6ef676f/result.json",
+        "review_status": "public model extraction; original paper and automation feasibility not independently checked"
+      },
+      "material": "Cs3Bi2I9",
+      "scope": "Prepared-sample unit-operation window; not a full synthesis workflow.",
+      "omitted_steps": [
+        {
+          "source_pointer": "/0/materials/0/synthesis/steps/0",
+          "action": "dissolve",
+          "reason": "Outside explicitly selected prepared-sample operation window; not counted as completed synthesis."
+        },
+        {
+          "source_pointer": "/0/materials/0/synthesis/steps/1",
+          "action": "dissolve",
+          "reason": "Outside explicitly selected prepared-sample operation window; not counted as completed synthesis."
+        },
+        {
+          "source_pointer": "/0/materials/0/synthesis/steps/2",
+          "action": "mix",
+          "reason": "Outside explicitly selected prepared-sample operation window; not counted as completed synthesis."
+        },
+        {
+          "source_pointer": "/0/materials/0/synthesis/steps/4",
+          "action": "dry",
+          "reason": "Outside explicitly selected prepared-sample operation window; not counted as completed synthesis."
+        }
+      ],
+      "steps": [
+        {
+          "source_pointer": "/0/materials/0/synthesis/steps/3",
+          "source_step_number": 4,
+          "action": "centrifuge",
+          "description": "Centrifuge the solution at 2000 r/min for 5 min, then pour off the supernatant.",
+          "original_conditions": {
+            "temperature": null,
+            "temp_unit": null,
+            "duration": 5,
+            "time_unit": "min",
+            "pressure": null,
+            "pressure_unit": null,
+            "atmosphere": null,
+            "stirring": null,
+            "stirring_speed": 2000,
+            "ph": null
+          },
+          "capability": "centrifuge",
+          "duration_s": 300,
+          "duration_provenance": {
+            "kind": "literature",
+            "source_ref": "https://raw.githubusercontent.com/LeMaterial/lematerial-llm-synthesis/e4bacbcbac084544ca68d48242336c2e36f6ee15/annotations/8c37fd10addf6d79f84ec2d5f4a8e5c6d6ef676f/result.json",
+            "locator": "/0/materials/0/synthesis/steps/3/conditions",
+            "original_value": 5,
+            "original_unit": "min",
+            "note": "Extracted duration converted to seconds without acceleration. Hold time approximates process occupancy; handling remains separately simulated."
+          },
+          "mapping_provenance": {
+            "kind": "assumed",
+            "note": "Source action assigned to catalog equipment; generic sample vessel/automatic handling and chemical compatibility are assumptions."
+          }
+        }
+      ]
+    },
+    {
+      "id": "ag-sonicate",
+      "source_procedure_id": "LM-1635cc3c7e",
+      "source": {
+        "paper_id": "73c6aeebd5877d2eb17d4961577d98216d503e6f",
+        "url": "https://raw.githubusercontent.com/LeMaterial/lematerial-llm-synthesis/e4bacbcbac084544ca68d48242336c2e36f6ee15/annotations/73c6aeebd5877d2eb17d4961577d98216d503e6f/result.json",
+        "sha256": "2131eb2d9dcb25e5ed0357dc54cfd7d23e44ecc2fa04b688aaba4c964f9ae81b",
+        "commit": "e4bacbcbac084544ca68d48242336c2e36f6ee15",
+        "extraction_index": 0,
+        "material_index": 0,
+        "extraction_model": "claude-sonnet-4.6",
+        "raw_file": "raw/73c6aeebd5877d2eb17d4961577d98216d503e6f/result.json",
+        "review_status": "public model extraction; original paper and automation feasibility not independently checked"
+      },
+      "material": "Ag",
+      "scope": "Prepared-sample unit-operation window; not a full synthesis workflow.",
+      "omitted_steps": [
+        {
+          "source_pointer": "/0/materials/0/synthesis/steps/0",
+          "action": "dissolve",
+          "reason": "Outside explicitly selected prepared-sample operation window; not counted as completed synthesis."
+        },
+        {
+          "source_pointer": "/0/materials/0/synthesis/steps/2",
+          "action": "centrifuge",
+          "reason": "Outside explicitly selected prepared-sample operation window; not counted as completed synthesis."
+        },
+        {
+          "source_pointer": "/0/materials/0/synthesis/steps/3",
+          "action": "wash",
+          "reason": "Outside explicitly selected prepared-sample operation window; not counted as completed synthesis."
+        }
+      ],
+      "steps": [
+        {
+          "source_pointer": "/0/materials/0/synthesis/steps/1",
+          "source_step_number": 2,
+          "action": "mix",
+          "description": "AgNO3 (2 mM) was dissolved in P. frutescens aqueous leaf extract (2.5% v/v). The mixture was sonicated for 90 min at 60°C in the dark.",
+          "original_conditions": {
+            "temperature": 60,
+            "temp_unit": "C",
+            "duration": 90,
+            "time_unit": "min",
+            "pressure": null,
+            "pressure_unit": null,
+            "atmosphere": "dark",
+            "stirring": null,
+            "stirring_speed": null,
+            "ph": null
+          },
+          "capability": "sonicator",
+          "duration_s": 5400,
+          "duration_provenance": {
+            "kind": "literature",
+            "source_ref": "https://raw.githubusercontent.com/LeMaterial/lematerial-llm-synthesis/e4bacbcbac084544ca68d48242336c2e36f6ee15/annotations/73c6aeebd5877d2eb17d4961577d98216d503e6f/result.json",
+            "locator": "/0/materials/0/synthesis/steps/1/conditions",
+            "original_value": 90,
+            "original_unit": "min",
+            "note": "Extracted duration converted to seconds without acceleration. Hold time approximates process occupancy; handling remains separately simulated."
+          },
+          "mapping_provenance": {
+            "kind": "assumed",
+            "note": "Source action assigned to catalog equipment; generic sample vessel/automatic handling and chemical compatibility are assumptions."
+          }
+        }
+      ]
+    },
+    {
+      "id": "ag-separate",
+      "source_procedure_id": "LM-1635cc3c7e",
+      "source": {
+        "paper_id": "73c6aeebd5877d2eb17d4961577d98216d503e6f",
+        "url": "https://raw.githubusercontent.com/LeMaterial/lematerial-llm-synthesis/e4bacbcbac084544ca68d48242336c2e36f6ee15/annotations/73c6aeebd5877d2eb17d4961577d98216d503e6f/result.json",
+        "sha256": "2131eb2d9dcb25e5ed0357dc54cfd7d23e44ecc2fa04b688aaba4c964f9ae81b",
+        "commit": "e4bacbcbac084544ca68d48242336c2e36f6ee15",
+        "extraction_index": 0,
+        "material_index": 0,
+        "extraction_model": "claude-sonnet-4.6",
+        "raw_file": "raw/73c6aeebd5877d2eb17d4961577d98216d503e6f/result.json",
+        "review_status": "public model extraction; original paper and automation feasibility not independently checked"
+      },
+      "material": "Ag",
+      "scope": "Prepared-sample unit-operation window; not a full synthesis workflow.",
+      "omitted_steps": [
+        {
+          "source_pointer": "/0/materials/0/synthesis/steps/0",
+          "action": "dissolve",
+          "reason": "Outside explicitly selected prepared-sample operation window; not counted as completed synthesis."
+        },
+        {
+          "source_pointer": "/0/materials/0/synthesis/steps/1",
+          "action": "mix",
+          "reason": "Outside explicitly selected prepared-sample operation window; not counted as completed synthesis."
+        },
+        {
+          "source_pointer": "/0/materials/0/synthesis/steps/3",
+          "action": "wash",
+          "reason": "Outside explicitly selected prepared-sample operation window; not counted as completed synthesis."
+        }
+      ],
+      "steps": [
+        {
+          "source_pointer": "/0/materials/0/synthesis/steps/2",
+          "source_step_number": 3,
+          "action": "centrifuge",
+          "description": "The solution was centrifuged at 9000 rpm for 30 min at 25°C.",
+          "original_conditions": {
+            "temperature": 25,
+            "temp_unit": "C",
+            "duration": 30,
+            "time_unit": "min",
+            "pressure": null,
+            "pressure_unit": null,
+            "atmosphere": null,
+            "stirring": null,
+            "stirring_speed": 9000,
+            "ph": null
+          },
+          "capability": "centrifuge",
+          "duration_s": 1800,
+          "duration_provenance": {
+            "kind": "literature",
+            "source_ref": "https://raw.githubusercontent.com/LeMaterial/lematerial-llm-synthesis/e4bacbcbac084544ca68d48242336c2e36f6ee15/annotations/73c6aeebd5877d2eb17d4961577d98216d503e6f/result.json",
+            "locator": "/0/materials/0/synthesis/steps/2/conditions",
+            "original_value": 30,
+            "original_unit": "min",
+            "note": "Extracted duration converted to seconds without acceleration. Hold time approximates process occupancy; handling remains separately simulated."
+          },
+          "mapping_provenance": {
+            "kind": "assumed",
+            "note": "Source action assigned to catalog equipment; generic sample vessel/automatic handling and chemical compatibility are assumptions."
+          }
+        }
+      ]
+    },
+    {
+      "id": "sto-etch",
+      "source_procedure_id": "LM-0bf4f9a26e",
+      "source": {
+        "paper_id": "1706.00484",
+        "url": "https://raw.githubusercontent.com/LeMaterial/lematerial-llm-synthesis/e4bacbcbac084544ca68d48242336c2e36f6ee15/annotations/1706.00484/result.json",
+        "sha256": "a2a3f7b6d1af7b9c21ab67cc89681330b921f2c34a3f7ee197f636015104cfb8",
+        "commit": "e4bacbcbac084544ca68d48242336c2e36f6ee15",
+        "extraction_index": 2,
+        "material_index": 0,
+        "extraction_model": "gemini-3-flash",
+        "raw_file": "raw/1706.00484/result.json",
+        "review_status": "public model extraction; original paper and automation feasibility not independently checked"
+      },
+      "material": "SrTiO3",
+      "scope": "Prepared-sample unit-operation window; not a full synthesis workflow.",
+      "omitted_steps": [
+        {
+          "source_pointer": "/2/materials/0/synthesis/steps/1",
+          "action": "anneal",
+          "reason": "Outside explicitly selected prepared-sample operation window; not counted as completed synthesis."
+        },
+        {
+          "source_pointer": "/2/materials/0/synthesis/steps/2",
+          "action": "anneal",
+          "reason": "Outside explicitly selected prepared-sample operation window; not counted as completed synthesis."
+        }
+      ],
+      "steps": [
+        {
+          "source_pointer": "/2/materials/0/synthesis/steps/0",
+          "source_step_number": 1,
+          "action": "wash",
+          "description": "Etched the samples in 1:6 buffered oxide etch to achieve TiO2 termination.",
+          "original_conditions": {
+            "temperature": null,
+            "temp_unit": null,
+            "duration": 2,
+            "time_unit": "min",
+            "pressure": null,
+            "pressure_unit": null,
+            "atmosphere": null,
+            "stirring": null,
+            "stirring_speed": null,
+            "ph": null
+          },
+          "capability": "liquid_handler",
+          "duration_s": 120,
+          "duration_provenance": {
+            "kind": "literature",
+            "source_ref": "https://raw.githubusercontent.com/LeMaterial/lematerial-llm-synthesis/e4bacbcbac084544ca68d48242336c2e36f6ee15/annotations/1706.00484/result.json",
+            "locator": "/2/materials/0/synthesis/steps/0/conditions",
+            "original_value": 2,
+            "original_unit": "min",
+            "note": "Extracted duration converted to seconds without acceleration. Hold time approximates process occupancy; handling remains separately simulated."
+          },
+          "mapping_provenance": {
+            "kind": "assumed",
+            "note": "Source action assigned to catalog equipment; generic sample vessel/automatic handling and chemical compatibility are assumptions."
+          }
+        }
+      ]
+    },
+    {
+      "id": "ha-full",
+      "source_procedure_id": "LM-1bae9a3992",
+      "source": {
+        "paper_id": "8c37fd10addf6d79f84ec2d5f4a8e5c6d6ef676f",
+        "url": "https://raw.githubusercontent.com/LeMaterial/lematerial-llm-synthesis/e4bacbcbac084544ca68d48242336c2e36f6ee15/annotations/8c37fd10addf6d79f84ec2d5f4a8e5c6d6ef676f/result.json",
+        "sha256": "fadc829558123c39efe6f6dd12128a8980eac5edb4f05f6bf00af3e962077a45",
+        "commit": "e4bacbcbac084544ca68d48242336c2e36f6ee15",
+        "extraction_index": 0,
+        "material_index": 1,
+        "extraction_model": "claude-sonnet-4.6",
+        "raw_file": "raw/8c37fd10addf6d79f84ec2d5f4a8e5c6d6ef676f/result.json",
+        "review_status": "public model extraction; original paper and automation feasibility not independently checked"
+      },
+      "material": "Ca10(PO4)6(OH)2",
+      "scope": "All extracted steps; serial scheduling proxy. Independent precursor preparations serialized; chemical/robotic feasibility not validated.",
+      "omitted_steps": [],
+      "steps": [
+        {
+          "source_pointer": "/0/materials/1/synthesis/steps/0",
+          "source_step_number": 1,
+          "action": "dissolve",
+          "description": "Stoichiometric amounts of calcium hydroxide were first dispersed into deionized water.",
+          "original_conditions": {
+            "temperature": null,
+            "temp_unit": null,
+            "duration": null,
+            "time_unit": null,
+            "pressure": null,
+            "pressure_unit": null,
+            "atmosphere": null,
+            "stirring": null,
+            "stirring_speed": null,
+            "ph": null
+          },
+          "capability": "stirrer",
+          "duration_s": 300,
+          "duration_provenance": {
+            "kind": "assumed",
+            "source_ref": "https://raw.githubusercontent.com/LeMaterial/lematerial-llm-synthesis/e4bacbcbac084544ca68d48242336c2e36f6ee15/annotations/8c37fd10addf6d79f84ec2d5f4a8e5c6d6ef676f/result.json",
+            "locator": "/0/materials/1/synthesis/steps/0/conditions",
+            "original_value": null,
+            "original_unit": null,
+            "note": "Missing time replaced by declared operation default; not measured."
+          },
+          "mapping_provenance": {
+            "kind": "assumed",
+            "note": "Source action assigned to catalog equipment; generic sample vessel/automatic handling and chemical compatibility are assumptions."
+          }
+        },
+        {
+          "source_pointer": "/0/materials/1/synthesis/steps/1",
+          "source_step_number": 2,
+          "action": "add",
+          "description": "Phosphoric acid was poured into the calcium hydroxide suspension.",
+          "original_conditions": {
+            "temperature": null,
+            "temp_unit": null,
+            "duration": null,
+            "time_unit": null,
+            "pressure": null,
+            "pressure_unit": null,
+            "atmosphere": null,
+            "stirring": null,
+            "stirring_speed": null,
+            "ph": null
+          },
+          "capability": "liquid_handler",
+          "duration_s": 120,
+          "duration_provenance": {
+            "kind": "assumed",
+            "source_ref": "https://raw.githubusercontent.com/LeMaterial/lematerial-llm-synthesis/e4bacbcbac084544ca68d48242336c2e36f6ee15/annotations/8c37fd10addf6d79f84ec2d5f4a8e5c6d6ef676f/result.json",
+            "locator": "/0/materials/1/synthesis/steps/1/conditions",
+            "original_value": null,
+            "original_unit": null,
+            "note": "Missing time replaced by declared operation default; not measured."
+          },
+          "mapping_provenance": {
+            "kind": "assumed",
+            "note": "Source action assigned to catalog equipment; generic sample vessel/automatic handling and chemical compatibility are assumptions."
+          }
+        },
+        {
+          "source_pointer": "/0/materials/1/synthesis/steps/2",
+          "source_step_number": 3,
+          "action": "mix",
+          "description": "Aggressive agitation was carried out on a magnetic stir-plate at 300 r/min for 10 min.",
+          "original_conditions": {
+            "temperature": null,
+            "temp_unit": null,
+            "duration": 10,
+            "time_unit": "min",
+            "pressure": null,
+            "pressure_unit": null,
+            "atmosphere": null,
+            "stirring": true,
+            "stirring_speed": 300,
+            "ph": null
+          },
+          "capability": "stirrer",
+          "duration_s": 600,
+          "duration_provenance": {
+            "kind": "literature",
+            "source_ref": "https://raw.githubusercontent.com/LeMaterial/lematerial-llm-synthesis/e4bacbcbac084544ca68d48242336c2e36f6ee15/annotations/8c37fd10addf6d79f84ec2d5f4a8e5c6d6ef676f/result.json",
+            "locator": "/0/materials/1/synthesis/steps/2/conditions",
+            "original_value": 10,
+            "original_unit": "min",
+            "note": "Extracted duration converted to seconds without acceleration. Hold time approximates process occupancy; handling remains separately simulated."
+          },
+          "mapping_provenance": {
+            "kind": "assumed",
+            "note": "Source action assigned to catalog equipment; generic sample vessel/automatic handling and chemical compatibility are assumptions."
+          }
+        },
+        {
+          "source_pointer": "/0/materials/1/synthesis/steps/3",
+          "source_step_number": 4,
+          "action": "precipitate",
+          "description": "The HA powders were precipitated out in the beaker.",
+          "original_conditions": {
+            "temperature": null,
+            "temp_unit": null,
+            "duration": null,
+            "time_unit": null,
+            "pressure": null,
+            "pressure_unit": null,
+            "atmosphere": null,
+            "stirring": null,
+            "stirring_speed": null,
+            "ph": null
+          },
+          "capability": "stirrer",
+          "duration_s": 300,
+          "duration_provenance": {
+            "kind": "assumed",
+            "source_ref": "https://raw.githubusercontent.com/LeMaterial/lematerial-llm-synthesis/e4bacbcbac084544ca68d48242336c2e36f6ee15/annotations/8c37fd10addf6d79f84ec2d5f4a8e5c6d6ef676f/result.json",
+            "locator": "/0/materials/1/synthesis/steps/3/conditions",
+            "original_value": null,
+            "original_unit": null,
+            "note": "Missing time replaced by declared operation default; not measured."
+          },
+          "mapping_provenance": {
+            "kind": "assumed",
+            "note": "Source action assigned to catalog equipment; generic sample vessel/automatic handling and chemical compatibility are assumptions."
+          }
+        },
+        {
+          "source_pointer": "/0/materials/1/synthesis/steps/4",
+          "source_step_number": 5,
+          "action": "dry",
+          "description": "The precipitated HA powders were dried in a digitally-controlled oven.",
+          "original_conditions": {
+            "temperature": null,
+            "temp_unit": null,
+            "duration": null,
+            "time_unit": null,
+            "pressure": null,
+            "pressure_unit": null,
+            "atmosphere": null,
+            "stirring": null,
+            "stirring_speed": null,
+            "ph": null
+          },
+          "capability": "oven",
+          "duration_s": 3600,
+          "duration_provenance": {
+            "kind": "assumed",
+            "source_ref": "https://raw.githubusercontent.com/LeMaterial/lematerial-llm-synthesis/e4bacbcbac084544ca68d48242336c2e36f6ee15/annotations/8c37fd10addf6d79f84ec2d5f4a8e5c6d6ef676f/result.json",
+            "locator": "/0/materials/1/synthesis/steps/4/conditions",
+            "original_value": null,
+            "original_unit": null,
+            "note": "Missing time replaced by declared operation default; not measured."
+          },
+          "mapping_provenance": {
+            "kind": "assumed",
+            "note": "Source action assigned to catalog equipment; generic sample vessel/automatic handling and chemical compatibility are assumptions."
+          }
+        }
+      ]
+    },
+    {
+      "id": "cbi-full",
+      "source_procedure_id": "LM-07896924d3",
+      "source": {
+        "paper_id": "8c37fd10addf6d79f84ec2d5f4a8e5c6d6ef676f",
+        "url": "https://raw.githubusercontent.com/LeMaterial/lematerial-llm-synthesis/e4bacbcbac084544ca68d48242336c2e36f6ee15/annotations/8c37fd10addf6d79f84ec2d5f4a8e5c6d6ef676f/result.json",
+        "sha256": "fadc829558123c39efe6f6dd12128a8980eac5edb4f05f6bf00af3e962077a45",
+        "commit": "e4bacbcbac084544ca68d48242336c2e36f6ee15",
+        "extraction_index": 0,
+        "material_index": 0,
+        "extraction_model": "claude-sonnet-4.6",
+        "raw_file": "raw/8c37fd10addf6d79f84ec2d5f4a8e5c6d6ef676f/result.json",
+        "review_status": "public model extraction; original paper and automation feasibility not independently checked"
+      },
+      "material": "Cs3Bi2I9",
+      "scope": "All extracted steps; serial scheduling proxy. Independent precursor preparations serialized; chemical/robotic feasibility not validated.",
+      "omitted_steps": [],
+      "steps": [
+        {
+          "source_pointer": "/0/materials/0/synthesis/steps/0",
+          "source_step_number": 1,
+          "action": "dissolve",
+          "description": "Dissolve CsI in deionized water.",
+          "original_conditions": {
+            "temperature": null,
+            "temp_unit": null,
+            "duration": null,
+            "time_unit": null,
+            "pressure": null,
+            "pressure_unit": null,
+            "atmosphere": null,
+            "stirring": null,
+            "stirring_speed": null,
+            "ph": null
+          },
+          "capability": "stirrer",
+          "duration_s": 300,
+          "duration_provenance": {
+            "kind": "assumed",
+            "source_ref": "https://raw.githubusercontent.com/LeMaterial/lematerial-llm-synthesis/e4bacbcbac084544ca68d48242336c2e36f6ee15/annotations/8c37fd10addf6d79f84ec2d5f4a8e5c6d6ef676f/result.json",
+            "locator": "/0/materials/0/synthesis/steps/0/conditions",
+            "original_value": null,
+            "original_unit": null,
+            "note": "Missing time replaced by declared operation default; not measured."
+          },
+          "mapping_provenance": {
+            "kind": "assumed",
+            "note": "Source action assigned to catalog equipment; generic sample vessel/automatic handling and chemical compatibility are assumptions."
+          }
+        },
+        {
+          "source_pointer": "/0/materials/0/synthesis/steps/1",
+          "source_step_number": 2,
+          "action": "dissolve",
+          "description": "Dissolve BiI3 in methanol.",
+          "original_conditions": {
+            "temperature": null,
+            "temp_unit": null,
+            "duration": null,
+            "time_unit": null,
+            "pressure": null,
+            "pressure_unit": null,
+            "atmosphere": null,
+            "stirring": null,
+            "stirring_speed": null,
+            "ph": null
+          },
+          "capability": "stirrer",
+          "duration_s": 300,
+          "duration_provenance": {
+            "kind": "assumed",
+            "source_ref": "https://raw.githubusercontent.com/LeMaterial/lematerial-llm-synthesis/e4bacbcbac084544ca68d48242336c2e36f6ee15/annotations/8c37fd10addf6d79f84ec2d5f4a8e5c6d6ef676f/result.json",
+            "locator": "/0/materials/0/synthesis/steps/1/conditions",
+            "original_value": null,
+            "original_unit": null,
+            "note": "Missing time replaced by declared operation default; not measured."
+          },
+          "mapping_provenance": {
+            "kind": "assumed",
+            "note": "Source action assigned to catalog equipment; generic sample vessel/automatic handling and chemical compatibility are assumptions."
+          }
+        },
+        {
+          "source_pointer": "/0/materials/0/synthesis/steps/2",
+          "source_step_number": 3,
+          "action": "mix",
+          "description": "Mix the CsI aqueous solution with the BiI3 methanol solution and vigorously stir with magnetic bars for 1 h at room temperature. A color change and powder precipitation are immediately visible upon mixing.",
+          "original_conditions": {
+            "temperature": 25,
+            "temp_unit": "C",
+            "duration": 1,
+            "time_unit": "h",
+            "pressure": null,
+            "pressure_unit": null,
+            "atmosphere": null,
+            "stirring": true,
+            "stirring_speed": null,
+            "ph": null
+          },
+          "capability": "stirrer",
+          "duration_s": 3600,
+          "duration_provenance": {
+            "kind": "literature",
+            "source_ref": "https://raw.githubusercontent.com/LeMaterial/lematerial-llm-synthesis/e4bacbcbac084544ca68d48242336c2e36f6ee15/annotations/8c37fd10addf6d79f84ec2d5f4a8e5c6d6ef676f/result.json",
+            "locator": "/0/materials/0/synthesis/steps/2/conditions",
+            "original_value": 1,
+            "original_unit": "h",
+            "note": "Extracted duration converted to seconds without acceleration. Hold time approximates process occupancy; handling remains separately simulated."
+          },
+          "mapping_provenance": {
+            "kind": "assumed",
+            "note": "Source action assigned to catalog equipment; generic sample vessel/automatic handling and chemical compatibility are assumptions."
+          }
+        },
+        {
+          "source_pointer": "/0/materials/0/synthesis/steps/3",
+          "source_step_number": 4,
+          "action": "centrifuge",
+          "description": "Centrifuge the solution at 2000 r/min for 5 min, then pour off the supernatant.",
+          "original_conditions": {
+            "temperature": null,
+            "temp_unit": null,
+            "duration": 5,
+            "time_unit": "min",
+            "pressure": null,
+            "pressure_unit": null,
+            "atmosphere": null,
+            "stirring": null,
+            "stirring_speed": 2000,
+            "ph": null
+          },
+          "capability": "centrifuge",
+          "duration_s": 300,
+          "duration_provenance": {
+            "kind": "literature",
+            "source_ref": "https://raw.githubusercontent.com/LeMaterial/lematerial-llm-synthesis/e4bacbcbac084544ca68d48242336c2e36f6ee15/annotations/8c37fd10addf6d79f84ec2d5f4a8e5c6d6ef676f/result.json",
+            "locator": "/0/materials/0/synthesis/steps/3/conditions",
+            "original_value": 5,
+            "original_unit": "min",
+            "note": "Extracted duration converted to seconds without acceleration. Hold time approximates process occupancy; handling remains separately simulated."
+          },
+          "mapping_provenance": {
+            "kind": "assumed",
+            "note": "Source action assigned to catalog equipment; generic sample vessel/automatic handling and chemical compatibility are assumptions."
+          }
+        },
+        {
+          "source_pointer": "/0/materials/0/synthesis/steps/4",
+          "source_step_number": 5,
+          "action": "dry",
+          "description": "Dry the remaining precipitates in a centrifuge tube at 80 °C in a vacuum oven overnight.",
+          "original_conditions": {
+            "temperature": 80,
+            "temp_unit": "C",
+            "duration": null,
+            "time_unit": "overnight",
+            "pressure": null,
+            "pressure_unit": null,
+            "atmosphere": "vacuum",
+            "stirring": null,
+            "stirring_speed": null,
+            "ph": null
+          },
+          "capability": "oven",
+          "duration_s": 43200,
+          "duration_provenance": {
+            "kind": "assumed",
+            "source_ref": "https://raw.githubusercontent.com/LeMaterial/lematerial-llm-synthesis/e4bacbcbac084544ca68d48242336c2e36f6ee15/annotations/8c37fd10addf6d79f84ec2d5f4a8e5c6d6ef676f/result.json",
+            "locator": "/0/materials/0/synthesis/steps/4/conditions",
+            "original_value": null,
+            "original_unit": "overnight",
+            "note": "Overnight = 12 h engineering assumption."
+          },
+          "mapping_provenance": {
+            "kind": "assumed",
+            "note": "Reviewed override: vacuum-oven drying maps to oven, not the centrifuge tube containing the sample. Vacuum capability is not independently validated."
+          }
+        }
+      ]
+    }
+  ]
+}

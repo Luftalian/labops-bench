@@ -1,0 +1,390 @@
+{
+  "generated_at": "2026-10-22T01:03:06.964Z",
+  "source": "Saved journal initial_design payloads; exact canonical signature includes selected counts, devices, arm poses and AMR count.",
+  "checks": [
+    {
+      "task_id": "lemat-sdl-01-single-station",
+      "track": "original-v1",
+      "same_initial_as_reference": [
+        {
+          "method": "heuristic",
+          "same": true,
+          "candidate": "capacity",
+          "design_hash": "1a558064b3ecff106b21515093b53debb7389b8e6828a88d2def66efd18f6886"
+        },
+        {
+          "method": "gpt-6-luna-medium",
+          "same": true,
+          "candidate": "capacity",
+          "design_hash": "1a558064b3ecff106b21515093b53debb7389b8e6828a88d2def66efd18f6886"
+        },
+        {
+          "method": "jev",
+          "same": true,
+          "candidate": "capacity",
+          "design_hash": "1a558064b3ecff106b21515093b53debb7389b8e6828a88d2def66efd18f6886"
+        }
+      ]
+    },
+    {
+      "task_id": "lemat-sdl-02-cramped-exchange",
+      "track": "original-v1",
+      "same_initial_as_reference": [
+        {
+          "method": "heuristic",
+          "same": true,
+          "candidate": "capacity",
+          "design_hash": "b3f29e4b7ccc9d31be5d3c934c4bcf2a6473e6f8a8313f0b3dd27dc16dbb4619"
+        },
+        {
+          "method": "gpt-6-luna-medium",
+          "same": true,
+          "candidate": "capacity",
+          "design_hash": "b3f29e4b7ccc9d31be5d3c934c4bcf2a6473e6f8a8313f0b3dd27dc16dbb4619"
+        },
+        {
+          "method": "jev",
+          "same": true,
+          "candidate": "capacity",
+          "design_hash": "b3f29e4b7ccc9d31be5d3c934c4bcf2a6473e6f8a8313f0b3dd27dc16dbb4619"
+        }
+      ]
+    },
+    {
+      "task_id": "lemat-sdl-03-many-arms",
+      "track": "original-v1",
+      "same_initial_as_reference": [
+        {
+          "method": "heuristic",
+          "same": true,
+          "candidate": "capacity",
+          "design_hash": "f6d8aa19fd4c36a95f485a977a2256790c97b2466ac3f75dabec5cb17239e01a"
+        },
+        {
+          "method": "gpt-6-luna-medium",
+          "same": true,
+          "candidate": "capacity",
+          "design_hash": "f6d8aa19fd4c36a95f485a977a2256790c97b2466ac3f75dabec5cb17239e01a"
+        },
+        {
+          "method": "jev",
+          "same": true,
+          "candidate": "capacity",
+          "design_hash": "f6d8aa19fd4c36a95f485a977a2256790c97b2466ac3f75dabec5cb17239e01a"
+        }
+      ]
+    },
+    {
+      "task_id": "lemat-sdl-04-staggered-jobs",
+      "track": "original-v1",
+      "same_initial_as_reference": [
+        {
+          "method": "heuristic",
+          "same": true,
+          "candidate": "capacity",
+          "design_hash": "8ddba0c2f8bee9a49f70438d4141d44ea85156c413d83e111f52c4ae61280e6d"
+        },
+        {
+          "method": "gpt-6-luna-medium",
+          "same": true,
+          "candidate": "capacity",
+          "design_hash": "8ddba0c2f8bee9a49f70438d4141d44ea85156c413d83e111f52c4ae61280e6d"
+        },
+        {
+          "method": "jev",
+          "same": true,
+          "candidate": "capacity",
+          "design_hash": "8ddba0c2f8bee9a49f70438d4141d44ea85156c413d83e111f52c4ae61280e6d"
+        }
+      ]
+    },
+    {
+      "task_id": "lemat-sdl-05-bursty-demand",
+      "track": "original-v1",
+      "same_initial_as_reference": [
+        {
+          "method": "heuristic",
+          "same": true,
+          "candidate": "capacity",
+          "design_hash": "88c8068ea265fea3955d76ba31fc45dd3755b0d573c117bbefbd064a99e2e356"
+        },
+        {
+          "method": "gpt-6-luna-medium",
+          "same": true,
+          "candidate": "capacity",
+          "design_hash": "88c8068ea265fea3955d76ba31fc45dd3755b0d573c117bbefbd064a99e2e356"
+        },
+        {
+          "method": "jev",
+          "same": true,
+          "candidate": "capacity",
+          "design_hash": "88c8068ea265fea3955d76ba31fc45dd3755b0d573c117bbefbd064a99e2e356"
+        }
+      ]
+    },
+    {
+      "task_id": "lemat-sdl-06-long-process-overlap",
+      "track": "original-v1",
+      "same_initial_as_reference": [
+        {
+          "method": "heuristic",
+          "same": true,
+          "candidate": "capacity",
+          "design_hash": "a8953b5d2466d0082c7672d2fe4933b71ce09f6a394d12265a3780148111563d"
+        },
+        {
+          "method": "gpt-6-luna-medium",
+          "same": true,
+          "candidate": "capacity",
+          "design_hash": "a8953b5d2466d0082c7672d2fe4933b71ce09f6a394d12265a3780148111563d"
+        },
+        {
+          "method": "jev",
+          "same": true,
+          "candidate": "capacity",
+          "design_hash": "a8953b5d2466d0082c7672d2fe4933b71ce09f6a394d12265a3780148111563d"
+        }
+      ]
+    },
+    {
+      "task_id": "lemat-sdl-07-transport-pressure",
+      "track": "original-v1",
+      "same_initial_as_reference": [
+        {
+          "method": "heuristic",
+          "same": true,
+          "candidate": "capacity",
+          "design_hash": "df7d492833a3d5615d1f25ee1aa699651b7620ab54b0f31c3d3509fa136f58b0"
+        },
+        {
+          "method": "gpt-6-luna-medium",
+          "same": true,
+          "candidate": "capacity",
+          "design_hash": "df7d492833a3d5615d1f25ee1aa699651b7620ab54b0f31c3d3509fa136f58b0"
+        },
+        {
+          "method": "jev",
+          "same": true,
+          "candidate": "capacity",
+          "design_hash": "df7d492833a3d5615d1f25ee1aa699651b7620ab54b0f31c3d3509fa136f58b0"
+        }
+      ]
+    },
+    {
+      "task_id": "lemat-sdl-08-finite-buffers",
+      "track": "original-v1",
+      "same_initial_as_reference": [
+        {
+          "method": "heuristic",
+          "same": true,
+          "candidate": "capacity",
+          "design_hash": "c81fd897d6d37e0643132df2245eb267efae7bc9739ad2023eef4fde0b70a902"
+        },
+        {
+          "method": "gpt-6-luna-medium",
+          "same": true,
+          "candidate": "capacity",
+          "design_hash": "c81fd897d6d37e0643132df2245eb267efae7bc9739ad2023eef4fde0b70a902"
+        },
+        {
+          "method": "jev",
+          "same": true,
+          "candidate": "capacity",
+          "design_hash": "c81fd897d6d37e0643132df2245eb267efae7bc9739ad2023eef4fde0b70a902"
+        }
+      ]
+    },
+    {
+      "task_id": "lemat-sdl-09-room-small",
+      "track": "original-v1",
+      "same_initial_as_reference": [
+        {
+          "method": "heuristic",
+          "same": true,
+          "candidate": "capacity",
+          "design_hash": "b0acedf5bbe66a5038a88a84bf467b2f62bbe6bf2b2c194b682358ab1c8bcd63"
+        },
+        {
+          "method": "gpt-6-luna-medium",
+          "same": true,
+          "candidate": "capacity",
+          "design_hash": "b0acedf5bbe66a5038a88a84bf467b2f62bbe6bf2b2c194b682358ab1c8bcd63"
+        },
+        {
+          "method": "jev",
+          "same": true,
+          "candidate": "capacity",
+          "design_hash": "b0acedf5bbe66a5038a88a84bf467b2f62bbe6bf2b2c194b682358ab1c8bcd63"
+        }
+      ]
+    },
+    {
+      "task_id": "lemat-sdl-10-room-wide",
+      "track": "original-v1",
+      "same_initial_as_reference": [
+        {
+          "method": "heuristic",
+          "same": true,
+          "candidate": "capacity",
+          "design_hash": "36a27be432750ba8b9aeb71e1e049d17e15bdd943b2ac1a00ccea3a48cb0b3eb"
+        },
+        {
+          "method": "gpt-6-luna-medium",
+          "same": true,
+          "candidate": "capacity",
+          "design_hash": "36a27be432750ba8b9aeb71e1e049d17e15bdd943b2ac1a00ccea3a48cb0b3eb"
+        },
+        {
+          "method": "jev",
+          "same": true,
+          "candidate": "capacity",
+          "design_hash": "36a27be432750ba8b9aeb71e1e049d17e15bdd943b2ac1a00ccea3a48cb0b3eb"
+        }
+      ]
+    },
+    {
+      "task_id": "lemat-sdl-11-priority-tail",
+      "track": "decision-challenge",
+      "same_initial_as_reference": [
+        {
+          "method": "fifo",
+          "same": true,
+          "candidate": "spread-full",
+          "design_hash": "418cd42969cf700c2e061760cd0c5f7fb766c77d9ee08d630062df748453888e"
+        },
+        {
+          "method": "heuristic",
+          "same": true,
+          "candidate": "spread-full",
+          "design_hash": "418cd42969cf700c2e061760cd0c5f7fb766c77d9ee08d630062df748453888e"
+        },
+        {
+          "method": "algorithm-advanced",
+          "same": false,
+          "candidate": "packed-reverse",
+          "design_hash": "8ad6faecae3f9df82a161208371243a1904422e62533f85e3262a876e7fc5039"
+        },
+        {
+          "method": "gpt-6-luna-medium",
+          "same": false,
+          "candidate": "packed-full",
+          "design_hash": "561e15bc9707a8daaa4d0f309e2c5a0c779e9c4928ab0d7c063a7631d70b1910"
+        },
+        {
+          "method": "jev",
+          "same": false,
+          "candidate": "packed-full",
+          "design_hash": "561e15bc9707a8daaa4d0f309e2c5a0c779e9c4928ab0d7c063a7631d70b1910"
+        }
+      ]
+    },
+    {
+      "task_id": "lemat-sdl-12-overfull-inventory",
+      "track": "decision-challenge",
+      "same_initial_as_reference": [
+        {
+          "method": "fifo",
+          "same": true,
+          "candidate": "active-centrifuge+stirrer",
+          "design_hash": "027e23255937ff0c7e9c4cec8aee05c1525d02fae2163dcffe03ba6738e4ac1b"
+        },
+        {
+          "method": "heuristic",
+          "same": true,
+          "candidate": "active-centrifuge+stirrer",
+          "design_hash": "027e23255937ff0c7e9c4cec8aee05c1525d02fae2163dcffe03ba6738e4ac1b"
+        },
+        {
+          "method": "algorithm-advanced",
+          "same": false,
+          "candidate": "active-sonicator+sonicator",
+          "design_hash": "7f28404dfffa0a43d04770c1d84e92aaf3b2c88b846dffdac9f824f1e7657953"
+        },
+        {
+          "method": "gpt-6-luna-medium",
+          "same": false,
+          "candidate": "active-sonicator+sonicator",
+          "design_hash": "7f28404dfffa0a43d04770c1d84e92aaf3b2c88b846dffdac9f824f1e7657953"
+        },
+        {
+          "method": "jev",
+          "same": false,
+          "candidate": "active-sonicator+sonicator",
+          "design_hash": "7f28404dfffa0a43d04770c1d84e92aaf3b2c88b846dffdac9f824f1e7657953"
+        }
+      ]
+    },
+    {
+      "task_id": "lemat-sdl-13-lookahead-exchange",
+      "track": "decision-challenge",
+      "same_initial_as_reference": [
+        {
+          "method": "fifo",
+          "same": true,
+          "candidate": "active-centrifuge+stirrer",
+          "design_hash": "c611d2510c96dc7676986e717710ad4a8a7b3be78faa0bd57d1bcbcaaff870f8"
+        },
+        {
+          "method": "heuristic",
+          "same": true,
+          "candidate": "active-centrifuge+stirrer",
+          "design_hash": "c611d2510c96dc7676986e717710ad4a8a7b3be78faa0bd57d1bcbcaaff870f8"
+        },
+        {
+          "method": "algorithm-advanced",
+          "same": false,
+          "candidate": "active-stirrer+stirrer",
+          "design_hash": "bb827095bad8c9d43c94339b0085dad98bc20d2074b56dd4ff112851cf6b8d01"
+        },
+        {
+          "method": "gpt-6-luna-medium",
+          "same": false,
+          "candidate": "active-stirrer+stirrer",
+          "design_hash": "bb827095bad8c9d43c94339b0085dad98bc20d2074b56dd4ff112851cf6b8d01"
+        },
+        {
+          "method": "jev",
+          "same": false,
+          "candidate": "active-stirrer+stirrer",
+          "design_hash": "bb827095bad8c9d43c94339b0085dad98bc20d2074b56dd4ff112851cf6b8d01"
+        }
+      ]
+    },
+    {
+      "task_id": "lemat-sdl-14-layout-distance",
+      "track": "decision-challenge",
+      "same_initial_as_reference": [
+        {
+          "method": "fifo",
+          "same": true,
+          "candidate": "spread-full",
+          "design_hash": "fee67541d33135dfef24b3f650ca8c1890b47a19b1ac914a1dafe7f0f8d4cf63"
+        },
+        {
+          "method": "heuristic",
+          "same": true,
+          "candidate": "spread-full",
+          "design_hash": "fee67541d33135dfef24b3f650ca8c1890b47a19b1ac914a1dafe7f0f8d4cf63"
+        },
+        {
+          "method": "algorithm-advanced",
+          "same": false,
+          "candidate": "packed-full",
+          "design_hash": "cb64968b6abb012c154f3cccf71bedf19211c7e8fad72b3c3f6b2acaecb57980"
+        },
+        {
+          "method": "gpt-6-luna-medium",
+          "same": false,
+          "candidate": "packed-reverse",
+          "design_hash": "fe71a38e2b65d9d4f99933db665d2398c9a3f5c62104adef2d4da7ed0bad074c"
+        },
+        {
+          "method": "jev",
+          "same": false,
+          "candidate": "packed-full",
+          "design_hash": "cb64968b6abb012c154f3cccf71bedf19211c7e8fad72b3c3f6b2acaecb57980"
+        }
+      ]
+    }
+  ]
+}

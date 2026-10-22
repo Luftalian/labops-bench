@@ -1,0 +1,19 @@
+{
+  "model_id": "coordinated-planar-relocation",
+  "version": "synthetic-1",
+  "provenance": "Development assumptions chosen to exercise physical relocation. No measured laboratory move/setup/calibration data. One exclusive relocation team coordinates the moved group; summed asset durations conservatively determine each group stage.",
+  "evidence_type": "assumption",
+  "parameters": {
+    "translation_speed_m_s": 0.1,
+    "rotation_speed_deg_s": 15,
+    "device_disconnect_s": 60,
+    "device_reconnect_s": 60,
+    "device_calibrate_s": 60,
+    "arm_disconnect_s": 120,
+    "arm_reconnect_s": 120,
+    "arm_calibrate_s": 120,
+    "sweep_step_m": 0.02,
+    "sweep_step_deg": 2,
+    "clearance_m": 0.01
+  }
+}

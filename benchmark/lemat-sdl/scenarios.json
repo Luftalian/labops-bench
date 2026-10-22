@@ -1,0 +1,461 @@
+[
+  {
+    "id": "01-single-station",
+    "name": "One station, maximum throughput",
+    "room": [
+      5,
+      4
+    ],
+    "groups": [
+      {
+        "workflow": "ha-mix",
+        "count": 24,
+        "interval_s": 0
+      }
+    ],
+    "equipment": {
+      "flex_stirrer": 1
+    },
+    "arms": 1,
+    "amrs": 1,
+    "buffer_slots": 8,
+    "purpose": "Single-device saturation; priority cannot invent parallel capacity."
+  },
+  {
+    "id": "02-cramped-exchange",
+    "name": "Cramped room with external equipment exchange",
+    "room": [
+      4,
+      3.4
+    ],
+    "groups": [
+      {
+        "workflow": "ha-mix",
+        "count": 8,
+        "interval_s": 0
+      },
+      {
+        "workflow": "cbi-separate",
+        "count": 8,
+        "start_s": 7200,
+        "interval_s": 300
+      }
+    ],
+    "equipment": {
+      "flex_stirrer": 1,
+      "flex_centrifuge": 1
+    },
+    "arms": 1,
+    "amrs": 1,
+    "buffer_slots": 4,
+    "external_staging": {
+      "capacity": 1,
+      "max_active_devices": 1,
+      "handling_s_per_device": 180,
+      "gate": {
+        "x": 2,
+        "width_m": 1.4
+      }
+    },
+    "purpose": "Two immutable owned instruments, one active position; drain, remove and insert through a checked doorway."
+  },
+  {
+    "id": "03-many-arms",
+    "name": "32 arms operating in a spacious hall",
+    "room": [
+      32,
+      24
+    ],
+    "groups": [
+      {
+        "workflow": "cbi-mix",
+        "count": 64,
+        "interval_s": 0
+      }
+    ],
+    "equipment": {
+      "flex_stirrer": 32
+    },
+    "arms": 32,
+    "amrs": 8,
+    "buffer_slots": 8,
+    "purpose": "Prepared samples are initially staged in finite local arm buffers (setup assumption). Exercise dozens of simultaneous arm loads/unloads and device processes, with shared AMRs retained.",
+    "version": "2",
+    "initial_sample_policy": "local-arm-buffer"
+  },
+  {
+    "id": "04-staggered-jobs",
+    "name": "48 staggered synthesis jobs",
+    "room": [
+      14,
+      10
+    ],
+    "groups": [
+      {
+        "workflow": "ha-full",
+        "count": 24,
+        "interval_s": 600
+      },
+      {
+        "workflow": "cbi-full",
+        "count": 24,
+        "start_s": 300,
+        "interval_s": 900
+      }
+    ],
+    "equipment": {
+      "flex_stirrer": 3,
+      "flex_liquid_handler": 2,
+      "flex_centrifuge": 2,
+      "oven": 3
+    },
+    "arms": 10,
+    "amrs": 3,
+    "buffer_slots": 8,
+    "purpose": "Overlapping full extracted workflows, future arrivals and priority updates."
+  },
+  {
+    "id": "05-bursty-demand",
+    "name": "Three waves of competing demand",
+    "room": [
+      12,
+      9
+    ],
+    "groups": [
+      {
+        "workflow": "ha-mix",
+        "count": 16,
+        "interval_s": 0
+      },
+      {
+        "workflow": "cbi-separate",
+        "count": 16,
+        "start_s": 2400,
+        "interval_s": 0
+      },
+      {
+        "workflow": "ag-sonicate",
+        "count": 16,
+        "start_s": 4800,
+        "interval_s": 0
+      }
+    ],
+    "equipment": {
+      "flex_stirrer": 2,
+      "flex_centrifuge": 2,
+      "flex_sonicator": 2
+    },
+    "arms": 6,
+    "amrs": 2,
+    "buffer_slots": 8,
+    "purpose": "Bursts change the bottleneck and compete for transport."
+  },
+  {
+    "id": "06-long-process-overlap",
+    "name": "Long drying overlaps incoming short jobs",
+    "room": [
+      14,
+      10
+    ],
+    "groups": [
+      {
+        "workflow": "cbi-full",
+        "count": 8,
+        "interval_s": 0
+      },
+      {
+        "workflow": "ha-mix",
+        "count": 24,
+        "start_s": 7200,
+        "interval_s": 180
+      }
+    ],
+    "equipment": {
+      "flex_stirrer": 3,
+      "flex_centrifuge": 2,
+      "oven": 2
+    },
+    "arms": 7,
+    "amrs": 2,
+    "buffer_slots": 8,
+    "purpose": "Overnight drying uses an explicit 12-hour assumption; no shortening to favor a controller."
+  },
+  {
+    "id": "07-transport-pressure",
+    "name": "Transport-limited short operations",
+    "room": [
+      22,
+      12
+    ],
+    "groups": [
+      {
+        "workflow": "sto-etch",
+        "count": 24,
+        "interval_s": 0
+      },
+      {
+        "workflow": "cbi-separate",
+        "count": 24,
+        "interval_s": 0
+      }
+    ],
+    "equipment": {
+      "flex_liquid_handler": 4,
+      "flex_centrifuge": 4
+    },
+    "arms": 8,
+    "amrs": 1,
+    "buffer_slots": 8,
+    "purpose": "One AMR serves dispersed arms; device capacity alone does not determine completion time."
+  },
+  {
+    "id": "08-finite-buffers",
+    "name": "Admission and finite buffer pressure",
+    "room": [
+      12,
+      9
+    ],
+    "groups": [
+      {
+        "workflow": "ha-full",
+        "count": 24,
+        "interval_s": 0
+      }
+    ],
+    "equipment": {
+      "flex_stirrer": 2,
+      "flex_liquid_handler": 2,
+      "oven": 2
+    },
+    "arms": 6,
+    "amrs": 2,
+    "buffer_slots": 4,
+    "purpose": "Multi-step jobs reserve future buffer credits, exposing admission and handoff pressure."
+  },
+  {
+    "id": "09-room-small",
+    "name": "Matched workload in a compact room",
+    "room": [
+      9,
+      7
+    ],
+    "groups": [
+      {
+        "workflow": "ha-mix",
+        "count": 16,
+        "interval_s": 60
+      },
+      {
+        "workflow": "ag-separate",
+        "count": 16,
+        "interval_s": 120
+      }
+    ],
+    "equipment": {
+      "flex_stirrer": 3,
+      "flex_centrifuge": 3
+    },
+    "arms": 6,
+    "amrs": 2,
+    "buffer_slots": 8,
+    "purpose": "Paired with scenario 10; room shape changes placement and travel while jobs/count limits remain identical."
+  },
+  {
+    "id": "10-room-wide",
+    "name": "Matched workload in a wide room",
+    "room": [
+      24,
+      16
+    ],
+    "groups": [
+      {
+        "workflow": "ha-mix",
+        "count": 16,
+        "interval_s": 60
+      },
+      {
+        "workflow": "ag-separate",
+        "count": 16,
+        "interval_s": 120
+      }
+    ],
+    "equipment": {
+      "flex_stirrer": 3,
+      "flex_centrifuge": 3
+    },
+    "arms": 6,
+    "amrs": 2,
+    "buffer_slots": 8,
+    "purpose": "Paired with scenario 09; neither monotone performance nor an optimum is assumed."
+  },
+  {
+    "id": "11-priority-tail",
+    "name": "Start downstream chains before the short queue",
+    "room": [
+      7,
+      5
+    ],
+    "groups": [
+      {
+        "workflow": "cbi-mix",
+        "count": 6,
+        "interval_s": 0
+      },
+      {
+        "workflow": "ha-full",
+        "count": 6,
+        "interval_s": 0
+      }
+    ],
+    "equipment": {
+      "flex_stirrer": 1,
+      "flex_liquid_handler": 1,
+      "oven": 1
+    },
+    "arms": 3,
+    "amrs": 1,
+    "buffer_slots": 8,
+    "purpose": "Same initial layout can be held fixed to isolate FIFO versus downstream-aware job ordering; source process windows unchanged.",
+    "placement_policy": "dense-cell-candidates-v2",
+    "version": "1",
+    "category": "decision-challenge"
+  },
+  {
+    "id": "12-overfull-inventory",
+    "name": "Thirty-six owned instruments, two room bays",
+    "room": [
+      4,
+      3.4
+    ],
+    "groups": [
+      {
+        "workflow": "ha-mix",
+        "count": 6,
+        "interval_s": 0
+      },
+      {
+        "workflow": "cbi-separate",
+        "count": 6,
+        "interval_s": 0
+      },
+      {
+        "workflow": "ag-sonicate",
+        "count": 4,
+        "interval_s": 0
+      },
+      {
+        "workflow": "sto-etch",
+        "count": 6,
+        "interval_s": 0
+      }
+    ],
+    "equipment": {
+      "flex_stirrer": 9,
+      "flex_centrifuge": 9,
+      "flex_sonicator": 9,
+      "flex_liquid_handler": 9
+    },
+    "arms": 2,
+    "amrs": 1,
+    "buffer_slots": 4,
+    "external_staging": {
+      "capacity": 35,
+      "max_active_devices": 2,
+      "handling_s_per_device": 180,
+      "gate": {
+        "x": 2,
+        "width_m": 3.8
+      }
+    },
+    "purpose": "Owned device bodies alone exceed room floor area (36 x 0.72 x 0.58 > 4 x 3.4 m2). Fixed 36-device inventory; one or two active bays, others outside. Choose model pairs and exchange timing.",
+    "placement_policy": "dense-cell-candidates-v2",
+    "version": "1",
+    "category": "decision-challenge"
+  },
+  {
+    "id": "13-lookahead-exchange",
+    "name": "Upcoming waves compete with present demand",
+    "room": [
+      4,
+      3.4
+    ],
+    "groups": [
+      {
+        "workflow": "ha-mix",
+        "count": 12,
+        "interval_s": 300
+      },
+      {
+        "workflow": "cbi-separate",
+        "count": 12,
+        "start_s": 1800,
+        "interval_s": 120
+      },
+      {
+        "workflow": "ag-sonicate",
+        "count": 3,
+        "start_s": 3600,
+        "interval_s": 0
+      },
+      {
+        "workflow": "sto-etch",
+        "count": 12,
+        "start_s": 5400,
+        "interval_s": 60
+      }
+    ],
+    "equipment": {
+      "flex_stirrer": 2,
+      "flex_centrifuge": 2,
+      "flex_sonicator": 2,
+      "flex_liquid_handler": 2
+    },
+    "arms": 2,
+    "amrs": 1,
+    "buffer_slots": 4,
+    "external_staging": {
+      "capacity": 7,
+      "max_active_devices": 2,
+      "handling_s_per_device": 180,
+      "gate": {
+        "x": 2,
+        "width_m": 3.8
+      }
+    },
+    "purpose": "Choose between draining short current work, a long process cohort and upcoming demand; repeated exchanges incur actual handling and movement time.",
+    "placement_policy": "dense-cell-candidates-v2",
+    "version": "1",
+    "category": "decision-challenge"
+  },
+  {
+    "id": "14-layout-distance",
+    "name": "Pack the active work near intake instead of filling the hall",
+    "room": [
+      24,
+      16
+    ],
+    "groups": [
+      {
+        "workflow": "sto-etch",
+        "count": 24,
+        "interval_s": 0
+      },
+      {
+        "workflow": "cbi-separate",
+        "count": 24,
+        "interval_s": 0
+      }
+    ],
+    "equipment": {
+      "flex_liquid_handler": 4,
+      "flex_centrifuge": 4
+    },
+    "arms": 8,
+    "amrs": 1,
+    "buffer_slots": 8,
+    "purpose": "Identical geometry validation and bodies; compare spread, tightly packed and reduced-count cells under one shared AMR. Free area need not become transport distance.",
+    "placement_policy": "dense-cell-candidates-v2",
+    "version": "1",
+    "category": "decision-challenge"
+  }
+]

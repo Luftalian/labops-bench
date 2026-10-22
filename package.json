@@ -1,0 +1,22 @@
+{
+  "name": "labopsbench",
+  "private": true,
+  "version": "0.2.0",
+  "type": "module",
+  "engines": {
+    "node": ">=18.16"
+  },
+  "scripts": {
+    "start": "node scripts/serve.mjs",
+    "check": ".venv/bin/python scripts/check_contracts.py && .venv/bin/python -m unittest discover -s tests -v && node --test tests/integration/*.test.mjs",
+    "check:poc": "cd backend/poc && node --test sim/v2/tests/*.test.mjs sim/v4/tests/*.test.mjs",
+    "check:import": ".venv/bin/python scripts/check_poc_import.py",
+    "check:poc:replay": "cd backend/poc && node scripts/verify-luna-replay.mjs",
+    "benchmark:heuristic": "node scripts/run-lemat-sdl.mjs",
+    "benchmark:jev": "node scripts/run-lemat-model.mjs jev",
+    "benchmark:report": "node scripts/build-lemat-report.mjs",
+    "build:results": "node scripts/export-benchmark-ui.mjs",
+    "view:results": "node scripts/export-benchmark-ui.mjs && node scripts/serve-static-results.mjs dist/benchmark-ui",
+    "publish:recordings": "node scripts/publish-benchmark-recordings.mjs"
+  }
+}

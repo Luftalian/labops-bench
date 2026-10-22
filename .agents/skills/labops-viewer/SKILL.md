@@ -1,18 +1,16 @@
 ---
 name: labops-viewer
-description: Build LabOpsBench equipment, transport replay and before/after benchmark views from recorded evaluation results.
+description: Build LabOpsBench device, arm and transport replay from recorded simulation results.
 ---
 
 # Evaluation viewer
 
-Read `contracts/README.md`, `docs/EVALUATION.md` and the event section of `docs/SIMULATION.md` from the repository root.
+Read `contracts/README.md`, `docs/EVALUATION.md` and the event section of `docs/SIMULATION.md`.
 
-Build against the provided fixtures while the API is under development. Visibly label hand-calculated fixtures. Switch to actual API output through an adapter without changing field meanings.
+Render actual installed devices, arms and AMRs from the evaluator layout and events. Reuse the PoC models and coordinate convention. Playback speed only changes interpolation; use server metrics for completion time and resource counts.
 
-Render resolved device instances and recorded event paths. Use one simulation clock for before/after comparisons. Playback speed affects interpolation only; never recompute throughput, cost or completion in browser animation code.
+Show room dimensions, per-type count ceilings, selected/installed counts, task version and completion status. Keep simulation seconds separate from wall time. Comparisons use the same task or clearly labeled room conditions with matching workloads and limits.
 
-Keep simulation seconds distinct from wall time. Convert the world y axis only in the rendering transform. Display the budget, used credits, device counts, horizon and task identity alongside the metrics. Different task versions are not a valid side-by-side comparison.
+Handle invalid, layout_search_failed, truncated and error states explicitly. Null makespan is unfinished. Hide the old scene and scores after invalid input, and preserve raw-result JSON export.
 
-Handle invalid, truncated and error states explicitly. Show null makespan as unfinished, not zero. Plot scaling curves from saved runs and expose condition labels. Use 2D first; CAD and 3D must not delay the shared end-to-end path.
-
-Verify a complete replay, speed change, invalid response and a result that continues beyond H. Report whether the UI uses fixtures or real simulation output.
+Verify 2D/3D arms, playback speed, complete and invalid/incomplete responses, and that scores stay fixed during replay. Mark synthetic and hand-calculated sources visibly. Historical 0.1 credit/H and PoC dynamic pages remain separate.

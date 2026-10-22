@@ -1,40 +1,53 @@
-# API契約 v0.1
+# API契約 v0.2
 
-キーと型の正本は[labops.schema.json](labops.schema.json)。JSON Schema Draft 2020-12の`$defs`にCatalog、Workflow、Task、DesignRequest、EvaluationResult、Eventを置く。rootは開発用Fixture bundleの検証用。実APIでは該当`$defs`を参照する。
+正本は`labops.schema.json`。正式評価は`/v2/`、旧予算/H評価は`/v1/`、動的PoCは`/api/v4/`の別契約。
 
-## API案
+## Taskと提出
+
+`GET /v2/tasks`は公開catalog、workflow、Taskを返す。Taskはroomの幅/奥行き、`resource_limits.equipment`、arms/amrs上限、全job、seed、policy、計算打ち切りを固定する。価格・設備予算・採点Hはない。
 
 ```text
-POST /v1/evaluations
+POST /v2/runs
+{"task_id":"counts-room-14x10-dev","task_version":"1","method":"manual","search_seed":17}
+# run_idとKはサーバーが保持。現在はmanual/ai contextのみで、推論は行わない。
+
+POST /v2/evaluations
+X-LabOps-Run-Id: <run_id>
 Body: DesignRequest
-Response: EvaluationResult
+
+GET /v2/runs/:run_id
+GET /v2/catalog
 ```
 
-サーバーはtask_id/task_versionから固定Taskを取得し、Taskが参照するcatalog/workflowのversionも照合する。利用者から価格・duration・Hを受け取り上書きしない。Stage 2は別契約で追加し、Stage 1に任意座標を混入させない。
+DesignRequestは`schema_version="0.2"`、`submission_id`、`task_id`/`task_version`、全モデルを含む`equipment_counts`、`arm_count`、`amr_count`、Taskと同じ`simulation_seed`を必須とする。任意の`layout`はPoC形式のdevices/robotsを使い、指定台数との一致と幾何を検証する。Taskのroom、台数上限、処理時間、打ち切りを提出側が上書きするキーは受け付けない。
 
-submission_idはSearch Run内の提出識別子。同じID/同じ入力の通信再試行には保存済みの同じ結果を返す。同じID/違う入力は409。同じ候補でも新IDなら新しい提出としてKへ加算する。run_idとKは呼び出し元ハーネスのサーバー側contextで保持する。HTTP実装時にrun contextの結び方を定義し、クライアントがKを増やせないようにする。
+## 応答と採点
 
-| 状況 | 応答案 |
+| 応答 | 意味 |
 |---|---|
-| 型不正、未知のキー | HTTP 422、評価ハーネスには提出失敗として記録 |
-| task/versionが見つからない | HTTP 404、候補提出履歴には記録 |
-| 予算・設備・配置条件違反 | HTTP 200、status=invalid、valid=false、metrics=null |
-| 正常計算 | HTTP 200、status=completed、valid=true |
-| drain上限で未完了 | HTTP 200、status=truncated、valid=true、makespan=null |
-| システム障害 | HTTP 5xx、status=error、原因を記録。同じsubmission_idで再試行 |
+| 200 / completed | 全jobの最終アーム搬出まで完了。有限`metrics.makespan_s`を最小化 |
+| 200 / truncated | Taskの計算打ち切り。makespan=null、順位対象外 |
+| 200 / invalid | 台数上限・必要資源・提出layout等の違反。metrics=null |
+| 200 / layout_search_failed | 自動配置が指定台数のまま配置できなかった。metrics=null、物理的不可能性の証明ではない |
+| 200 / error | 固定executorが完了できない内部状態。metrics=null、順位対象外 |
+| 422 | 型不正・未知キー・旧契約入力。失敗提出として計上 |
+| 404 | 未知run、またはrunに結び付かないTask/version |
+| 409 | 同一submission_idの入力衝突、または保存runのTask変更 |
+| 429 | K到達後の新ID提出 |
+| 5xx | worker/基盤障害。同一IDで再試行可能 |
 
-invalid/errorのeventsは空。無効構成を加工して勝手に有効化しない。errorは構成の実行可能性が判定できなかった場合も含み、invalidと区別して集計する。
+`installed_resources`は実際に設置した全装置・アーム・AMR数。`events`と`replay`は同じPoCエンジンの記録で、描画用の架空アームを追加しない。無効・配置失敗・errorには成績を付けない。UIの再生時刻でmakespanを再計算しない。
 
-fixture内のresult_origin=hand_calculated_fixtureはUI開発用。本番評価レスポンスはsimulationとし、評価ハーネスはfixtureをbenchmark集計に入れない。
+同一ID/同一入力は再送・再起動後も保存結果を返す。同一候補でも新IDはKへ加算。失敗を含むmanifest/JSONLを`results/local/counts-v0.2/`に保存する。ローカルの信頼された開発ハーネスで、認証/OS隔離されたcontestantサービスではない。
 
-## fixture
+## 次期ジョブスケジューラ契約（draft）
 
-- [single-mix-valid.json](../fixtures/single-mix-valid.json)：1job、入口→装置1秒、処理10秒、出口まで1秒。手計算で12秒。
-- [missing-device-invalid.json](../fixtures/missing-device-invalid.json)：構造は正しいが必要装置がない。
-- [four-stage-input.json](../fixtures/four-stage-input.json)：4種の装置と10job。計算結果はまだ付けていない。
+`labops.schema.json`の`SchedulerConfig / SchedulerObservation / SchedulerDecision / SchedulerReceipt / SchedulerSessionRequest / SchedulerResult`は別protocol `labops.scheduler.v0.2-draft`を定義する。初期台数/配置、全未完了jobのpriority、定期的な配置維持/物理移設を表す。装置/アームのID・台数と装置modelを維持し、module交換は扱わない。既存`/v2/evaluations`へ送れるactionを増やす変更ではない。動作と実装境界は[`docs/SCHEDULER_INTERFACE.md`](../docs/SCHEDULER_INTERFACE.md)を参照。
 
-graphのedgeは無向。長さはcorridorの道のりで、端点の直線距離以上。接続性と長さは検証するが、一般のCAD衝突や通路幅をこのcheckerが証明するわけではない。
+`fixtures/scheduler/exchange.json`は生成可能なsynthetic通信例。`scripts/check_scheduler_contracts.py`と`agent/scheduler_contract.py`はshapeと参照整合性だけを検証する。`backend/scheduler/`がgeometry/掃引検証・受理・実行・永続化とHTTP endpointを実装する。API一覧は`backend/scheduler/README.md`。provider注入adapterに加え、別CLI runnerでLuna（Codex枠）／Jev（3ドル上限）の公開候補比較を接続。初回/定期判断の対応、stale snapshot、jobの完全なpriority vector、台数上限・資源ID・機器model不変をチェックする。
 
-## 検証の範囲
+## 旧版
 
-`scripts/check_contracts.py`はschema、参照、費用、台数、直列工程、基本配置、graphの接続性、手計算resultの集計整合性を検証する。実シミュレータのdispatch、予約、batch、queueは未実装。A02で振る舞いを検証する。Python/TypeScript双方のモデルを作る場合も、このschemaとfixtureを共通テストに利用する。
+0.1 schemaは`archive/labops-v0.1.schema.json`。旧fixture・Python固定policy・`/legacy/`は保存済み結果の意味とoracleを保持する。現在の正式順位へ混ぜない。動的PoCの録画は元source snapshotで再現する。
+
+新課題の`Policies.placement="dense-cell-candidates-v2"`は密なセル配置やactive model setの公開候補track。任意の`Policies.inventory="fixed-owned-v1"`では選択equipment_countsがresource_limits.equipmentに完全一致し、外部待機も含む保有機器を減らせない。旧Taskでinventory未指定なら従来の上限選択。SchedulerContextの`placement_policy`/`inventory_policy`/`buffer_slots`はoptional追加。provider変換やpacking previewはcanonical Decisionの検証を迂回しない。

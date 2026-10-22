@@ -1,0 +1,81 @@
+{
+  "validated_at": "2026-10-21T12:34:06.727783+00:00",
+  "scope": "Software integration validation only. No live model inference, method comparison, measured relocation timings or global optimum claim.",
+  "commands": [
+    {
+      "command": "npm run check",
+      "status": "passed",
+      "python_tests": 46,
+      "node_tests": 33,
+      "log": "/private/tmp/labops-scheduler-final-check.log"
+    },
+    {
+      "command": "LABOPS_URL=http://127.0.0.1:4180 node scripts/smoke-scheduler.mjs",
+      "status": "passed",
+      "session_id": "2dbf0170-3ce2-42b8-ba13-998bb9fadb29",
+      "checks": [
+        "initial geometry and priorities",
+        "exact epochs",
+        "physical arm/device relocation",
+        "nonpreemptive drain",
+        "same-ID retries",
+        "completion and JSON export"
+      ]
+    },
+    {
+      "command": "LABOPS_URL=http://127.0.0.1:4180 node scripts/smoke-counts.mjs",
+      "status": "passed"
+    },
+    {
+      "command": "LABOPS_URL=http://127.0.0.1:4180 node scripts/smoke-integration.mjs",
+      "status": "passed"
+    },
+    {
+      "command": "npm run check:poc:replay",
+      "status": "passed",
+      "trace_sha256": "21d570dfc49d4ab5c82453d76adf264a3c6776f1b94d335994c86157a4fcdd5d"
+    },
+    {
+      "command": ".venv/bin/python scripts/check_poc_import.py",
+      "status": "passed",
+      "original_files": 170,
+      "explicit_patches": 3
+    }
+  ],
+  "browser": {
+    "url": "http://127.0.0.1:4180/scheduler/",
+    "session_id": "e9af6b89-8fd2-4bf0-a143-78261401a6a4",
+    "checks": [
+      "rule priority JSON submitted",
+      "initial layout and real recorded arms",
+      "move devices and arms by 0.2 m",
+      "draining then transitioning then relocation_applied",
+      "next jobs resumed",
+      "labels toggle",
+      "state survives page/server reload"
+    ],
+    "screenshot": "results/local/validation/scheduler-physical-relocation.png"
+  },
+  "limitations": [
+    "Synthetic relocation and arrival parameters are explicit development assumptions.",
+    "Movement checks use conservative coordinated planar straight sweeps; curved/staged routes, articulated motion and utility connections are not certified.",
+    "LLM provider/model/credentials remain unconfigured; the provider-injection controller and timeout behavior were tested without model calls."
+  ],
+  "source_sha256": {
+    "contracts/labops.schema.json": "679a7ce97c4b6dfe80ef5381e16a79f851f1fec556cdee651323166cea8db098",
+    "backend/scheduler/session.mjs": "d01061d3e205e6b35fe81e605e3c1915cb2c7c8c97487509488c8d14822d4063",
+    "backend/scheduler/motion.mjs": "0759fa65a3c2f80e1c1e48115d80e576e8ef410b71a36f20970eca422d18f243",
+    "backend/scheduler/policy.mjs": "2b6d0bf43b2314d70eb4d7e148f801de0e5634b769971f571b49cde4cfa38af0",
+    "backend/scheduler/tasks.mjs": "57ea40dee9cf4424d8bb61becc876ff2c8c9f8cd2167a1effeebe895eda01c3d",
+    "backend/scheduler/service.mjs": "d31a99f882c6a4467a309ece77c927593651a5b92f14f4738ca20fd3a59e83fe",
+    "backend/scheduler/http.mjs": "0c556a1455548dba3e564c1ee93355a1e6703b300cf040b7fbfa6d2f69529e0f",
+    "backend/scheduler/data/relocation.json": "6f1554e3e597e43203c701ed387914aa237ff168565cd5f4dba2cbff06890fca",
+    "agent/llm-scheduler.mjs": "c2947afb9066742d22856af20de069cee20ef845696592984b05cc4e85266b81",
+    "agent/scheduler-controller.mjs": "08feb4e6d092cdae1e931cf93ddeb9d6b167ff2f14926a127e55a56cbbf6c01b",
+    "frontend/scheduler/app.mjs": "241357d3598ff53895ef166b3ea6074650c45968329aa18ceee9f1ebbd30c9aa",
+    "frontend/scheduler/index.html": "9d8e1b5ba2c1efeba09f49eadf5fbe14d8a9b6bb10405b06dcf41a3e6d7bb4fd",
+    "frontend/scheduler/styles.css": "daa88f927b702b568ec83f8c85ae7b59dc0f482bbdf22f69da602b237a432e9d",
+    "tests/integration/scheduler.test.mjs": "fb3a1dc5ad443e146b27d818d634cefc33083d786ba1c30898545f04c2edf626",
+    "backend/poc/IMPORT_PATCHES.json": "fcd0bc4617160dd409e7ef003045de96c1186b92f2a3a46f37b51ec96a09164a"
+  }
+}
