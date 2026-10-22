@@ -17,6 +17,9 @@
     "benchmark:report": "node scripts/build-lemat-report.mjs",
     "build:results": "node scripts/export-benchmark-ui.mjs",
     "view:results": "node scripts/export-benchmark-ui.mjs && node scripts/serve-static-results.mjs dist/benchmark-ui",
-    "publish:recordings": "node scripts/publish-benchmark-recordings.mjs"
+    "publish:recordings": "node scripts/publish-benchmark-recordings.mjs",
+    "media:prepare": "node scripts/prepare-hackathon-media.mjs",
+    "media:studio": "node scripts/serve-hackathon-media.mjs",
+    "media:encode": "node scripts/encode-hackathon-media.mjs && node scripts/package-hackathon-media.mjs"
   }
 }
