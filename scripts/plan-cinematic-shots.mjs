@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 import {createHash} from 'node:crypto';
 import {carriersAt} from '../backend/poc/demo/workshop/timeline.mjs';
-const base=new URL('../results/local/hackathon-media-v2/',import.meta.url),read=k=>JSON.parse(fs.readFileSync(new URL('sources/'+k+'.json',base)));
+const base=new URL('../results/local/hackathon-media-v3/',import.meta.url),read=k=>JSON.parse(fs.readFileSync(new URL('sources/'+k+'.json',base)));
 const active=(e,t)=>e.start_s<=t&&e.end_s>t;
 const activity=new WeakMap();
 function count(r,t,prefix){let memo=activity.get(r);if(!memo){memo={};activity.set(r,memo);}if(!memo[prefix]){const es=r.trace.filter(e=>e.resource.startsWith(prefix));memo[prefix]=[es.map(e=>e.start_s).sort((a,b)=>a-b),es.map(e=>e.end_s).sort((a,b)=>a-b)];}const upper=es=>{let l=0,h=es.length;while(l<h){const m=(l+h)>>1;if(es[m]<=t)l=m+1;else h=m;}return l;};return upper(memo[prefix][0])-upper(memo[prefix][1]);}

@@ -1,0 +1,122 @@
+{
+  "created_at": "2026-10-22T07:03:04.703Z",
+  "source_hashes": {
+    "frontend/benchmarks/index.html": "1e1866bb0d2e4cb14a86d6f2fa12cac4d3d8623cf1722a5fbf84f7ddad5e20f2",
+    "frontend/benchmarks/styles.css": "7d04791edd601dc27fb1ff394fc53ae90dab9147843f9c4216f5c3e2d9bc1468",
+    "frontend/benchmarks/app.mjs": "d5adb5e37674105eedce61096f4aa9b49e7290700c02cdacad74fa86791f2409",
+    "frontend/media/ui-review.html": "49e2e88af3c303606079687d6e2de88c4e01bc4947646c3806b50aac82ae6940"
+  },
+  "unchanged_report_sha256": "9f24981f05cd544cc2b351ea25147f5443a2c1bc1e3dde7e8ec5c6c3d7630427",
+  "before": {
+    "viewport": 375,
+    "page_width": 370,
+    "table_font_px": 10,
+    "comparison_padding_px": 0,
+    "pass": false
+  },
+  "responsive": [
+    {
+      "viewport": 375,
+      "result_rows": 4,
+      "page_width": 375,
+      "table_font_px": 13,
+      "comparison_padding_px": 18,
+      "pass": true
+    },
+    {
+      "viewport": 768,
+      "result_rows": 4,
+      "page_width": 768,
+      "table_font_px": 13,
+      "comparison_padding_px": 24,
+      "pass": true
+    },
+    {
+      "viewport": 1024,
+      "result_rows": 4,
+      "page_width": 1024,
+      "table_font_px": 13,
+      "comparison_padding_px": 24,
+      "pass": true
+    },
+    {
+      "viewport": 1440,
+      "result_rows": 4,
+      "page_width": 1440,
+      "table_font_px": 13,
+      "comparison_padding_px": 24,
+      "pass": true
+    }
+  ],
+  "playback": {
+    "score_before": "8.268",
+    "method": "GPT Luna",
+    "three_selected": "true",
+    "visible_labels": 3,
+    "score_after": "8.268",
+    "end_button_label": "Play replay",
+    "end_decision": null,
+    "end_time": "08:16:05",
+    "restart_time": "00:00:00",
+    "two_selected": "true",
+    "pass": true
+  },
+  "distribution": {
+    "canvas_width": 872,
+    "rows": 4,
+    "score": "8.31",
+    "stylesheets": 1,
+    "three_selected": "true",
+    "title": "Benchmark results."
+  },
+  "software": {
+    "command": "npm run check",
+    "python_tests": 46,
+    "node_tests": 49,
+    "passed": true
+  },
+  "ui_tour": [
+    {
+      "file": "mp4/04-ui-tour.mp4",
+      "validated_at": "2026-10-22T06:54:16.924Z",
+      "bytes": 6705636,
+      "sha256": "8a81b0f77f221b11c551bc55b896ddf0a8bfe20abadd4503bbd9567d261565fd",
+      "codec": "h264",
+      "profile": "High",
+      "width": 1920,
+      "height": 1080,
+      "frames": 900,
+      "duration_s": 30,
+      "fps": "30/1",
+      "color_space": "bt709",
+      "color_primaries": "bt709",
+      "color_transfer": "bt709",
+      "pixel_format": "yuv420p",
+      "audio_streams": 0
+    },
+    {
+      "file": "masters/04-ui-tour.mov",
+      "validated_at": "2026-10-22T06:54:27.580Z",
+      "bytes": 314059005,
+      "sha256": "3bf48ec8a631c5a597d481bbce350c7bcdb8fc255da5c0130c3e0bbed71612a7",
+      "codec": "prores",
+      "profile": "HQ",
+      "width": 1920,
+      "height": 1080,
+      "frames": 900,
+      "duration_s": 30,
+      "fps": "30/1",
+      "color_space": "bt709",
+      "color_primaries": "bt709",
+      "color_transfer": "bt709",
+      "pixel_format": "yuv422p10le",
+      "audio_streams": 0
+    }
+  ],
+  "screenshots": {
+    "before-375.jpg": "474e97256a6712769f6b83f5b846a227b87d7476004e3ddcee563d84e0b5c40d",
+    "ui-preview.jpg": "04f310556bc5488facd65a0a7cc098dc3d604b583107dbb686cdc8e9833c9088",
+    "clean-lab.jpg": "a5259bbb9eac46c6b08c30c120af41cc0be629ca7908eb66179a58c878e0f066"
+  },
+  "scope": "Presentation and recorded-replay behavior only; no changed tasks, engine policy, chemistry prediction or new provider inference."
+}
