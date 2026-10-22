@@ -1,6 +1,6 @@
 # Third party sources and notices
 
-LabOpsBench includes third-party code, robot geometry and derived scientific annotations. Their original terms remain in force. This file does not grant a license to the project's own code, model services, original papers, or third-party trademarks. Project-wide licensing has not been selected.
+LabOpsBench's original code and associated documentation are licensed under the [MIT License](LICENSE). LabOpsBench also includes third-party code, robot geometry and derived scientific annotations; their original terms and notices remain in force. The project's MIT License does not replace those terms or grant rights to model services, original papers, or third-party trademarks.
 
 ## Self-Building Labs reference
 

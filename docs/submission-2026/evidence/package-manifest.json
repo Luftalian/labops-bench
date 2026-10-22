@@ -53,8 +53,8 @@
     },
     {
       "path": "evidence/package-validation.json",
-      "bytes": 1311,
-      "sha256": "67463888fa03b0afb419d60619fe8107487189247492206ffe174afc8acf07e4"
+      "bytes": 1344,
+      "sha256": "1a5f47fc3908f4e3c530de399119102509150558b1e79496e2e265e46ec64d05"
     },
     {
       "path": "evidence/source-records.json",

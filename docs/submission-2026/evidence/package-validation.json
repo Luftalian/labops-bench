@@ -28,6 +28,6 @@
     ]
   },
   "manuscript": "PDF and previews rebuilt from latex/ for the 80-trial refresh; only scenario/trial counts changed. Quoted scenario 12 and 14 scores and their recordings are unchanged.",
-  "license_status": "Project-wide license not yet selected; third-party licenses retained.",
+  "license_status": "MIT for original project code and associated documentation; third-party licenses and notices retained.",
   "model_calls_during_packaging": 0
 }

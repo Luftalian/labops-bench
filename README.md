@@ -86,6 +86,6 @@ The first command uses the Python standard library to verify all 80 distributed 
 
 ## Citation and licensing
 
-Use [CITATION.cff](CITATION.cff) for the project authors and repository URL. The project-wide code license has not yet been selected. Bundled third-party code, data and assets retain their own licenses and notices in [licenses/](licenses/README.md).
+Use [CITATION.cff](CITATION.cff) for the project authors and repository URL. LabOpsBench's original code and associated documentation are licensed under the [MIT License](LICENSE). Bundled third-party code, data and assets retain their own licenses and notices in [licenses/](licenses/README.md) and [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
 
 This public repository retains the authors and timestamps of the included development commits. Internal planning documents, research working notes and superseded submission drafts were excluded from its history.
