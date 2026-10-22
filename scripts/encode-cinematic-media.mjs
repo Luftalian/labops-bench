@@ -36,5 +36,5 @@ for(const id of ids)for(const folder of ['mp4','masters']){
 }
 const gif=path.join(root,'docs/assets/sdl-future-lab.gif');
 const sameGif=previous?.gif&&fs.existsSync(gif)&&artifacts.find(a=>a.file==='mp4/02-future-sdl.mp4')?.sha256===previous.artifacts.find(a=>a.file==='mp4/02-future-sdl.mp4')?.sha256&&await hash(gif)===previous.gif.sha256;
-if(!sameGif)run(['-ss','10.4','-t','8','-i',path.join(base,'mp4/02-future-sdl.mp4'),'-filter_complex','fps=12,scale=1280:-1:flags=lanczos,split[a][b];[a]palettegen=max_colors=128:stats_mode=diff[p];[b][p]paletteuse=dither=bayer:bayer_scale=4','-loop','0',gif]);
+if(!sameGif)run(['-ss','2','-t','8','-i',path.join(base,'mp4/02-future-sdl.mp4'),'-filter_complex','fps=12,scale=1280:-1:flags=lanczos,split[a][b];[a]palettegen=max_colors=128:stats_mode=diff[p];[b][p]paletteuse=dither=bayer:bayer_scale=4','-loop','0',gif]);
 fs.writeFileSync(path.join(base,'media-validation.json'),JSON.stringify({revision:'cinematic-3',created_at:new Date().toISOString(),ffmpeg:execFileSync('ffmpeg',['-version'],{encoding:'utf8'}).split('\n')[0],artifacts,gif:{file:'docs/assets/sdl-future-lab.gif',bytes:fs.statSync(gif).size,sha256:await hash(gif)}},null,2));console.log('Validated all revised clips and README GIF');

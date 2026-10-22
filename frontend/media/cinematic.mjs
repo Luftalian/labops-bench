@@ -42,9 +42,8 @@ function presentCamera(sec){
  return {at:[lerp(7.4,6.6,f),lerp(5.6,5.0,f),2.8],target:[5.3,2.8,1],fov:43};
 }
 function futureCamera(sec){
- const shot=Math.floor(sec/10),f=(sec%10)/10,focus=shots.future.focus[shot];
- if(shot===1)return {at:[lerp(35,33,f),lerp(35,32,f),lerp(16,14,f)],target:[19,15,1],fov:49};
- if(shot===2){const time=shots.future.starts[2]+(sec%10)*shots.future.rates[2],car=carriersAt(data.future.replay,time).find(c=>c.id===shots.future.tracking_car),p=car?.point??focus;return {at:[p[0]+4.2,p[1]+5.0,3.6],target:[p[0],p[1],.7],fov:49};}
+ const shot=sec<15?0:2,f=(sec%15)/15,focus=shots.future.focus[shot];
+ if(shot===2){const time=shots.future.starts[2]+(sec%15)*shots.future.rates[2],car=carriersAt(data.future.replay,time).find(c=>c.id===shots.future.tracking_car),p=car?.point??focus;return {at:[p[0]+4.2,p[1]+5.0,3.6],target:[p[0],p[1],.7],fov:49};}
  return {at:[focus[0]+lerp(6.6,5.8,f),focus[1]+lerp(8.2,7.4,f),lerp(5.8,5.1,f)],target:[focus[0],focus[1],.8],fov:49};
 }
 function ranked(replay,t){const e=replay.decisions.filter(e=>e.type==='scheduler_priorities'&&e.time_s<=t).at(-1);return {event:e,order:[...(e?.priorities??[])].sort((a,b)=>b.priority-a.priority||a.job_id.localeCompare(b.job_id))};}
@@ -83,7 +82,7 @@ function policySummary(index){
 async function frame(id,sec){
  adjustResolution(id);
  if(id==='01-present-sdl'||id==='02-future-sdl'){
-  const key=id.startsWith('01')?'present':'future',shot=Math.min(2,Math.floor(sec/10)),rate=shots[key].rates[shot],t=shots[key].starts[shot]+sec%10*rate,cam=key==='present'?presentCamera(sec):futureCamera(sec);
+  const key=id.startsWith('01')?'present':'future',duration=key==='future'?15:10,shot=key==='future'?(sec<15?0:2):Math.min(2,Math.floor(sec/10)),rate=shots[key].rates[shot],t=shots[key].starts[shot]+sec%duration*rate,cam=key==='present'?presentCamera(sec):futureCamera(sec);
   const image=await lab(key,t,'3d',cam,{close:shot!==1});ctx.drawImage(image,0,0,1920,1080);tinyUI(key==='present'?'SDL':'FUTURE SDL',null,t,{clean:true});
  }else if(id==='03-benchmark-task'){
   const mode=sec<15?'3d':'2d',t=shots.ui.start+(sec%15)*12,room=data.ui.replay.configuration.room;

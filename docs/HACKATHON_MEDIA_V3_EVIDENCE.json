@@ -1,6 +1,6 @@
 {
   "revision": "cinematic-3",
-  "created_at": "2026-10-22T06:59:47.496Z",
+  "created_at": "2026-10-22T07:17:58.695Z",
   "source_provenance": {
     "version": "cinematic-media-2",
     "created_at": "2026-10-22T03:20:24.664Z",
@@ -170,7 +170,7 @@
     }
   },
   "shot_plan": {
-    "version": "cinematic-2",
+    "version": "cinematic-3",
     "present": {
       "starts": [
         450,
@@ -190,9 +190,19 @@
         309
       ],
       "rates": [
+        2,
         3,
-        3,
-        3
+        2
+      ],
+      "segments": [
+        {
+          "source_shot": 0,
+          "duration_s": 15
+        },
+        {
+          "source_shot": 2,
+          "duration_s": 15
+        }
       ],
       "focus": [
         [
@@ -257,21 +267,21 @@
     "identical": true
   },
   "render_source_hashes": {
-    "frontend/media/cinematic.mjs": "bdddd91960333322e78913e361d4549c4ba88893c983d0ea8a0a3d5e735e2cb1",
+    "frontend/media/cinematic.mjs": "f134fa69cc8720bf338a84c6f8288324a6e75a652dd3f8351272f748b4976927",
     "frontend/media/lab-furniture.mjs": "fbdd9fee5a3d6219d927887a1f59a496f6aed8ce393b3e5392fc5743a79f1484",
     "frontend/media/index.html": "c15f9c0e21a24a500e2dbed62c2bea8082003c80e577726a7982cf9cafd27b09",
     "scripts/prepare-cinematic-media.mjs": "67f121de431b9b4805e0bc866028c0c2dd7d8f9d379a14f06240935cf37989a7",
-    "scripts/plan-cinematic-shots.mjs": "e01325440bdf0f6e2de382bd8b2aedf407f97f977c25dbb265c20728fefc9d58",
+    "scripts/plan-cinematic-shots.mjs": "c470367180442c6f1b1b878c5e6a7eca2139d92c9383a8731dabae2ffc1faeef",
     "scripts/verify-cinematic-engine.mjs": "e3ec2ba2d910176925106852acb5350fe2185944598fe5130716713f5a6a00b6",
     "scripts/media-route-cache-loader.mjs": "8a6a21d98dc30d190f5e206a98fa993179b7eb04e2ac294ed571ca983411db47",
-    "scripts/encode-cinematic-media.mjs": "19a329b36c468cbe5e1b2df9eef93d9dfdfc34dcf3559c0a80c2873d4b1b2490",
-    "scripts/package-cinematic-media.mjs": "5879a48bacccb01ba3f838f7a620c8fd1916b55af720b235c977723370239fc5",
+    "scripts/encode-cinematic-media.mjs": "79a28255d427022be6624b0dc39bd0c7d61d936fcfb691f22b9eead7575d77d1",
+    "scripts/package-cinematic-media.mjs": "84c3a40985b2cabd096d209ec03a8781963a902214715cdad807f09cac89caaf",
     "scripts/serve-hackathon-media.mjs": "c7c1944c8c04d453bdfaab29beadb7db9762768cfe38fd3a034fb2b314aef412",
     "scripts/compose-ui-tour.mjs": "4f082dd9fd6ff1a1591f3344f6412fbbb4c5783d4385178ca4e2862312e34ba5"
   },
   "video_validation": {
     "revision": "cinematic-3",
-    "created_at": "2026-10-22T06:54:27.866Z",
+    "created_at": "2026-10-22T07:17:24.733Z",
     "ffmpeg": "ffmpeg version 8.0 Copyright (c) 2000-2025 the FFmpeg developers",
     "artifacts": [
       {
@@ -314,8 +324,9 @@
       },
       {
         "file": "mp4/02-future-sdl.mp4",
-        "bytes": 80534242,
-        "sha256": "765f158f9e5a486c8f2dd33c8d4ef5536ce687036dc910292a4dfbacbd7c3437",
+        "validated_at": "2026-10-22T07:16:53.925Z",
+        "bytes": 63866411,
+        "sha256": "e954fb3085c83a054c146fdb27d0d2ef99876510b604ecffa9f894d2b7845220",
         "codec": "h264",
         "profile": "High",
         "width": 1920,
@@ -327,14 +338,13 @@
         "color_primaries": "bt709",
         "color_transfer": "bt709",
         "pixel_format": "yuv420p",
-        "audio_streams": 0,
-        "validated_at": "2026-10-22T06:30:21.268Z",
-        "reused_validation": true
+        "audio_streams": 0
       },
       {
         "file": "masters/02-future-sdl.mov",
-        "bytes": 749427955,
-        "sha256": "413c2501ba04d62936991c9dbfd4fcd0f8a3072edb0b6c8cdce56ba197a4d4f9",
+        "validated_at": "2026-10-22T07:17:20.737Z",
+        "bytes": 805254121,
+        "sha256": "c573ec1b08c5453b648c9e22f764c8e64f41d25436150be59632ea08319bf8c5",
         "codec": "prores",
         "profile": "HQ",
         "width": 1920,
@@ -346,9 +356,7 @@
         "color_primaries": "bt709",
         "color_transfer": "bt709",
         "pixel_format": "yuv422p10le",
-        "audio_streams": 0,
-        "validated_at": "2026-10-22T06:30:21.268Z",
-        "reused_validation": true
+        "audio_streams": 0
       },
       {
         "file": "mp4/03-benchmark-task.mp4",
@@ -404,7 +412,8 @@
         "color_primaries": "bt709",
         "color_transfer": "bt709",
         "pixel_format": "yuv420p",
-        "audio_streams": 0
+        "audio_streams": 0,
+        "reused_validation": true
       },
       {
         "file": "masters/04-ui-tour.mov",
@@ -422,7 +431,8 @@
         "color_primaries": "bt709",
         "color_transfer": "bt709",
         "pixel_format": "yuv422p10le",
-        "audio_streams": 0
+        "audio_streams": 0,
+        "reused_validation": true
       },
       {
         "file": "mp4/05-gpt-policy.mp4",
@@ -503,8 +513,8 @@
     ],
     "gif": {
       "file": "docs/assets/sdl-future-lab.gif",
-      "bytes": 38090098,
-      "sha256": "29f7e657f718203364e6a76e7682113228faa35197a6573e5da24062feb1aa87"
+      "bytes": 31193002,
+      "sha256": "ef3d539260229190e42a5403c8c8f31e0ae0b0186977b11c44f35bd71ed68fca"
     }
   },
   "ui_capture": {
