@@ -1,0 +1,7 @@
+<!doctype html><meta charset="utf-8"><title>Benchmark layout audit</title>
+<style>body{margin:16px;background:#e2e8e3;font:14px system-ui}header{display:flex;gap:12px;margin-bottom:16px}iframe{display:block;border:1px solid #879c8b;height:920px;background:#10251e}pre{white-space:pre-wrap}</style>
+<header><label>Viewport <select id="width"><option>375</option><option>768</option><option selected>1024</option><option>1440</option></select></label><button id="audit">Audit layout</button></header><pre id="output">Ready</pre><iframe title="Actual benchmark UI" src="/benchmarks/" style="width:1024px"></iframe>
+<script type="module">
+const frame=document.querySelector('iframe');document.querySelector('#width').onchange=e=>frame.style.width=e.target.value+'px';
+document.querySelector('#audit').onclick=()=>{const d=frame.contentDocument,w=frame.contentWindow,p=d.querySelector('#comparison-title')?.closest('.panel'),table=d.querySelector('#results');if(!p||!table)return;const findings={viewport:w.innerWidth,result_rows:table.children.length,page_width:d.documentElement.scrollWidth,table_font_px:parseFloat(w.getComputedStyle(table).fontSize),comparison_padding_px:parseFloat(w.getComputedStyle(p).paddingLeft)};findings.pass=findings.result_rows>0&&findings.page_width<=findings.viewport+1&&findings.table_font_px>=12&&findings.comparison_padding_px>=16;document.querySelector('#output').textContent=JSON.stringify(findings,null,2);};
+</script>

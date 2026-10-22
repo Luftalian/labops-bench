@@ -8,9 +8,9 @@
     },
     "demo/workshop/plan-view.mjs": {
       "original_sha256": "02a0d0467880ddfc97c1ebc665c6e52d32a2dbcd429a1cbcca791b166874a3c3",
-      "patched_sha256": "eea7c6ab0bc5044fd57d33530522e71bc991824f6538638877c2d634963d0ffa",
+      "patched_sha256": "a96fa703628a77a24987a145e1f825c1006bae32a9cf231661010f73f69b04ea",
       "original_path": "source-originals/demo/workshop/plan-view.mjs",
-      "reason": "Render rotated physical arm/buffer/dock poses and idle hand targets for scheduler relocation. Original source retained; yaw=0 behavior and historical simulation records preserved."
+      "reason": "Render rotated physical arm/buffer/dock poses and idle hand targets for scheduler relocation. Original source retained; yaw=0 behavior and historical simulation records preserved. Label-independent device occupancy/progress bars derived from existing saved batch intervals; no simulator, geometry, durations or scores changed."
     },
     "demo/workshop/timeline.mjs": {
       "original_sha256": "0ae64b51e830d6b8bc19baad501b25fe9c8849ca3bb2ee24cbd67654271577bb",
@@ -20,9 +20,9 @@
     },
     "demo/workshop/three-view.mjs": {
       "original_sha256": "421aba30ce42a5f065ddaef0938728acf229f0b54f4fc36dc8437e0a12cdce2a",
-      "patched_sha256": "b4fc8f99ed00216e8edd3016cba117a2da8b64862facece136336e7b71206a2c",
+      "patched_sha256": "d79a5fe41ae9233fd9c64dc1daea84859f05260df94c98e6a1d97a006a117e36",
       "original_path": "source-originals/demo/workshop/three-view.mjs",
-      "reason": "Taller AMR cabinet, tray and lidar visual; floor footprint and simulation collision/transport model unchanged."
+      "reason": "Taller AMR cabinet, tray and lidar visual; floor footprint and simulation collision/transport model unchanged. Label-independent device occupancy/progress bars derived from existing saved batch intervals; no simulator, geometry, durations or scores changed."
     },
     "sim/v4/tasks.mjs": {
       "original_sha256": "25a7cb69919e6c43f2442d8682f6d6d49e6ea20c6111c37dbb421ad609bc67ff",

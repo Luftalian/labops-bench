@@ -1,0 +1,179 @@
+1
+00:00:05,550 --> 00:00:08,069
+Self-driving laboratories, or SDLs,
+
+2
+00:00:08,069 --> 00:00:13,035
+automate experiments and use the results to choose what to test next.
+
+3
+00:00:13,315 --> 00:00:19,874
+Language-model agents such as Coscientist and ACRA have already run robotic experiments.
+
+4
+00:00:20,154 --> 00:00:25,930
+Worldwide — from Canada's Acceleration Consortium to the US Genesis Mission and
+
+5
+00:00:25,930 --> 00:00:32,219
+Japan's ARiSE programme — efforts are under way to build and scale SDL infrastructure.
+
+6
+00:00:32,919 --> 00:00:38,976
+Cloud laboratories already let researchers share instruments remotely, without owning a lab.
+
+7
+00:00:39,256 --> 00:00:45,396
+As this grows, a single facility could run many experiments at once — hundreds of instruments,
+
+8
+00:00:45,396 --> 00:00:51,013
+nearly a hundred robot arms, and a fleet of mobile robots moving samples between them.
+
+9
+00:00:51,713 --> 00:00:54,791
+But scale doesn't make resources unlimited.
+
+10
+00:00:55,071 --> 00:00:58,975
+Instruments, robot arms, floor space and time are all finite,
+
+11
+00:00:58,975 --> 00:01:02,879
+and experiments compete for the same equipment and transport.
+
+12
+00:01:03,159 --> 00:01:09,438
+Every lab needs a scheduler and resource manager — deciding what to install, and what to run first.
+
+13
+00:01:10,138 --> 00:01:13,712
+How do we know whether that decision-maker is any good?
+
+14
+00:01:13,992 --> 00:01:20,570
+We built LabOpsBench: a benchmark that runs an agent's decisions inside a simulated laboratory,
+
+15
+00:01:20,570 --> 00:01:25,486
+with instruments, robot arms, mobile robots, queues and finite buffers.
+
+16
+00:01:25,766 --> 00:01:28,619
+It simulates operations — not chemistry.
+
+17
+00:01:29,419 --> 00:01:34,774
+At time zero, the agent sees every unfinished job — including future arrivals,
+
+18
+00:01:34,774 --> 00:01:39,924
+with dependencies and durations — plus the room layout and resource limits.
+
+19
+00:01:40,204 --> 00:01:45,969
+It picks an equipment configuration from shared candidates and gives each job a priority.
+
+20
+00:01:46,249 --> 00:01:51,505
+The engine validates the decision, dispatches operations and moves the robots.
+
+21
+00:01:51,785 --> 00:01:54,051
+Every 1,800 simulated seconds,
+
+22
+00:01:54,051 --> 00:01:59,337
+the agent can re-prioritise or request a permitted equipment exchange.
+
+23
+00:01:59,617 --> 00:02:03,784
+The score is makespan — time until the last sample is unloaded.
+
+24
+00:02:04,064 --> 00:02:06,349
+Unfinished runs get no score.
+
+25
+00:02:07,249 --> 00:02:11,494
+To ground the workloads, we turned public LeMat-Synth annotations —
+
+26
+00:02:11,494 --> 00:02:16,879
+synthesis procedures extracted from the literature — into eight scheduling templates.
+
+27
+00:02:17,159 --> 00:02:25,396
+They power fourteen scenarios, from small cells to a hall with 32 instruments, 32 arms and 64 jobs.
+
+28
+00:02:26,396 --> 00:02:33,159
+Here are two agents on the same task: twelve jobs — six five-step chains and six single mixing jobs.
+
+29
+00:02:33,439 --> 00:02:37,554
+GPT-6 Luna's plan: feed the oven pipeline first.
+
+30
+00:02:37,834 --> 00:02:42,830
+It ranks the long chains on top, keeps the layout, and pushes those chains through.
+
+31
+00:02:43,530 --> 00:02:47,206
+Jev gets exactly the same observation and candidates.
+
+32
+00:02:47,486 --> 00:02:53,022
+Instead of a fixed order, it keeps revising its ranking across seventeen decisions,
+
+33
+00:02:53,022 --> 00:02:55,957
+mixing the two job types as the lab changes.
+
+34
+00:02:56,237 --> 00:02:59,038
+Same lab, same jobs — different strategies.
+
+35
+00:03:00,338 --> 00:03:04,028
+We also built a web interface for every recorded run.
+
+36
+00:03:04,308 --> 00:03:12,791
+On this task, Luna finished in 8.27 hours, Jev in 8.33, and first-in-first-out took 12.6.
+
+37
+00:03:13,071 --> 00:03:17,020
+The best method changes by task: on compact lab layouts,
+
+38
+00:03:17,020 --> 00:03:20,193
+Jev and a workload-aware algorithm beat Luna.
+
+39
+00:03:20,473 --> 00:03:25,696
+Click any result to replay it in 2D or 3D and step through each decision.
+
+40
+00:03:25,976 --> 00:03:30,765
+Playback only reads recorded engine events — it never changes the score.
+
+41
+00:03:31,465 --> 00:03:33,677
+Today, LabOpsBench scores time.
+
+42
+00:03:33,957 --> 00:03:37,902
+But future labs will need to weigh much more — scarce elements,
+
+43
+00:03:37,902 --> 00:03:40,782
+electricity, water — in one combined decision.
+
+44
+00:03:41,062 --> 00:03:45,112
+LabOpsBench is a foundation for evaluating those trade-offs,
+
+45
+00:03:45,112 --> 00:03:48,959
+and for testing our simulation against real laboratories.

@@ -1,0 +1,195 @@
+{
+  "created_at": "2026-10-22T08:14:35.493Z",
+  "source_hashes": {
+    "backend/poc/demo/workshop/plan-view.mjs": "a96fa703628a77a24987a145e1f825c1006bae32a9cf231661010f73f69b04ea",
+    "backend/poc/demo/workshop/three-view.mjs": "d79a5fe41ae9233fd9c64dc1daea84859f05260df94c98e6a1d97a006a117e36",
+    "frontend/benchmarks/index.html": "1e1866bb0d2e4cb14a86d6f2fa12cac4d3d8623cf1722a5fbf84f7ddad5e20f2",
+    "frontend/benchmarks/styles.css": "7d04791edd601dc27fb1ff394fc53ae90dab9147843f9c4216f5c3e2d9bc1468",
+    "frontend/benchmarks/app.mjs": "d5adb5e37674105eedce61096f4aa9b49e7290700c02cdacad74fa86791f2409",
+    "frontend/media/ui-review.html": "49e2e88af3c303606079687d6e2de88c4e01bc4947646c3806b50aac82ae6940"
+  },
+  "unchanged_report_sha256": "9f24981f05cd544cc2b351ea25147f5443a2c1bc1e3dde7e8ec5c6c3d7630427",
+  "before": {
+    "viewport": 375,
+    "page_width": 370,
+    "table_font_px": 10,
+    "comparison_padding_px": 0,
+    "pass": false
+  },
+  "responsive": [
+    {
+      "viewport": 375,
+      "result_rows": 4,
+      "page_width": 375,
+      "table_font_px": 13,
+      "comparison_padding_px": 18,
+      "pass": true
+    },
+    {
+      "viewport": 768,
+      "result_rows": 4,
+      "page_width": 768,
+      "table_font_px": 13,
+      "comparison_padding_px": 24,
+      "pass": true
+    },
+    {
+      "viewport": 1024,
+      "result_rows": 4,
+      "page_width": 1024,
+      "table_font_px": 13,
+      "comparison_padding_px": 24,
+      "pass": true
+    },
+    {
+      "viewport": 1440,
+      "result_rows": 4,
+      "page_width": 1440,
+      "table_font_px": 13,
+      "comparison_padding_px": 24,
+      "pass": true
+    }
+  ],
+  "playback": {
+    "score_before": "8.268",
+    "method": "GPT Luna",
+    "three_selected": "true",
+    "visible_labels": 3,
+    "score_after": "8.268",
+    "end_button_label": "Play replay",
+    "end_decision": null,
+    "end_time": "08:16:05",
+    "restart_time": "00:00:00",
+    "two_selected": "true",
+    "pass": true
+  },
+  "distribution": {
+    "canvas_width": 872,
+    "rows": 4,
+    "score": "8.31",
+    "stylesheets": 1,
+    "three_selected": "true",
+    "title": "Benchmark results."
+  },
+  "activity_bars": {
+    "labels_on": {
+      "labels": true,
+      "score": "8.268",
+      "visibleLabels": 3
+    },
+    "seek_end": {
+      "labels": false,
+      "score": "8.268",
+      "time": "08:16:05",
+      "visibleLabels": 0
+    },
+    "restart": {
+      "playLabel": "Play replay",
+      "score": "8.268",
+      "time": "00:00:00"
+    },
+    "visual_checks": {
+      "active_2d_bars_visible_without_labels": true,
+      "active_3d_bars_visible_without_labels": true,
+      "completed_3d_bars_absent": true
+    },
+    "screenshots": [
+      "activity-bars-2d.jpg",
+      "activity-bars-3d.jpg",
+      "activity-bars-idle.jpg"
+    ],
+    "pass": true,
+    "exported_viewer": {
+      "canvas_width": 872,
+      "labels": false,
+      "score": "8.31",
+      "source": "http://127.0.0.1:4186/benchmarks/",
+      "three_selected": "true",
+      "visible_labels": 0,
+      "visual_bars_visible": true
+    },
+    "preserved_media": {
+      "artifacts": [
+        {
+          "file": "mp4/01-present-sdl.mp4",
+          "sha256": "7725a6d2abd0a389822af614dfb1b917ad1e256c0497a1be9af7d18d7bc60f88",
+          "identical": true
+        },
+        {
+          "file": "masters/01-present-sdl.mov",
+          "sha256": "bbab783e22f84c2ee5cdd69d06fbe0a9de473c1d9abacb858eee86c2c6a9e14a",
+          "identical": true
+        },
+        {
+          "file": "mp4/02-future-sdl.mp4",
+          "sha256": "e954fb3085c83a054c146fdb27d0d2ef99876510b604ecffa9f894d2b7845220",
+          "identical": true
+        },
+        {
+          "file": "masters/02-future-sdl.mov",
+          "sha256": "c573ec1b08c5453b648c9e22f764c8e64f41d25436150be59632ea08319bf8c5",
+          "identical": true
+        }
+      ],
+      "readme_gif": {
+        "sha256": "ef3d539260229190e42a5403c8c8f31e0ae0b0186977b11c44f35bd71ed68fca",
+        "identical": true
+      }
+    },
+    "screenshot_sha256": {
+      "activity-bars-2d.jpg": "3d092e5509bca14f2bc2217cedffca598c11dc4d20e977da09b895e1f93720b5",
+      "activity-bars-3d.jpg": "c59edf6284bca3a308e67b12bddc7105c2e13db8512bfa98ed699257d93b943f",
+      "activity-bars-idle.jpg": "9882ac7e3f227bd0f86692380de5e8dba81600722f17ca6467103da80edbf9e2"
+    }
+  },
+  "software": {
+    "command": "npm run check",
+    "python_tests": 46,
+    "node_tests": 49,
+    "passed": true
+  },
+  "ui_tour": [
+    {
+      "file": "mp4/04-ui-tour.mp4",
+      "validated_at": "2026-10-22T08:12:30.678Z",
+      "bytes": 6951355,
+      "sha256": "ba5025fff0d4c92e60474b2d83c44ae6182687ce4a6095232b93079aad88f892",
+      "codec": "h264",
+      "profile": "High",
+      "width": 1920,
+      "height": 1080,
+      "frames": 1200,
+      "duration_s": 40,
+      "fps": "30/1",
+      "color_space": "bt709",
+      "color_primaries": "bt709",
+      "color_transfer": "bt709",
+      "pixel_format": "yuv420p",
+      "audio_streams": 0
+    },
+    {
+      "file": "masters/04-ui-tour.mov",
+      "validated_at": "2026-10-22T08:12:49.041Z",
+      "bytes": 471092125,
+      "sha256": "6c0bcbd1fc119125543875ba4724fb29ee1ea2691809838fbc9160b46954a1c1",
+      "codec": "prores",
+      "profile": "HQ",
+      "width": 1920,
+      "height": 1080,
+      "frames": 1200,
+      "duration_s": 40,
+      "fps": "30/1",
+      "color_space": "bt709",
+      "color_primaries": "bt709",
+      "color_transfer": "bt709",
+      "pixel_format": "yuv422p10le",
+      "audio_streams": 0
+    }
+  ],
+  "screenshots": {
+    "before-375.jpg": "474e97256a6712769f6b83f5b846a227b87d7476004e3ddcee563d84e0b5c40d",
+    "ui-preview.jpg": "04f310556bc5488facd65a0a7cc098dc3d604b583107dbb686cdc8e9833c9088",
+    "clean-lab.jpg": "a5259bbb9eac46c6b08c30c120af41cc0be629ca7908eb66179a58c878e0f066"
+  },
+  "scope": "Presentation and recorded-replay behavior only; no changed tasks, engine policy, chemistry prediction or new provider inference."
+}

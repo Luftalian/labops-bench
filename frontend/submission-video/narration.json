@@ -1,0 +1,61 @@
+{
+  "note": "English narration for the hackathon submission video. `text` is shown as captions. Kokoro reads `kokoro` when present, otherwise `text`; Chatterbox and macOS say read `speak` when present. Durations come from the audio, so replacing a sentence's audio retimes the video.",
+  "scenes": [
+    {"id": "title", "chapter": null, "min": 5.0, "lead": 0.8, "tail": 1.3, "captions": false, "sentences": [
+      {"id": "title-1", "text": "Who decides what runs next in a self-driving lab?"}
+    ]},
+    {"id": "sdl", "chapter": "Context", "min": 22, "lead": 0.5, "tail": 0.8, "sentences": [
+      {"id": "sdl-1", "text": "Self-driving laboratories, or SDLs, automate experiments and use the results to choose what to test next.", "speak": "Self-driving laboratories, or S-D-Ls, automate experiments, and use the results to choose what to test next."},
+      {"id": "sdl-2", "text": "Language-model agents such as Coscientist and ACRA have already run robotic experiments.", "kokoro": "Language-model agents such as co-scientist and ACRA have already run robotic experiments.", "speak": "Language-model agents, such as Coscientist and Ackra, have already run robotic experiments."},
+      {"id": "sdl-3", "text": "Worldwide — from Canada's Acceleration Consortium to the US Genesis Mission and Japan's ARiSE programme — efforts are under way to build and scale SDL infrastructure.", "kokoro": "Worldwide — from Canada's Acceleration Consortium to the US Genesis Mission and Japan's Arise programme — efforts are under way to build and scale SDL infrastructure.", "speak": "Worldwide, from Canada's Acceleration Consortium, to the U.S. Genesis Mission, and Japan's Arise programme, efforts are under way to build and scale S-D-L infrastructure."}
+    ]},
+    {"id": "scale", "chapter": "Context", "min": 17, "lead": 0.4, "tail": 0.8, "sentences": [
+      {"id": "scale-1", "text": "Cloud laboratories already let researchers share instruments remotely, without owning a lab."},
+      {"id": "scale-2", "text": "As this grows, a single facility could run many experiments at once — hundreds of instruments, nearly a hundred robot arms, and a fleet of mobile robots moving samples between them.", "speak": "As this grows, a single facility could run many experiments at once: hundreds of instruments, nearly a hundred robot arms, and a fleet of mobile robots moving samples between them."}
+    ]},
+    {"id": "limits", "chapter": "Problem", "min": 17, "lead": 0.4, "tail": 0.8, "sentences": [
+      {"id": "limits-1", "text": "But scale doesn't make resources unlimited."},
+      {"id": "limits-2", "text": "Instruments, robot arms, floor space and time are all finite, and experiments compete for the same equipment and transport."},
+      {"id": "limits-3", "text": "Every lab needs a scheduler and resource manager — deciding what to install, and what to run first.", "speak": "Every lab needs a scheduler and resource manager, deciding what to install, and what to run first."}
+    ]},
+    {"id": "built", "chapter": "Benchmark", "min": 15, "lead": 0.4, "tail": 0.8, "sentences": [
+      {"id": "built-1", "text": "How do we know whether that decision-maker is any good?"},
+      {"id": "built-2", "text": "We built LabOpsBench: a benchmark that runs an agent's decisions inside a simulated laboratory, with instruments, robot arms, mobile robots, queues and finite buffers.", "speak": "We built Lab Ops Bench: a benchmark that runs an agent's decisions inside a simulated laboratory, with instruments, robot arms, mobile robots, queues, and finite buffers."},
+      {"id": "built-3", "text": "It simulates operations — not chemistry.", "speak": "It simulates operations, not chemistry."}
+    ]},
+    {"id": "loop", "chapter": "Benchmark", "min": 32, "lead": 0.5, "tail": 1.0, "sentences": [
+      {"id": "loop-1", "text": "At time zero, the agent sees every unfinished job — including future arrivals, with dependencies and durations — plus the room layout and resource limits.", "speak": "At time zero, the agent sees every unfinished job, including future arrivals, with dependencies and durations, plus the room layout and resource limits."},
+      {"id": "loop-2", "text": "It picks an equipment configuration from shared candidates and gives each job a priority."},
+      {"id": "loop-3", "text": "The engine validates the decision, dispatches operations and moves the robots."},
+      {"id": "loop-4", "text": "Every 1,800 simulated seconds, the agent can re-prioritise or request a permitted equipment exchange.", "kokoro": "Every eighteen hundred simulated seconds, the agent can re-prioritise or request a permitted equipment exchange.", "speak": "Every eighteen hundred simulated seconds, the agent can re-prioritise, or request a permitted equipment exchange."},
+      {"id": "loop-5", "text": "The score is makespan — time until the last sample is unloaded.", "speak": "The score is makespan: the time until the last sample is unloaded."},
+      {"id": "loop-6", "text": "Unfinished runs get no score."}
+    ]},
+    {"id": "lemat", "chapter": "Benchmark", "min": 15, "lead": 0.4, "tail": 1.1, "sentences": [
+      {"id": "lemat-1", "text": "To ground the workloads, we turned public LeMat-Synth annotations — synthesis procedures extracted from the literature — into eight scheduling templates.", "speak": "To ground the workloads, we turned public Le-Mat Synth annotations, synthesis procedures extracted from the literature, into eight scheduling templates."},
+      {"id": "lemat-2", "text": "They power fourteen scenarios, from small cells to a hall with 32 instruments, 32 arms and 64 jobs.", "speak": "They power fourteen scenarios, from small cells to a hall with thirty-two instruments, thirty-two arms, and sixty-four jobs."}
+    ]},
+    {"id": "luna", "chapter": "Agents", "min": 17, "lead": 0.4, "tail": 0.8, "sentences": [
+      {"id": "luna-1", "text": "Here are two agents on the same task: twelve jobs — six five-step chains and six single mixing jobs.", "speak": "Here are two agents on the same task: twelve jobs: six five-step chains, and six single mixing jobs."},
+      {"id": "luna-2", "text": "GPT-6 Luna's plan: feed the oven pipeline first.", "speak": "G-P-T six Luna's plan: feed the oven pipeline first."},
+      {"id": "luna-3", "text": "It ranks the long chains on top, keeps the layout, and pushes those chains through."}
+    ]},
+    {"id": "jev", "chapter": "Agents", "min": 15, "lead": 0.4, "tail": 1.4, "sentences": [
+      {"id": "jev-1", "text": "Jev gets exactly the same observation and candidates.", "speak": "Jev gets exactly the same observation, and candidates."},
+      {"id": "jev-2", "text": "Instead of a fixed order, it keeps revising its ranking across seventeen decisions, mixing the two job types as the lab changes."},
+      {"id": "jev-3", "text": "Same lab, same jobs — different strategies.", "speak": "Same lab. Same jobs. Different strategies."}
+    ]},
+    {"id": "ui", "chapter": "Interface", "min": 28, "lead": 0.4, "tail": 0.8, "sentences": [
+      {"id": "ui-1", "text": "We also built a web interface for every recorded run."},
+      {"id": "ui-2", "text": "On this task, Luna finished in 8.27 hours, Jev in 8.33, and first-in-first-out took 12.6.", "speak": "On this task, Luna finished in eight point two seven hours, Jev in eight point three three, and first-in, first-out took twelve point six."},
+      {"id": "ui-3", "text": "The best method changes by task: on compact lab layouts, Jev and a workload-aware algorithm beat Luna."},
+      {"id": "ui-4", "text": "Click any result to replay it in 2D or 3D and step through each decision.", "speak": "Click any result to replay it in 2-D or 3-D, and step through each decision."},
+      {"id": "ui-5", "text": "Playback only reads recorded engine events — it never changes the score.", "speak": "Playback only reads recorded engine events. It never changes the score."}
+    ]},
+    {"id": "future", "chapter": "Outlook", "min": 18, "lead": 0.4, "tail": 3.8, "sentences": [
+      {"id": "future-1", "text": "Today, LabOpsBench scores time.", "speak": "Today, Lab Ops Bench scores time."},
+      {"id": "future-2", "text": "But future labs will need to weigh much more — scarce elements, electricity, water — in one combined decision.", "speak": "But future labs will need to weigh much more: scarce elements, electricity, water, in one combined decision."},
+      {"id": "future-3", "text": "LabOpsBench is a foundation for evaluating those trade-offs, and for testing our simulation against real laboratories.", "speak": "Lab Ops Bench is a foundation for evaluating those trade-offs, and for testing our simulation against real laboratories."}
+    ]}
+  ]
+}

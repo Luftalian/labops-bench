@@ -9,7 +9,7 @@ import {planLayout,rotate} from '../backend/poc/sim/v2/geometry.mjs';
 import {evaluateCounts,CountEnvironment,placeExact} from '../backend/counts/evaluator.mjs';
 import {chooseHallAction} from '../backend/poc/sim/v4/agents.mjs';
 import {concurrency,sourceManifest} from './run-lemat-sdl.mjs';
-const root=path.resolve(new URL('../',import.meta.url).pathname),out=path.join(root,'results/local/hackathon-media-v2');
+const root=path.resolve(new URL('../',import.meta.url).pathname),out=path.join(root,'results/local/hackathon-media-v3');
 fs.mkdirSync(path.join(out,'sources'),{recursive:true});
 const sha=b=>createHash('sha256').update(b).digest('hex'),snap=x=>Math.round(x*10)/10;
 // Original synthetic demonstration programs. These are not modified LeMat data,
