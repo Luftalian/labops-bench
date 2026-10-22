@@ -1,0 +1,111 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{newtxtext,newtxmath}
+\usepackage[a4paper,left=15mm,right=15mm,top=13mm,bottom=5mm]{geometry}
+\usepackage{microtype,graphicx,multicol,tikz,caption,titlesec}
+\usepackage[hidelinks]{hyperref}
+\usepackage[backend=biber,style=numeric-comp,sorting=none,giveninits=true,
+  maxbibnames=2,minbibnames=1,doi=false,url=false,isbn=false,eprint=false]{biblatex}
+\addbibresource{references.bib}
+\usetikzlibrary{arrows.meta,positioning,calc}
+\definecolor{accent}{HTML}{204F46}
+\definecolor{pale}{HTML}{F3F6F4}
+\definecolor{rulegray}{HTML}{88968F}
+\hypersetup{pdftitle={LabOpsBench: Benchmarking AI Agents for Laboratory Configuration and Experiment Scheduling},
+  pdfauthor={Ryoma Yamamoto, Haruki Nakajima},
+  pdfsubject={Hackathon extended abstract; feat/poc-integration at 00e8c4f}}
+\pagestyle{empty}
+\setlength{\parindent}{1em}
+\setlength{\parskip}{0pt}
+\setlength{\columnsep}{6mm}
+\setlength{\multicolsep}{3.5pt}
+\setlength{\emergencystretch}{1em}
+\titleformat{\section}{\normalsize\bfseries}{\thesection}{0.55em}{}
+\titlespacing*{\section}{0pt}{5pt}{2pt}
+\captionsetup{font=small,labelfont=bf,labelsep=period,position=bottom,skip=-3pt,hypcap=false}
+\setlength{\bibitemsep}{0.3pt}
+\setlength{\bibparsep}{0pt}
+\renewcommand*{\bibfont}{\fontsize{7}{8}\selectfont}
+\DeclareFieldFormat{title}{\iffieldundef{doi}
+  {\iffieldundef{url}{#1}{\href{\thefield{url}}{#1}}}
+  {\href{https://doi.org/\thefield{doi}}{#1}}}
+\DeclareFieldFormat[article]{title}{\iffieldundef{doi}
+  {#1}{\href{https://doi.org/\thefield{doi}}{#1}}}
+\renewbibmacro*{url+urldate}{}
+\renewbibmacro*{in:}{}
+\AtEveryBibitem{\clearfield{month}\clearfield{day}\clearfield{urlyear}\clearfield{urlmonth}\clearfield{urlday}\clearfield{issn}\clearfield{number}}
+
+\begin{document}
+\fontsize{10}{12}\selectfont
+{\centering
+  {\fontsize{16}{17.5}\selectfont\bfseries LabOpsBench: Benchmarking AI Agents for\\
+  Laboratory Configuration and Experiment Scheduling\par}
+  \vspace{2pt}
+  {\normalsize Ryoma Yamamoto, Haruki Nakajima\par}
+}
+\vspace{3pt}
+
+\begin{multicols}{2}
+\section{Motivation: Why This Benchmark?}
+Self-driving laboratories (SDLs) automate experiments and use the results to choose what to test next~\cite{tom2024}.
+Language-model agents also execute robotic experiments, as demonstrated by Coscientist and ACRA (2026)~\cite{boiko2023,pagel2026}.
+International efforts to build and scale SDL infrastructure include Canada's \href{https://acceleration.utoronto.ca/news/u-of-t-receives-200-million-grant-to-support-acceleration-consortiums-self-driving-labs-research}{\textcolor{accent}{Acceleration Consortium}} and autonomous-laboratory initiatives under the US \href{https://www.cmu.edu/news/stories/archives/2026/july/connecting-autonomous-laboratories-to-speed-scientific-advancement}{\textcolor{accent}{Genesis Mission}} and Japan's \href{https://www.jst.go.jp/program/arise/pdf/arise_siryo_st.pdf\#page=8}{\textcolor{accent}{ARiSE programme}}.
+
+Cloud laboratories offer shared instruments remotely, without requiring laboratory ownership~\cite{arias2024}.
+Scheduling at scale requires respecting workflow dependencies and instrument capacity~\cite{zhou2026} while coordinating shared transport and space.
+These constraints motivate evaluating agents' equipment configuration and job prioritization.
+
+\columnbreak
+\section{Benchmark Environment and Policy Interface}
+We developed LabOpsBench, a simulation-based benchmark that evaluates how AI agents select equipment configurations and prioritize predefined experimental jobs.
+Jobs comprise dependent operations with fixed durations and required capabilities.
+The simulator models instruments, robot arms, autonomous mobile robots (AMRs), queues, and finite buffers.
+Its 14 scenarios span small cells to a facility with 32 instruments, 32 arms, and 64 jobs (Fig.~\ref{fig:loop}).
+
+At each decision point, policies receive unfinished jobs, including future arrivals, and the laboratory state.
+In this track, they return priorities and select configurations or equipment exchanges from shared candidates.
+The engine validates decisions, dispatches feasible operations, and controls robot motion.
+\end{multicols}
+
+\par\vspace{3mm}
+\noindent\begin{minipage}{\textwidth}
+\centering
+\input{protocol-figure.tex}
+\captionof{figure}{\textbf{A shared evaluation loop.}
+  LLM agents, heuristics, and algorithms share the observation--decision--execution interface.
+  Panels (a) and (b) show recorded replays of cases 12 and 03, two examples from the 14-scenario suite. Each run evaluates one scenario.}
+\label{fig:loop}
+\end{minipage}
+\par\vspace{4.7mm}
+
+\begin{multicols}{2}
+\section{Evaluation Protocol and Pilot Setup}
+At $t=0$, the policy selects equipment/layout and priorities; subsequent decisions update priorities or request permitted exchanges (Fig.~\ref{fig:loop}).
+After the 32-submission cap, the last valid policy continues.
+Exchanges wait for admitted jobs to finish and incur handling, movement, reconnection, and calibration time.
+\emph{Makespan} includes final unloading; incomplete runs receive no finite completion score.
+
+The pilot contains 50 selected, completed trials: three methods on ten scenarios and five on four additional challenges.
+Within each scenario, methods share workload, seed, resource limits, and candidate-generation rules.
+We adapted eight scheduling templates from three public LeMat-Synth annotation records~\cite{lederbauer2026,lematannotations}; equipment mappings and missing timings are modeling assumptions.
+Chemical outcomes and transfer to physical laboratories remain unvalidated.
+\columnbreak
+\section{Pilot Results and Conclusions}
+We compared \texttt{gpt-6-luna} (medium reasoning) and \texttt{jev-1.14.0} with FIFO, a reference heuristic, and a workload-aware algorithm on shared candidates.
+
+Scenario 12 (36 owned instruments, two active bays, 22 jobs) yielded makespans of 4.860\,h (Luna), 5.459\,h (Jev), 5.068\,h (algorithm), and 7.661\,h (FIFO/reference).
+In scenario 14 (layout/transport, 48 jobs), Jev and the algorithm required 0.683\,h versus Luna's 0.724\,h.
+These single-trial results illustrate task-dependent performance; they do not establish general model rankings.
+
+LabOpsBench links structured policy decisions to simulated laboratory execution and completion time.
+This executable benchmark enables controlled comparisons of equipment configuration and scheduling strategies under shared resource constraints.
+\end{multicols}
+
+\par\vspace{3pt}
+\noindent{\fontsize{8.5}{9.2}\selectfont\bfseries References}\par
+\vspace{-2pt}
+\begin{multicols}{2}
+\printbibliography[heading=none]
+\end{multicols}
+\end{document}

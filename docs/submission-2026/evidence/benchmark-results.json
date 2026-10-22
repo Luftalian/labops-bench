@@ -1,0 +1,356 @@
+{
+  "commit": "00e8c4f2ac9bf4f7cfa769a3b6fb668275f94d08",
+  "verified_recordings": 50,
+  "rows": [
+    {
+      "method": "fifo",
+      "task_id": "lemat-sdl-11-priority-tail",
+      "run_id": "2026-10-21T16-41-19.195Z-fifo-9838c9f6",
+      "makespan_s": 45451.30643463218,
+      "hours": 12.625362898508937
+    },
+    {
+      "method": "fifo",
+      "task_id": "lemat-sdl-12-overfull-inventory",
+      "run_id": "2026-10-21T16-41-19.195Z-fifo-9838c9f6",
+      "makespan_s": 27581.27415721286,
+      "hours": 7.66146504367024
+    },
+    {
+      "method": "fifo",
+      "task_id": "lemat-sdl-13-lookahead-exchange",
+      "run_id": "2026-10-21T16-41-19.195Z-fifo-9838c9f6",
+      "makespan_s": 26882.72576756944,
+      "hours": 7.467423824324845
+    },
+    {
+      "method": "fifo",
+      "task_id": "lemat-sdl-14-layout-distance",
+      "run_id": "2026-10-21T16-41-19.195Z-fifo-9838c9f6",
+      "makespan_s": 4915.8617631731795,
+      "hours": 1.3655171564369943
+    },
+    {
+      "method": "heuristic",
+      "task_id": "lemat-sdl-01-single-station",
+      "run_id": "2026-10-21T15-46-17.105Z-heuristic-6dfffc34",
+      "makespan_s": 15247.215054545957,
+      "hours": 4.235337515151655
+    },
+    {
+      "method": "heuristic",
+      "task_id": "lemat-sdl-02-cramped-exchange",
+      "run_id": "2026-10-21T15-46-17.105Z-heuristic-6dfffc34",
+      "makespan_s": 9871.738351515318,
+      "hours": 2.742149542087588
+    },
+    {
+      "method": "heuristic",
+      "task_id": "lemat-sdl-03-many-arms",
+      "run_id": "2026-10-21T16-07-38.074Z-heuristic-6dbb5d6c",
+      "makespan_s": 7249.93458787883,
+      "hours": 2.0138707188552307
+    },
+    {
+      "method": "heuristic",
+      "task_id": "lemat-sdl-04-staggered-jobs",
+      "run_id": "2026-10-21T15-46-17.105Z-heuristic-6dfffc34",
+      "makespan_s": 408486.43942099303,
+      "hours": 113.46845539472028
+    },
+    {
+      "method": "heuristic",
+      "task_id": "lemat-sdl-05-bursty-demand",
+      "run_id": "2026-10-21T15-46-17.105Z-heuristic-6dfffc34",
+      "makespan_s": 48673.42461664231,
+      "hours": 13.520395726845086
+    },
+    {
+      "method": "heuristic",
+      "task_id": "lemat-sdl-06-long-process-overlap",
+      "run_id": "2026-10-21T15-46-17.105Z-heuristic-6dfffc34",
+      "makespan_s": 185263.06973731742,
+      "hours": 51.46196381592151
+    },
+    {
+      "method": "heuristic",
+      "task_id": "lemat-sdl-07-transport-pressure",
+      "run_id": "2026-10-21T15-46-17.105Z-heuristic-6dfffc34",
+      "makespan_s": 4278.320771604022,
+      "hours": 1.188422436556673
+    },
+    {
+      "method": "heuristic",
+      "task_id": "lemat-sdl-08-finite-buffers",
+      "run_id": "2026-10-21T15-46-17.105Z-heuristic-6dfffc34",
+      "makespan_s": 46304.32490684639,
+      "hours": 12.862312474123998
+    },
+    {
+      "method": "heuristic",
+      "task_id": "lemat-sdl-09-room-small",
+      "run_id": "2026-10-21T15-46-17.105Z-heuristic-6dfffc34",
+      "makespan_s": 11129.137096969822,
+      "hours": 3.091426971380506
+    },
+    {
+      "method": "heuristic",
+      "task_id": "lemat-sdl-10-room-wide",
+      "run_id": "2026-10-21T15-46-17.105Z-heuristic-6dfffc34",
+      "makespan_s": 11372.627808954821,
+      "hours": 3.159063280265228
+    },
+    {
+      "method": "heuristic",
+      "task_id": "lemat-sdl-11-priority-tail",
+      "run_id": "2026-10-21T16-41-21.456Z-heuristic-fcee444d",
+      "makespan_s": 29915.532251123215,
+      "hours": 8.309870069756448
+    },
+    {
+      "method": "heuristic",
+      "task_id": "lemat-sdl-12-overfull-inventory",
+      "run_id": "2026-10-21T16-41-21.456Z-heuristic-fcee444d",
+      "makespan_s": 27581.27415721286,
+      "hours": 7.66146504367024
+    },
+    {
+      "method": "heuristic",
+      "task_id": "lemat-sdl-13-lookahead-exchange",
+      "run_id": "2026-10-21T16-41-21.456Z-heuristic-fcee444d",
+      "makespan_s": 26882.72576756944,
+      "hours": 7.467423824324845
+    },
+    {
+      "method": "heuristic",
+      "task_id": "lemat-sdl-14-layout-distance",
+      "run_id": "2026-10-21T16-41-21.456Z-heuristic-fcee444d",
+      "makespan_s": 4874.798953976983,
+      "hours": 1.354110820549162
+    },
+    {
+      "method": "algorithm-advanced",
+      "task_id": "lemat-sdl-11-priority-tail",
+      "run_id": "2026-10-21T16-41-20.287Z-algorithm-advanced-f136f93d",
+      "makespan_s": 29814.953705275577,
+      "hours": 8.281931584798771
+    },
+    {
+      "method": "algorithm-advanced",
+      "task_id": "lemat-sdl-12-overfull-inventory",
+      "run_id": "2026-10-21T16-41-20.287Z-algorithm-advanced-f136f93d",
+      "makespan_s": 18244.321967253112,
+      "hours": 5.067867213125864
+    },
+    {
+      "method": "algorithm-advanced",
+      "task_id": "lemat-sdl-13-lookahead-exchange",
+      "run_id": "2026-10-21T16-41-20.287Z-algorithm-advanced-f136f93d",
+      "makespan_s": 23751.58462636672,
+      "hours": 6.597662396212978
+    },
+    {
+      "method": "algorithm-advanced",
+      "task_id": "lemat-sdl-14-layout-distance",
+      "run_id": "2026-10-21T16-41-20.287Z-algorithm-advanced-f136f93d",
+      "makespan_s": 2457.3181267681575,
+      "hours": 0.6825883685467105
+    },
+    {
+      "method": "gpt-6-luna-medium",
+      "task_id": "lemat-sdl-01-single-station",
+      "run_id": "2026-10-21T15-43-22.737Z-gpt-6-luna-medium-4c5abf9d",
+      "makespan_s": 15247.215054545957,
+      "hours": 4.235337515151655
+    },
+    {
+      "method": "gpt-6-luna-medium",
+      "task_id": "lemat-sdl-02-cramped-exchange",
+      "run_id": "2026-10-21T15-43-22.737Z-gpt-6-luna-medium-4c5abf9d",
+      "makespan_s": 9871.738351515318,
+      "hours": 2.742149542087588
+    },
+    {
+      "method": "gpt-6-luna-medium",
+      "task_id": "lemat-sdl-03-many-arms",
+      "run_id": "2026-10-21T16-09-37.772Z-gpt-6-luna-medium-24a0cb5a",
+      "makespan_s": 7249.93458787883,
+      "hours": 2.0138707188552307
+    },
+    {
+      "method": "gpt-6-luna-medium",
+      "task_id": "lemat-sdl-04-staggered-jobs",
+      "run_id": "2026-10-21T15-43-22.737Z-gpt-6-luna-medium-4c5abf9d",
+      "makespan_s": 406054.6930288604,
+      "hours": 112.79297028579455
+    },
+    {
+      "method": "gpt-6-luna-medium",
+      "task_id": "lemat-sdl-05-bursty-demand",
+      "run_id": "2026-10-21T15-43-22.737Z-gpt-6-luna-medium-4c5abf9d",
+      "makespan_s": 48673.42461664231,
+      "hours": 13.520395726845086
+    },
+    {
+      "method": "gpt-6-luna-medium",
+      "task_id": "lemat-sdl-06-long-process-overlap",
+      "run_id": "2026-10-21T15-43-22.737Z-gpt-6-luna-medium-4c5abf9d",
+      "makespan_s": 185218.15507526937,
+      "hours": 51.44948752090816
+    },
+    {
+      "method": "gpt-6-luna-medium",
+      "task_id": "lemat-sdl-07-transport-pressure",
+      "run_id": "2026-10-21T15-43-22.737Z-gpt-6-luna-medium-4c5abf9d",
+      "makespan_s": 4278.320771604023,
+      "hours": 1.1884224365566731
+    },
+    {
+      "method": "gpt-6-luna-medium",
+      "task_id": "lemat-sdl-08-finite-buffers",
+      "run_id": "2026-10-21T15-43-22.737Z-gpt-6-luna-medium-4c5abf9d",
+      "makespan_s": 46306.10268462417,
+      "hours": 12.862806301284493
+    },
+    {
+      "method": "gpt-6-luna-medium",
+      "task_id": "lemat-sdl-09-room-small",
+      "run_id": "2026-10-21T15-43-22.737Z-gpt-6-luna-medium-4c5abf9d",
+      "makespan_s": 11174.740040208057,
+      "hours": 3.104094455613349
+    },
+    {
+      "method": "gpt-6-luna-medium",
+      "task_id": "lemat-sdl-10-room-wide",
+      "run_id": "2026-10-21T15-43-22.737Z-gpt-6-luna-medium-4c5abf9d",
+      "makespan_s": 11395.1721006325,
+      "hours": 3.165325583509028
+    },
+    {
+      "method": "gpt-6-luna-medium",
+      "task_id": "lemat-sdl-11-priority-tail",
+      "run_id": "2026-10-22T00-54-02.898Z-gpt-6-luna-medium-227bf651",
+      "makespan_s": 29765.636597585242,
+      "hours": 8.268232388218124
+    },
+    {
+      "method": "gpt-6-luna-medium",
+      "task_id": "lemat-sdl-12-overfull-inventory",
+      "run_id": "2026-10-22T00-54-02.898Z-gpt-6-luna-medium-227bf651",
+      "makespan_s": 17494.475228627874,
+      "hours": 4.859576452396632
+    },
+    {
+      "method": "gpt-6-luna-medium",
+      "task_id": "lemat-sdl-13-lookahead-exchange",
+      "run_id": "2026-10-22T00-54-02.898Z-gpt-6-luna-medium-227bf651",
+      "makespan_s": 21273.24689638129,
+      "hours": 5.909235248994802
+    },
+    {
+      "method": "gpt-6-luna-medium",
+      "task_id": "lemat-sdl-14-layout-distance",
+      "run_id": "2026-10-22T00-54-02.898Z-gpt-6-luna-medium-227bf651",
+      "makespan_s": 2605.8756776074874,
+      "hours": 0.7238543548909687
+    },
+    {
+      "method": "jev",
+      "task_id": "lemat-sdl-01-single-station",
+      "run_id": "2026-10-21T15-46-21.130Z-jev-38a8a851",
+      "makespan_s": 15247.215054545957,
+      "hours": 4.235337515151655
+    },
+    {
+      "method": "jev",
+      "task_id": "lemat-sdl-02-cramped-exchange",
+      "run_id": "2026-10-21T15-46-21.130Z-jev-38a8a851",
+      "makespan_s": 9871.738351515318,
+      "hours": 2.742149542087588
+    },
+    {
+      "method": "jev",
+      "task_id": "lemat-sdl-03-many-arms",
+      "run_id": "2026-10-21T16-08-32.444Z-jev-8fe16bf8",
+      "makespan_s": 7249.93458787883,
+      "hours": 2.0138707188552307
+    },
+    {
+      "method": "jev",
+      "task_id": "lemat-sdl-04-staggered-jobs",
+      "run_id": "2026-10-21T15-46-21.130Z-jev-38a8a851",
+      "makespan_s": 402016.2077025195,
+      "hours": 111.67116880625541
+    },
+    {
+      "method": "jev",
+      "task_id": "lemat-sdl-05-bursty-demand",
+      "run_id": "2026-10-21T15-46-21.130Z-jev-38a8a851",
+      "makespan_s": 48673.42461664231,
+      "hours": 13.520395726845086
+    },
+    {
+      "method": "jev",
+      "task_id": "lemat-sdl-06-long-process-overlap",
+      "run_id": "2026-10-21T15-46-21.130Z-jev-38a8a851",
+      "makespan_s": 185263.06973731745,
+      "hours": 51.461963815921514
+    },
+    {
+      "method": "jev",
+      "task_id": "lemat-sdl-07-transport-pressure",
+      "run_id": "2026-10-21T15-46-21.130Z-jev-38a8a851",
+      "makespan_s": 4278.320771604022,
+      "hours": 1.188422436556673
+    },
+    {
+      "method": "jev",
+      "task_id": "lemat-sdl-08-finite-buffers",
+      "run_id": "2026-10-21T15-46-21.130Z-jev-38a8a851",
+      "makespan_s": 46300.769351290844,
+      "hours": 12.861324819803013
+    },
+    {
+      "method": "jev",
+      "task_id": "lemat-sdl-09-room-small",
+      "run_id": "2026-10-21T15-46-21.130Z-jev-38a8a851",
+      "makespan_s": 11129.137096969822,
+      "hours": 3.091426971380506
+    },
+    {
+      "method": "jev",
+      "task_id": "lemat-sdl-10-room-wide",
+      "run_id": "2026-10-21T15-46-21.130Z-jev-38a8a851",
+      "makespan_s": 11372.627808954821,
+      "hours": 3.159063280265228
+    },
+    {
+      "method": "jev",
+      "task_id": "lemat-sdl-11-priority-tail",
+      "run_id": "2026-10-22T00-54-26.159Z-jev-5460ce3c",
+      "makespan_s": 29976.77393847163,
+      "hours": 8.326881649575453
+    },
+    {
+      "method": "jev",
+      "task_id": "lemat-sdl-12-overfull-inventory",
+      "run_id": "2026-10-22T00-54-26.159Z-jev-5460ce3c",
+      "makespan_s": 19652.160983626552,
+      "hours": 5.4589336065629315
+    },
+    {
+      "method": "jev",
+      "task_id": "lemat-sdl-13-lookahead-exchange",
+      "run_id": "2026-10-22T00-54-26.159Z-jev-5460ce3c",
+      "makespan_s": 26445.91390447741,
+      "hours": 7.3460871956881695
+    },
+    {
+      "method": "jev",
+      "task_id": "lemat-sdl-14-layout-distance",
+      "run_id": "2026-10-22T00-54-26.159Z-jev-5460ce3c",
+      "makespan_s": 2457.3181267681575,
+      "hours": 0.6825883685467105
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "upstream_revision": "e4bacbcbac084544ca68d48242336c2e36f6ee15",
+  "records": [
+    {
+      "paper_id": "8c37fd10addf6d79f84ec2d5f4a8e5c6d6ef676f",
+      "url": "https://raw.githubusercontent.com/LeMaterial/lematerial-llm-synthesis/e4bacbcbac084544ca68d48242336c2e36f6ee15/annotations/8c37fd10addf6d79f84ec2d5f4a8e5c6d6ef676f/result.json",
+      "commit": "e4bacbcbac084544ca68d48242336c2e36f6ee15",
+      "sha256": "fadc829558123c39efe6f6dd12128a8980eac5edb4f05f6bf00af3e962077a45",
+      "raw_file": "raw/8c37fd10addf6d79f84ec2d5f4a8e5c6d6ef676f/result.json",
+      "repository_file": "backend/poc/sim/v2/data/raw/8c37fd10addf6d79f84ec2d5f4a8e5c6d6ef676f/result.json",
+      "local_bytes_match_pinned_sha256": true
+    },
+    {
+      "paper_id": "73c6aeebd5877d2eb17d4961577d98216d503e6f",
+      "url": "https://raw.githubusercontent.com/LeMaterial/lematerial-llm-synthesis/e4bacbcbac084544ca68d48242336c2e36f6ee15/annotations/73c6aeebd5877d2eb17d4961577d98216d503e6f/result.json",
+      "commit": "e4bacbcbac084544ca68d48242336c2e36f6ee15",
+      "sha256": "2131eb2d9dcb25e5ed0357dc54cfd7d23e44ecc2fa04b688aaba4c964f9ae81b",
+      "raw_file": "raw/73c6aeebd5877d2eb17d4961577d98216d503e6f/result.json",
+      "repository_file": "backend/poc/sim/v2/data/raw/73c6aeebd5877d2eb17d4961577d98216d503e6f/result.json",
+      "local_bytes_match_pinned_sha256": true
+    },
+    {
+      "paper_id": "1706.00484",
+      "url": "https://raw.githubusercontent.com/LeMaterial/lematerial-llm-synthesis/e4bacbcbac084544ca68d48242336c2e36f6ee15/annotations/1706.00484/result.json",
+      "commit": "e4bacbcbac084544ca68d48242336c2e36f6ee15",
+      "sha256": "a2a3f7b6d1af7b9c21ab67cc89681330b921f2c34a3f7ee197f636015104cfb8",
+      "raw_file": "raw/1706.00484/result.json",
+      "repository_file": "backend/poc/sim/v2/data/raw/1706.00484/result.json",
+      "local_bytes_match_pinned_sha256": true
+    }
+  ],
+  "workflow_count": 8,
+  "attribution": "benchmark/lemat-sdl/ATTRIBUTION.md"
+}
