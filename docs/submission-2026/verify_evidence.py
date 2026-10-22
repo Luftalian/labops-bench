@@ -87,6 +87,30 @@ def main():
         require(digest((HERE / name).read_bytes()) == item["sha256"],
                 f"Manuscript artifact changed: {name}")
 
+    gallery = manuscript["gallery_submission"]
+    require(gallery["selected_completed_trials"] == len(results)
+            and gallery["scenarios"] == len({task for _, task in results})
+            and gallery["methods"] == len(counts), "Gallery comparison scope mismatch")
+    require(gallery["selected_recordings_manifest_sha256"]
+            == digest((recordings / "manifest.json").read_bytes()),
+            "Gallery selection manifest changed")
+    for name, item in gallery["files"].items():
+        data = (HERE / name).read_bytes()
+        require(len(data) == item["bytes"] and digest(data) == item["sha256"],
+                f"Gallery artifact changed: {name}")
+        text = data.decode("utf-8")
+        require(gallery["source_commit"] in text, "Missing pinned result reference")
+        for row in gallery["verified_result_rows"]:
+            selected, metrics = results[(row["method"], row["scenario"])]
+            require(selected["run_id"] == row["run_id"]
+                    and selected["source_sha256"] == row["source_sha256"],
+                    "Gallery quoted run mismatch")
+            require(metrics["makespan_s"] == row["makespan_s"]
+                    and f"{metrics['makespan_s'] / 3600:.3f}" == row["hours_display"],
+                    "Gallery quoted score mismatch")
+            require(row["hours_display"] + " h" in text,
+                    f"Gallery quoted value missing: {row['hours_display']}")
+
     sources = read_json(HERE / "evidence/source-records.json")
     require(len(sources["records"]) == 3, "Expected 3 public annotation records")
     for item in sources["records"]:
@@ -110,6 +134,7 @@ def main():
                       "recordings_verified": len(results),
                       "scenarios": 16, "methods": dict(counts),
                       "quoted_result_rows": len(manuscript["verified_result_rows"]),
+                      "gallery_quoted_result_rows": len(gallery["verified_result_rows"]),
                       "source_records": 3, "scheduling_templates": 8,
                       "bibliography_entries": 7, "model_calls": 0}, indent=2))
 

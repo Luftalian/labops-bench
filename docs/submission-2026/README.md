@@ -6,6 +6,7 @@ Ryoma Yamamoto · Haruki Nakajima
 
 | Material | Location |
 | --- | --- |
+| Gallery/editor submission with inline references | [Markdown](LabOpsBench-one-page-submit.md) · [HTML preview](LabOpsBench-one-page-submit.html) |
 | Editable manuscript, diagram and references | [latex/](latex/README.md) |
 | Full-page preview | [PNG](LabOpsBench-one-page-summary-latex-preview.png) |
 | Evaluation-loop figure | [PNG](LabOpsBench-evaluation-loop.png) |
@@ -17,6 +18,10 @@ Ryoma Yamamoto · Haruki Nakajima
 | Package checksums | [package-manifest.json](evidence/package-manifest.json) |
 
 The paper uses 16 scenarios with five methods each: 14 derived from public LeMat-Synth annotations and two synthetic scheduler tasks. The 80 distributed runs are selected recordings, not the full experimental history. The quoted scenario 12 and 14 runs are unchanged from the first 50-trial version; on 2026-10-22, scenarios 01-10 and the two synthetic tasks were freshly run for all five methods under the same task and configuration hashes ([selection](../LEMAT_SDL_BENCHMARK.md), [validation](../SCHEDULER_REFRESH_VALIDATION.json)). Workflow definitions and screenshots are preserved; superseded recordings remain in the repository but are not part of the comparison.
+
+For the gallery/editor submission, use the opening two-sentence paragraph as the card summary. Paste the rendered HTML text into the editor and upload `LabOpsBench-evaluation-loop.png` at Figure 1; an editor may not retain an image copied from a local preview. The HTML is self-contained and includes an A4 print layout. References are linked in the text rather than collected in a separate bibliography.
+
+The gallery submission uses the selected results checked into `Luftalian/labops-bench` at [`d19ec428edd714b0ce52700b03a925d6604ed030`](https://github.com/Luftalian/labops-bench/commit/d19ec428edd714b0ce52700b03a925d6604ed030), fetched from `main` on 2026-10-22. This selection contains 60 refreshed results and 20 retained challenge results: five methods on 16 scenarios (14 LeMat-derived and two synthetic). Its examples are extracted directly from the compressed recordings for scenarios 12 and 04. Three Luna conditions have additional failed formatting attempts before fresh reruns. The figure remains the manuscript's illustrative recorded replays, not screenshots recaptured from the refreshed trials. The gallery artifact hashes, source commit and eight quoted result rows are recorded under `gallery_submission` in [manuscript-validation.json](evidence/manuscript-validation.json).
 
 ## Verify and rebuild
 

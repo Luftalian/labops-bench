@@ -17,6 +17,16 @@
       "sha256": "406947efcd05b2ea9d729e31993bc0e492e30b7be0eadcb159a9474fdc3fc8d5"
     },
     {
+      "path": "LabOpsBench-one-page-submit.html",
+      "bytes": 872373,
+      "sha256": "3932950b7468c36cc9a5dc336f73ef40002ebca2a852ffbb949a7236cfcf9fa1"
+    },
+    {
+      "path": "LabOpsBench-one-page-submit.md",
+      "bytes": 4682,
+      "sha256": "e6d78f2545146974573b17fcaac6ec04ac47f44dfc10bc30f710a6c1f373a302"
+    },
+    {
       "path": "LabOpsBench-one-page-summary-latex-preview.png",
       "bytes": 744773,
       "sha256": "840ea3fca17dc999fe884d448f5767677d16078707a7752bc263bb193ee1a892"
@@ -28,8 +38,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 2531,
-      "sha256": "e7e8af256e71865a0344b46202a2ff821cb455b20774bedd141feada247ddb85"
+      "bytes": 3978,
+      "sha256": "0bf0bc213a977f905448e3b557c37ea7aed67ea9dba5b9ade98fe21eafbfc6b6"
     },
     {
       "path": "evidence/benchmark-results.json",
@@ -38,8 +48,8 @@
     },
     {
       "path": "evidence/manuscript-validation.json",
-      "bytes": 4198,
-      "sha256": "18bd365cc2a8d825726699131148a5b5f6221f5fc81b45c88d79fe9abde7bcd8"
+      "bytes": 7868,
+      "sha256": "373d411fd16fdf71eeef5cb1926da7f2e60b167e7a8a33bd4cda69e282b37c85"
     },
     {
       "path": "evidence/package-validation.json",
@@ -88,8 +98,8 @@
     },
     {
       "path": "verify_evidence.py",
-      "bytes": 5575,
-      "sha256": "285954499355042d621597ea8255e303886538cce7c732d83ed760b74bd5611e"
+      "bytes": 7106,
+      "sha256": "0d107e4135facf417fcd93b1acd24935bbfa3bc77f19d52245ffc8bd975ed533"
     }
   ]
 }
