@@ -1,0 +1,570 @@
+{
+ "fps": 30,
+ "width": 1920,
+ "height": 1080,
+ "xfade": 0.5,
+ "duration": 232.7589583333333,
+ "frames": {
+  "01-present-sdl": 900,
+  "02-future-sdl": 900,
+  "03-benchmark-task": 900,
+  "04-ui-tour": 1200,
+  "05-gpt-policy": 900,
+  "05-jev-priorities": 900
+ },
+ "scenes": [
+  {
+   "id": "title",
+   "chapter": null,
+   "start": 0,
+   "duration": 5.549708333333332,
+   "sentences": [
+    {
+     "id": "title-1",
+     "text": "Who decides what runs next in a self-driving lab?",
+     "start": 0.8,
+     "end": 4.249708333333333,
+     "source": "tts:kokoro:bm_george"
+    }
+   ]
+  },
+  {
+   "id": "sdl",
+   "chapter": "Context",
+   "start": 5.049708333333332,
+   "duration": 27.969125,
+   "sentences": [
+    {
+     "id": "sdl-1",
+     "text": "Self-driving laboratories, or SDLs, automate experiments and use the results to choose what to test next.",
+     "start": 0.5,
+     "end": 7.985291666666667,
+     "source": "tts:kokoro:bm_george"
+    },
+    {
+     "id": "sdl-2",
+     "text": "Language-model agents such as Coscientist and ACRA have already run robotic experiments.",
+     "start": 8.265291666666666,
+     "end": 14.824291666666667,
+     "source": "tts:kokoro:bm_george"
+    },
+    {
+     "id": "sdl-3",
+     "text": "Worldwide — from Canada's Acceleration Consortium to the US Genesis Mission and Japan's ARiSE programme — efforts are under way to build and scale SDL infrastructure.",
+     "start": 15.104291666666667,
+     "end": 27.169125,
+     "source": "tts:kokoro:bm_george"
+    }
+   ]
+  },
+  {
+   "id": "scale",
+   "chapter": "Context",
+   "start": 32.51883333333333,
+   "duration": 19.293833333333332,
+   "sentences": [
+    {
+     "id": "scale-1",
+     "text": "Cloud laboratories already let researchers share instruments remotely, without owning a lab.",
+     "start": 0.4,
+     "end": 6.45725,
+     "source": "tts:kokoro:bm_george"
+    },
+    {
+     "id": "scale-2",
+     "text": "As this grows, a single facility could run many experiments at once — hundreds of instruments, nearly a hundred robot arms, and a fleet of mobile robots moving samples between them.",
+     "start": 6.73725,
+     "end": 18.493833333333335,
+     "source": "tts:kokoro:bm_george"
+    }
+   ]
+  },
+  {
+   "id": "limits",
+   "chapter": "Problem",
+   "start": 51.312666666666665,
+   "duration": 18.925208333333334,
+   "sentences": [
+    {
+     "id": "limits-1",
+     "text": "But scale doesn't make resources unlimited.",
+     "start": 0.4,
+     "end": 3.4779166666666668,
+     "source": "tts:kokoro:bm_george"
+    },
+    {
+     "id": "limits-2",
+     "text": "Instruments, robot arms, floor space and time are all finite, and experiments compete for the same equipment and transport.",
+     "start": 3.757916666666667,
+     "end": 11.566375,
+     "source": "tts:kokoro:bm_george"
+    },
+    {
+     "id": "limits-3",
+     "text": "Every lab needs a scheduler and resource manager — deciding what to install, and what to run first.",
+     "start": 11.846375,
+     "end": 18.125208333333333,
+     "source": "tts:kokoro:bm_george"
+    }
+   ]
+  },
+  {
+   "id": "built",
+   "chapter": "Benchmark",
+   "start": 69.737875,
+   "duration": 19.681124999999998,
+   "sentences": [
+    {
+     "id": "built-1",
+     "text": "How do we know whether that decision-maker is any good?",
+     "start": 0.4,
+     "end": 3.9736249999999997,
+     "source": "tts:kokoro:bm_george"
+    },
+    {
+     "id": "built-2",
+     "text": "We built LabOpsBench: a benchmark that runs an agent's decisions inside a simulated laboratory, with instruments, robot arms, mobile robots, queues and finite buffers.",
+     "start": 4.253625,
+     "end": 15.748041666666666,
+     "source": "tts:kokoro:bm_george"
+    },
+    {
+     "id": "built-3",
+     "text": "It simulates operations — not chemistry.",
+     "start": 16.028041666666667,
+     "end": 18.881125,
+     "source": "tts:kokoro:bm_george"
+    }
+   ]
+  },
+  {
+   "id": "loop",
+   "chapter": "Benchmark",
+   "start": 88.919,
+   "duration": 38.43025,
+   "sentences": [
+    {
+     "id": "loop-1",
+     "text": "At time zero, the agent sees every unfinished job — including future arrivals, with dependencies and durations — plus the room layout and resource limits.",
+     "start": 0.5,
+     "end": 11.004791666666666,
+     "source": "tts:kokoro:bm_george"
+    },
+    {
+     "id": "loop-2",
+     "text": "It picks an equipment configuration from shared candidates and gives each job a priority.",
+     "start": 11.284791666666665,
+     "end": 17.04970833333333,
+     "source": "tts:kokoro:bm_george"
+    },
+    {
+     "id": "loop-3",
+     "text": "The engine validates the decision, dispatches operations and moves the robots.",
+     "start": 17.329708333333333,
+     "end": 22.586166666666667,
+     "source": "tts:kokoro:bm_george"
+    },
+    {
+     "id": "loop-4",
+     "text": "Every 1,800 simulated seconds, the agent can re-prioritise or request a permitted equipment exchange.",
+     "start": 22.866166666666665,
+     "end": 30.418416666666666,
+     "source": "tts:kokoro:bm_george"
+    },
+    {
+     "id": "loop-5",
+     "text": "The score is makespan — time until the last sample is unloaded.",
+     "start": 30.698416666666667,
+     "end": 34.864875,
+     "source": "tts:kokoro:bm_george"
+    },
+    {
+     "id": "loop-6",
+     "text": "Unfinished runs get no score.",
+     "start": 35.144875,
+     "end": 37.43025,
+     "source": "tts:kokoro:bm_george"
+    }
+   ]
+  },
+  {
+   "id": "lemat",
+   "chapter": "Benchmark",
+   "start": 126.84925,
+   "duration": 19.647041666666667,
+   "sentences": [
+    {
+     "id": "lemat-1",
+     "text": "To ground the workloads, we turned public LeMat-Synth annotations — synthesis procedures extracted from the literature — into eight scheduling templates.",
+     "start": 0.4,
+     "end": 10.029916666666667,
+     "source": "tts:kokoro:bm_george"
+    },
+    {
+     "id": "lemat-2",
+     "text": "They power fourteen scenarios, from small cells to a hall with 32 instruments, 32 arms and 64 jobs.",
+     "start": 10.309916666666666,
+     "end": 18.547041666666665,
+     "source": "tts:kokoro:bm_george"
+    }
+   ]
+  },
+  {
+   "id": "luna",
+   "chapter": "Agents",
+   "start": 145.99629166666665,
+   "duration": 17.63416666666667,
+   "sentences": [
+    {
+     "id": "luna-1",
+     "text": "Here are two agents on the same task: twelve jobs — six five-step chains and six single mixing jobs.",
+     "start": 0.4,
+     "end": 7.163041666666667,
+     "source": "tts:kokoro:bm_george"
+    },
+    {
+     "id": "luna-2",
+     "text": "GPT-6 Luna's plan: feed the oven pipeline first.",
+     "start": 7.443041666666668,
+     "end": 11.557666666666668,
+     "source": "tts:kokoro:bm_george"
+    },
+    {
+     "id": "luna-3",
+     "text": "It ranks the long chains on top, keeps the layout, and pushes those chains through.",
+     "start": 11.837666666666667,
+     "end": 16.83416666666667,
+     "source": "tts:kokoro:bm_george"
+    }
+   ]
+  },
+  {
+   "id": "jev",
+   "chapter": "Agents",
+   "start": 163.1304583333333,
+   "duration": 17.307375000000004,
+   "sentences": [
+    {
+     "id": "jev-1",
+     "text": "Jev gets exactly the same observation and candidates.",
+     "start": 0.4,
+     "end": 4.0752500000000005,
+     "source": "tts:kokoro:bm_george"
+    },
+    {
+     "id": "jev-2",
+     "text": "Instead of a fixed order, it keeps revising its ranking across seventeen decisions, mixing the two job types as the lab changes.",
+     "start": 4.355250000000001,
+     "end": 12.826625,
+     "source": "tts:kokoro:bm_george"
+    },
+    {
+     "id": "jev-3",
+     "text": "Same lab, same jobs — different strategies.",
+     "start": 13.106625000000001,
+     "end": 15.907375000000002,
+     "source": "tts:kokoro:bm_george"
+    }
+   ]
+  },
+  {
+   "id": "ui",
+   "chapter": "Interface",
+   "start": 179.93783333333332,
+   "duration": 31.627124999999996,
+   "sentences": [
+    {
+     "id": "ui-1",
+     "text": "We also built a web interface for every recorded run.",
+     "start": 0.4,
+     "end": 4.089833333333334,
+     "source": "tts:kokoro:bm_george"
+    },
+    {
+     "id": "ui-2",
+     "text": "On this task, Luna finished in 8.27 hours, Jev in 8.33, and first-in-first-out took 12.6.",
+     "start": 4.369833333333334,
+     "end": 12.8535,
+     "source": "tts:kokoro:bm_george"
+    },
+    {
+     "id": "ui-3",
+     "text": "The best method changes by task: on compact lab layouts, Jev and a workload-aware algorithm beat Luna.",
+     "start": 13.1335,
+     "end": 20.255041666666667,
+     "source": "tts:kokoro:bm_george"
+    },
+    {
+     "id": "ui-4",
+     "text": "Click any result to replay it in 2D or 3D and step through each decision.",
+     "start": 20.535041666666665,
+     "end": 25.758,
+     "source": "tts:kokoro:bm_george"
+    },
+    {
+     "id": "ui-5",
+     "text": "Playback only reads recorded engine events — it never changes the score.",
+     "start": 26.037999999999997,
+     "end": 30.827124999999995,
+     "source": "tts:kokoro:bm_george"
+    }
+   ]
+  },
+  {
+   "id": "future",
+   "chapter": "Outlook",
+   "start": 211.06495833333332,
+   "duration": 21.694,
+   "sentences": [
+    {
+     "id": "future-1",
+     "text": "Today, LabOpsBench scores time.",
+     "start": 0.4,
+     "end": 2.6120416666666664,
+     "source": "tts:kokoro:bm_george"
+    },
+    {
+     "id": "future-2",
+     "text": "But future labs will need to weigh much more — scarce elements, electricity, water — in one combined decision.",
+     "start": 2.892041666666666,
+     "end": 9.717416666666667,
+     "source": "tts:kokoro:bm_george"
+    },
+    {
+     "id": "future-3",
+     "text": "LabOpsBench is a foundation for evaluating those trade-offs, and for testing our simulation against real laboratories.",
+     "start": 9.997416666666666,
+     "end": 17.894,
+     "source": "tts:kokoro:bm_george"
+    }
+   ]
+  }
+ ],
+ "captions": [
+  {
+   "start": 5.549708333333332,
+   "end": 8.068796875,
+   "text": "Self-driving laboratories, or SDLs,"
+  },
+  {
+   "start": 8.068796875,
+   "end": 13.035,
+   "text": "automate experiments and use the results to choose what to test next."
+  },
+  {
+   "start": 13.314999999999998,
+   "end": 19.874,
+   "text": "Language-model agents such as Coscientist and ACRA have already run robotic experiments."
+  },
+  {
+   "start": 20.154,
+   "end": 25.930495959595962,
+   "text": "Worldwide — from Canada's Acceleration Consortium to the US Genesis Mission and"
+  },
+  {
+   "start": 25.930495959595962,
+   "end": 32.218833333333336,
+   "text": "Japan's ARiSE programme — efforts are under way to build and scale SDL infrastructure."
+  },
+  {
+   "start": 32.91883333333333,
+   "end": 38.976083333333335,
+   "text": "Cloud laboratories already let researchers share instruments remotely, without owning a lab."
+  },
+  {
+   "start": 39.256083333333336,
+   "end": 45.39563240740741,
+   "text": "As this grows, a single facility could run many experiments at once — hundreds of instruments,"
+  },
+  {
+   "start": 45.39563240740741,
+   "end": 51.01266666666667,
+   "text": "nearly a hundred robot arms, and a fleet of mobile robots moving samples between them."
+  },
+  {
+   "start": 51.712666666666664,
+   "end": 54.79058333333333,
+   "text": "But scale doesn't make resources unlimited."
+  },
+  {
+   "start": 55.07058333333333,
+   "end": 58.9748125,
+   "text": "Instruments, robot arms, floor space and time are all finite,"
+  },
+  {
+   "start": 58.9748125,
+   "end": 62.879041666666666,
+   "text": "and experiments compete for the same equipment and transport."
+  },
+  {
+   "start": 63.15904166666667,
+   "end": 69.437875,
+   "text": "Every lab needs a scheduler and resource manager — deciding what to install, and what to run first."
+  },
+  {
+   "start": 70.13787500000001,
+   "end": 73.7115,
+   "text": "How do we know whether that decision-maker is any good?"
+  },
+  {
+   "start": 73.9915,
+   "end": 80.56963002008033,
+   "text": "We built LabOpsBench: a benchmark that runs an agent's decisions inside a simulated laboratory,"
+  },
+  {
+   "start": 80.56963002008033,
+   "end": 85.48591666666667,
+   "text": "with instruments, robot arms, mobile robots, queues and finite buffers."
+  },
+  {
+   "start": 85.76591666666667,
+   "end": 88.619,
+   "text": "It simulates operations — not chemistry."
+  },
+  {
+   "start": 89.419,
+   "end": 94.7743839869281,
+   "text": "At time zero, the agent sees every unfinished job — including future arrivals,"
+  },
+  {
+   "start": 94.7743839869281,
+   "end": 99.92379166666666,
+   "text": "with dependencies and durations — plus the room layout and resource limits."
+  },
+  {
+   "start": 100.20379166666666,
+   "end": 105.96870833333332,
+   "text": "It picks an equipment configuration from shared candidates and gives each job a priority."
+  },
+  {
+   "start": 106.24870833333333,
+   "end": 111.50516666666665,
+   "text": "The engine validates the decision, dispatches operations and moves the robots."
+  },
+  {
+   "start": 111.78516666666667,
+   "end": 114.05084166666667,
+   "text": "Every 1,800 simulated seconds,"
+  },
+  {
+   "start": 114.05084166666667,
+   "end": 119.33741666666667,
+   "text": "the agent can re-prioritise or request a permitted equipment exchange."
+  },
+  {
+   "start": 119.61741666666666,
+   "end": 123.783875,
+   "text": "The score is makespan — time until the last sample is unloaded."
+  },
+  {
+   "start": 124.063875,
+   "end": 126.34925,
+   "text": "Unfinished runs get no score."
+  },
+  {
+   "start": 127.24925,
+   "end": 131.49401589912281,
+   "text": "To ground the workloads, we turned public LeMat-Synth annotations —"
+  },
+  {
+   "start": 131.49401589912281,
+   "end": 136.87916666666666,
+   "text": "synthesis procedures extracted from the literature — into eight scheduling templates."
+  },
+  {
+   "start": 137.15916666666666,
+   "end": 145.39629166666666,
+   "text": "They power fourteen scenarios, from small cells to a hall with 32 instruments, 32 arms and 64 jobs."
+  },
+  {
+   "start": 146.39629166666666,
+   "end": 153.15933333333334,
+   "text": "Here are two agents on the same task: twelve jobs — six five-step chains and six single mixing jobs."
+  },
+  {
+   "start": 153.4393333333333,
+   "end": 157.5539583333333,
+   "text": "GPT-6 Luna's plan: feed the oven pipeline first."
+  },
+  {
+   "start": 157.83395833333333,
+   "end": 162.83045833333333,
+   "text": "It ranks the long chains on top, keeps the layout, and pushes those chains through."
+  },
+  {
+   "start": 163.5304583333333,
+   "end": 167.20570833333332,
+   "text": "Jev gets exactly the same observation and candidates."
+  },
+  {
+   "start": 167.48570833333332,
+   "end": 173.0221187664042,
+   "text": "Instead of a fixed order, it keeps revising its ranking across seventeen decisions,"
+  },
+  {
+   "start": 173.0221187664042,
+   "end": 175.95708333333332,
+   "text": "mixing the two job types as the lab changes."
+  },
+  {
+   "start": 176.23708333333332,
+   "end": 179.0378333333333,
+   "text": "Same lab, same jobs — different strategies."
+  },
+  {
+   "start": 180.33783333333332,
+   "end": 184.02766666666665,
+   "text": "We also built a web interface for every recorded run."
+  },
+  {
+   "start": 184.30766666666665,
+   "end": 192.7913333333333,
+   "text": "On this task, Luna finished in 8.27 hours, Jev in 8.33, and first-in-first-out took 12.6."
+  },
+  {
+   "start": 193.0713333333333,
+   "end": 197.0199108910891,
+   "text": "The best method changes by task: on compact lab layouts,"
+  },
+  {
+   "start": 197.0199108910891,
+   "end": 200.192875,
+   "text": "Jev and a workload-aware algorithm beat Luna."
+  },
+  {
+   "start": 200.472875,
+   "end": 205.69583333333333,
+   "text": "Click any result to replay it in 2D or 3D and step through each decision."
+  },
+  {
+   "start": 205.9758333333333,
+   "end": 210.7649583333333,
+   "text": "Playback only reads recorded engine events — it never changes the score."
+  },
+  {
+   "start": 211.46495833333333,
+   "end": 213.677,
+   "text": "Today, LabOpsBench scores time."
+  },
+  {
+   "start": 213.957,
+   "end": 217.90194151376147,
+   "text": "But future labs will need to weigh much more — scarce elements,"
+  },
+  {
+   "start": 217.90194151376147,
+   "end": 220.782375,
+   "text": "electricity, water — in one combined decision."
+  },
+  {
+   "start": 221.06237499999997,
+   "end": 225.11190491452987,
+   "text": "LabOpsBench is a foundation for evaluating those trade-offs,"
+  },
+  {
+   "start": 225.11190491452987,
+   "end": 228.9589583333333,
+   "text": "and for testing our simulation against real laboratories."
+  }
+ ]
+}
